@@ -9,122 +9,170 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        /* TEMEL AYARLAR */
+        /* GENEL AYARLAR VE KAYDIRMA ÇUBUĞU */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #ffffff; }
         ::-webkit-scrollbar-thumb { background: #0ea5e9; border-radius: 10px; }
         
         html { scroll-behavior: smooth; }
         body { 
-            background-color: #ffffff; /* İstenilen Bembeyaz Arkaplan */
-            color: #0f172a; 
-            overflow-x: hidden;
-            -webkit-user-select: none; user-select: none;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff; color: #0f172a; overflow-x: hidden;
+            -webkit-user-select: none; user-select: none; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
         }
-        input, select, textarea { user-select: text; outline: none; }
+        input, select, textarea { -webkit-user-select: text; user-select: text; outline: none; }
         img { pointer-events: none; }
 
-        /* TAVANA YAPIŞIK OKUMA ÇUBUĞU */
+        /* TAVANA YAPIŞIK İLERLEME ÇUBUĞU */
         .scroll-progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 4px; z-index: 50000; background: transparent; }
         .scroll-progress-bar { height: 100%; background: linear-gradient(90deg, #0ea5e9, #06b6d4); width: 0%; box-shadow: 0 0 10px rgba(14,165,233, 0.8); }
 
-        /* 1. KATMAN: ÜST MEGA MENÜ (Görseldeki Birebir Tasarım) */
+        /* 1. KATMAN: ÜST MEGA MENÜ */
         .top-mega-bar {
             position: fixed; top: 0; left: 0; width: 100%; background: #ffffff;
-            z-index: 20000; border-bottom: 1px solid #f1f5f9;
-            display: flex; justify-content: center; gap: 4rem; padding: 0.75rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            z-index: 40000; border-bottom: 1px solid #f1f5f9;
+            display: flex; justify-content: center; gap: 4rem; padding: 0.5rem 0;
         }
-        .mega-item { position: relative; padding: 0.5rem 1rem; cursor: pointer; }
-        .mega-item > span { font-weight: 900; color: #1e293b; font-size: 0.9rem; transition: color 0.2s; }
+        .mega-item { position: relative; padding: 0.75rem 1rem; cursor: pointer; }
+        .mega-item > span { font-weight: 900; color: #1e293b; font-size: 0.9rem; transition: color 0.2s; letter-spacing: 0.5px; }
         .mega-item:hover > span { color: #0ea5e9; }
         
+        /* Mega Menü Açılır Pencere (Ekrana Ortalanmış Sabit Genişlik) */
         .mega-dropdown {
-            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px);
-            width: 700px; background: #ffffff; border-radius: 1.5rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(14,165,233,0.1);
-            padding: 2rem; opacity: 0; visibility: hidden; pointer-events: none; transition: all 0.3s ease;
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+            position: fixed; top: 48px; left: 50%; transform: translateX(-50%) translateY(15px);
+            width: 90vw; max-width: 900px; background: #ffffff; border-radius: 1.5rem;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1), 0 0 0 1px rgba(14,165,233,0.1);
+            padding: 2.5rem; opacity: 0; visibility: hidden; pointer-events: none; transition: all 0.3s ease;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+            z-index: 39999;
         }
         .mega-item:hover .mega-dropdown { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
-        .dropdown-col h4 { color: #0284c7; font-weight: 900; margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase; }
-        .dropdown-col p { font-size: 0.75rem; color: #64748b; font-weight: 500; }
+        .dropdown-col h4 { color: #0284c7; font-weight: 900; margin-bottom: 0.75rem; font-size: 0.9rem; text-transform: uppercase; }
+        .dropdown-col p { font-size: 0.8rem; color: #64748b; font-weight: 500; line-height: 1.5; }
 
-        /* 2. KATMAN: YÜZEN HIZLI MENÜ (Logosu Taşan) */
+        /* 2. KATMAN: YÜZEN KAPSÜL MENÜ */
         .floating-pill-nav {
-            position: fixed; top: 4.5rem; left: 50%; transform: translateX(-50%);
+            position: fixed; top: 5.5rem; left: 50%; transform: translateX(-50%);
             width: 95%; max-width: 1000px; background: #ffffff;
             border-radius: 50px; border: 1px solid rgba(14,165,233,0.2);
-            box-shadow: 0 15px 30px rgba(14,165,233,0.1); z-index: 19999;
+            box-shadow: 0 15px 30px rgba(14,165,233,0.1); z-index: 39000;
             display: flex; align-items: center; justify-content: space-between; height: 65px;
         }
         .pill-logo-box {
             position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-            width: 90px; height: 90px; background: #ffffff;
-            border-radius: 50%; border: 3px solid #0ea5e9;
-            display: flex; justify-content: center; align-items: center;
-            box-shadow: 0 5px 15px rgba(14,165,233,0.2);
+            width: 90px; height: 90px; background: #ffffff; border-radius: 50%; border: 3px solid #0ea5e9;
+            display: flex; justify-content: center; align-items: center; box-shadow: 0 5px 15px rgba(14,165,233,0.2);
         }
         .nav-link { color: #475569; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; transition: color 0.2s; letter-spacing: 0.5px; }
         .nav-link:hover { color: #0ea5e9; }
 
-        /* YUVARLAK SAYAÇ TASARIMI (Görsellerle Birebir) */
-        .counter-circle {
-            width: 90px; height: 90px; border-radius: 50%; border: 4px solid transparent;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            background: #ffffff; position: relative;
+        /* MERKEZ ÇİZGİ VE KIVRIMLARI (Yılan/Snake Mantığı) */
+        /* Ana düz çizgi omurgası - Z-index çok düşük ki her şeyin arkasında kalsın */
+        .center-spine {
+            position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 2px; background: #0ea5e9; opacity: 0.2; z-index: -10;
         }
+        
+        /* Çizgiyi kesen metinlerin kalkanı */
+        .text-shield { 
+            background-color: #ffffff; position: relative; z-index: 10; 
+            padding: 20px; border-radius: 20px;
+        }
+
+        /* Sağa ve Sola Bükülen Çizgi Kolları */
+        .snake-loop-right {
+            position: absolute; left: 50%; width: 35%; height: 120%; top: -10%;
+            border: 2px solid #0ea5e9; border-left: none; opacity: 0.4;
+            border-radius: 0 100px 100px 0; z-index: -5; pointer-events: none;
+        }
+        .snake-loop-left {
+            position: absolute; right: 50%; width: 35%; height: 120%; top: -10%;
+            border: 2px solid #0ea5e9; border-right: none; opacity: 0.4;
+            border-radius: 100px 0 0 100px; z-index: -5; pointer-events: none;
+        }
+
+        /* TİPOGRAFİK GİRİŞ ANİMASYONU (Sıralı, Titreyen, Döngülü) */
+        @keyframes stepUpTrembleBottom {
+            0%, 10% { opacity: 0; transform: translateY(40px); }
+            15% { opacity: 1; transform: translateY(-5px) translate(2px, -2px) rotate(1deg); }
+            17% { transform: translateY(-2px) translate(-2px, 2px) rotate(-1deg); }
+            19% { transform: translateY(0) translate(0, 0) rotate(0); }
+            80% { opacity: 1; }
+            90%, 100% { opacity: 0; }
+        }
+        @keyframes stepUpTrembleTop {
+            0%, 25% { opacity: 0; transform: translateY(40px); }
+            30% { opacity: 1; transform: translateY(-5px) translate(2px, -2px) rotate(1deg); }
+            32% { transform: translateY(-2px) translate(-2px, 2px) rotate(-1deg); }
+            34% { transform: translateY(0) translate(0, 0) rotate(0); }
+            80% { opacity: 1; }
+            90%, 100% { opacity: 0; }
+        }
+        .anim-bottom-step { animation: stepUpTrembleBottom 6s infinite; opacity: 0; display: block; }
+        .anim-top-step { animation: stepUpTrembleTop 6s infinite; opacity: 0; display: block; }
+
+        /* YUVARLAK SAYAÇ HALKALARI VE KIRMIZI SANİYE */
+        .counter-circle {
+            width: 80px; height: 80px; border-radius: 50%; border: 3px solid transparent;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        @media (min-width: 768px) { .counter-circle { width: 100px; height: 100px; } }
+        
         .border-gun { border-color: #f59e0b; }
         .border-saat { border-color: #3b82f6; }
         .border-dak { border-color: #10b981; }
-        .border-san { border-color: #8b5cf6; }
+        .border-san { border-color: #a855f7; }
         
-        .counter-num { font-size: 2.2rem; font-weight: 900; line-height: 1; transition: color 0.3s; }
-        .counter-label { font-size: 0.65rem; color: #94a3b8; font-weight: 800; text-transform: uppercase; margin-top: 4px; }
+        .counter-num { font-size: 1.8rem; font-weight: 900; line-height: 1; transition: color 0.3s; }
+        @media (min-width: 768px) { .counter-num { font-size: 2.2rem; } }
+        .counter-label { font-size: 0.6rem; color: #94a3b8; font-weight: 800; text-transform: uppercase; margin-top: 4px; }
 
-        /* Kırmızı Yanan Saniye Efekti */
         @keyframes redPulse { 
-            0% { color: #ef4444; opacity: 0.6; transform: scale(0.95); } 
-            50% { color: #ef4444; opacity: 1; transform: scale(1.05); } 
-            100% { color: inherit; opacity: 1; transform: scale(1); } 
+            0% { color: #ef4444; opacity: 0.3; text-shadow: none; transform: scale(0.95); } 
+            50% { color: #ef4444; opacity: 1; text-shadow: 0 0 15px rgba(239,68,68,0.6); transform: scale(1.05); } 
+            100% { color: #ef4444; opacity: 0.3; text-shadow: none; transform: scale(0.95); } 
         }
         .tick-sec { animation: redPulse 1s infinite ease-out; }
 
-        /* Sayaç Alt Menü (Sub-buttons) */
-        .sub-btn-group { display: none; opacity: 0; transition: opacity 0.5s ease; justify-content: center; gap: 1rem; margin-top: 1rem; }
-        .sub-btn { background: #f1f5f9; color: #475569; padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 800; pointer-events: none; border: 1px solid #cbd5e1; }
-
-        /* BÜKÜLEN KIVRIMLI MERKEZ ÇİZGİSİ (SNAKE PATH) */
-        .path-line { width: 2px; background: #0ea5e9; margin: 0 auto; box-shadow: 0 0 10px rgba(14,165,233,0.5); }
-        .path-detour-right {
-            position: absolute; top: 0; left: 50%; width: 50%; height: 100%;
-            border-top: 2px solid #0ea5e9; border-right: 2px solid #0ea5e9; border-bottom: 2px solid #0ea5e9;
-            border-radius: 0 3rem 3rem 0; z-index: 0;
-            box-shadow: 3px 0 10px rgba(14,165,233,0.2);
+        /* SAYAÇ BUTONLARI VE ALT SEÇENEKLER (Pürüzsüz Geçişler) */
+        .main-exam-btn { 
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
+            overflow: hidden; max-height: 100px; opacity: 1; 
         }
-        .path-detour-left {
-            position: absolute; top: 0; right: 50%; width: 50%; height: 100%;
-            border-top: 2px solid #0ea5e9; border-left: 2px solid #0ea5e9; border-bottom: 2px solid #0ea5e9;
-            border-radius: 3rem 0 0 3rem; z-index: 0;
-            box-shadow: -3px 0 10px rgba(14,165,233,0.2);
+        .btn-collapsed { 
+            max-height: 0px !important; opacity: 0 !important; margin: 0 !important; 
+            padding-top: 0 !important; padding-bottom: 0 !important; border-width: 0 !important;
         }
-        .card-content-safe { position: relative; z-index: 10; background: #ffffff; padding: 3rem; border-radius: 3rem; border: 1px solid #f1f5f9; box-shadow: 0 10px 40px rgba(0,0,0,0.03); }
+        
+        .sub-group { 
+            display: flex; justify-content: center; gap: 10px; margin-top: 0;
+            max-height: 0; opacity: 0; overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .sub-group-active {
+            max-height: 80px; opacity: 1; margin-top: 15px;
+        }
+        
+        .sub-btn { background: #f1f5f9; color: #475569; padding: 8px 20px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; border: 1px solid #cbd5e1; transition: 0.3s; cursor: default; }
+        .sub-btn:hover { background: #e0f2fe; color: #0284c7; border-color: #0ea5e9; }
+        
+        .counter-container { transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .counter-expanded { transform: scale(1.02); box-shadow: 0 25px 50px rgba(14,165,233,0.15); }
 
-        /* BERBER MODAL VE TOAST BİREBİR */
+        /* BERBER MODAL SİSTEMİ (Büyüyerek Gelen Animasyon) */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: rgba(15, 23, 42, 0.7); backdrop-filter: blur(8px);
-            z-index: 50000; display: none; justify-content: center; align-items: center;
+            z-index: 60000; display: none; justify-content: center; align-items: center;
             opacity: 0; transition: opacity 0.4s ease;
         }
         .modal-overlay.show { display: flex; opacity: 1; }
-        
         .modal-box {
             background: #ffffff; border-radius: 1.5rem; padding: 2.5rem;
             width: 90%; max-width: 500px; position: relative;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            transform: scale(0.7); opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); border: 2px solid #cffafe;
+            transform: scale(0.8); opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .modal-overlay.show .modal-box { transform: scale(1); opacity: 1; }
 
@@ -144,9 +192,18 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 2px solid #0ea5e9;
         }
         .success-toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+        .auto-btn {
+            background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1;
+            padding: 6px 12px; border-radius: 50px; font-size: 0.7rem; font-weight: 800; cursor: pointer;
+            transition: all 0.3s; display: inline-flex; align-items: center; gap: 6px; outline: none;
+        }
+        .auto-btn:hover { background: #e0f2fe; border-color: #0ea5e9; color: #0284c7; }
     </style>
 </head>
 <body>
+
+    <div class="center-spine"></div>
 
     <div class="scroll-progress-container"><div class="scroll-progress-bar" id="progressBar"></div></div>
 
@@ -158,19 +215,18 @@
         </div>
     </div>
 
-    <!-- 1. KATMAN: ÜST MEGA MENÜ -->
     <nav class="top-mega-bar hidden md:flex">
         <div class="mega-item">
             <span>5-8. SINIF</span>
             <div class="mega-dropdown">
-                <div class="dropdown-col"><h4>LGS Hazırlık Kampları</h4><p>Yeni nesil sorulara tam uyum ve yoğunlaştırılmış deneme.</p></div>
+                <div class="dropdown-col"><h4>LGS Hazırlık Kampları</h4><p>Yeni nesil sorulara tam uyum ve deneme analizleri.</p></div>
                 <div class="dropdown-col"><h4>Birebir Etüt</h4><p>Anında eksik kapatma ve kişisel takip.</p></div>
                 <div class="dropdown-col"><h4>Erken Kayıt</h4><p>Sınırlı kontenjan ile erken kayıt avantajları.</p></div>
             </div>
         </div>
         <div class="mega-item">
             <span>9-12. SINIF</span>
-            <div class="mega-dropdown" style="left: -50%;">
+            <div class="mega-dropdown">
                 <div class="dropdown-col"><h4>TYT - AYT Maratonu</h4><p>Lise müfredat tekrarı ve kusursuz zaman yönetimi.</p></div>
                 <div class="dropdown-col"><h4>Türkiye Geneli Deneme</h4><p>Gerçek sınav atmosferinde durum analizi.</p></div>
                 <div class="dropdown-col"><h4>Tercih Danışmanlığı</h4><p>Nokta atışı üniversite tercihleri.</p></div>
@@ -178,7 +234,7 @@
         </div>
         <div class="mega-item">
             <span>MEZUN</span>
-            <div class="mega-dropdown" style="left: -150%;">
+            <div class="mega-dropdown">
                 <div class="dropdown-col"><h4>YKS Hedef Büyütme</h4><p>Eksik odaklı ve tavizsiz özel çalışma programı.</p></div>
                 <div class="dropdown-col"><h4>Sınırsız Soru Çözümü</h4><p>Öğretmenlerle anında soru analizleri.</p></div>
                 <div class="dropdown-col"><h4>Özel Sınıflar</h4><p>Mezunlara özel ferah ve VIP ortamlar.</p></div>
@@ -186,7 +242,7 @@
         </div>
         <div class="mega-item">
             <span>DGS / KPSS / ALES</span>
-            <div class="mega-dropdown" style="left: -250%;">
+            <div class="mega-dropdown">
                 <div class="dropdown-col"><h4>Akademik Kariyer</h4><p>Memurluk ve lisans tamamlama hedefleri.</p></div>
                 <div class="dropdown-col"><h4>Hız Taktikleri</h4><p>Zaman kazandıran özel soru çözüm metotları.</p></div>
                 <div class="dropdown-col"><h4>ÖSYM Mantığı</h4><p>Çıkmış sorular üzerinden analizler.</p></div>
@@ -194,7 +250,6 @@
         </div>
     </nav>
 
-    <!-- 2. KATMAN: YÜZEN HIZLI MENÜ -->
     <nav class="floating-pill-nav">
         <div class="flex-1 flex justify-center gap-4 md:gap-8 pr-12">
             <a href="#" class="nav-link hidden sm:block">ANASAYFA</a>
@@ -208,198 +263,148 @@
 
         <div class="flex-1 flex justify-center gap-4 md:gap-8 pl-12 items-center">
             <a href="#iletisim" class="nav-link hidden sm:block">İLETİŞİM</a>
-            <button onclick="openModal()" class="bg-cyan-500 hover:bg-cyan-400 text-white px-5 py-2.5 rounded-full text-xs md:text-sm font-black shadow-lg shadow-cyan-500/30 transition-transform transform hover:scale-105 flex items-center gap-2">
+            <button onclick="openModal('')" class="bg-cyan-500 hover:bg-cyan-400 text-white px-5 py-2.5 rounded-full text-xs md:text-sm font-black shadow-lg shadow-cyan-500/30 transition-transform transform hover:scale-105 flex items-center gap-2">
                 HIZLI RANDEVU
             </button>
         </div>
     </nav>
 
-    <main class="w-full flex flex-col items-center pt-48 pb-20 relative">
+    <main class="w-full flex flex-col items-center pt-52 pb-20 relative z-10 overflow-hidden">
 
-        <!-- 1. BÖLÜM: KARŞILAMA -->
-        <section class="text-center mb-24 max-w-4xl px-6">
-            <div class="inline-block bg-white text-cyan-600 font-bold px-8 py-2 rounded-full text-xs uppercase tracking-widest border border-cyan-200 mb-6">
-                Malatya'nın En İyi Kadrosu
-            </div>
-            <h1 class="text-6xl md:text-8xl font-black tracking-tight text-slate-900 leading-tight mb-6">
-                Geleceği Tasarlamaya <br> <span class="text-cyan-500">Hazır Mısınız?</span>
-            </h1>
-            <p class="text-slate-500 text-lg mx-auto font-medium mb-8">
-                Hedefiniz ne olursa olsun, bembeyaz ferah sınıflarımızda doğru rehberlik ile başarıya bir adım daha yakınsınız.
-            </p>
-            <div class="w-32 h-32 mx-auto bg-white rounded-full border-2 border-cyan-100 p-2 flex justify-center items-center shadow-lg">
-                <img src="assets/yaklasan_tilki.gif" alt="Dikkat" class="w-full h-full object-contain">
-            </div>
-        </section>
-
-        <!-- Kılavuz Çizgi İnişi -->
-        <div class="path-line h-16"></div>
-
-        <!-- 2. BÖLÜM: PÜRÜZSÜZ SAYAÇ (Tam Merkezde) -->
-        <section class="w-full max-w-3xl px-6 mb-16">
-            <div id="counter-container" class="card-content-safe text-center shadow-2xl transition-all duration-500">
-                <h3 id="sayac-baslik" class="text-2xl font-black mb-8 text-slate-900 transition-all duration-300 uppercase tracking-widest">
-                    YKS YAKLAŞIYOR
-                </h3>
-                
-                <!-- Yuvarlak Halkalar -->
-                <div class="flex justify-center gap-4 md:gap-8 mb-10">
-                    <div class="circle-counter border-gun"><div id="s-gun" class="counter-num text-blue-500">--</div><div class="counter-label">GÜN</div></div>
-                    <div class="circle-counter border-saat"><div id="s-saat" class="counter-num text-blue-500">--</div><div class="counter-label">SAAT</div></div>
-                    <div class="circle-counter border-dak"><div id="s-dak" class="counter-num text-blue-500">--</div><div class="counter-label">DAKİKA</div></div>
-                    <!-- Kırmızı Puls Saniyesi -->
-                    <div class="circle-counter border-san"><div id="s-san" class="counter-num tick-sec">--</div><div class="counter-label">SANİYE</div></div>
+        <section class="text-center mb-24 max-w-4xl px-6 relative z-10">
+            <div class="text-shield mb-4">
+                <div class="inline-block bg-white text-cyan-600 font-bold px-8 py-2 rounded-full text-xs uppercase tracking-widest border border-cyan-200">
+                    Malatya'nın En İyi Kadrosu
                 </div>
-
-                <!-- Kontrol Butonları -->
-                <div class="flex flex-col md:flex-row gap-4 justify-center" id="sayac-butonlari">
-                    <button id="btn-LGS" onclick="sayacKilitle('LGS', '2027-06-06T10:00:00')" class="btn-sayac flex-1 bg-white border border-slate-200 text-slate-500 font-bold py-3 rounded-xl transition-all">LGS Sayacı</button>
-                    <button id="btn-YKS" onclick="sayacKilitle('YKS', '2027-06-19T10:15:00')" class="btn-sayac flex-1 bg-blue-50 border border-blue-200 text-blue-600 font-bold py-3 rounded-xl transition-all">YKS Sayacı</button>
-                    <button id="btn-KPSS" onclick="sayacKilitle('KPSS', '2027-09-05T10:15:00')" class="btn-sayac flex-1 bg-white border border-slate-200 text-slate-500 font-bold py-3 rounded-xl transition-all">KPSS Sayacı</button>
-                </div>
-
-                <!-- Gizli Alt Menüler -->
-                <div id="sub-YKS" class="sub-btn-group"><div class="sub-btn">TYT</div><div class="sub-btn">AYT</div><div class="sub-btn">YDT</div></div>
-                <div id="sub-KPSS" class="sub-btn-group"><div class="sub-btn">Ortaöğretim</div><div class="sub-btn">Ön Lisans</div><div class="sub-btn">Lisans</div></div>
+            </div>
+            
+            <div class="text-shield mb-6 min-h-[160px]">
+                <h1 class="text-6xl md:text-8xl font-black tracking-tight text-slate-900 leading-tight">
+                    <span class="anim-bottom-step block text-slate-800">Geleceği Tasarlamaya</span>
+                    <span class="anim-top-step block text-cyan-500 mt-2">Hazır Mısınız?</span>
+                </h1>
+            </div>
+            
+            <div class="text-shield mb-8">
+                <p class="text-slate-500 text-lg mx-auto font-medium italic">
+                    "Hedefsiz gemiye hiçbir rüzgar yardım edemez."
+                </p>
+                <p class="text-slate-500 text-sm mt-2">
+                    Bembeyaz ferah sınıflarımızda doğru rehberlik ile başarıya bir adım daha yakınsınız.
+                </p>
             </div>
         </section>
 
-        <!-- Kılavuz Çizgi İnişi -->
-        <div class="path-line h-16"></div>
-
-        <!-- 3. BÖLÜM: BÜKÜLEN KIVRIMLARLA SINIF KARTLARI -->
-        
-        <!-- 5-8 SINIF (Çizgi Sağdan Dolanır) -->
-        <div class="relative w-full max-w-4xl px-6 flex justify-center mb-16">
-            <div class="path-detour-right hidden md:block"></div>
-            <div class="card-content-safe w-[90%] md:w-[85%] flex flex-col md:flex-row items-center justify-between">
-                <div class="text-left md:w-1/2">
-                    <h2 class="text-5xl font-black text-slate-900 mb-1">5-8. SINIF</h2>
-                    <h3 class="text-cyan-500 font-bold text-lg tracking-widest mb-4 uppercase">LGS Hazırlık</h3>
-                    <p class="text-slate-500 font-medium text-sm leading-relaxed mb-6">Akademik temellerin atıldığı bu dönemde, yeni nesil sorulara uyum ve sınav stresi yönetimi üzerine kusursuz rehberlik sunuyoruz.</p>
-                    <button onclick="openModal()" class="bg-slate-900 text-white font-bold px-6 py-2.5 rounded-lg hover:bg-cyan-500 transition-colors text-sm">Randevu Al</button>
-                </div>
-                <div class="md:w-1/2 flex justify-end mt-6 md:mt-0">
-                    <div class="w-40 h-40 rounded-full border-4 border-cyan-50 flex items-center justify-center p-2 bg-white shadow-sm">
-                        <img src="assets/birebir_tilki.gif" class="w-full object-contain">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="path-line h-16 hidden md:block"></div>
-
-        <!-- 9-12 SINIF (Çizgi Soldan Dolanır) -->
-        <div class="relative w-full max-w-4xl px-6 flex justify-center mb-16">
-            <div class="path-detour-left hidden md:block"></div>
-            <div class="card-content-safe w-[90%] md:w-[85%] flex flex-col md:flex-row-reverse items-center justify-between">
-                <div class="text-right md:w-1/2">
-                    <h2 class="text-5xl font-black text-slate-900 mb-1">9-12. SINIF</h2>
-                    <h3 class="text-blue-500 font-bold text-lg tracking-widest mb-4 uppercase">TYT - AYT Maratonu</h3>
-                    <p class="text-slate-500 font-medium text-sm leading-relaxed mb-6">Zaman yönetiminden stres kontrolüne kadar tüm süreçleri profesyonel kadromuzla yönetiyoruz.</p>
-                    <button onclick="openModal()" class="bg-blue-600 text-white font-bold px-6 py-2.5 rounded-lg hover:bg-slate-900 transition-colors text-sm">Randevu Al</button>
-                </div>
-                <div class="md:w-1/2 flex justify-start mt-6 md:mt-0">
-                    <div class="w-40 h-40 rounded-full border-4 border-blue-50 flex items-center justify-center p-2 bg-white shadow-sm">
-                        <img src="assets/kazanan_tilki.gif" class="w-full object-contain">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="path-line h-16 hidden md:block"></div>
-
-        <!-- MEZUN (Çizgi Sağdan Dolanır) -->
-        <div class="relative w-full max-w-4xl px-6 flex justify-center mb-16">
-            <div class="path-detour-right hidden md:block"></div>
-            <div class="card-content-safe w-[90%] md:w-[85%] flex flex-col md:flex-row items-center justify-between">
-                <div class="text-left md:w-1/2">
-                    <h2 class="text-5xl font-black text-slate-900 mb-1">MEZUN</h2>
-                    <h3 class="text-cyan-500 font-bold text-lg tracking-widest mb-4 uppercase">YKS HEDEF BÜYÜTME</h3>
-                    <p class="text-slate-500 font-medium text-sm leading-relaxed mb-6">Hedefine ulaşmak için eksik odaklı, yoğunlaştırılmış VIP eğitim sunuyoruz.</p>
-                    <button onclick="openModal()" class="bg-slate-900 text-white font-bold px-6 py-2.5 rounded-lg hover:bg-cyan-500 transition-colors text-sm">Randevu Al</button>
-                </div>
-                <div class="md:w-1/2 flex justify-end mt-6 md:mt-0">
-                    <div class="w-40 h-40 rounded-full border-4 border-cyan-50 flex items-center justify-center p-2 bg-white shadow-sm">
-                        <img src="assets/uyuyan_tilki.gif" class="w-full object-contain">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="path-line h-16 hidden md:block"></div>
-
-        <!-- AKADEMİK (Çizgi Soldan Dolanır) -->
-        <div class="relative w-full max-w-4xl px-6 flex justify-center mb-24">
-            <div class="path-detour-left hidden md:block"></div>
-            <div class="card-content-safe w-[90%] md:w-[85%] flex flex-col md:flex-row-reverse items-center justify-between">
-                <div class="text-right md:w-1/2">
-                    <h2 class="text-5xl font-black text-slate-900 mb-1">AKADEMİK</h2>
-                    <h3 class="text-blue-500 font-bold text-lg tracking-widest mb-4 uppercase">DGS / KPSS / ALES</h3>
-                    <p class="text-slate-500 font-medium text-sm leading-relaxed mb-6">Memurluk veya akademik kariyer hedeflerinize yönelik nokta atışı taktikler.</p>
-                    <button onclick="openModal()" class="bg-blue-600 text-white font-bold px-6 py-2.5 rounded-lg hover:bg-slate-900 transition-colors text-sm">Randevu Al</button>
-                </div>
-                <div class="md:w-1/2 flex justify-start mt-6 md:mt-0">
-                    <div class="w-40 h-40 rounded-full border-4 border-blue-50 flex items-center justify-center p-2 bg-white shadow-sm">
-                        <img src="assets/analiz_tilki.gif" class="w-full object-contain">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 4. BÖLÜM: 360 SANAL TUR & İLETİŞİM (Ayrıştırıldı) -->
-        <section id="sanal-tur" class="w-full max-w-3xl px-6 mb-16 cursor-pointer" onclick="document.getElementById('modal-3d').classList.remove('hidden')">
-            <div class="card-content-safe flex flex-col md:flex-row items-center justify-between p-8 border border-cyan-100 hover:shadow-2xl transition-shadow">
-                <div>
-                    <h3 class="text-2xl font-black mb-1 flex items-center gap-3 text-slate-900">
-                        Sanal Sınıf Turu <img src="assets/rehber_tilki_3d.gif" class="w-8 h-8">
+        <section class="w-full max-w-4xl px-6 mb-32 relative z-10">
+            <div class="text-shield w-full">
+                <div id="counter-container" class="counter-container bg-white border border-slate-100 p-8 md:p-12 rounded-[2.5rem] shadow-xl text-center">
+                    <h3 id="sayac-baslik" class="text-2xl md:text-3xl font-black mb-10 text-slate-900 uppercase tracking-widest">
+                        LGS YAKLAŞIYOR
                     </h3>
-                    <p class="text-slate-500 text-sm font-medium">Sınıflarımızı evinizden 360 derece inceleyin.</p>
-                </div>
-                <div class="mt-4 md:mt-0 bg-cyan-500 text-white font-bold px-6 py-3 rounded-xl hover:scale-105 transition-transform text-sm">
-                    TURU BAŞLAT ▶
+                    
+                    <div class="flex justify-center gap-4 md:gap-8 mb-10">
+                        <div class="counter-circle border-gun"><div id="s-gun" class="counter-num text-cyan-500">--</div><div class="counter-label">GÜN</div></div>
+                        <div class="counter-circle border-saat"><div id="s-saat" class="counter-num text-cyan-500">--</div><div class="counter-label">SAAT</div></div>
+                        <div class="counter-circle border-dak"><div id="s-dak" class="counter-num text-cyan-500">--</div><div class="counter-label">DAKİKA</div></div>
+                        <div class="counter-circle border-san"><div id="s-san" class="counter-num tick-sec text-red-500">--</div><div class="counter-label">SANİYE</div></div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4 justify-center" id="main-btn-group">
+                        <button id="btn-LGS" data-type="LGS" onclick="sayacKilitle('LGS')" class="main-exam-btn flex-1 bg-cyan-50 border border-cyan-200 text-cyan-600 font-bold py-4 rounded-2xl text-lg">LGS Sayacı</button>
+                        <button id="btn-YKS" data-type="YKS" onclick="sayacKilitle('YKS')" class="main-exam-btn flex-1 bg-white border border-slate-200 text-slate-500 font-bold py-4 rounded-2xl hover:bg-blue-50 text-lg">YKS Sayacı</button>
+                        <button id="btn-KPSS" data-type="KPSS" onclick="sayacKilitle('KPSS')" class="main-exam-btn flex-1 bg-white border border-slate-200 text-slate-500 font-bold py-4 rounded-2xl hover:bg-cyan-50 text-lg">KPSS Sayacı</button>
+                    </div>
+
+                    <div id="sub-group-LGS" class="sub-group"><div class="sub-btn">LGS Genel Kapsam</div></div>
+                    <div id="sub-group-YKS" class="sub-group"><div class="sub-btn">TYT</div><div class="sub-btn">AYT</div><div class="sub-btn">YDT</div></div>
+                    <div id="sub-group-KPSS" class="sub-group"><div class="sub-btn">Ortaöğretim</div><div class="sub-btn">Ön Lisans</div><div class="sub-btn">Lisans</div></div>
                 </div>
             </div>
         </section>
 
-        <section id="iletisim" class="w-full max-w-4xl px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="card-content-safe p-8 text-center">
-                <h3 class="text-xl font-black text-slate-900 mb-2">Telefon Hattımız</h3>
-                <p class="text-slate-500 text-sm mb-6">Eğitim danışmanlarımızla hemen görüşün.</p>
-                <a href="tel:+905550000000" class="inline-block bg-slate-900 text-white font-bold px-6 py-3 rounded-xl hover:bg-cyan-500 transition-colors w-full text-sm">
-                    📞 +90 (555) 000 00 00
-                </a>
+        <div class="relative w-full max-w-5xl px-6 flex flex-col md:flex-row items-center justify-between mb-32">
+            <div class="snake-loop-right"></div>
+            <div class="text-shield flex-1 pr-8 text-center md:text-left">
+                <h2 class="text-5xl font-black text-slate-900 mb-1">5-8. SINIF</h2>
+                <h3 class="text-cyan-500 font-bold text-lg tracking-widest mb-4 uppercase">LGS Hazırlık</h3>
+                <p class="text-slate-500 font-medium text-sm leading-relaxed mb-6">Akademik temellerin atıldığı bu dönemde, yeni nesil sorulara uyum ve sınav stresi yönetimi üzerine kusursuz rehberlik sunuyoruz.</p>
+                <button onclick="openModal('5-8. Sınıf')" class="bg-slate-900 text-white font-bold px-6 py-3 rounded-xl hover:bg-cyan-500 transition-colors text-sm">Randevu Al</button>
             </div>
-            <div class="card-content-safe p-8 text-center">
-                <h3 class="text-xl font-black text-slate-900 mb-2">Battalgazi Şubesi</h3>
-                <p class="text-slate-500 text-xs mb-6 font-medium">Büyük Hüseyinbey, Turfanda Sk., 44050 Battalgazi</p>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=Büyük+Hüseyinbey,+Turfanda+Sk.,+44050+Battalgazi/Malatya" target="_blank" class="inline-block bg-blue-500 text-white font-bold px-6 py-3 rounded-xl hover:bg-slate-900 transition-colors w-full text-sm">
-                    📍 YOL TARİFİ AL
-                </a>
+            <div class="w-1/2 flex justify-center md:justify-end mt-6 md:mt-0 relative z-20">
+                <img src="assets/birebir_tilki.gif" class="w-64 h-64 object-contain">
+            </div>
+        </div>
+
+        <div class="relative w-full max-w-5xl px-6 flex flex-col md:flex-row-reverse items-center justify-between mb-32">
+            <div class="snake-loop-left"></div>
+            <div class="text-shield flex-1 pl-8 text-center md:text-right">
+                <h2 class="text-5xl font-black text-slate-900 mb-1">9-12. SINIF</h2>
+                <h3 class="text-blue-500 font-bold text-lg tracking-widest mb-4 uppercase">TYT - AYT Maratonu</h3>
+                <p class="text-slate-500 font-medium text-sm leading-relaxed mb-6">Zaman yönetiminden stres kontrolüne kadar tüm süreçleri profesyonel kadromuzla yönetiyoruz.</p>
+                <button onclick="openModal('9-12. Sınıf')" class="bg-blue-600 text-white font-bold px-6 py-3 rounded-xl hover:bg-slate-900 transition-colors text-sm">Randevu Al</button>
+            </div>
+            <div class="w-1/2 flex justify-center md:justify-start mt-6 md:mt-0 relative z-20">
+                <img src="assets/kazanan_tilki.gif" class="w-64 h-64 object-contain">
+            </div>
+        </div>
+
+        <div class="relative w-full max-w-5xl px-6 flex flex-col md:flex-row items-center justify-between mb-32">
+            <div class="snake-loop-right"></div>
+            <div class="text-shield flex-1 pr-8 text-center md:text-left">
+                <h2 class="text-5xl font-black text-slate-900 mb-1">MEZUN</h2>
+                <h3 class="text-cyan-500 font-bold text-lg tracking-widest mb-4 uppercase">YKS HEDEF BÜYÜTME</h3>
+                <p class="text-slate-500 font-medium text-sm leading-relaxed mb-6">Hedefine ulaşmak için eksik odaklı, yoğunlaştırılmış VIP eğitim sunuyoruz.</p>
+                <button onclick="openModal('Mezun')" class="bg-slate-900 text-white font-bold px-6 py-3 rounded-xl hover:bg-cyan-500 transition-colors text-sm">Randevu Al</button>
+            </div>
+            <div class="w-1/2 flex justify-center md:justify-end mt-6 md:mt-0 relative z-20">
+                <img src="assets/uyuyan_tilki.gif" class="w-64 h-64 object-contain">
+            </div>
+        </div>
+
+        <div class="relative w-full max-w-5xl px-6 flex flex-col md:flex-row-reverse items-center justify-between mb-40">
+            <div class="snake-loop-left"></div>
+            <div class="text-shield flex-1 pl-8 text-center md:text-right">
+                <h2 class="text-5xl font-black text-slate-900 mb-1">AKADEMİK</h2>
+                <h3 class="text-blue-500 font-bold text-lg tracking-widest mb-4 uppercase">DGS / KPSS / ALES</h3>
+                <p class="text-slate-500 font-medium text-sm leading-relaxed mb-6">Memurluk veya akademik kariyer hedeflerinize yönelik nokta atışı taktikler.</p>
+                <button onclick="openModal('DGS / KPSS / ALES')" class="bg-blue-600 text-white font-bold px-6 py-3 rounded-xl hover:bg-slate-900 transition-colors text-sm">Randevu Al</button>
+            </div>
+            <div class="w-1/2 flex justify-center md:justify-start mt-6 md:mt-0 relative z-20">
+                <img src="assets/analiz_tilki.gif" class="w-64 h-64 object-contain">
+            </div>
+        </div>
+
+        <section id="iletisim" class="w-full max-w-5xl px-6 grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+            <div class="text-shield w-full">
+                <div class="bg-white border border-slate-100 rounded-3xl p-8 text-center shadow-lg h-full">
+                    <h3 class="text-xl font-black text-slate-900 mb-2">Telefon Hattımız</h3>
+                    <p class="text-slate-500 text-sm mb-6">Eğitim danışmanlarımızla hemen görüşün.</p>
+                    <a href="tel:+905550000000" class="inline-block bg-slate-900 text-white font-bold px-6 py-3 rounded-xl hover:bg-cyan-500 transition-colors w-full text-sm mb-3">
+                        📞 +90 (555) 000 00 00
+                    </a>
+                    <a href="https://wa.me/905550000000" target="_blank" class="inline-block bg-green-500 text-white font-bold px-6 py-3 rounded-xl hover:bg-green-600 transition-colors w-full text-sm">
+                        💬 WhatsApp'tan Yazın
+                    </a>
+                </div>
+            </div>
+            <div class="text-shield w-full">
+                <div class="bg-white border border-slate-100 rounded-3xl p-8 text-center shadow-lg h-full">
+                    <h3 class="text-xl font-black text-slate-900 mb-2">Battalgazi Şubesi</h3>
+                    <p class="text-slate-500 text-xs mb-6 font-medium">Büyük Hüseyinbey, Turfanda Sk., 44050 Battalgazi/Malatya</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Büyük+Hüseyinbey,+Turfanda+Sk.,+44050+Battalgazi/Malatya" target="_blank" class="inline-block bg-blue-500 text-white font-bold px-6 py-3 rounded-xl hover:bg-slate-900 transition-colors w-full text-sm">
+                        📍 YOL TARİFİ AL
+                    </a>
+                </div>
             </div>
         </section>
 
     </main>
 
-    <!-- 3D SANAL TUR MODALI -->
-    <div id="modal-3d" class="hidden fixed inset-0 bg-slate-900/90 z-[40000] flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-6xl h-[85vh] rounded-3xl relative overflow-hidden flex flex-col shadow-2xl">
-            <div class="p-4 bg-white border-b flex justify-between items-center z-10">
-                <span class="font-black text-slate-900 flex items-center gap-2"><img src="assets/rehber_tilki_3d.gif" class="w-6 h-6"/> Battalgazi 360° Tur</span>
-                <button onclick="document.getElementById('modal-3d').classList.add('hidden')" class="bg-slate-100 text-slate-500 hover:text-red-500 font-bold w-8 h-8 rounded-full flex items-center justify-center">✕</button>
-            </div>
-            <div class="flex-1 w-full h-full bg-slate-50 flex items-center justify-center text-slate-400 font-bold">
-                [3D Render Alanı]
-            </div>
-        </div>
-    </div>
-
-    <!-- EKSİKSİZ RANDEVU MODALI (Büyüyerek Gelen, Güvenlikli) -->
     <div id="randevuModal" class="modal-overlay" onclick="if(event.target === this) closeModal()">
         <div class="modal-box">
             <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-400 hover:text-red-500 font-bold text-2xl transition-colors">✕</button>
             
-            <h3 class="text-2xl font-black mb-1 text-slate-900 flex items-center gap-2"><img src="assets/takvim_tilki.gif" class="w-6 h-6"> RANDEVU AL</h3>
+            <h3 class="text-2xl font-black mb-1 text-slate-900 flex items-center gap-2">RANDEVU AL</h3>
             <p class="text-xs text-slate-500 mb-6 font-medium">Kurum ziyareti için bilgilerinizi giriniz.</p>
             
             <div id="error-message" class="error-banner">
@@ -408,8 +413,6 @@
             </div>
 
             <form id="randevu-form" class="space-y-4">
-                <input type="text" id="bot-tuzagi" tabindex="-1" autocomplete="off" class="opacity-0 absolute -left-[9999px] w-0 h-0">
-                
                 <div class="grid grid-cols-2 gap-4">
                     <input type="text" id="r-isim" placeholder="Ad Soyad" required maxlength="50" class="w-full bg-white border border-slate-200 p-3 rounded-lg text-sm focus:border-cyan-500 font-medium text-slate-900">
                     <input type="tel" id="r-telefon" placeholder="0 5XX XXX XX XX" required maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full bg-white border border-slate-200 p-3 rounded-lg text-sm focus:border-cyan-500 font-medium text-slate-900">
@@ -419,10 +422,9 @@
                     <select id="r-sinif" required class="w-full bg-white border border-slate-200 p-3 rounded-lg text-sm focus:border-cyan-500 font-medium text-slate-900 cursor-pointer">
                         <option value="" disabled selected>Sınıf Seçiniz</option>
                         <option value="5-8. Sınıf">5-8. Sınıf</option>
-                        <option value="9-11. Sınıf">9-11. Sınıf</option>
-                        <option value="12. Sınıf / YKS">12. Sınıf / YKS</option>
+                        <option value="9-12. Sınıf">9-12. Sınıf</option>
                         <option value="Mezun">Mezun</option>
-                        <option value="KPSS">DGS / KPSS / ALES</option>
+                        <option value="DGS / KPSS / ALES">DGS / KPSS / ALES</option>
                     </select>
                     <select id="r-hizmet" required class="w-full bg-white border border-slate-200 p-3 rounded-lg text-sm focus:border-cyan-500 font-medium text-slate-900 cursor-pointer">
                         <option value="Kayıt Görüşmesi">Kayıt Görüşmesi</option>
@@ -462,7 +464,6 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT: Animasyon ve Sayaç Mantığı -->
     <script>
         // 1. İlerleme Çubuğu
         window.onscroll = function() {
@@ -472,15 +473,15 @@
             document.getElementById("progressBar").style.width = scrolled + "%";
         };
 
-        // 2. Yobaz Olmayan Sayaç
+        // 2. Yobaz Olmayan Pürüzsüz Sayaç Yönetimi
         const sinavlar = [
-            { ad: "LGS", tarih: "2027-06-06T10:00:00", renk: "#06b6d4" },
-            { ad: "YKS", tarih: "2027-06-19T10:15:00", renk: "#3b82f6" },
-            { ad: "KPSS", tarih: "2027-09-05T10:15:00", renk: "#06b6d4" }
+            { ad: "LGS", tarih: "2027-06-06T10:00:00", renk: "#06b6d4", bg: "#e0f2fe", border: "#a5f3fc" }, // Turkuaz
+            { ad: "YKS", tarih: "2027-06-19T10:15:00", renk: "#3b82f6", bg: "#eff6ff", border: "#bfdbfe" }, // Mavi
+            { ad: "KPSS", tarih: "2027-09-05T10:15:00", renk: "#0ea5e9", bg: "#f0f9ff", border: "#bae6fd" }  // Açık Mavi
         ];
         
-        let aktifIndex = 1; // Başlangıç YKS
-        let sayacDongu; let saniyeTetikleyici; let kilitlendi = false;
+        let aktifIndex = 0; 
+        let sayacDongu; let saniyeTetikleyici; 
 
         function ekranaYaz(hedefTarih, renkHex) {
             const fark = new Date(hedefTarih).getTime() - new Date().getTime();
@@ -498,22 +499,23 @@
 
         function baslatOtomatikSayac() {
             sayacDongu = setInterval(() => {
-                if(kilitlendi) return;
                 aktifIndex = (aktifIndex + 1) % sinavlar.length;
                 document.getElementById('sayac-baslik').innerText = sinavlar[aktifIndex].ad + " YAKLAŞIYOR";
                 ekranaYaz(sinavlar[aktifIndex].tarih, sinavlar[aktifIndex].renk);
                 
-                document.querySelectorAll('.btn-sayac').forEach(b => {
+                document.querySelectorAll('.main-exam-btn').forEach(b => {
                     b.style.backgroundColor = "#ffffff"; b.style.color = "#64748b"; b.style.borderColor = "#e2e8f0";
                 });
                 const aktifBtn = document.getElementById('btn-' + sinavlar[aktifIndex].ad);
-                aktifBtn.style.backgroundColor = (sinavlar[aktifIndex].ad === "YKS") ? "#eff6ff" : "#ecfeff";
-                aktifBtn.style.color = sinavlar[aktifIndex].renk;
-                aktifBtn.style.borderColor = (sinavlar[aktifIndex].ad === "YKS") ? "#bfdbfe" : "#a5f3fc";
+                if(aktifBtn) {
+                    aktifBtn.style.backgroundColor = sinavlar[aktifIndex].bg;
+                    aktifBtn.style.color = sinavlar[aktifIndex].renk;
+                    aktifBtn.style.borderColor = sinavlar[aktifIndex].border;
+                }
             }, 2000);
             
             saniyeTetikleyici = setInterval(() => {
-                if(!kilitlendi) ekranaYaz(sinavlar[aktifIndex].tarih, sinavlar[aktifIndex].renk);
+                ekranaYaz(sinavlar[aktifIndex].tarih, sinavlar[aktifIndex].renk);
             }, 1000);
         }
         
@@ -523,47 +525,61 @@
             baslatOtomatikSayac(); 
         }).catch(() => baslatOtomatikSayac());
 
-        window.sayacKilitle = function(sinavAdi, tarihStr) {
-            if(kilitlendi) return; 
-            kilitlendi = true;
+        // Kullanıcı Tıkladığında Tamamen Pürüzsüz Kilitleme (Solup Yok Olma ve Kutu Büyümesi)
+        window.sayacKilitle = function(sinavAdi) {
             clearInterval(sayacDongu);
             
             const baslik = document.getElementById('sayac-baslik');
-            baslik.classList.add('calculating-text');
-            baslik.innerText = "SÜRE HESAPLANIYOR...";
+            baslik.innerText = sinavAdi + " YAKLAŞIYOR";
             
-            document.querySelectorAll('.btn-sayac').forEach(btn => {
-                if(btn.id !== 'btn-' + sinavAdi) {
-                    btn.classList.add('fade-out-btn');
-                    setTimeout(() => btn.style.display = 'none', 1000);
+            // Seçilmeyenleri yumuşakça yok et
+            document.querySelectorAll('.main-exam-btn').forEach(btn => {
+                if(btn.dataset.type !== sinavAdi) {
+                    btn.classList.add('btn-collapsed');
                 } else {
                     btn.style.pointerEvents = "none";
+                    aktifIndex = sinavlar.findIndex(s => s.ad === sinavAdi);
+                    btn.style.backgroundColor = sinavlar[aktifIndex].bg;
+                    btn.style.color = sinavlar[aktifIndex].renk;
+                    btn.style.borderColor = sinavlar[aktifIndex].border;
                 }
             });
 
-            setTimeout(() => {
-                baslik.classList.remove('calculating-text');
-                baslik.innerText = sinavAdi + " YAKLAŞIYOR";
-                
-                aktifIndex = sinavlar.findIndex(s => s.ad === sinavAdi);
-                ekranaYaz(sinavlar[aktifIndex].tarih, sinavlar[aktifIndex].renk);
-                
-                // Alt menüleri göster ve kutuyu hafif büyüt
-                const subMenu = document.getElementById('sub-' + sinavAdi);
-                if(subMenu) { subMenu.style.display = 'flex'; setTimeout(() => subMenu.style.opacity = '1', 50); }
-                document.getElementById('counter-container').style.transform = 'scale(1.03)';
-            }, 1500);
+            ekranaYaz(sinavlar[aktifIndex].tarih, sinavlar[aktifIndex].renk);
+            
+            // Seçilen sınavın alt seçeneklerini göster
+            const subMenu = document.getElementById('sub-group-' + sinavAdi);
+            if(subMenu) { 
+                subMenu.classList.add('sub-group-active');
+            }
+            
+            // Konteynırı biraz büyüt
+            document.getElementById('counter-container').classList.add('counter-expanded');
         };
 
-        // 3. Birebir Berber Modal Animasyonları
-        function openModal() { 
+        // 3. Berber Modal Animasyonları (Sınıfa Göre Otomatik Doldurma)
+        window.openModal = function(istenenSinif = "") { 
             const modal = document.getElementById('randevuModal');
             document.getElementById('error-message').style.display = 'none';
+            
+            const selectEl = document.getElementById('r-sinif');
+            if(istenenSinif) {
+                // Seçeneği bul ve aktifleştir
+                for(let i=0; i<selectEl.options.length; i++) {
+                    if(selectEl.options[i].value === istenenSinif) {
+                        selectEl.selectedIndex = i;
+                        break;
+                    }
+                }
+            } else {
+                selectEl.selectedIndex = 0;
+            }
+            
             modal.classList.add('show'); 
         }
-        function closeModal() { document.getElementById('randevuModal').classList.remove('show'); }
+        window.closeModal = function() { document.getElementById('randevuModal').classList.remove('show'); }
         
-        // Tarih & Saat işlemleri
+        // 4. Tarih, Saat ve Form Gönderme
         const tarihInput = document.getElementById('r-tarih');
         const bugun = new Date();
         const bugunTarihStr = `${bugun.getFullYear()}-${String(bugun.getMonth() + 1).padStart(2, '0')}-${String(bugun.getDate()).padStart(2, '0')}`;
@@ -583,6 +599,7 @@
             if(farkGun === 0) relativeTextSpan.innerText = "(Bugün)";
             else if(farkGun === 1) relativeTextSpan.innerText = "(Yarın)";
             else if(farkGun > 1) relativeTextSpan.innerText = `(${farkGun} Gün Sonra)`;
+            else relativeTextSpan.innerText = "";
 
             const suAnkiSaatStr = String(new Date().getHours()).padStart(2, '0') + ":" + String(new Date().getMinutes()).padStart(2, '0');
             
@@ -610,7 +627,7 @@
             }).catch(() => { saatSelect.options[0].text = "Saat Seçiniz"; });
         });
 
-        function findNearestDate() {
+        window.findNearestDate = function() {
             const btn = document.getElementById('autoDateBtn');
             const originalText = btn.innerHTML;
             btn.innerHTML = "Aranıyor..."; btn.style.pointerEvents = "none";
@@ -625,7 +642,7 @@
             }).catch(() => { btn.innerHTML = originalText; btn.style.pointerEvents = "auto"; });
         }
 
-        function selectNearestTime() {
+        window.selectNearestTime = function() {
             const saatSelect = document.getElementById('r-saat');
             if (!document.getElementById('r-tarih').value) { alert("Önce bir tarih seçin."); return; }
             if (saatSelect.options[0].text.includes("ediliyor")) { alert("Saatler kontrol ediliyor, bekleyin."); return; }
@@ -637,7 +654,7 @@
             if (!found) alert("Seçili tarihte boş saat bulunamadı.");
         }
 
-        function randevuOlustur() {
+        window.randevuOlustur = function() {
             const isim = document.getElementById('r-isim').value.trim();
             const telefon = document.getElementById('r-telefon').value.trim();
             const sinif = document.getElementById('r-sinif').value;
@@ -690,7 +707,7 @@
             });
         }
 
-        // Kopyalama Koruması ve Güvenlik
+        // Kopyalama Koruması
         try { if (window.top !== window.self) window.top.location.href = window.self.location.href; } catch(e) {}
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.addEventListener('dragstart', e => e.preventDefault());
