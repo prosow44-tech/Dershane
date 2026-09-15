@@ -142,7 +142,8 @@ img{-webkit-user-drag:none;user-drag:none;}
 /* ---------- main spacing ---------- */
 main{padding-top:186px;}
 @media (max-width:767px){main{padding-top:100px;}}
-section{scroll-margin-top:110px;}
+section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
+@media (max-width:767px){section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:92px;}}
 
 /* ---------- hero ---------- */
 .hero-h1{position:relative;font-family:'Manrope',sans-serif;font-weight:800;letter-spacing:-.01em;
@@ -189,14 +190,15 @@ section{scroll-margin-top:110px;}
 .ring span{font-size:.6rem;font-weight:800;letter-spacing:.05em;color:#94a3b8;text-transform:uppercase;margin-top:3px;}
 @keyframes secPulse{0%{opacity:1;transform:scale(1.08);}70%{opacity:.35;transform:scale(.94);}100%{opacity:.15;transform:scale(.9);}}
 .sec-pulse{animation:secPulse 1s ease-out;color:#ef4444!important;}
-.exam-btn{transition:max-height .55s cubic-bezier(.4,0,.2,1),opacity .5s ease,margin .55s ease,padding .55s ease,border-width .3s ease;
+#counterFade{transition:opacity .38s ease;}
+.exam-btn{transition:max-height 1.15s cubic-bezier(.4,0,.2,1),opacity 1s ease,margin 1.15s ease,padding 1.15s ease,border-width .5s ease;
   max-height:80px;overflow:hidden;}
 .exam-btn.btn-gone{max-height:0;opacity:0;padding-top:0;padding-bottom:0;margin:0;border-width:0;}
-.sub-row{max-height:0;opacity:0;overflow:hidden;transition:max-height .55s ease,opacity .5s ease,margin-top .55s ease;
+.sub-row{max-height:0;opacity:0;overflow:hidden;transition:max-height 1s cubic-bezier(.2,.8,.3,1),opacity 1s ease,margin-top 1s ease;
   display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;}
 .sub-row.open{max-height:120px;opacity:1;margin-top:1.1rem;}
 .sub-pill{background:#f1f5f9;color:#475569;padding:.4rem 1rem;border-radius:999px;font-size:.78rem;font-weight:700;border:1px solid #e2e8f0;}
-.counter-card{transition:box-shadow .55s ease,transform .55s ease;}
+.counter-card{transition:box-shadow 1s ease,transform 1s ease;}
 .counter-card.grown{transform:scale(1.015);box-shadow:0 35px 70px rgba(6,182,212,.16);}
 
 /* ---------- modal ---------- */
@@ -325,10 +327,10 @@ section{scroll-margin-top:110px;}
   </div>
 
   <h1 class="hero-h1 mx-auto max-w-4xl">
-    <span class="hero-line hero-line-1 text-shield" style="display:inline-block;">
+    <span class="hero-line hero-line-1 text-shield">
       <span class="hl">G</span><span class="hl">e</span><span class="hl">l</span><span class="hl">e</span><span class="hl">c</span><span class="hl">e</span><span class="hl">ğ</span><span class="hl">i</span><span class="hl"> </span><span class="hl" id="drop-t">T</span><span class="hl">a</span><span class="hl">s</span><span class="hl">a</span><span class="hl">r</span><span class="hl">l</span><span class="hl">a</span><span class="hl">m</span><span class="hl">a</span><span class="hl">y</span><span class="hl">a</span>
     </span>
-    <span class="hero-line hero-line-2 text-shield" style="display:inline-block;color:var(--cyan);">
+    <span class="hero-line hero-line-2 text-shield" style="color:var(--cyan);">
       <span class="hl" id="target-h">H</span><span class="hl">a</span><span class="hl">z</span><span class="hl">ı</span><span class="hl">r</span><span class="hl"> </span><span class="hl">M</span><span class="hl">ı</span><span class="hl">s</span><span class="hl">ı</span><span class="hl">n</span><span class="hl">ı</span><span class="hl">z</span><span class="hl">?</span>
     </span>
     <span class="hero-final" id="heroFinal">
@@ -371,13 +373,15 @@ section{scroll-margin-top:110px;}
 <!-- ================= COUNTER (3rd, center of the page) ================= -->
 <section id="sayac" class="px-6 pb-28 max-w-3xl mx-auto text-shield">
   <div id="counterCard" class="counter-card bg-white border border-slate-100 rounded-[2.5rem] shadow-xl p-8 md:p-12 text-center">
-    <h3 id="counterTitle" class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-9 tracking-tight">LGS yaklaşıyor</h3>
+    <div id="counterFade">
+      <h3 id="counterTitle" class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-9 tracking-tight">LGS yaklaşıyor</h3>
 
-    <div class="flex justify-center gap-3 md:gap-7 mb-9 flex-wrap">
-      <div class="ring" id="ring-gun"><b id="c-gun">--</b><span>Gün</span></div>
-      <div class="ring" id="ring-saat"><b id="c-saat">--</b><span>Saat</span></div>
-      <div class="ring" id="ring-dak"><b id="c-dak">--</b><span>Dakika</span></div>
-      <div class="ring" id="ring-san"><b id="c-san">--</b><span>Saniye</span></div>
+      <div class="flex justify-center gap-3 md:gap-7 mb-9 flex-wrap">
+        <div class="ring" id="ring-gun"><b id="c-gun">--</b><span>Gün</span></div>
+        <div class="ring" id="ring-saat"><b id="c-saat">--</b><span>Saat</span></div>
+        <div class="ring" id="ring-dak"><b id="c-dak">--</b><span>Dakika</span></div>
+        <div class="ring" id="ring-san"><b id="c-san">--</b><span>Saniye</span></div>
+      </div>
     </div>
 
     <div class="flex flex-col md:flex-row gap-3 justify-center">
@@ -643,9 +647,9 @@ const EXAMS = {
 // Not: tarihler ÖSYM/MEB resmi takvimi yayınlanana kadar tahminidir; kod önce
 // kendi backend'inizden (?islem=sinavTarihleri) gerçek tarihi çekmeyi dener.
 const ORDER = ['LGS','YKS','KPSS'];
-let cycleIdx = 0, activeKey = 'LGS', locked = false, cycleTimer, tickTimer;
+let cycleIdx = 0, activeKey = 'LGS', locked = false, switching = false, cycleTimer, tickTimer;
 
-function renderCounter(key){
+function updateNumbers(key){
   const e = EXAMS[key];
   const diff = new Date(e.date) - new Date();
   const d = Math.max(0, Math.floor(diff/86400000));
@@ -658,11 +662,11 @@ function renderCounter(key){
   const secEl = document.getElementById('c-san');
   secEl.textContent = s;
   secEl.classList.remove('sec-pulse'); void secEl.offsetWidth; secEl.classList.add('sec-pulse');
-  ['ring-gun','ring-saat','ring-dak','ring-san'].forEach(id=>{
-    document.getElementById(id).style.borderColor = e.color;
-  });
+}
+function applyColors(key){
+  const e = EXAMS[key];
+  ['ring-gun','ring-saat','ring-dak','ring-san'].forEach(id=>{ document.getElementById(id).style.borderColor = e.color; });
   ['c-gun','c-saat','c-dak'].forEach(id=>{ document.getElementById(id).style.color = e.color; });
-  document.getElementById('counterTitle').textContent = e.label + ' yaklaşıyor';
 }
 function highlight(key){
   ORDER.forEach(k=>{
@@ -671,27 +675,45 @@ function highlight(key){
     else { b.style.background='#fff'; b.style.color='#64748b'; b.style.borderColor='#e2e8f0'; }
   });
 }
+/* Değişimi anında değil, kısa bir kararma/aydınlanma ile yapar — "yobaz" hissi buradan geliyordu. */
+function switchExam(key){
+  switching = true;
+  const wrap = document.getElementById('counterFade');
+  wrap.style.opacity = '0';
+  setTimeout(()=>{
+    document.getElementById('counterTitle').textContent = EXAMS[key].label + ' yaklaşıyor';
+    updateNumbers(key);
+    applyColors(key);
+    wrap.style.opacity = '1';
+    switching = false;
+  }, 380);
+}
 function startCycle(){
-  renderCounter(activeKey); highlight(activeKey);
+  updateNumbers(activeKey); applyColors(activeKey);
+  document.getElementById('counterTitle').textContent = EXAMS[activeKey].label + ' yaklaşıyor';
+  highlight(activeKey);
   cycleTimer = setInterval(()=>{
     if(locked) return;
     cycleIdx = (cycleIdx+1)%ORDER.length;
     activeKey = ORDER[cycleIdx];
-    renderCounter(activeKey); highlight(activeKey);
-  }, 2200);
-  tickTimer = setInterval(()=>renderCounter(activeKey), 1000);
+    switchExam(activeKey); highlight(activeKey);
+  }, 2600);
+  tickTimer = setInterval(()=>{ if(!switching) updateNumbers(activeKey); }, 1000);
 }
 function lockExam(key){
   if(locked) return;
   locked = true; clearInterval(cycleTimer);
-  activeKey = key; renderCounter(key); highlight(key);
+  activeKey = key;
+  switchExam(key); highlight(key);
   ORDER.forEach(k=>{
     const b = document.getElementById('btn-'+k);
     if(k!==key) b.classList.add('btn-gone'); else b.style.pointerEvents='none';
   });
-  const sub = document.getElementById('sub-'+key);
-  if(sub) sub.classList.add('open');
   document.getElementById('counterCard').classList.add('grown');
+  setTimeout(()=>{
+    const sub = document.getElementById('sub-'+key);
+    if(sub) sub.classList.add('open');
+  }, 650);
 }
 fetch(WEB_APP_URL + (WEB_APP_URL.includes('?')?'&':'?') + 'islem=sinavTarihleri')
   .then(r=>r.json())
