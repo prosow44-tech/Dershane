@@ -35,8 +35,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Fraunces:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
+<script>document.documentElement.classList.add('js');</script>
 
 <style>
 :root{
@@ -44,15 +45,16 @@
   --blue:#2563eb; --blue-ring:#bfdbfe; --blue-bg:#eff6ff;
   --violet:#7c3aed; --violet-ring:#ddd6fe; --violet-bg:#f5f3ff;
   --ink:#0f172a; --muted:#64748b;
-  --pill-h:64px;
+  --nav-h:56px; --pill-h:64px;
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{margin:0;font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:#fff;overflow-x:hidden;
   -webkit-user-select:none;user-select:none;}
 input,select,textarea{user-select:text;}
-img,video{-webkit-user-drag:none;user-drag:none;}
+img{-webkit-user-drag:none;user-drag:none;}
 :focus-visible{outline:2px solid var(--cyan);outline-offset:2px;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 ::-webkit-scrollbar{width:8px;}
 ::-webkit-scrollbar-track{background:#fff;}
 ::-webkit-scrollbar-thumb{background:var(--cyan);border-radius:10px;}
@@ -61,106 +63,130 @@ img,video{-webkit-user-drag:none;user-drag:none;}
 .progress-track{position:fixed;top:0;left:0;width:100%;height:3px;z-index:920;background:rgba(15,23,42,.05);}
 .progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--cyan),var(--blue));box-shadow:0 0 8px rgba(6,182,212,.6);}
 
-/* ---------- akıcı omurga hattı ---------- */
+/* ---------- center spine + arcs ---------- */
 .spine-zone{position:relative;}
-.center-spine{position:absolute;top:0;left:50%;width:2px;height:100%;transform:translateX(-50%);z-index:0;pointer-events:none;
+.center-spine{position:absolute;top:0;left:50%;width:2px;height:100%;transform:translateX(-50%);z-index:-10;pointer-events:none;
   background:linear-gradient(to bottom,
-    rgba(6,182,212,0) 0%, rgba(6,182,212,.18) 8%, rgba(37,99,235,.35) 40%,
-    rgba(37,99,235,.35) 70%, rgba(6,182,212,.18) 92%, rgba(6,182,212,0) 100%);}
+    rgba(6,182,212,0) 0%, rgba(6,182,212,.22) 6%, rgba(37,99,235,.4) 35%,
+    rgba(37,99,235,.4) 65%, rgba(6,182,212,.22) 94%, rgba(6,182,212,0) 100%);}
 .text-shield{background:#fff;position:relative;z-index:2;}
-
-/* ---------- floating pill nav ---------- */
-.pill-nav{position:fixed;left:50%;top:18px;transform:translateX(-50%);width:min(94vw,1040px);height:var(--pill-h);
-  background:rgba(255,255,255,0.96);backdrop-filter:blur(10px);border:1px solid rgba(6,182,212,.22);border-radius:999px;
-  box-shadow:0 14px 35px rgba(15,23,42,.08);z-index:480;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;}
-.pill-side{flex:1;display:flex;align-items:center;gap:clamp(.75rem,2.2vw,1.6rem);}
-.pill-side.right{justify-content:flex-end;}
-.pill-link{font-size:.78rem;font-weight:800;letter-spacing:.03em;color:#475569;text-decoration:none;text-transform:uppercase;white-space:nowrap;transition:color .2s;cursor:pointer;}
-.pill-link:hover{color:var(--cyan);}
-.pill-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;
-  background:#fff;border:3px solid var(--cyan);display:flex;align-items:center;justify-content:center;
-  box-shadow:0 8px 20px rgba(6,182,212,.25);overflow:hidden;font-weight:800;color:var(--cyan);font-size:1.5rem;text-decoration:none;}
-.pill-logo img{width:100%;height:100%;object-fit:cover;}
-.cta-pill{background:var(--cyan);color:#fff;font-weight:800;font-size:.78rem;letter-spacing:.02em;padding:.65rem 1.25rem;
-  border-radius:999px;border:none;cursor:pointer;white-space:nowrap;box-shadow:0 8px 18px rgba(6,182,212,.3);transition:background .2s,transform .15s;}
-.cta-pill:hover{background:#0891b2;transform:scale(1.02);}
-.hamburger{width:40px;height:40px;border-radius:50%;border:1px solid #e2e8f0;background:#fff;display:none;
-  align-items:center;justify-content:center;flex-direction:column;gap:4px;cursor:pointer;}
-.hamburger span{width:18px;height:2px;background:#1e293b;border-radius:2px;}
-@media (max-width:860px){
-  .hamburger{display:flex;}
-  .pill-side .pill-link{display:none;}
+.snake-arc{
+  position:absolute;top:15%;height:70%;width:40%;z-index:-5;pointer-events:none;
+  border:2px solid rgba(6,182,212,0.15);
 }
+.snake-arc.r{left:50%;border-left:none;border-radius:0 120px 120px 0;}
+.snake-arc.l{right:50%;border-right:none;border-radius:120px 0 0 120px;}
+@media (max-width:767px){ .snake-arc{display:none;} }
+
+/* ---------- mega bar (desktop) ---------- */
+.mega-bar{position:fixed;top:0;left:0;width:100%;background:#fff;border-bottom:1px solid #f1f5f9;z-index:500;}
+.mega-row{display:flex;justify-content:center;align-items:flex-start;gap:clamp(1.5rem,4vw,4rem);padding:.55rem 1rem .7rem;}
+.mega-item{position:relative;text-align:center;}
+.mega-item a.mega-main{display:block;font-weight:800;font-size:.92rem;color:#1e293b;letter-spacing:.02em;text-decoration:none;}
+.mega-item:hover a.mega-main,.mega-item:focus-within a.mega-main{color:var(--cyan);}
+.mega-sub{display:block;font-size:.63rem;font-weight:700;color:#0891b2;letter-spacing:.06em;margin-top:2px;
+  text-shadow:0 0 10px rgba(6,182,212,.4);}
+.mega-panel{position:fixed;top:0;left:0;width:min(90vw,860px);background:#fff;border-radius:1.5rem;
+  box-shadow:0 30px 60px rgba(15,23,42,.14);padding:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;
+  opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .22s ease,transform .22s ease,visibility .22s;z-index:495;}
+.mega-item:hover .mega-panel,.mega-item:focus-within .mega-panel{opacity:1;visibility:visible;transform:translateY(0);}
+.mega-panel h4{color:#0891b2;font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em;margin-bottom:.35rem;}
+.mega-panel p{color:#64748b;font-size:.82rem;line-height:1.5;margin:0;}
 
 /* ---------- mobile drawer ---------- */
+.mobile-toggle{display:none;}
 .mobile-drawer{position:fixed;top:0;left:0;width:100%;background:#fff;z-index:490;
   transform:translateY(-100%);transition:transform .35s cubic-bezier(.22,1,.36,1);
-  box-shadow:0 20px 40px rgba(15,23,42,.14);padding:5rem 1.5rem 2rem;}
+  box-shadow:0 20px 40px rgba(15,23,42,.12);padding:5.5rem 1.5rem 2rem;}
 .mobile-drawer.open{transform:translateY(0);}
 .mobile-drawer a,.mobile-drawer button{display:block;width:100%;text-align:left;padding:.75rem 0;font-weight:700;
   color:#1e293b;text-decoration:none;border-bottom:1px solid #f1f5f9;background:none;border-left:0;border-right:0;border-top:0;font-family:inherit;font-size:1rem;}
-.mobile-drawer small{display:block;color:#0891b2;font-weight:700;font-size:.72rem;margin-top:2px;}
-.drawer-label{display:block;color:#94a3b8;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin:1rem 0 .25rem;}
+.mobile-drawer small{display:block;color:#0891b2;font-weight:700;font-size:.7rem;margin-top:2px;}
+.drawer-label{display:block;color:#94a3b8;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin:1rem 0 .25rem;}
+@media (max-width:767px){
+  .mega-bar{display:none;}
+  .mobile-toggle{display:flex;}
+}
 
-main{padding-top:140px;}
+/* ---------- floating pill nav ---------- */
+.pill-nav{position:fixed;left:50%;top:68px;transform:translateX(-50%);width:min(94vw,980px);height:var(--pill-h);
+  background:#fff;border:1px solid rgba(6,182,212,.18);border-radius:999px;box-shadow:0 16px 34px rgba(6,182,212,.14);
+  z-index:480;display:flex;align-items:center;justify-content:space-between;padding:0 1.1rem;}
+@media (max-width:767px){.pill-nav{top:10px;}}
+.pill-side{flex:1;display:flex;align-items:center;gap:clamp(.75rem,3vw,2rem);}
+.pill-side.right{justify-content:flex-end;}
+.pill-link{font-size:.76rem;font-weight:800;letter-spacing:.03em;color:#475569;text-decoration:none;text-transform:uppercase;white-space:nowrap;}
+.pill-link:hover{color:var(--cyan);}
+.pill-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);width:76px;height:76px;border-radius:50%;
+  background:#fff;border:3px solid var(--cyan);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 22px rgba(6,182,212,.28);overflow:hidden;font-weight:800;color:var(--cyan);font-size:1.4rem;}
+.pill-logo img{width:100%;height:100%;object-fit:cover;}
+.cta-pill{background:var(--cyan);color:#fff;font-weight:800;font-size:.78rem;letter-spacing:.02em;padding:.6rem 1.1rem;
+  border-radius:999px;border:none;cursor:pointer;white-space:nowrap;box-shadow:0 10px 20px rgba(6,182,212,.3);}
+.cta-pill:hover{background:#0891b2;}
+.hamburger{width:38px;height:38px;border-radius:50%;border:1px solid #e2e8f0;background:#fff;display:flex;
+  align-items:center;justify-content:center;flex-direction:column;gap:4px;cursor:pointer;}
+.hamburger span{width:16px;height:2px;background:#1e293b;border-radius:2px;}
 
-/* ---------- hero ---------- */
-.hero-h1{line-height:1.15;}
+/* ---------- main spacing ---------- */
+main{padding-top:186px;}
+@media (max-width:767px){main{padding-top:100px;}}
+section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
+@media (max-width:767px){section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:92px;}}
+
+/* ---------- feature cards ---------- */
+.feat-card svg{width:26px;height:26px;color:var(--cyan);}
 
 /* ---------- counter ---------- */
 .ring{width:78px;height:78px;border-radius:50%;border:3px solid #e2e8f0;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;background:#fff;transition:border-color .3s ease;}
+  align-items:center;justify-content:center;background:#fff;transition:border-color .4s ease;}
 @media (min-width:768px){.ring{width:96px;height:96px;}}
 .ring b{font-size:1.7rem;font-weight:800;line-height:1;color:#94a3b8;transition:color .3s ease;}
 @media (min-width:768px){.ring b{font-size:2.1rem;}}
 .ring span{font-size:.6rem;font-weight:800;letter-spacing:.05em;color:#94a3b8;text-transform:uppercase;margin-top:3px;}
 #c-san{color:#ef4444;}
-@keyframes tickPulse{0%{opacity:1;transform:scale(1.08);}50%{opacity:.5;transform:scale(.95);}100%{opacity:1;transform:scale(1);}}
-.tick-pulse{animation:tickPulse .8s ease-out;}
-#counterFade{transition:opacity .3s ease;}
-.exam-btn-wrap{display:flex;flex-direction:column;gap:.75rem;justify-content:center;}
-@media (min-width:768px){.exam-btn-wrap{flex-direction:row;}}
-.exam-btn{transition:all .45s cubic-bezier(.4,0,.2,1);max-height:60px;opacity:1;overflow:hidden;}
-.exam-btn.btn-gone{max-height:0;opacity:0;padding-top:0;padding-bottom:0;margin:0;border-width:0;pointer-events:none;}
-.sub-row{max-height:0;opacity:0;overflow:hidden;transition:max-height .5s cubic-bezier(.2,.8,.3,1),opacity .5s ease,margin-top .5s ease;
+@keyframes tickPulse{0%{opacity:1;transform:scale(1.1);}55%{opacity:.4;transform:scale(.92);}100%{opacity:1;transform:scale(1);}}
+.tick-pulse{animation:tickPulse .82s ease-out;}
+#counterFade{transition:opacity .38s ease;}
+.exam-btn{transition:max-height 1.15s cubic-bezier(.4,0,.2,1),opacity 1s ease,margin 1.15s ease,padding 1.15s ease,border-width .5s ease;
+  max-height:80px;overflow:hidden;}
+.exam-btn.btn-gone{max-height:0;opacity:0;padding-top:0;padding-bottom:0;margin:0;border-width:0;}
+.sub-row{max-height:0;opacity:0;overflow:hidden;transition:max-height 1s cubic-bezier(.2,.8,.3,1),opacity 1s ease,margin-top 1s ease;
   display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;}
-.sub-row.open{max-height:140px;opacity:1;margin-top:1rem;}
-.sub-pill{background:#f1f5f9;color:#475569;padding:.45rem 1.1rem;border-radius:999px;font-size:.8rem;font-weight:700;border:1px solid #e2e8f0;}
-.counter-card{position:relative;transition:box-shadow .4s ease,transform .4s ease;}
-.counter-card.grown{transform:scale(1.01);box-shadow:0 30px 65px rgba(6,182,212,.15);}
-.counter-back-btn{position:absolute;bottom:1.25rem;left:1.25rem;display:none;align-items:center;gap:.45rem;
-  background:#f8fafc;border:1px solid #cbd5e1;color:#475569;padding:.45rem .85rem;border-radius:999px;
-  font-size:.78rem;font-weight:700;cursor:pointer;transition:all .2s ease;}
-.counter-back-btn:hover{background:#e2e8f0;color:#0f172a;}
-.counter-back-btn svg{width:16px;height:16px;transform:rotate(-45deg);}
-.counter-back-btn.show{display:inline-flex;}
+.sub-row.open{max-height:120px;opacity:1;margin-top:1.1rem;}
+.sub-pill{background:#f1f5f9;color:#475569;padding:.4rem 1rem;border-radius:999px;font-size:.78rem;font-weight:700;border:1px solid #e2e8f0;}
+.counter-card{position:relative;transition:box-shadow 1s ease,transform 1s ease;}
+.counter-card.grown{transform:scale(1.015);box-shadow:0 35px 70px rgba(6,182,212,.16);}
+.counter-back-btn{
+  position:absolute; bottom:1.5rem; left:1.5rem; display:none; align-items:center; gap:0.4rem;
+  background:#f1f5f9; color:#475569; padding:0.5rem 0.9rem; border-radius:999px;
+  font-size:0.75rem; font-weight:800; border:1px solid #cbd5e1; cursor:pointer; transition:all 0.2s;
+}
+.counter-back-btn:hover{background:#e2e8f0; color:#0f172a;}
+.counter-back-btn svg{width:14px; height:14px;}
 
-/* ---------- video asset styling ---------- */
-.media-container{display:flex;align-items:center;justify-content:center;width:100%;height:100%;min-height:240px;}
-.fox-webm{width:100%;max-width:280px;height:auto;aspect-ratio:1/1;object-fit:contain;pointer-events:none;}
-.mini-fox-webm{width:46px;height:46px;object-fit:contain;pointer-events:none;}
-
-/* ---------- modal (scale based) ---------- */
-.modal-overlay{position:fixed;inset:0;background:rgba(15,23,42,.65);backdrop-filter:blur(5px);z-index:1000;
-  display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .3s ease;padding:1rem;}
+/* ---------- modal ---------- */
+.modal-overlay{position:fixed;inset:0;background:rgba(15,23,42,.55);backdrop-filter:blur(6px);z-index:1000;
+  display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .45s ease;padding:1rem;}
 .modal-overlay.show{display:flex;opacity:1;}
-.modal-box{background:#fff;border-radius:1.75rem;padding:2.2rem;width:100%;max-width:480px;max-height:92vh;overflow-y:auto;
+.modal-box{background:#fff;border-radius:1.75rem;padding:2.1rem;width:100%;max-width:470px;max-height:90vh;overflow-y:auto;
   box-shadow:0 30px 70px rgba(0,0,0,.35);border:2px solid #cffafe;position:relative;
-  transform:scale(0.88);opacity:0;transition:transform .3s cubic-bezier(.16,1,.3,1),opacity .3s ease;}
-.modal-overlay.show .modal-box{transform:scale(1);opacity:1;}
+  clip-path:circle(0% at 50% 50%);transition:clip-path .55s cubic-bezier(.22,1,.36,1);}
+.modal-overlay.show .modal-box{clip-path:circle(100% at 50% 50%);}
 .err-banner{background:rgba(239,68,68,.08);border:2px solid #ef4444;color:#dc2626;padding:.7rem .9rem;border-radius:12px;
-  display:none;align-items:flex-start;gap:.6rem;font-weight:700;font-size:.85rem;line-height:1.4;margin-bottom:1rem;}
+  display:none;align-items:flex-start;gap:.6rem;font-weight:700;font-size:.85rem;line-height:1.4;margin-bottom:1rem;animation:shake .45s;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%,75%{transform:translateX(-5px);}50%{transform:translateX(5px);}}
 .toast{position:fixed;top:16px;left:50%;transform:translateX(-50%) translateY(-140px);background:#fff;
   border:2px solid var(--cyan);border-radius:999px;padding:14px 26px;display:flex;align-items:center;gap:14px;
-  box-shadow:0 14px 34px rgba(15,23,42,.18);z-index:1100;opacity:0;transition:all .5s cubic-bezier(.68,-.55,.27,1.55);max-width:92vw;}
+  box-shadow:0 14px 34px rgba(15,23,42,.18);z-index:1100;opacity:0;transition:all .6s cubic-bezier(.68,-.55,.27,1.55);max-width:92vw;}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
 .auto-btn{background:#f1f5f9;color:#334155;border:1px solid #cbd5e1;padding:.35rem .7rem;border-radius:999px;
   font-size:.68rem;font-weight:800;cursor:pointer;}
 .auto-btn:hover{background:var(--cyan-bg);border-color:var(--cyan);color:#0891b2;}
-.bot-guard{display:none !important;}
+.bot-field{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
 
 /* ---------- 360 modal ---------- */
-.tour-overlay{position:fixed;inset:0;background:rgba(15,23,42,.92);backdrop-filter:blur(6px);z-index:1000;display:none;align-items:center;
+.tour-overlay{position:fixed;inset:0;background:rgba(15,23,42,.9);z-index:1000;display:none;align-items:center;
   justify-content:center;padding:1rem;}
 .tour-overlay.show{display:flex;}
 </style>
@@ -180,39 +206,74 @@ main{padding-top:140px;}
   </div>
 </div>
 
+<nav class="mega-bar" aria-label="Ana kategoriler">
+  <div class="mega-row">
+    <div class="mega-item">
+      <a href="#sinif-5-8" class="mega-main">5-8. SINIF<span class="mega-sub">LGS</span></a>
+      <div class="mega-panel">
+        <div><h4>LGS Hazırlık Kampları</h4><p>Yeni nesil sorulara tam uyum ve düzenli deneme analizleri.</p></div>
+        <div><h4>Birebir Etüt Desteği</h4><p>Konu eksiklerine anında ve kişiye özel müdahale.</p></div>
+        <div><h4>Erken Kayıt Avantajı</h4><p>Sınırlı kontenjanlarda erken kayıt fırsatları.</p></div>
+      </div>
+    </div>
+    <div class="mega-item">
+      <a href="#sinif-9-12" class="mega-main">9-12. SINIF<span class="mega-sub">TYT - AYT</span></a>
+      <div class="mega-panel">
+        <div><h4>TYT - AYT Programı</h4><p>Müfredat tekrarı ve zaman yönetimi odaklı çalışma.</p></div>
+        <div><h4>Türkiye Geneli Denemeler</h4><p>Gerçek sınav ortamında düzenli ölçme.</p></div>
+        <div><h4>Tercih Danışmanlığı</h4><p>Doğru bölüm ve üniversite seçiminde rehberlik.</p></div>
+      </div>
+    </div>
+    <div class="mega-item">
+      <a href="#mezun" class="mega-main">MEZUN<span class="mega-sub">YKS</span></a>
+      <div class="mega-panel">
+        <div><h4>YKS Hedef Büyütme</h4><p>Eksik odaklı, yoğun ve kişiye özel çalışma programı.</p></div>
+        <div><h4>Sınırsız Soru Çözümü</h4><p>Öğretmenlerle birebir soru analizleri.</p></div>
+        <div><h4>Özel Mezun Sınıfları</h4><p>Ferah, sakin ve motive edici çalışma ortamı.</p></div>
+      </div>
+    </div>
+    <div class="mega-item">
+      <a href="#akademik" class="mega-main">DGS / KPSS / ALES<span class="mega-sub">Akademik Kariyer</span></a>
+      <div class="mega-panel">
+        <div><h4>Akademik Kariyer Danışmanlığı</h4><p>Memuriyet ve lisans tamamlama hedeflerine yönelik yol haritası.</p></div>
+        <div><h4>Hız ve Zaman Yönetimi</h4><p>Sınırlı sürede maksimum doğruya ulaşma taktikleri.</p></div>
+        <div><h4>ÖSYM Soru Mantığı</h4><p>Çıkmış sorular üzerinden örüntü analizi.</p></div>
+      </div>
+    </div>
+  </div>
+</nav>
+
 <div class="mobile-drawer" id="mobileDrawer">
-  <span class="drawer-label">Sınıflar & Programlar</span>
-  <a href="#sinif-5-8" onclick="closeDrawer()">5-8. Sınıf <small>LGS Hazırlık</small></a>
+  <span class="drawer-label">Sınıf Seçin</span>
+  <a href="#sinif-5-8" onclick="closeDrawer()">5-8. Sınıf <small>LGS</small></a>
   <a href="#sinif-9-12" onclick="closeDrawer()">9-12. Sınıf <small>TYT - AYT</small></a>
-  <a href="#mezun" onclick="closeDrawer()">Mezun <small>YKS Odak</small></a>
-  <a href="#akademik" onclick="closeDrawer()">DGS / KPSS / ALES <small>Akademik Kariyer</small></a>
-  <span class="drawer-label">Hızlı Erişim</span>
+  <a href="#mezun" onclick="closeDrawer()">Mezun <small>YKS</small></a>
+  <a href="#akademik" onclick="closeDrawer()">DGS / KPSS / ALES</a>
+  <span class="drawer-label">Hızlı Menü</span>
   <a href="#anasayfa" onclick="closeDrawer()">Anasayfa</a>
-  <button type="button" onclick="closeDrawer();openTour()">360° Gezin</button>
-  <a href="https://www.google.com/maps/dir/?api=1&destination=B%C3%BCy%C3%BCk+H%C3%BCseyinbey%2C+Turfanda+Sk.%2C+44050+Battalgazi%2FMalatya" target="_blank" rel="noopener" onclick="closeDrawer()">Yol Tarifi</a>
+  <a href="#sanal-tur" onclick="closeDrawer()">360° Gezin</a>
+  <a href="https://www.google.com/maps/dir/?api=1&destination=B%C3%BCy%C3%BCk+H%C3%BCseyinbey%2C+Turfanda+Sk.%2C+44050+Battalgazi%2FMalatya" target="_blank" rel="noopener">Yol Tarifi</a>
   <a href="#iletisim" onclick="closeDrawer()">İletişim</a>
-  <button type="button" onclick="closeDrawer();openModal('')" style="color:var(--cyan);font-weight:800;">Hızlı Randevu →</button>
+  <button onclick="closeDrawer();openModal('')" style="color:var(--cyan);">Hızlı Randevu →</button>
 </div>
 
-<nav class="pill-nav" aria-label="Ana Gezinme">
+<nav class="pill-nav" aria-label="Hızlı gezinme">
   <div class="pill-side">
-    <button class="hamburger" onclick="toggleDrawer()" aria-label="Menü">
+    <button class="hamburger mobile-toggle" onclick="toggleDrawer()" aria-label="Menü" aria-controls="mobileDrawer">
       <span></span><span></span><span></span>
     </button>
-    <a href="#sinif-5-8" class="pill-link">5-8. Sınıf</a>
-    <a href="#sinif-9-12" class="pill-link">9-12. Sınıf</a>
-    <a href="#mezun" class="pill-link">Mezun</a>
-    <a href="#akademik" class="pill-link">DGS / KPSS</a>
+    <a href="#anasayfa" class="pill-link hidden md:inline">Anasayfa</a>
+    <a href="#sanal-tur" class="pill-link hidden md:inline">360° Gezin</a>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=B%C3%BCy%C3%BCk+H%C3%BCseyinbey%2C+Turfanda+Sk.%2C+44050+Battalgazi%2FMalatya" target="_blank" rel="noopener" class="pill-link hidden md:inline">Yol Tarifi</a>
   </div>
 
-  <a href="#anasayfa" class="pill-logo" id="pillLogoBadge" aria-label="Referans Eğitim">
-    <img src="assets/logo.png" alt="Referans Logo" onerror="this.remove(); document.getElementById('pillLogoBadge').innerText='R';">
-  </a>
+  <div class="pill-logo">
+    <img src="assets/logo.png" alt="Referans Eğitim Kurumları logosu" onerror="this.style.display='none';">
+  </div>
 
   <div class="pill-side right">
-    <button type="button" class="pill-link" onclick="openTour()">360° Gezin</button>
-    <a href="#iletisim" class="pill-link">İletişim</a>
-    <button class="cta-pill" onclick="openModal('')">Randevu Al</button>
+    <a href="#iletisim" class="pill-link hidden md:inline">İletişim</a>
+    <button class="cta-pill" onclick="openModal('')">Hızlı Randevu</button>
   </div>
 </nav>
 
@@ -220,59 +281,60 @@ main{padding-top:140px;}
 
 <section id="anasayfa" class="text-center px-6 pb-20">
   <div class="text-shield inline-block mb-4">
-    <span class="inline-block bg-white text-cyan-600 font-extrabold px-6 py-2 rounded-full text-xs uppercase tracking-widest border border-cyan-200">
+    <span class="inline-block bg-white text-cyan-600 font-bold px-6 py-2 rounded-full text-xs uppercase tracking-widest border border-cyan-200">
       Malatya'nın Deneyimli Eğitim Kadrosu
     </span>
   </div>
 
-  <h1 class="hero-h1 mx-auto max-w-4xl text-slate-900 font-extrabold tracking-tight">
-    <span class="block text-4xl sm:text-6xl md:text-7xl mb-2 text-slate-900">Geleceği Tasarlamaya</span>
-    <span class="block text-4xl sm:text-6xl md:text-7xl text-cyan-500">Hazır Mısınız?</span>
-  </h1>
+  <div class="mx-auto max-w-4xl flex justify-center mb-6 relative z-10 px-4">
+    <img src="assets/ana_yazi.png" alt="Geleceği Tasarlamaya Hazır Mısınız?" class="w-full max-w-[700px] h-auto object-contain drop-shadow-sm" onerror="this.style.display='none'">
+  </div>
 
-  <div class="text-shield max-w-xl mx-auto mt-6">
+  <div class="text-shield max-w-xl mx-auto mt-2">
     <p class="text-slate-500 text-lg italic">"Hedefsiz gemiye hiçbir rüzgar yardım edemez."</p>
-    <p class="text-slate-500 text-sm mt-2">Ferah sınıflarımızda doğru rehberlik ve planlı çalışmayla başarıya bir adım daha yakınsınız.</p>
+    <p class="text-slate-500 text-sm mt-2">Bembeyaz, ferah sınıflarımızda doğru rehberlikle başarıya bir adım daha yakınsınız.</p>
   </div>
 </section>
 
-<section id="ozellikler" class="px-6 pb-20 max-w-5xl mx-auto">
+<section id="ozellikler" class="px-6 pb-24 max-w-5xl mx-auto">
   <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-    <div class="text-shield text-center p-4 rounded-2xl border border-slate-100 shadow-sm bg-white">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-cyan-500 mx-auto mb-3"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/><path d="M22 10v6"/></svg>
+    <div class="feat-card text-shield text-center p-4">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-3"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/><path d="M22 10v6"/></svg>
       <h3 class="font-extrabold text-sm text-slate-900">Alanında Uzman Kadro</h3>
       <p class="text-xs text-slate-500 mt-1">Deneyimli, güncel müfredata hakim öğretmenler.</p>
     </div>
-    <div class="text-shield text-center p-4 rounded-2xl border border-slate-100 shadow-sm bg-white">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-7 h-7 text-cyan-500 mx-auto mb-3"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg>
+    <div class="feat-card text-shield text-center p-4">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="mx-auto mb-3"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg>
       <h3 class="font-extrabold text-sm text-slate-900">Birebir Takip</h3>
       <p class="text-xs text-slate-500 mt-1">Kişiye özel eksik analizi ve yönlendirme.</p>
     </div>
-    <div class="text-shield text-center p-4 rounded-2xl border border-slate-100 shadow-sm bg-white">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-cyan-500 mx-auto mb-3"><path d="M2 5c2-1.2 5-1.5 7 0v13c-2-1.2-5-1-7 0Z"/><path d="M22 5c-2-1.2-5-1.5-7 0v13c2-1.2 5-1 7 0Z"/></svg>
+    <div class="feat-card text-shield text-center p-4">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-3"><path d="M2 5c2-1.2 5-1.5 7 0v13c-2-1.2-5-1-7 0Z"/><path d="M22 5c-2-1.2-5-1.5-7 0v13c2-1.2 5-1 7 0Z"/></svg>
       <h3 class="font-extrabold text-sm text-slate-900">Yeni Nesil Soru Bankası</h3>
-      <p class="text-xs text-slate-500 mt-1">Güncel sınav formatına tam uyumlu sorular.</p>
+      <p class="text-xs text-slate-500 mt-1">Güncel sınav formatına uygun sorular.</p>
     </div>
-    <div class="text-shield text-center p-4 rounded-2xl border border-slate-100 shadow-sm bg-white">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-cyan-500 mx-auto mb-3"><path d="m3 17 6-6 4 4 8-8"/><path d="M15 6h6v6"/></svg>
+    <div class="feat-card text-shield text-center p-4">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-3"><path d="m3 17 6-6 4 4 8-8"/><path d="M15 6h6v6"/></svg>
       <h3 class="font-extrabold text-sm text-slate-900">Deneme & Analiz</h3>
-      <p class="text-xs text-slate-500 mt-1">Düzenli sınavlarla ölçülebilir net artışı.</p>
+      <p class="text-xs text-slate-500 mt-1">Düzenli sınavlarla ölçülebilir gelişim.</p>
     </div>
   </div>
 </section>
 
-<section id="sayac" class="px-6 pb-24 max-w-3xl mx-auto text-shield">
+<section id="sayac" class="px-6 pb-28 max-w-3xl mx-auto text-shield">
   <div id="counterCard" class="counter-card bg-white border border-slate-100 rounded-[2.5rem] shadow-xl p-8 md:p-12 text-center">
     
-    <button id="counterBackBtn" type="button" class="counter-back-btn" onclick="unlockExamSelection()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h11a6 6 0 0 1 6 6v1"/></svg>
-      <span>Tüm Sayaçlar</span>
+    <button type="button" id="counterBackBtn" class="counter-back-btn" onclick="unlockExam()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Tüm Sayaçlar
     </button>
 
     <div id="counterFade">
-      <h3 id="counterTitle" class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-8 tracking-tight">LGS yaklaşıyor</h3>
+      <h3 id="counterTitle" class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-9 tracking-tight">LGS yaklaşıyor</h3>
 
-      <div class="flex justify-center gap-3 md:gap-7 mb-8 flex-wrap">
+      <div class="flex justify-center gap-3 md:gap-7 mb-9 flex-wrap">
         <div class="ring" id="ring-gun"><b id="c-gun">--</b><span>Gün</span></div>
         <div class="ring" id="ring-saat"><b id="c-saat">--</b><span>Saat</span></div>
         <div class="ring" id="ring-dak"><b id="c-dak">--</b><span>Dakika</span></div>
@@ -280,10 +342,10 @@ main{padding-top:140px;}
       </div>
     </div>
 
-    <div class="exam-btn-wrap">
-      <button id="btn-LGS" class="exam-btn flex-1 border border-slate-200 rounded-2xl py-3 px-4 font-bold text-sm" onclick="lockExam('LGS')">LGS Sayacı</button>
-      <button id="btn-YKS" class="exam-btn flex-1 border border-slate-200 rounded-2xl py-3 px-4 font-bold text-sm" onclick="lockExam('YKS')">YKS Sayacı</button>
-      <button id="btn-KPSS" class="exam-btn flex-1 border border-slate-200 rounded-2xl py-3 px-4 font-bold text-sm" onclick="lockExam('KPSS')">KPSS Sayacı</button>
+    <div class="flex flex-col md:flex-row gap-3 justify-center relative z-10">
+      <button id="btn-LGS" class="exam-btn flex-1 border rounded-2xl py-3 font-bold" onclick="lockExam('LGS')">LGS Sayacı</button>
+      <button id="btn-YKS" class="exam-btn flex-1 border rounded-2xl py-3 font-bold" onclick="lockExam('YKS')">YKS Sayacı</button>
+      <button id="btn-KPSS" class="exam-btn flex-1 border rounded-2xl py-3 font-bold" onclick="lockExam('KPSS')">KPSS Sayacı</button>
     </div>
 
     <div id="sub-LGS" class="sub-row"><span class="sub-pill">Sözel Bölüm</span><span class="sub-pill">Sayısal Bölüm</span></div>
@@ -292,96 +354,64 @@ main{padding-top:140px;}
   </div>
 </section>
 
-<div id="sinif-5-8" class="relative max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between mb-28">
+<div id="sinif-5-8" class="relative max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between mb-32">
+  <div class="snake-arc r"></div>
   <div class="text-shield flex-1 md:pr-10 text-center md:text-left">
-    <div class="inline-flex items-center gap-2 mb-2">
-      <video autoplay loop muted playsinline class="mini-fox-webm">
-        <source src="assets/birebir_tilki.webm" type="video/webm">
-      </video>
-      <h3 class="text-cyan-600 font-extrabold text-sm tracking-widest uppercase">LGS Hazırlık</h3>
-    </div>
-    <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4">5-8. Sınıf</h2>
-    <p class="text-slate-500 text-sm leading-relaxed mb-6 max-w-md mx-auto md:mx-0">Akademik temellerin atıldığı bu dönemde, yeni nesil mantık sorularına uyum sağlıyor, düzenli deneme ve konu etütleriyle eksikleri kapatıyoruz.</p>
+    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-1">5-8. Sınıf</h2>
+    <h3 class="text-cyan-500 font-extrabold text-sm tracking-widest uppercase mb-4">LGS Hazırlık</h3>
+    <p class="text-slate-500 text-sm leading-relaxed mb-6 max-w-md mx-auto md:mx-0">Akademik temellerin atıldığı bu dönemde, yeni nesil sorulara uyum sağlıyor, düzenli deneme ve analizlerle eksikleri birlikte kapatıyoruz.</p>
     <button onclick="openModal('5-8. Sınıf')" class="bg-slate-900 text-white font-bold px-6 py-3 rounded-xl hover:bg-cyan-500 transition-colors text-sm">Randevu Al</button>
   </div>
-  <div class="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0 relative z-10">
-    <div class="media-container">
-      <video autoplay loop muted playsinline class="fox-webm">
-        <source src="assets/birebir_tilki.webm" type="video/webm">
-      </video>
-    </div>
+  <div class="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0" style="position:relative;z-index:3;">
+    <img src="assets/birebir_tilki.gif" alt="5-8. sınıf birebir etüt" class="w-56 h-56 object-contain" onerror="this.style.display='none';">
   </div>
 </div>
 
-<div id="sinif-9-12" class="relative max-w-5xl mx-auto px-6 flex flex-col md:flex-row-reverse items-center justify-between mb-28">
+<div id="sinif-9-12" class="relative max-w-5xl mx-auto px-6 flex flex-col md:flex-row-reverse items-center justify-between mb-32">
+  <div class="snake-arc l"></div>
   <div class="text-shield flex-1 md:pl-10 text-center md:text-right">
-    <div class="inline-flex items-center justify-end gap-2 mb-2">
-      <h3 class="text-blue-600 font-extrabold text-sm tracking-widest uppercase">TYT - AYT Maratonu</h3>
-      <video autoplay loop muted playsinline class="mini-fox-webm">
-        <source src="assets/kazanan_tilki.webm" type="video/webm">
-      </video>
-    </div>
-    <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4">9-12. Sınıf</h2>
-    <p class="text-slate-500 text-sm leading-relaxed mb-6 max-w-md mx-auto md:ml-auto">Zaman yönetiminden konu tekrarlarına, düzenli Türkiye geneli denemelerden hedef belirleme sürecine kadar deneyimli kadromuzla yanınızdayız.</p>
+    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-1">9-12. Sınıf</h2>
+    <h3 class="text-blue-600 font-extrabold text-sm tracking-widest uppercase mb-4">TYT - AYT Maratonu</h3>
+    <p class="text-slate-500 text-sm leading-relaxed mb-6 max-w-md mx-auto md:ml-auto">Zaman yönetiminden konu tekrarına, sınav stresinden tercih sürecine kadar tüm yolculuğunuzda deneyimli kadromuzla yanınızdayız.</p>
     <button onclick="openModal('9-12. Sınıf')" class="bg-blue-600 text-white font-bold px-6 py-3 rounded-xl hover:bg-slate-900 transition-colors text-sm">Randevu Al</button>
   </div>
-  <div class="w-full md:w-1/2 flex justify-center md:justify-start mt-8 md:mt-0 relative z-10">
-    <div class="media-container">
-      <video autoplay loop muted playsinline class="fox-webm">
-        <source src="assets/kazanan_tilki.webm" type="video/webm">
-      </video>
-    </div>
+  <div class="w-full md:w-1/2 flex justify-center md:justify-start mt-8 md:mt-0" style="position:relative;z-index:3;">
+    <img src="assets/kazanan_tilki.gif" alt="9-12. sınıf TYT AYT maratonu" class="w-56 h-56 object-contain" onerror="this.style.display='none';">
   </div>
 </div>
 
-<div id="mezun" class="relative max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between mb-28">
+<div id="mezun" class="relative max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between mb-32">
+  <div class="snake-arc r"></div>
   <div class="text-shield flex-1 md:pr-10 text-center md:text-left">
-    <div class="inline-flex items-center gap-2 mb-2">
-      <video autoplay loop muted playsinline class="mini-fox-webm">
-        <source src="assets/uyuyan_tilki.webm" type="video/webm">
-      </video>
-      <h3 class="text-cyan-600 font-extrabold text-sm tracking-widest uppercase">YKS Hedef Büyütme</h3>
-    </div>
-    <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4">Mezun Grupları</h2>
-    <p class="text-slate-500 text-sm leading-relaxed mb-6 max-w-md mx-auto md:mx-0">Hedefini dereceye taşımak isteyen mezunlara özel çalışma kütüphaneleri, soru çözüm saatleri ve kişiselleştirilmiş eksik tarama programları.</p>
+    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-1">Mezun</h2>
+    <h3 class="text-cyan-500 font-extrabold text-sm tracking-widest uppercase mb-4">YKS Hedef Büyütme</h3>
+    <p class="text-slate-500 text-sm leading-relaxed mb-6 max-w-md mx-auto md:mx-0">Hedefini büyütmek isteyen mezunlar için yoğunlaştırılmış, eksik odaklı ve birebir takip edilen özel bir çalışma programı sunuyoruz.</p>
     <button onclick="openModal('Mezun')" class="bg-slate-900 text-white font-bold px-6 py-3 rounded-xl hover:bg-cyan-500 transition-colors text-sm">Randevu Al</button>
   </div>
-  <div class="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0 relative z-10">
-    <div class="media-container">
-      <video autoplay loop muted playsinline class="fox-webm">
-        <source src="assets/uyuyan_tilki.webm" type="video/webm">
-      </video>
-    </div>
+  <div class="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0" style="position:relative;z-index:3;">
+    <img src="assets/uyuyan_tilki.gif" alt="Mezun YKS hedef büyütme" class="w-56 h-56 object-contain" onerror="this.style.display='none';">
   </div>
 </div>
 
 <div id="akademik" class="relative max-w-5xl mx-auto px-6 flex flex-col md:flex-row-reverse items-center justify-between mb-24">
+  <div class="snake-arc l"></div>
   <div class="text-shield flex-1 md:pl-10 text-center md:text-right">
-    <div class="inline-flex items-center justify-end gap-2 mb-2">
-      <h3 class="text-blue-600 font-extrabold text-sm tracking-widest uppercase">Akademik & Kamu</h3>
-      <video autoplay loop muted playsinline class="mini-fox-webm">
-        <source src="assets/analiz_tilki.webm" type="video/webm">
-      </video>
-    </div>
-    <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4">DGS / KPSS / ALES</h2>
-    <p class="text-slate-500 text-sm leading-relaxed mb-6 max-w-md mx-auto md:ml-auto">Lisans tamamlama ve memuriyet yolunda hız, soru pratiği ve nokta atışı konu anlatımlarıyla başarı standartlarınızı yukarı taşıyın.</p>
+    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-1">Akademik Kariyer</h2>
+    <h3 class="text-blue-600 font-extrabold text-sm tracking-widest uppercase mb-4">DGS / KPSS / ALES</h3>
+    <p class="text-slate-500 text-sm leading-relaxed mb-6 max-w-md mx-auto md:ml-auto">Lisans tamamlama, memuriyet ya da akademik kariyer hedefleyen adaylara nokta atışı taktikler ve güncel soru bankalarıyla rehberlik ediyoruz.</p>
     <button onclick="openModal('DGS / KPSS / ALES')" class="bg-blue-600 text-white font-bold px-6 py-3 rounded-xl hover:bg-slate-900 transition-colors text-sm">Randevu Al</button>
   </div>
-  <div class="w-full md:w-1/2 flex justify-center md:justify-start mt-8 md:mt-0 relative z-10">
-    <div class="media-container">
-      <video autoplay loop muted playsinline class="fox-webm">
-        <source src="assets/analiz_tilki.webm" type="video/webm">
-      </video>
-    </div>
+  <div class="w-full md:w-1/2 flex justify-center md:justify-start mt-8 md:mt-0" style="position:relative;z-index:3;">
+    <img src="assets/analiz_tilki.gif" alt="Akademik kariyer DGS KPSS ALES" class="w-56 h-56 object-contain" onerror="this.style.display='none';">
   </div>
 </div>
 
 <section id="sanal-tur" class="px-6 mb-20 max-w-3xl mx-auto">
   <div class="text-shield">
-    <button type="button" onclick="openTour()" class="w-full text-left bg-white border border-cyan-100 rounded-3xl flex flex-col md:flex-row items-center justify-between p-7 hover:shadow-xl transition-shadow">
+    <button onclick="openTour()" class="w-full text-left bg-white border border-cyan-100 rounded-3xl flex flex-col md:flex-row items-center justify-between p-7 hover:shadow-xl transition-shadow">
       <div>
         <h3 class="text-xl font-extrabold text-slate-900 mb-1">360° Sanal Sınıf Turu</h3>
-        <p class="text-slate-500 text-sm">Sınıflarımızı ve etüt alanlarımızı doğrudan inceleyin.</p>
+        <p class="text-slate-500 text-sm">Sınıflarımızı evinizden dilediğiniz gibi inceleyin.</p>
       </div>
       <span class="mt-4 md:mt-0 bg-cyan-500 text-white font-bold px-6 py-3 rounded-xl text-sm">Turu Başlat ▶</span>
     </button>
@@ -398,7 +428,7 @@ main{padding-top:140px;}
     </div>
     <div class="bg-white border border-slate-100 rounded-3xl p-7 text-center shadow-lg">
       <h3 class="text-lg font-extrabold text-slate-900 mb-2">WhatsApp Hattı</h3>
-      <p class="text-slate-500 text-xs mb-5">Mesaj yazarak bilgi alın.</p>
+      <p class="text-slate-500 text-xs mb-5">Mesaj yazarak iletişime geçin.</p>
       <a href="https://wa.me/905000000001" target="_blank" rel="noopener" class="inline-block bg-green-500 text-white font-bold px-5 py-3 rounded-xl hover:bg-green-600 transition-colors w-full text-sm">💬 WhatsApp'tan Yazın</a>
     </div>
     <div class="bg-white border border-slate-100 rounded-3xl p-7 text-center shadow-lg">
@@ -416,28 +446,28 @@ main{padding-top:140px;}
   <p>© 2026 <span class="text-cyan-600 font-bold">Referans Eğitim Kurumları</span>. Tüm hakları saklıdır.</p>
 </footer>
 
-<div id="tourOverlay" class="tour-overlay" onclick="if(event.target===this)closeTour()">
+<div id="tourOverlay" class="tour-overlay">
   <div class="bg-white w-full max-w-5xl h-[82vh] rounded-3xl overflow-hidden flex flex-col shadow-2xl">
     <div class="p-4 border-b flex justify-between items-center">
-      <span class="font-extrabold text-slate-900">Battalgazi Şubesi 360° Sanal Tur</span>
+      <span class="font-extrabold text-slate-900">Battalgazi 360° Tur</span>
       <button onclick="closeTour()" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-red-100 hover:text-red-500 font-bold" aria-label="Kapat">✕</button>
     </div>
     <div class="flex-1 flex items-center justify-center bg-slate-50 text-slate-400 font-bold text-sm px-6 text-center">
-      360° tur bağlantısı buraya eklenecektir.
+      360° tur bağlantınız hazır olduğunda buraya iframe olarak eklenecek.
     </div>
   </div>
 </div>
 
 <div id="apptOverlay" class="modal-overlay" onclick="if(event.target===this)closeModal()">
   <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="apptTitle">
-    <button type="button" onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-red-500 font-bold text-2xl" aria-label="Kapat">✕</button>
+    <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-red-500 font-bold text-2xl" aria-label="Kapat">✕</button>
     <h3 id="apptTitle" class="text-2xl font-extrabold text-slate-900 mb-1">Randevu Al</h3>
-    <p class="text-xs text-slate-500 mb-5">Görüşme ve kayıt detayları için formu doldurun.</p>
+    <p class="text-xs text-slate-500 mb-5">Kurum ziyareti için bilgilerinizi girin.</p>
 
     <div id="errBanner" class="err-banner"><span>❌</span><span id="errText"></span></div>
 
-    <form id="apptForm" class="space-y-4" onsubmit="event.preventDefault(); submitAppt(event);">
-      <input type="text" id="botTrap" name="user_verification_field" class="bot-guard" tabindex="-1" autocomplete="off">
+    <form id="apptForm" class="space-y-4" onsubmit="return false;">
+      <input type="text" id="botTrap" name="website" class="bot-field" tabindex="-1" autocomplete="off">
 
       <div class="grid grid-cols-2 gap-3">
         <input type="text" id="fIsim" placeholder="Ad Soyad" maxlength="50" class="w-full border border-slate-200 p-3 rounded-lg text-sm focus:border-cyan-500">
@@ -477,7 +507,7 @@ main{padding-top:140px;}
         </select>
       </div>
 
-      <button type="submit" id="btnSubmitAppt" class="w-full font-extrabold py-4 rounded-xl text-sm bg-cyan-500 text-white hover:bg-cyan-600 transition-colors">Onayla ve Randevu Al</button>
+      <button type="button" onclick="submitAppt()" class="w-full font-extrabold py-4 rounded-xl text-sm bg-cyan-500 text-white hover:bg-cyan-600 transition-colors">Onayla ve Randevu Al</button>
     </form>
   </div>
 </div>
@@ -485,7 +515,6 @@ main{padding-top:140px;}
 <script>
 const WEB_APP_URL = "PASTE_YOUR_OWN_GOOGLE_APPS_SCRIPT_URL_HERE";
 
-/* ========= scroll progress ========= */
 function updateProgress(){
   const h = document.documentElement;
   const total = h.scrollHeight - h.clientHeight;
@@ -496,16 +525,30 @@ window.addEventListener('scroll', updateProgress, {passive:true});
 window.addEventListener('resize', updateProgress);
 document.addEventListener('DOMContentLoaded', updateProgress);
 
-/* ========= mobile drawer ========= */
+document.querySelectorAll('.mega-item').forEach(item=>{
+  const panel = item.querySelector('.mega-panel');
+  function place(){
+    const bar = document.querySelector('.mega-bar').getBoundingClientRect();
+    const rect = item.getBoundingClientRect();
+    panel.style.top = (bar.bottom + 8) + 'px';
+    const w = panel.offsetWidth;
+    let left = rect.left + rect.width/2 - w/2;
+    left = Math.max(12, Math.min(left, window.innerWidth - w - 12));
+    panel.style.left = left + 'px';
+  }
+  item.addEventListener('mouseenter', place);
+  item.addEventListener('focusin', place);
+});
+
 function toggleDrawer(){ document.getElementById('mobileDrawer').classList.toggle('open'); }
 function closeDrawer(){ document.getElementById('mobileDrawer').classList.remove('open'); }
 
-/* ========= COUNTER ========= */
 const EXAMS = {
   LGS:  {label:'LGS',  date:'2027-06-06T10:15:00', color:'#06b6d4', bg:'var(--cyan-bg)',   ring:'var(--cyan-ring)'},
   YKS:  {label:'YKS',  date:'2027-06-19T10:15:00', color:'#2563eb', bg:'var(--blue-bg)',   ring:'var(--blue-ring)'},
   KPSS: {label:'KPSS', date:'2027-07-04T10:15:00', color:'#7c3aed', bg:'var(--violet-bg)', ring:'var(--violet-ring)'}
 };
+
 const ORDER = ['LGS','YKS','KPSS'];
 let cycleIdx = 0, activeKey = 'LGS', locked = false, switching = false, cycleTimer, tickTimer;
 
@@ -518,16 +561,16 @@ function pulseIfChanged(id, val, examColor){
     prevVals[key] = val;
     el.style.color = '#ef4444';
     el.classList.remove('tick-pulse'); void el.offsetWidth; el.classList.add('tick-pulse');
-    setTimeout(()=>{ el.style.color = examColor; }, 700);
+    setTimeout(()=>{ el.style.color = examColor; }, 780);
   }
 }
 function updateNumbers(key){
   const e = EXAMS[key];
-  const diff = new Date(e.date) - new Date();
-  const d = Math.max(0, Math.floor(diff/86400000));
-  const h = Math.max(0, Math.floor((diff%86400000)/3600000));
-  const m = Math.max(0, Math.floor((diff%3600000)/60000));
-  const s = Math.max(0, Math.floor((diff%60000)/1000));
+  const diff = Math.max(0, new Date(e.date) - new Date());
+  const d = Math.floor(diff/86400000);
+  const h = Math.floor((diff%86400000)/3600000);
+  const m = Math.floor((diff%3600000)/60000);
+  const s = Math.floor((diff%60000)/1000);
   pulseIfChanged('c-gun', d, e.color);
   pulseIfChanged('c-saat', h, e.color);
   pulseIfChanged('c-dak', m, e.color);
@@ -547,6 +590,7 @@ function highlight(key){
     else { b.style.background='#fff'; b.style.color='#64748b'; b.style.borderColor='#e2e8f0'; }
   });
 }
+
 function switchExam(key){
   switching = true;
   const wrap = document.getElementById('counterFade');
@@ -558,22 +602,28 @@ function switchExam(key){
     applyColors(key);
     wrap.style.opacity = '1';
     switching = false;
-  }, 240);
+  }, 380);
 }
+
 function startCycle(){
+  // ÇİFT ZAMANLAYICI HATASINI ÖNLEME
   clearInterval(cycleTimer);
+  
   updateNumbers(activeKey); applyColors(activeKey);
   document.getElementById('counterTitle').textContent = EXAMS[activeKey].label + ' yaklaşıyor';
   highlight(activeKey);
+  
   cycleTimer = setInterval(()=>{
     if(locked) return;
     cycleIdx = (cycleIdx+1)%ORDER.length;
     activeKey = ORDER[cycleIdx];
     switchExam(activeKey); highlight(activeKey);
-  }, 3200);
-}
-if(!tickTimer){
-  tickTimer = setInterval(()=>{ if(!switching) updateNumbers(activeKey); }, 1000);
+  }, 3000);
+
+  // Saniye atlamasını ve 2 saniye geriye gitmesini engellemek için tickTimer sadece bir kere oluşturulur.
+  if(!tickTimer){
+    tickTimer = setInterval(()=>{ if(!switching) updateNumbers(activeKey); }, 1000);
+  }
 }
 
 function lockExam(key){
@@ -581,29 +631,26 @@ function lockExam(key){
   locked = true; 
   clearInterval(cycleTimer);
   activeKey = key;
-  switchExam(key); 
-  highlight(key);
-
+  switchExam(key); highlight(key);
+  
   ORDER.forEach(k=>{
     const b = document.getElementById('btn-'+k);
-    if(k !== key) {
-      b.classList.add('btn-gone');
-    } else {
-      b.style.pointerEvents = 'none';
-    }
+    if(k!==key) b.classList.add('btn-gone'); else b.style.pointerEvents='none';
   });
-
+  
   document.getElementById('counterCard').classList.add('grown');
-  document.getElementById('counterBackBtn').classList.add('show');
-
+  document.getElementById('counterBackBtn').style.display = 'flex';
+  
   setTimeout(()=>{
     const sub = document.getElementById('sub-'+key);
     if(sub) sub.classList.add('open');
-  }, 250);
+  }, 650);
 }
 
-function unlockExamSelection(){
+function unlockExam(){
   locked = false;
+  document.getElementById('counterBackBtn').style.display = 'none';
+  
   ORDER.forEach(k=>{
     const b = document.getElementById('btn-'+k);
     b.classList.remove('btn-gone');
@@ -611,9 +658,8 @@ function unlockExamSelection(){
     const sub = document.getElementById('sub-'+k);
     if(sub) sub.classList.remove('open');
   });
-
+  
   document.getElementById('counterCard').classList.remove('grown');
-  document.getElementById('counterBackBtn').classList.remove('show');
   startCycle();
 }
 
@@ -622,15 +668,10 @@ fetch(WEB_APP_URL + (WEB_APP_URL.includes('?')?'&':'?') + 'islem=sinavTarihleri'
   .then(d=>{ if(d&&d.LGS){EXAMS.LGS.date=d.LGS;EXAMS.YKS.date=d.YKS;EXAMS.KPSS.date=d.KPSS;} startCycle(); })
   .catch(()=>startCycle());
 
-/* ========= appointment modal (Scale Animasyonlu) ========= */
 function openModal(presetSinif){
   document.getElementById('errBanner').style.display='none';
   const sel = document.getElementById('fSinif');
-  if(presetSinif){ 
-    sel.value = presetSinif; 
-  } else { 
-    sel.selectedIndex = 0; 
-  }
+  if(presetSinif){ sel.value = presetSinif; } else { sel.selectedIndex = 0; }
   const overlay = document.getElementById('apptOverlay');
   overlay.style.display = 'flex';
   requestAnimationFrame(()=>overlay.classList.add('show'));
@@ -640,14 +681,10 @@ function openModal(presetSinif){
 function closeModal(){
   const overlay = document.getElementById('apptOverlay');
   overlay.classList.remove('show');
-  setTimeout(()=>{ overlay.style.display='none'; }, 300);
+  setTimeout(()=>{ overlay.style.display='none'; }, 500);
 }
-function openTour(){ 
-  document.getElementById('tourOverlay').classList.add('show'); 
-}
-function closeTour(){ 
-  document.getElementById('tourOverlay').classList.remove('show'); 
-}
+function openTour(){ document.getElementById('tourOverlay').classList.add('show'); }
+function closeTour(){ document.getElementById('tourOverlay').classList.remove('show'); }
 
 const fTarih = document.getElementById('fTarih');
 const today = new Date();
@@ -687,26 +724,24 @@ fTarih.addEventListener('change', function(){
 
 function findNearestDate(){
   const btn = document.getElementById('autoDateBtn');
-  if(WEB_APP_URL.startsWith('PASTE_')){ alert('Kendi Google Apps Script adresinizi eklediğinizde çalışacaktır.'); return; }
+  if(WEB_APP_URL.startsWith('PASTE_')){ alert('Bu özellik kendi Google Apps Script adresinizi bağladığınızda çalışacak.'); return; }
   const original = btn.innerHTML; btn.innerHTML='Aranıyor...'; btn.style.pointerEvents='none';
   fetch(WEB_APP_URL+'?islem=enYakinTarih').then(r=>r.json()).then(d=>{
     if(d&&d.tarih){ fTarih.value=d.tarih; fTarih.dispatchEvent(new Event('change')); btn.innerHTML='Bulundu'; }
     else { alert('Uygun tarih bulunamadı.'); btn.innerHTML=original; }
-    setTimeout(()=>{ btn.innerHTML=original; btn.style.pointerEvents='auto'; }, 2000);
+    setTimeout(()=>{ btn.innerHTML=original; btn.style.pointerEvents='auto'; }, 2200);
   }).catch(()=>{ btn.innerHTML=original; btn.style.pointerEvents='auto'; });
 }
-
 function selectNearestTime(){
   const saat = document.getElementById('fSaat');
   if(!fTarih.value){ alert('Önce bir tarih seçin.'); return; }
   for(let i=1;i<saat.options.length;i++){
     if(!saat.options[i].disabled){ saat.selectedIndex=i; return; }
   }
-  alert('Seçili tarihte boş saat kalmadı.');
+  alert('Seçili tarihte boş saat bulunamadı.');
 }
 
-function submitAppt(e){
-  if(e && e.preventDefault) e.preventDefault();
+function submitAppt(){
   if(document.getElementById('botTrap').value !== '') return;
 
   const isim = document.getElementById('fIsim').value.trim();
@@ -721,16 +756,16 @@ function submitAppt(e){
 
   function showErr(msg){ errText.textContent = msg; err.style.display='flex'; }
 
-  if(!/^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]{3,50}$/.test(isim)) return showErr('Lütfen geçerli bir ad soyad girin.');
-  if(!/^05[0-9]{9}$/.test(telefon)) return showErr('Geçerli bir telefon numarası girin (05XXXXXXXXX).');
-  if(!sinif || !tarih || !saat) return showErr('Lütfen tüm alanları eksiksiz seçin.');
+  if(!/^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]{3,50}$/.test(isim)) return showErr('Lütfen geçerli bir ad soyad girin (yalnızca harf, en az 3 karakter).');
+  if(!/^05[0-9]{9}$/.test(telefon)) return showErr('Geçerli bir telefon numarası girin (05XXXXXXXXX, 11 hane).');
+  if(!sinif || !tarih || !saat) return showErr('Lütfen tüm alanları doldurun.');
 
   if(WEB_APP_URL.startsWith('PASTE_')){
-    showErr("Google Apps Script adresinizi (WEB_APP_URL) henüz eklemediniz.");
+    showErr("Randevu backend'i henüz bağlı değil: WEB_APP_URL yer tutucu durumda. Kendi Google Apps Script adresinizi ekleyin.");
     return;
   }
 
-  const btn = document.getElementById('btnSubmitAppt');
+  const btn = event.target;
   const original = btn.textContent;
   btn.textContent = 'Gönderiliyor...'; btn.disabled = true;
 
@@ -739,17 +774,26 @@ function submitAppt(e){
     body: JSON.stringify({isim, telefon, hizmet: sinif+' - '+hizmet, tarih, saat})
   }).then(r=>r.json()).then(res=>{
     btn.textContent = original; btn.disabled = false;
-    if(res.durum==='hata'){ showErr(res.mesaj+' Farklı bir saat seçin.'); fTarih.dispatchEvent(new Event('change')); return; }
+    if(res.durum==='hata'){ showErr(res.mesaj+' Lütfen farklı bir saat seçin.'); fTarih.dispatchEvent(new Event('change')); return; }
     closeModal();
     const toast = document.getElementById('toast');
     toast.classList.add('show');
-    setTimeout(()=>toast.classList.remove('show'), 6000);
+    setTimeout(()=>toast.classList.remove('show'), 7000);
     document.getElementById('apptForm').reset();
   }).catch(()=>{
     btn.textContent = original; btn.disabled = false;
-    showErr('Bağlantı kurulamadı. İnternetinizi kontrol edip tekrar deneyin.');
+    showErr('Sunucuya ulaşılamadı. İnternet bağlantınızı kontrol edip tekrar deneyin.');
   });
 }
+
+document.addEventListener('contextmenu', e=>e.preventDefault());
+document.addEventListener('dragstart', e=>e.preventDefault());
+document.addEventListener('keydown', e=>{
+  const k = e.key ? e.key.toUpperCase() : '';
+  if(k==='F12' || (e.ctrlKey&&e.shiftKey&&['I','J','C'].includes(k)) || (e.ctrlKey&&k==='U')) e.preventDefault();
+});
+document.addEventListener('copy', e=>{ if(['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)) return; e.preventDefault(); });
+try{ if(window.top!==window.self) window.top.location.href = window.self.location.href; }catch(e){}
 </script>
 </body>
 </html>
