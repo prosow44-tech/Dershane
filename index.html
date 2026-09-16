@@ -1,5 +1,4 @@
-# HTML dosyasini olusturan Python scripti
-html_icerigi = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
@@ -108,7 +107,7 @@ section, [id^="sinif-"], #mezun, #akademik { scroll-margin-top: 180px; }
 .hero-h1{font-weight:800;letter-spacing:-.01em;font-size:clamp(2.4rem,7vw,5.2rem);line-height:1.05;min-height:2.3em;display:flex;flex-direction:column;align-items:center;}
 .hero-line{opacity:0;transform:translateY(-40px);display:block;}
 .drop-1{animation:dropAnim 0.6s cubic-bezier(0.25,1.4,0.4,1) forwards 0.2s;}
-.drop-2{animation:dropAnim 0.6s cubic-bezier(0.25,1.4,0.4,1) forwards 1s;}
+.drop-2{animation:dropAnim 0.6s cubic-bezier(0.25,1.4,0.4,1) forwards 1.0s;}
 @keyframes dropAnim { to { opacity:1; transform:translateY(0); } }
 
 /* ---------- counter ---------- */
@@ -263,10 +262,10 @@ section, [id^="sinif-"], #mezun, #akademik { scroll-margin-top: 180px; }
   </div>
 
   <h1 class="hero-h1 mx-auto max-w-4xl flex flex-col items-center">
-    <span class="hero-line drop-1 text-shield text-slate-900 mb-2">
+    <span class="hero-line hero-line-1 text-shield text-slate-900 mb-2">
       Geleceği Tasarlamaya
     </span>
-    <span class="hero-line drop-2 text-shield text-cyan-500">
+    <span class="hero-line hero-line-2 text-shield text-cyan-500">
       Hazır Mısınız?
     </span>
   </h1>
@@ -531,7 +530,21 @@ document.querySelectorAll('.mega-item').forEach(item=>{
 function toggleDrawer(){ document.getElementById('mobileDrawer').classList.toggle('open'); }
 function closeDrawer(){ document.getElementById('mobileDrawer').classList.remove('open'); }
 
-/* ========= COUNTER LOGIC ========= */
+/* ========= HERO drop animation ========= */
+function runHeroIntro(){
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) {
+    document.querySelector('.hero-line-1').classList.add('drop-1');
+    document.querySelector('.hero-line-2').classList.add('drop-2');
+    return;
+  }
+  document.querySelector('.hero-line-1').classList.add('drop-1');
+  document.querySelector('.hero-line-2').classList.add('drop-2');
+}
+if(document.readyState==='complete') runHeroIntro();
+else window.addEventListener('load', runHeroIntro);
+
+/* ========= COUNTER LOGIC (Pürüzsüz & Sadece Saniye Atımlı) ========= */
 const EXAMS = {
   LGS:  {label:'LGS',  date:'2027-06-06T10:15:00', color:'#06b6d4', bg:'var(--cyan-bg)',  ring:'var(--cyan-ring)'},
   YKS:  {label:'YKS',  date:'2027-06-19T10:15:00', color:'#2563eb', bg:'var(--blue-bg)',  ring:'var(--blue-ring)'},
@@ -619,6 +632,7 @@ function lockExam(key){
   clearInterval(cycleTimer);
   activeKey = key;
 
+  // Seçilmeyen butonları yobaz gibi pat diye değil, pürüzsüzce siler
   ORDER.forEach(k=>{
     const b = document.getElementById('btn-'+k);
     if(k!==key) b.classList.add('btn-gone'); 
@@ -628,6 +642,7 @@ function lockExam(key){
   switchExam(key); 
   highlight(key);
   
+  // Kutuyu büyüt, butonlar kaybolurken alt menüyü smooth aç
   document.getElementById('counterCard').classList.add('grown');
   setTimeout(()=>{
     const sub = document.getElementById('sub-'+key);
@@ -771,8 +786,3 @@ try{ if(window.top!==window.self) window.top.location.href = window.self.locatio
 </script>
 </body>
 </html>
-"""
-
-# Dosyayi yazdir
-with open("index.html", "w", encoding="utf-8") as f:
-    f.write(html_icerigi)
