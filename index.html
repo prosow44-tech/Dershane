@@ -22,10 +22,7 @@
   2) Telefon / WhatsApp numaraları örnektir, gerçek numaralarınızla değiştirin.
   3) assets/ klasöründeki tüm .webm ve logo.png dosyaları henüz yüklü değil;
      kendi dosyalarınızı aynı isimlerle assets/ klasörüne koyun.
-  4) Hero (giriş) bölümündeki assets/hero_tilki.webm, senin hazırlayacağını
-     söylediğin görsel için ayrılmış yer tutucudur — dosya adını istediğin
-     gibi değiştirebilirsin.
-  5) Sınav tarihleri (LGS/YKS/KPSS) resmi takvim açıklanana kadar tahminidir;
+  4) Sınav tarihleri (LGS/YKS/KPSS) resmi takvim açıklanana kadar tahminidir;
      kod önce kendi backend'inizden gerçek tarihi çekmeyi dener.
 -->
 
@@ -65,7 +62,7 @@ html{scroll-behavior:smooth;}
 body{margin:0;font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:#fff;overflow-x:hidden;
   -webkit-user-select:none;user-select:none;}
 input,select,textarea{user-select:text;}
-img,video{-webkit-user-drag:none;user-drag:none;}
+img,video{-webkit-user-drag:none;user-drag:none; outline:none; border:none;}
 :focus-visible{outline:2px solid var(--cyan);outline-offset:2px;}
 ::-webkit-scrollbar{width:8px;}
 ::-webkit-scrollbar-track{background:#fff;}
@@ -75,40 +72,22 @@ img,video{-webkit-user-drag:none;user-drag:none;}
 .progress-track{position:fixed;top:0;left:0;width:100%;height:3px;z-index:920;background:rgba(15,23,42,.05);}
 .progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--cyan),var(--blue));box-shadow:0 0 8px rgba(6,182,212,.6);}
 
-/* ---------- center spine + straight branch lines ---------- */
+/* ---------- center spine + straight 90-degree branch lines ---------- */
 .spine-zone{position:relative;}
 .center-spine{position:absolute;top:0;left:50%;width:2px;height:100%;transform:translateX(-50%);z-index:-10;pointer-events:none;
-  background:linear-gradient(to bottom,
-    rgba(6,182,212,0) 0%, rgba(6,182,212,.22) 6%, rgba(37,99,235,.55) 35%,
-    rgba(37,99,235,.6) 65%, rgba(6,182,212,.22) 94%, rgba(6,182,212,0) 100%);}
+  background:linear-gradient(to bottom, rgba(6,182,212,0) 0%, rgba(37,99,235,.5) 10%, rgba(37,99,235,.5) 90%, rgba(6,182,212,0) 100%);}
 .text-shield{background:#fff;position:relative;z-index:2;}
-.branch-line{position:absolute;top:50%;height:2px;width:18%;z-index:-5;pointer-events:none;transform:translateY(-50%);}
-.branch-line.r{left:50%;background:linear-gradient(to right, rgba(37,99,235,.55), rgba(6,182,212,0));}
-.branch-line.l{right:50%;background:linear-gradient(to left, rgba(37,99,235,.55), rgba(6,182,212,0));}
+.branch-line{position:absolute;top:50%;height:2px;width:20vw;z-index:-10;pointer-events:none;transform:translateY(-50%);}
+.branch-line.r{left:50%;background:linear-gradient(to right, rgba(37,99,235,.5), rgba(6,182,212,0));}
+.branch-line.l{right:50%;background:linear-gradient(to left, rgba(37,99,235,.5), rgba(6,182,212,0));}
 
-/* ---------- mega bar (desktop) — simple, no hover panels ---------- */
+/* ---------- mega bar (desktop) ---------- */
 .mega-bar{position:fixed;top:0;left:0;width:100%;background:#fff;border-bottom:1px solid #f1f5f9;z-index:500;}
 .mega-row{display:flex;justify-content:center;align-items:flex-start;gap:clamp(1.5rem,4vw,4rem);padding:.55rem 1rem .7rem;}
 .mega-link{display:block;text-align:center;text-decoration:none;padding:.5rem;}
 .mega-main{display:block;font-weight:800;font-size:.92rem;color:#1e293b;letter-spacing:.02em;}
 .mega-link:hover .mega-main{color:var(--cyan);}
-.mega-sub{display:block;font-size:.63rem;font-weight:700;color:#0891b2;letter-spacing:.06em;margin-top:2px;
-  text-shadow:0 0 10px rgba(6,182,212,.4);}
-
-/* ---------- mobile drawer ---------- */
-.mobile-toggle{display:none;}
-.mobile-drawer{position:fixed;top:0;left:0;width:100%;background:#fff;z-index:490;
-  transform:translateY(-100%);transition:transform .35s cubic-bezier(.22,1,.36,1);
-  box-shadow:0 20px 40px rgba(15,23,42,.12);padding:5.5rem 1.5rem 2rem;}
-.mobile-drawer.open{transform:translateY(0);}
-.mobile-drawer a,.mobile-drawer button{display:block;width:100%;text-align:left;padding:.75rem 0;font-weight:700;
-  color:#1e293b;text-decoration:none;border-bottom:1px solid #f1f5f9;background:none;border-left:0;border-right:0;border-top:0;font-family:inherit;font-size:1rem;}
-.mobile-drawer small{display:block;color:#0891b2;font-weight:700;font-size:.7rem;margin-top:2px;}
-.drawer-label{display:block;color:#94a3b8;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin:1rem 0 .25rem;}
-@media (max-width:767px){
-  .mega-bar{display:none;}
-  .mobile-toggle{display:flex;}
-}
+.mega-sub{display:block;font-size:.63rem;font-weight:700;color:#0891b2;letter-spacing:.06em;margin-top:2px;}
 
 /* ---------- floating pill nav ---------- */
 .pill-nav{position:fixed;left:50%;top:68px;transform:translateX(-50%);width:min(96vw,1040px);height:var(--pill-h);
@@ -122,15 +101,21 @@ img,video{-webkit-user-drag:none;user-drag:none;}
 .pill-link:hover{color:var(--cyan);}
 .pill-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);width:76px;height:76px;border-radius:50%;
   background:#fff;border:3px solid var(--cyan);display:flex;align-items:center;justify-content:center;
-  box-shadow:0 10px 22px rgba(6,182,212,.28);overflow:hidden;font-weight:800;color:var(--cyan);font-size:1.4rem;}
+  box-shadow:0 10px 22px rgba(6,182,212,.28);overflow:hidden;font-weight:800;color:var(--cyan);font-size:1.4rem; cursor:pointer;}
 .pill-logo img{width:100%;height:100%;object-fit:cover;}
 .cta-pill{background:var(--cyan);color:#fff;font-weight:800;font-size:.76rem;letter-spacing:.02em;padding:.6rem 1.05rem;
-  border-radius:999px;border:none;cursor:pointer;white-space:nowrap;box-shadow:0 10px 20px rgba(6,182,212,.3);display:inline-flex;align-items:center;gap:6px;}
-.cta-pill:hover{background:#0891b2;}
-.mini-icon{width:18px;height:18px;border-radius:50%;object-fit:cover;flex-shrink:0;}
-.hamburger{width:38px;height:38px;border-radius:50%;border:1px solid #e2e8f0;background:#fff;display:flex;
-  align-items:center;justify-content:center;flex-direction:column;gap:4px;cursor:pointer;flex-shrink:0;}
-.hamburger span{width:16px;height:2px;background:#1e293b;border-radius:2px;}
+  border-radius:999px;border:none;cursor:pointer;white-space:nowrap;box-shadow:0 10px 20px rgba(6,182,212,.3);display:inline-flex;align-items:center;gap:6px;
+  will-change: transform; transform: translateZ(0); transition: background 0.3s, transform 0.3s;}
+.cta-pill:hover{background:#0891b2; transform: scale(1.03) translateZ(0);}
+.mini-icon{width:18px;height:18px;object-fit:cover;flex-shrink:0;background:transparent;}
+
+/* ---------- mobile bottom nav ---------- */
+.mobile-bottom-nav{display:none;position:fixed;bottom:0;left:0;width:100%;background:#fff;border-top:1px solid #f1f5f9;box-shadow:0 -4px 20px rgba(0,0,0,0.05);z-index:490;padding-bottom:env(safe-area-inset-bottom);}
+.mobile-nav-grid{display:grid;grid-template-columns:repeat(4,1fr);height:60px;}
+.mob-link{display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;color:#64748b;font-size:0.65rem;font-weight:800;text-transform:uppercase;transition:color 0.2s;}
+.mob-link svg{width:22px;height:22px;margin-bottom:3px;}
+.mob-link:hover{color:var(--cyan);}
+@media (max-width:767px){ .mega-bar{display:none;} .mobile-bottom-nav{display:block;} body{padding-bottom:70px;} }
 
 /* ---------- main spacing ---------- */
 main{padding-top:186px;}
@@ -139,12 +124,16 @@ section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
 @media (max-width:767px){section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:92px;}}
 
 /* ---------- hero ---------- */
-.hero-media{width:180px;height:180px;margin:0 auto;position:relative;z-index:3;}
-.hero-media video{width:100%;height:100%;object-fit:contain;}
+.hero-media{width:100%;max-width:800px;margin:0 auto;position:relative;z-index:3;}
+.hero-media video{width:100%;height:auto;object-fit:contain;background:transparent;}
 
-/* ---------- feature cards ---------- */
-.feat-card svg{width:26px;height:26px;color:var(--cyan);}
-.feat-card video{width:40px;height:40px;object-fit:contain;margin:0 auto .5rem;display:block;}
+/* ---------- feature cards (4-lü Görsel Referanslı) ---------- */
+.features-container { display: flex; flex-direction: column; md:flex-row; justify-content: center; align-items: stretch; background: #fff; padding: 2rem 1rem; border-radius: 1rem; position: relative; z-index: 2; gap: 2rem; }
+@media(min-width: 768px){ .features-container { flex-direction: row; gap: 0; padding: 3rem; } }
+.feat-card { flex: 1; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0 1.5rem; }
+.feat-card svg { width: 28px; height: 28px; color: var(--cyan); margin-bottom: 0.5rem; }
+.feat-divider { display: none; width: 2px; background: rgba(37,99,235,.5); }
+@media(min-width: 768px){ .feat-divider { display: block; } }
 
 /* ---------- counter ---------- */
 .ring{width:78px;height:78px;border-radius:50%;border:3px solid #e2e8f0;display:flex;flex-direction:column;
@@ -153,33 +142,38 @@ section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
 .ring b{font-size:1.7rem;font-weight:800;line-height:1;color:#94a3b8;transition:color .3s ease;}
 @media (min-width:768px){.ring b{font-size:2.1rem;}}
 .ring span{font-size:.6rem;font-weight:800;letter-spacing:.05em;color:#94a3b8;text-transform:uppercase;margin-top:3px;}
-#c-san{color:#ef4444;}
-@keyframes tickPulse{0%{opacity:1;transform:scale(1.1);}55%{opacity:.4;transform:scale(.92);}100%{opacity:1;transform:scale(1);}}
-.tick-pulse{animation:tickPulse .82s ease-out;}
+
+@keyframes pulseShadowOnly{
+  0%, 100%{color:#ef4444;text-shadow:0 0 0px rgba(239,68,68,0);}
+  50%{color:#ef4444;text-shadow:0 0 15px rgba(239,68,68,0.8);}
+}
+.tick-pulse{animation:pulseShadowOnly 1s infinite;}
 #counterFade{transition:opacity .38s ease;}
-.exam-btn{transition:max-height .9s cubic-bezier(.4,0,.2,1),opacity .9s cubic-bezier(.4,0,.2,1),
-  margin .9s cubic-bezier(.4,0,.2,1),padding .9s cubic-bezier(.4,0,.2,1),border-width .9s cubic-bezier(.4,0,.2,1);
-  max-height:80px;overflow:hidden;}
-.exam-btn.btn-gone{max-height:0;opacity:0;padding-top:0;padding-bottom:0;margin:0;border-width:0;}
-.sub-row{max-height:0;opacity:0;overflow:hidden;transition:max-height 1s cubic-bezier(.2,.8,.3,1),opacity 1s ease,margin-top 1s ease;
+.exam-btn{transition:opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease; opacity: 1; max-height: 80px; overflow:hidden;}
+.exam-btn.btn-gone{opacity:0; max-height:0; margin:0; padding:0; border:none; pointer-events:none;}
+.sub-row{max-height:0;opacity:0;overflow:hidden;transition:max-height 0.6s ease,opacity 0.6s ease,margin-top 0.6s ease;
   display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;}
 .sub-row.open{max-height:120px;opacity:1;margin-top:1.1rem;}
 .sub-pill{background:#f1f5f9;color:#475569;padding:.4rem 1rem;border-radius:999px;font-size:.78rem;font-weight:700;border:1px solid #e2e8f0;}
-.counter-card{position:relative;transition:box-shadow 1s ease,transform 1s ease;}
-.counter-card.grown{transform:scale(1.015);box-shadow:0 35px 70px rgba(6,182,212,.16);}
+.counter-card{position:relative;background:#fff;border-radius:2.5rem;padding:3rem;}
 .back-btn{position:absolute;left:1.5rem;bottom:1.5rem;font-size:.75rem;font-weight:800;color:#94a3b8;
   background:none;border:none;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .4s ease;font-family:inherit;}
 .back-btn.show{opacity:1;pointer-events:auto;}
 .back-btn:hover{color:var(--cyan);}
 
-/* ---------- modal ---------- */
-.modal-overlay{position:fixed;inset:0;background:rgba(15,23,42,.55);backdrop-filter:blur(6px);z-index:1000;
-  display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .45s ease;padding:1rem;}
+/* ---------- modal (Scale Transition + Flank WebMs) ---------- */
+.modal-overlay{position:fixed;inset:0;background:rgba(15,23,42,.7);backdrop-filter:blur(6px);z-index:1000;
+  display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .4s ease;padding:1rem;}
 .modal-overlay.show{display:flex;opacity:1;}
 .modal-box{background:#fff;border-radius:1.75rem;padding:2.1rem;width:100%;max-width:470px;max-height:90vh;overflow-y:auto;
-  box-shadow:0 30px 70px rgba(0,0,0,.35);border:2px solid #cffafe;position:relative;
-  clip-path:circle(0% at 50% 50%);transition:clip-path .55s cubic-bezier(.22,1,.36,1);}
-.modal-overlay.show .modal-box{clip-path:circle(100% at 50% 50%);}
+  box-shadow:0 30px 70px rgba(0,0,0,.35);border:2px solid #cffafe;position:relative;z-index:1005;
+  transform:scale(0.5);transition:transform .4s cubic-bezier(0.175,0.885,0.32,1.275),opacity .4s ease;}
+.modal-overlay.show .modal-box{transform:scale(1);opacity:1;}
+
+.flank-video{position:absolute;top:50%;transform:translateY(-50%);width:300px;height:300px;object-fit:contain;pointer-events:none;z-index:1001;}
+.flank-left{left:10%;}
+.flank-right{right:10%;}
+
 .err-banner{background:rgba(239,68,68,.08);border:2px solid #ef4444;color:#dc2626;padding:.7rem .9rem;border-radius:12px;
   display:none;align-items:flex-start;gap:.6rem;font-weight:700;font-size:.85rem;line-height:1.4;margin-bottom:1rem;animation:shake .45s;}
 @keyframes shake{0%,100%{transform:translateX(0);}25%,75%{transform:translateX(-5px);}50%{transform:translateX(5px);}}
@@ -190,21 +184,19 @@ section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
 .auto-btn{background:#f1f5f9;color:#334155;border:1px solid #cbd5e1;padding:.35rem .7rem;border-radius:999px;
   font-size:.68rem;font-weight:800;cursor:pointer;}
 .auto-btn:hover{background:var(--cyan-bg);border-color:var(--cyan);color:#0891b2;}
-.bot-field{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
-.modal-fox{width:26px;height:26px;border-radius:50%;object-fit:cover;flex-shrink:0;}
 
 /* ---------- 360 modal ---------- */
 .tour-overlay{position:fixed;inset:0;background:rgba(15,23,42,.9);z-index:1000;display:none;align-items:center;
   justify-content:center;padding:1rem;}
 .tour-overlay.show{display:flex;}
 
-/* ---------- footer fox ---------- */
+/* ---------- footer ---------- */
 .footer-fox{width:44px;height:44px;object-fit:contain;margin:0 auto .5rem;display:block;opacity:.85;}
 </style>
 </head>
 <body>
 
-<div class="spine-zone" id="spine-zone" style="position:relative;">
+<div class="spine-zone" id="spine-zone">
 <div class="center-spine"></div>
 
 <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
@@ -217,7 +209,7 @@ section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
   </div>
 </div>
 
-<!-- ================= MEGA BAR (desktop, simplified — no hover panels) ================= -->
+<!-- ================= MEGA BAR (desktop) ================= -->
 <nav class="mega-bar" aria-label="Ana kategoriler">
   <div class="mega-row">
     <a href="#sinif-5-8" class="mega-link"><span class="mega-main">5-8. SINIF</span><span class="mega-sub">LGS</span></a>
@@ -227,34 +219,15 @@ section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
   </div>
 </nav>
 
-<!-- ================= MOBILE DRAWER ================= -->
-<div class="mobile-drawer" id="mobileDrawer">
-  <span class="drawer-label">Sınıf Seçin</span>
-  <a href="#sinif-5-8" onclick="closeDrawer()">5-8. Sınıf <small>LGS</small></a>
-  <a href="#sinif-9-12" onclick="closeDrawer()">9-12. Sınıf <small>TYT - AYT</small></a>
-  <a href="#mezun" onclick="closeDrawer()">Mezun <small>YKS</small></a>
-  <a href="#akademik" onclick="closeDrawer()">DGS / KPSS / ALES</a>
-  <span class="drawer-label">Hızlı Menü</span>
-  <a href="#anasayfa" onclick="closeDrawer()">Anasayfa</a>
-  <a href="#hakkimizda" onclick="closeDrawer()">Hakkımızda</a>
-  <button onclick="closeDrawer();openTour()">360° Gezin</button>
-  <a href="https://www.google.com/maps/dir/?api=1&destination=B%C3%BCy%C3%BCk+H%C3%BCseyinbey%2C+Turfanda+Sk.%2C+44050+Battalgazi%2FMalatya" target="_blank" rel="noopener">Yol Tarifi</a>
-  <a href="tel:+905000000000">Bize Ulaşın (Ara)</a>
-  <button onclick="closeDrawer();openModal('')" style="color:var(--cyan);">Hızlı Randevu →</button>
-</div>
-
 <!-- ================= FLOATING PILL NAV ================= -->
 <nav class="pill-nav" aria-label="Hızlı gezinme">
   <div class="pill-side">
-    <button class="hamburger mobile-toggle" onclick="toggleDrawer()" aria-label="Menü" aria-controls="mobileDrawer">
-      <span></span><span></span><span></span>
-    </button>
     <a href="#anasayfa" class="pill-link hidden md:inline-flex">Anasayfa</a>
     <a href="#hakkimizda" class="pill-link hidden md:inline-flex">Hakkımızda</a>
     <button onclick="openTour()" class="pill-link hidden md:inline-flex">360° Gezin</button>
   </div>
 
-  <div class="pill-logo">
+  <div class="pill-logo" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
     <img src="assets/logo.png" alt="Referans Eğitim Kurumları logosu">
   </div>
 
@@ -262,42 +235,48 @@ section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
     <a href="https://www.google.com/maps/dir/?api=1&destination=B%C3%BCy%C3%BCk+H%C3%BCseyinbey%2C+Turfanda+Sk.%2C+44050+Battalgazi%2FMalatya" target="_blank" rel="noopener" class="pill-link hidden md:inline-flex">Yol Tarifi</a>
     <a href="tel:+905000000000" class="pill-link hidden md:inline-flex">Bize Ulaşın</a>
     <button class="cta-pill" onclick="openModal('')">
-      <video class="mini-icon" autoplay loop muted playsinline onerror="this.style.display='none'"><source src="assets/takvim_tilki.webm" type="video/webm"></video>
+      <video class="mini-icon" autoplay loop muted playsinline><source src="assets/takvim_tilki.webm" type="video/webm"></video>
       Hızlı Randevu
     </button>
   </div>
 </nav>
 
+<!-- ================= MOBILE BOTTOM NAV ================= -->
+<nav class="mobile-bottom-nav">
+  <div class="mobile-nav-grid">
+    <a href="#hakkimizda" class="mob-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+      Hakkımızda
+    </a>
+    <button onclick="openTour()" class="mob-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+      360° Tur
+    </button>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=B%C3%BCy%C3%BCk+H%C3%BCseyinbey%2C+Turfanda+Sk.%2C+44050+Battalgazi%2FMalatya" target="_blank" rel="noopener" class="mob-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+      Konum
+    </a>
+    <a href="tel:+905000000000" class="mob-link text-green-500">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      Arama
+    </a>
+  </div>
+</nav>
+
 <main>
 
-<!-- ================= HERO (basitleştirildi — kendi görselini sen ekleyeceksin) ================= -->
+<!-- ================= HERO (Sade WebM Alanı) ================= -->
 <section id="anasayfa" class="text-center px-6 pb-16">
-  <div class="text-shield inline-block mb-4">
-    <span class="inline-block bg-white text-cyan-600 font-bold px-6 py-2 rounded-full text-xs uppercase tracking-widest border border-cyan-200">
-      Malatya'nın Deneyimli Eğitim Kadrosu
-    </span>
-  </div>
-
-  <div class="text-shield max-w-2xl mx-auto mb-6">
-    <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight">Çocuğunuzun Geleceği İçin Doğru Adres</h1>
-    <p class="text-cyan-500 font-extrabold text-xl md:text-2xl mt-3">Hemen Arayın</p>
-  </div>
-
-  <div class="hero-media">
-    <video autoplay loop muted playsinline onerror="this.style.display='none'">
-      <source src="assets/hero_tilki.webm" type="video/webm">
+  <div class="hero-media mt-8">
+    <video autoplay loop muted playsinline>
+      <source src="assets/hero_tipografi.webm" type="video/webm">
     </video>
-  </div>
-
-  <div class="text-shield max-w-xl mx-auto mt-6">
-    <p class="text-slate-500 text-lg italic">"Hedefsiz gemiye hiçbir rüzgar yardım edemez."</p>
-    <p class="text-slate-500 text-sm mt-2">Bembeyaz, ferah sınıflarımızda doğru rehberlikle başarıya bir adım daha yakınsınız.</p>
   </div>
 </section>
 
-<!-- ================= HAKKIMIZDA (SEO / Google Ads odaklı) ================= -->
-<section id="hakkimizda" class="px-6 pb-20 max-w-3xl mx-auto text-shield">
-  <h2 class="text-2xl font-extrabold text-slate-900 mb-4 text-center">Malatya'da Güvenilir Bir Dershane</h2>
+<!-- ================= HAKKIMIZDA ================= -->
+<section id="hakkimizda" class="px-6 pb-20 max-w-3xl mx-auto text-shield text-center">
+  <h2 class="text-2xl font-extrabold text-slate-900 mb-4">Malatya'da Güvenilir Bir Dershane</h2>
   <p class="text-slate-600 text-sm leading-relaxed mb-3">
     Referans Eğitim Kurumları, Malatya Battalgazi'de LGS, YKS ve KPSS hazırlığında güvenilir bir dershane arayan aileler için hizmet veriyor. 5-8. sınıf LGS kursu, 9-12. sınıf TYT-AYT hazırlık programı, mezun YKS grupları ve DGS-KPSS-ALES hazırlığıyla Malatya'da eğitimde referans nokta olmayı hedefliyoruz.
   </p>
@@ -306,35 +285,38 @@ section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
   </p>
 </section>
 
-<!-- ================= FEATURES ================= -->
-<section id="ozellikler" class="px-6 pb-24 max-w-5xl mx-auto">
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-    <div class="feat-card text-shield text-center p-4">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-3"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/><path d="M22 10v6"/></svg>
+<!-- ================= FEATURES (4'lü Kart) ================= -->
+<section id="ozellikler" class="px-6 pb-24 max-w-6xl mx-auto text-shield">
+  <div class="features-container">
+    <div class="feat-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/><path d="M22 10v6"/></svg>
       <h3 class="font-extrabold text-sm text-slate-900">Alanında Uzman Kadro</h3>
       <p class="text-xs text-slate-500 mt-1">Deneyimli, güncel müfredata hakim öğretmenler.</p>
     </div>
-    <div class="feat-card text-shield text-center p-4">
-      <video autoplay loop muted playsinline onerror="this.style.display='none'"><source src="assets/birebir_tilki.webm" type="video/webm"></video>
-      <h3 class="font-extrabold text-sm text-slate-900">Sık Takip &amp; Kolay İletişim</h3>
+    
+    <div class="feat-card">
+      <h3 class="font-extrabold text-sm text-slate-900">Sık Takip & Kolay İletişim</h3>
       <p class="text-xs text-slate-500 mt-1">Öğrenciyi ilgisiz bırakmaz, size kolayca ulaşırız.</p>
     </div>
-    <div class="feat-card text-shield text-center p-4">
-      <video autoplay loop muted playsinline onerror="this.style.display='none'"><source src="assets/kazanan_tilki.webm" type="video/webm"></video>
+    
+    <!-- Çizginin geçtiği yer -->
+    <div class="feat-divider"></div>
+    
+    <div class="feat-card">
       <h3 class="font-extrabold text-sm text-slate-900">Yeni Nesil Soru Bankası</h3>
       <p class="text-xs text-slate-500 mt-1">Güncel sınav formatına uygun sorular.</p>
     </div>
-    <div class="feat-card text-shield text-center p-4">
-      <video autoplay loop muted playsinline onerror="this.style.display='none'"><source src="assets/analiz_tilki.webm" type="video/webm"></video>
-      <h3 class="font-extrabold text-sm text-slate-900">Deneme &amp; Analiz</h3>
+    
+    <div class="feat-card">
+      <h3 class="font-extrabold text-sm text-slate-900">Deneme & Analiz</h3>
       <p class="text-xs text-slate-500 mt-1">Düzenli sınavlarla ölçülebilir gelişim.</p>
     </div>
   </div>
 </section>
 
-<!-- ================= COUNTER (3rd, center of the page) ================= -->
+<!-- ================= COUNTER ================= -->
 <section id="sayac" class="px-6 pb-28 max-w-3xl mx-auto text-shield">
-  <div id="counterCard" class="counter-card bg-white border border-slate-100 rounded-[2.5rem] shadow-xl p-8 md:p-12 text-center">
+  <div id="counterCard" class="counter-card shadow-xl text-center border border-slate-100">
     <button id="backBtn" class="back-btn" onclick="unlockCounter()">← Geri Dön</button>
 
     <div id="counterFade">
@@ -344,7 +326,7 @@ section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
         <div class="ring" id="ring-gun"><b id="c-gun">--</b><span>Gün</span></div>
         <div class="ring" id="ring-saat"><b id="c-saat">--</b><span>Saat</span></div>
         <div class="ring" id="ring-dak"><b id="c-dak">--</b><span>Dakika</span></div>
-        <div class="ring" id="ring-san"><b id="c-san">--</b><span>Saniye</span></div>
+        <div class="ring" id="ring-san"><b id="c-san" class="tick-pulse">--</b><span>Saniye</span></div>
       </div>
     </div>
 
@@ -360,8 +342,8 @@ section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
   </div>
 </section>
 
-<!-- ================= CATEGORY SECTIONS ================= -->
-<div id="sinif-5-8" class="relative max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between mb-32" style="position:relative;">
+<!-- ================= CATEGORY SECTIONS (90 Degree) ================= -->
+<div id="sinif-5-8" class="relative max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between mb-32">
   <div class="branch-line r hidden md:block"></div>
   <div class="text-shield flex-1 md:pr-10 text-center md:text-left">
     <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-1">5-8. Sınıf</h2>
@@ -369,14 +351,14 @@ section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
     <p class="text-slate-500 text-sm leading-relaxed mb-6 max-w-md mx-auto md:mx-0">Akademik temellerin atıldığı bu dönemde, yeni nesil sorulara uyum sağlıyor, düzenli deneme ve analizlerle eksikleri birlikte kapatıyoruz.</p>
     <button onclick="openModal('5-8. Sınıf')" class="bg-slate-900 text-white font-bold px-6 py-3 rounded-xl hover:bg-cyan-500 transition-colors text-sm">Randevu Al</button>
   </div>
-  <div class="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0" style="position:relative;z-index:3;">
-    <video autoplay loop muted playsinline class="w-56 h-56 object-contain" onerror="this.style.display='none'">
+  <div class="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0 text-shield">
+    <video autoplay loop muted playsinline class="w-56 h-56 object-contain">
       <source src="assets/birebir_tilki.webm" type="video/webm">
     </video>
   </div>
 </div>
 
-<div id="sinif-9-12" class="relative max-w-5xl mx-auto px-6 flex flex-col md:flex-row-reverse items-center justify-between mb-32" style="position:relative;">
+<div id="sinif-9-12" class="relative max-w-5xl mx-auto px-6 flex flex-col md:flex-row-reverse items-center justify-between mb-32">
   <div class="branch-line l hidden md:block"></div>
   <div class="text-shield flex-1 md:pl-10 text-center md:text-right">
     <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-1">9-12. Sınıf</h2>
@@ -384,14 +366,14 @@ section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
     <p class="text-slate-500 text-sm leading-relaxed mb-6 max-w-md mx-auto md:ml-auto">Zaman yönetiminden konu tekrarına, sınav stresinden tercih sürecine kadar tüm yolculuğunuzda deneyimli kadromuzla yanınızdayız.</p>
     <button onclick="openModal('9-12. Sınıf')" class="bg-blue-600 text-white font-bold px-6 py-3 rounded-xl hover:bg-slate-900 transition-colors text-sm">Randevu Al</button>
   </div>
-  <div class="w-full md:w-1/2 flex justify-center md:justify-start mt-8 md:mt-0" style="position:relative;z-index:3;">
-    <video autoplay loop muted playsinline class="w-56 h-56 object-contain" onerror="this.style.display='none'">
+  <div class="w-full md:w-1/2 flex justify-center md:justify-start mt-8 md:mt-0 text-shield">
+    <video autoplay loop muted playsinline class="w-56 h-56 object-contain">
       <source src="assets/kazanan_tilki.webm" type="video/webm">
     </video>
   </div>
 </div>
 
-<div id="mezun" class="relative max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between mb-32" style="position:relative;">
+<div id="mezun" class="relative max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between mb-32">
   <div class="branch-line r hidden md:block"></div>
   <div class="text-shield flex-1 md:pr-10 text-center md:text-left">
     <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-1">Mezun</h2>
@@ -399,14 +381,14 @@ section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
     <p class="text-slate-500 text-sm leading-relaxed mb-6 max-w-md mx-auto md:mx-0">Hedefini büyütmek isteyen mezunlar için yoğunlaştırılmış, eksik odaklı ve birebir takip edilen özel bir çalışma programı sunuyoruz.</p>
     <button onclick="openModal('Mezun')" class="bg-slate-900 text-white font-bold px-6 py-3 rounded-xl hover:bg-cyan-500 transition-colors text-sm">Randevu Al</button>
   </div>
-  <div class="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0" style="position:relative;z-index:3;">
-    <video autoplay loop muted playsinline class="w-56 h-56 object-contain" onerror="this.style.display='none'">
+  <div class="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0 text-shield">
+    <video autoplay loop muted playsinline class="w-56 h-56 object-contain">
       <source src="assets/uyuyan_tilki.webm" type="video/webm">
     </video>
   </div>
 </div>
 
-<div id="akademik" class="relative max-w-5xl mx-auto px-6 flex flex-col md:flex-row-reverse items-center justify-between mb-24" style="position:relative;">
+<div id="akademik" class="relative max-w-5xl mx-auto px-6 flex flex-col md:flex-row-reverse items-center justify-between mb-24">
   <div class="branch-line l hidden md:block"></div>
   <div class="text-shield flex-1 md:pl-10 text-center md:text-right">
     <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-1">Akademik Kariyer</h2>
@@ -414,8 +396,8 @@ section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
     <p class="text-slate-500 text-sm leading-relaxed mb-6 max-w-md mx-auto md:ml-auto">Lisans tamamlama, memuriyet ya da akademik kariyer hedefleyen adaylara nokta atışı taktikler ve güncel soru bankalarıyla rehberlik ediyoruz.</p>
     <button onclick="openModal('DGS / KPSS / ALES')" class="bg-blue-600 text-white font-bold px-6 py-3 rounded-xl hover:bg-slate-900 transition-colors text-sm">Randevu Al</button>
   </div>
-  <div class="w-full md:w-1/2 flex justify-center md:justify-start mt-8 md:mt-0" style="position:relative;z-index:3;">
-    <video autoplay loop muted playsinline class="w-56 h-56 object-contain" onerror="this.style.display='none'">
+  <div class="w-full md:w-1/2 flex justify-center md:justify-start mt-8 md:mt-0 text-shield">
+    <video autoplay loop muted playsinline class="w-56 h-56 object-contain">
       <source src="assets/analiz_tilki.webm" type="video/webm">
     </video>
   </div>
@@ -426,7 +408,7 @@ section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
   <div class="text-shield">
     <button onclick="openTour()" class="w-full text-left bg-white border border-cyan-100 rounded-3xl flex flex-col md:flex-row items-center justify-between p-7 hover:shadow-xl transition-shadow gap-4">
       <div class="flex items-center gap-4">
-        <video class="w-12 h-12 object-contain flex-shrink-0" autoplay loop muted playsinline onerror="this.style.display='none'"><source src="assets/rehber_tilki_3d.webm" type="video/webm"></video>
+        <video class="w-12 h-12 object-contain flex-shrink-0" autoplay loop muted playsinline><source src="assets/rehber_tilki_3d.webm" type="video/webm"></video>
         <div>
           <h3 class="text-xl font-extrabold text-slate-900 mb-1">360° Sanal Sınıf Turu</h3>
           <p class="text-slate-500 text-sm">Sınıflarımızı evinizden dilediğiniz gibi inceleyin.</p>
@@ -465,16 +447,16 @@ section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
 </section>
 
 <footer class="text-center py-8 border-t border-slate-100 text-slate-400 text-sm">
-  <video class="footer-fox" autoplay loop muted playsinline onerror="this.style.display='none'"><source src="assets/uyuyan_tilki.webm" type="video/webm"></video>
+  <video class="footer-fox" autoplay loop muted playsinline><source src="assets/uyuyan_tilki.webm" type="video/webm"></video>
   <p>© 2026 <span class="text-cyan-600 font-bold">Referans Eğitim Kurumları</span>. Tüm hakları saklıdır.</p>
 </footer>
 
 <!-- ================= 360 MODAL ================= -->
-<div id="tourOverlay" class="tour-overlay">
+<div id="tourOverlay" class="tour-overlay" onclick="if(event.target===this)closeTour()">
   <div class="bg-white w-full max-w-5xl h-[82vh] rounded-3xl overflow-hidden flex flex-col shadow-2xl">
     <div class="p-4 border-b flex justify-between items-center gap-3">
       <span class="font-extrabold text-slate-900 flex items-center gap-2">
-        <video class="w-7 h-7 object-contain" autoplay loop muted playsinline onerror="this.style.display='none'"><source src="assets/rehber_tilki_3d.webm" type="video/webm"></video>
+        <video class="w-7 h-7 object-contain" autoplay loop muted playsinline><source src="assets/rehber_tilki_3d.webm" type="video/webm"></video>
         Battalgazi 360° Tur
       </span>
       <button onclick="closeTour()" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-red-100 hover:text-red-500 font-bold" aria-label="Kapat">✕</button>
@@ -485,12 +467,15 @@ section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
   </div>
 </div>
 
-<!-- ================= APPOINTMENT MODAL ================= -->
+<!-- ================= APPOINTMENT MODAL (Center Scale + Flank WebMs) ================= -->
 <div id="apptOverlay" class="modal-overlay" onclick="if(event.target===this)closeModal()">
+  
+  <video autoplay loop muted playsinline class="flank-video flank-left hidden lg:block"><source src="assets/takvim_tilki.webm" type="video/webm"></video>
+
   <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="apptTitle">
     <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-red-500 font-bold text-2xl" aria-label="Kapat">✕</button>
     <h3 id="apptTitle" class="text-2xl font-extrabold text-slate-900 mb-1 flex items-center gap-2">
-      <video class="modal-fox" autoplay loop muted playsinline onerror="this.style.display='none'"><source src="assets/takvim_tilki.webm" type="video/webm"></video>
+      <img src="assets/logo.png" class="w-6 h-6 object-contain" alt="">
       Randevu Al
     </h3>
     <p class="text-xs text-slate-500 mb-5">Kurum ziyareti için bilgilerinizi girin.</p>
@@ -498,7 +483,7 @@ section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
     <div id="errBanner" class="err-banner"><span>❌</span><span id="errText"></span></div>
 
     <form id="apptForm" class="space-y-4" onsubmit="return false;">
-      <input type="text" id="botTrap" name="website" class="bot-field" tabindex="-1" autocomplete="off">
+      <input type="text" id="botTrap" name="website" tabindex="-1" autocomplete="off" class="sr-only">
 
       <div class="grid grid-cols-2 gap-3">
         <input type="text" id="fIsim" placeholder="Ad Soyad" maxlength="50" class="w-full border border-slate-200 p-3 rounded-lg text-sm focus:border-cyan-500">
@@ -538,16 +523,19 @@ section,#sinif-5-8,#sinif-9-12,#mezun,#akademik{scroll-margin-top:150px;}
         </select>
       </div>
 
-      <button type="button" onclick="submitAppt()" class="w-full font-extrabold py-4 rounded-xl text-sm bg-cyan-500 text-white hover:bg-cyan-600 transition-colors">Onayla ve Randevu Al</button>
+      <button type="button" id="btn-submit" onclick="submitAppt()" class="w-full font-extrabold py-4 rounded-xl text-sm bg-cyan-500 text-white hover:bg-cyan-600 transition-colors">Onayla ve Randevu Al</button>
     </form>
   </div>
+
+  <video autoplay loop muted playsinline class="flank-video flank-right hidden lg:block"><source src="assets/birebir_tilki.webm" type="video/webm"></video>
+
 </div>
 
 <script>
-/* ========= WEB APP URL — bkz. head yorumu, KENDİ script linkinizle değiştirin ========= */
+/* ========= WEB APP URL ========= */
 const WEB_APP_URL = "PASTE_YOUR_OWN_GOOGLE_APPS_SCRIPT_URL_HERE";
 
-/* ========= scroll progress (cihazdan bağımsız, otomatik kalibre) ========= */
+/* ========= scroll progress ========= */
 function updateProgress(){
   const h = document.documentElement;
   const total = h.scrollHeight - h.clientHeight;
@@ -558,33 +546,15 @@ window.addEventListener('scroll', updateProgress, {passive:true});
 window.addEventListener('resize', updateProgress);
 document.addEventListener('DOMContentLoaded', updateProgress);
 
-/* ========= mobile drawer ========= */
-function toggleDrawer(){ document.getElementById('mobileDrawer').classList.toggle('open'); }
-function closeDrawer(){ document.getElementById('mobileDrawer').classList.remove('open'); }
-
 /* ========= COUNTER ========= */
 const EXAMS = {
   LGS:  {label:'LGS',  date:'2027-06-06T10:15:00', color:'#06b6d4', bg:'var(--cyan-bg)',   ring:'var(--cyan-ring)'},
   YKS:  {label:'YKS',  date:'2027-06-19T10:15:00', color:'#2563eb', bg:'var(--blue-bg)',   ring:'var(--blue-ring)'},
   KPSS: {label:'KPSS', date:'2027-07-04T10:15:00', color:'#7c3aed', bg:'var(--violet-bg)', ring:'var(--violet-ring)'}
 };
-// Not: tarihler ÖSYM/MEB resmi takvimi yayınlanana kadar tahminidir; kod önce
-// kendi backend'inizden (?islem=sinavTarihleri) gerçek tarihi çekmeyi dener.
 const ORDER = ['LGS','YKS','KPSS'];
 let cycleIdx = 0, activeKey = 'LGS', locked = false, switching = false, cycleTimer, tickTimer;
 
-let prevVals = {gun:null, saat:null, dak:null};
-function pulseIfChanged(id, val, examColor){
-  const el = document.getElementById(id);
-  const key = id.replace('c-','');
-  el.textContent = val;
-  if(prevVals[key] !== val){
-    prevVals[key] = val;
-    el.style.color = '#ef4444';
-    el.classList.remove('tick-pulse'); void el.offsetWidth; el.classList.add('tick-pulse');
-    setTimeout(()=>{ el.style.color = examColor; }, 780);
-  }
-}
 function updateNumbers(key){
   const e = EXAMS[key];
   const diff = new Date(e.date) - new Date();
@@ -592,12 +562,10 @@ function updateNumbers(key){
   const h = Math.max(0, Math.floor((diff%86400000)/3600000));
   const m = Math.max(0, Math.floor((diff%3600000)/60000));
   const s = Math.max(0, Math.floor((diff%60000)/1000));
-  pulseIfChanged('c-gun', d, e.color);
-  pulseIfChanged('c-saat', h, e.color);
-  pulseIfChanged('c-dak', m, e.color);
-  const secEl = document.getElementById('c-san');
-  secEl.textContent = s;
-  secEl.classList.remove('tick-pulse'); void secEl.offsetWidth; secEl.classList.add('tick-pulse');
+  document.getElementById('c-gun').textContent = d;
+  document.getElementById('c-saat').textContent = h;
+  document.getElementById('c-dak').textContent = m;
+  document.getElementById('c-san').textContent = s;
 }
 function applyColors(key){
   const e = EXAMS[key];
@@ -611,13 +579,11 @@ function highlight(key){
     else { b.style.background='#fff'; b.style.color='#64748b'; b.style.borderColor='#e2e8f0'; }
   });
 }
-/* Değişimi anında değil, kısa bir kararma/aydınlanma ile yapar. */
 function switchExam(key){
   switching = true;
   const wrap = document.getElementById('counterFade');
   wrap.style.opacity = '0';
   setTimeout(()=>{
-    prevVals = {gun:null, saat:null, dak:null};
     document.getElementById('counterTitle').textContent = EXAMS[key].label + ' yaklaşıyor';
     updateNumbers(key);
     applyColors(key);
@@ -649,18 +615,16 @@ function lockExam(key){
     const b = document.getElementById('btn-'+k);
     if(k!==key) b.classList.add('btn-gone'); else b.style.pointerEvents='none';
   });
-  document.getElementById('counterCard').classList.add('grown');
   document.getElementById('backBtn').classList.add('show');
   setTimeout(()=>{
     const sub = document.getElementById('sub-'+key);
     if(sub) sub.classList.add('open');
-  }, 650);
+  }, 400);
 }
 function unlockCounter(){
   if(!locked) return;
   locked = false;
   document.getElementById('backBtn').classList.remove('show');
-  document.getElementById('counterCard').classList.remove('grown');
   document.querySelectorAll('.sub-row').forEach(s=>s.classList.remove('open'));
   ORDER.forEach(k=>{
     const b = document.getElementById('btn-'+k);
@@ -678,7 +642,11 @@ fetch(WEB_APP_URL + (WEB_APP_URL.includes('?')?'&':'?') + 'islem=sinavTarihleri'
 function openModal(presetSinif){
   document.getElementById('errBanner').style.display='none';
   const sel = document.getElementById('fSinif');
-  if(presetSinif){ sel.value = presetSinif; } else { sel.selectedIndex = 0; }
+  if(presetSinif){
+    for(let i=0; i<sel.options.length; i++){
+        if(sel.options[i].value === presetSinif) { sel.selectedIndex = i; break; }
+    }
+  } else { sel.selectedIndex = 0; }
   const overlay = document.getElementById('apptOverlay');
   overlay.style.display = 'flex';
   requestAnimationFrame(()=>overlay.classList.add('show'));
@@ -688,10 +656,18 @@ function openModal(presetSinif){
 function closeModal(){
   const overlay = document.getElementById('apptOverlay');
   overlay.classList.remove('show');
-  setTimeout(()=>{ overlay.style.display='none'; }, 500);
+  setTimeout(()=>{ overlay.style.display='none'; }, 400);
 }
-function openTour(){ document.getElementById('tourOverlay').classList.add('show'); }
-function closeTour(){ document.getElementById('tourOverlay').classList.remove('show'); }
+function openTour(){ 
+    const overlay = document.getElementById('tourOverlay');
+    overlay.style.display='flex';
+    requestAnimationFrame(()=>overlay.classList.add('show'));
+}
+function closeTour(){ 
+    const overlay = document.getElementById('tourOverlay');
+    overlay.classList.remove('show');
+    setTimeout(()=>{ overlay.style.display='none'; }, 400);
+}
 
 const fTarih = document.getElementById('fTarih');
 const today = new Date();
@@ -749,7 +725,7 @@ function selectNearestTime(){
 }
 
 function submitAppt(){
-  if(document.getElementById('botTrap').value !== '') return; // honeypot: sessizce çık
+  if(document.getElementById('botTrap').value !== '') return;
 
   const isim = document.getElementById('fIsim').value.trim();
   const telefon = document.getElementById('fTelefon').value.trim();
@@ -763,7 +739,7 @@ function submitAppt(){
 
   function showErr(msg){ errText.textContent = msg; err.style.display='flex'; }
 
-  if(!/^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]{3,50}$/.test(isim)) return showErr('Lütfen geçerli bir ad soyad girin (yalnızca harf, en az 3 karakter).');
+  if(!/^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]{3,50}$/.test(isim)) return showErr('Lütfen geçerli bir ad soyad girin (yalnızca harf).');
   if(!/^05[0-9]{9}$/.test(telefon)) return showErr('Geçerli bir telefon numarası girin (05XXXXXXXXX, 11 hane).');
   if(!sinif || !tarih || !saat) return showErr('Lütfen tüm alanları doldurun.');
 
@@ -772,7 +748,7 @@ function submitAppt(){
     return;
   }
 
-  const btn = event.target;
+  const btn = document.getElementById('btn-submit');
   const original = btn.textContent;
   btn.textContent = 'Gönderiliyor...'; btn.disabled = true;
 
@@ -793,8 +769,8 @@ function submitAppt(){
   });
 }
 
-/* ========= copy / devtools deterrents (kozmetik, gerçek güvenlik değildir) ========= */
-document.addEventListener('contextmenu', e=>e.preventDefault());
+/* ========= SECURITY (kozmetik) ========= */
+document.addEventListener('contextmenu', e=> { if(!['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)) e.preventDefault(); });
 document.addEventListener('dragstart', e=>e.preventDefault());
 document.addEventListener('keydown', e=>{
   const k = e.key ? e.key.toUpperCase() : '';
