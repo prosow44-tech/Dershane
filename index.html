@@ -29,6 +29,18 @@ video, img { pointer-events: none; -webkit-user-drag: none; outline: none; borde
 .progress-track { position: fixed; top: 0; left: 0; width: 100%; height: 4px; z-index: 50000; background: transparent; }
 .progress-bar { height: 100%; background: linear-gradient(90deg, #0ea5e9, #06b6d4, #3b82f6); width: 0%; box-shadow: 0 0 10px rgba(14,165,233, 0.8); }
 
+/* MAARİF KURDELESİ (SAĞ ÜST) */
+.maarif-ribbon-wrapper {
+    position: fixed; top: 0; right: 0; width: 160px; height: 160px; overflow: hidden; z-index: 55000; pointer-events: none;
+}
+.maarif-ribbon {
+    position: absolute; top: 35px; right: -40px;
+    background: linear-gradient(90deg, #0ea5e9, #06b6d4); color: #ffffff;
+    font-size: 0.6rem; font-weight: 900; text-align: center; text-transform: uppercase;
+    padding: 8px 40px; transform: rotate(45deg); box-shadow: 0 4px 15px rgba(6,182,212,0.4);
+    border-top: 2px solid #cffafe; border-bottom: 2px solid #cffafe; letter-spacing: 0.5px; line-height: 1.2;
+}
+
 /* MERKEZ KILAVUZ ÇİZGİ & 90 DERECE KOLLAR */
 .spine-zone { position: relative; width: 100%; min-height: 100vh; }
 .center-spine {
@@ -64,7 +76,7 @@ video, img { pointer-events: none; -webkit-user-drag: none; outline: none; borde
 .pill-side.right { justify-content: flex-end; }
 .pill-link { font-weight: 800; font-size: 0.8rem; color: #475569; text-transform: uppercase; transition: color 0.2s; cursor: pointer; text-decoration: none; border: none; background: transparent; }
 .pill-link:hover { color: #0ea5e9; }
-.pill-logo-link { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; border-radius: 50%; background: #ffffff; border: 3px solid #0ea5e9; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(14,165,233,0.2); z-index: 10; cursor: pointer; }
+.pill-logo-link { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; border-radius: 50%; background: #ffffff; border: 3px solid #0ea5e9; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(14,165,233,0.2); z-index: 10; cursor: pointer; overflow: hidden; }
 .pill-logo-link img { width: 100%; height: 100%; object-fit: contain; }
 
 /* KASMAYAN DONANIM HIZLANDIRMALI BUTON */
@@ -76,7 +88,7 @@ video, img { pointer-events: none; -webkit-user-drag: none; outline: none; borde
 }
 .cta-pill:hover { transform: scale(1.04) translateZ(0); background-color: #0ea5e9; box-shadow: 0 6px 20px rgba(14,165,233,0.4); }
 
-/* 3. KATMAN: MOBİL ALT NAVİGASYON (Hamburger ve WhatsApp İptal) */
+/* 3. KATMAN: MOBİL ALT NAVİGASYON (Hamburger İptal) */
 .mobile-bottom-nav { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #ffffff; box-shadow: 0 -5px 20px rgba(0,0,0,0.05); z-index: 45000; border-top: 1px solid #f1f5f9; padding-bottom: env(safe-area-inset-bottom); }
 .mobile-nav-grid { display: grid; grid-template-columns: repeat(3, 1fr); height: 60px; }
 .mob-link { display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; color: #64748b; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; transition: color 0.2s; cursor: pointer; border: none; background: transparent; }
@@ -149,6 +161,13 @@ main { padding-top: 220px; }
 </head>
 <body>
 
+<!-- MAARİF MODELİ KURDELESİ -->
+<div class="maarif-ribbon-wrapper">
+    <div class="maarif-ribbon">
+        MAARİF EĞİTİM<br>MODELİ'NE UYGUNDUR
+    </div>
+</div>
+
 <div class="spine-zone">
     <div class="center-spine"></div>
     <div class="scroll-progress-container"><div class="scroll-progress-bar" id="progressBar"></div></div>
@@ -193,7 +212,7 @@ main { padding-top: 220px; }
         </div>
     </nav>
 
-    <!-- YÜZEN HAP MENÜ (Top değeri 80px yapılarak çarpışma engellendi) -->
+    <!-- YÜZEN HAP MENÜ -->
     <nav class="pill-nav">
         <div class="pill-side pl-4">
             <a href="#anasayfa" class="pill-link hidden md:block">ANASAYFA</a>
@@ -215,7 +234,7 @@ main { padding-top: 220px; }
         </div>
     </nav>
 
-    <!-- MOBİL ALT NAVİGASYON (Hamburger ve WhatsApp Kesinlikle Yok) -->
+    <!-- MOBİL ALT NAVİGASYON -->
     <nav class="mobile-bottom-nav">
         <div class="mobile-nav-grid">
             <button onclick="openTour()" class="mob-link">
@@ -235,7 +254,7 @@ main { padding-top: 220px; }
 
     <main class="w-full flex flex-col items-center relative z-10">
         
-        <!-- GİRİŞ BÖLÜMÜ (H1 Yok, Esnek WebM Alanı) -->
+        <!-- GİRİŞ BÖLÜMÜ -->
         <section id="anasayfa" class="w-full max-w-4xl mx-auto px-6 mb-16 text-center relative z-10">
             <div class="text-shield inline-block mb-4">
                 <span class="bg-white text-cyan-600 font-bold px-6 py-2 rounded-full text-xs uppercase border border-cyan-200 shadow-sm">Referans Eğitim Kurumları</span>
@@ -251,7 +270,7 @@ main { padding-top: 220px; }
             </div>
         </section>
 
-        <!-- ÜÇLÜ/ŞEFFAF ÖZELLİK ALANI (Referans Görseline Birebir Sadık) -->
+        <!-- ÜÇLÜ/ŞEFFAF ÖZELLİK ALANI -->
         <section class="w-full max-w-5xl mx-auto px-6 mb-32 relative z-10 text-shield !bg-transparent !p-0">
             <div class="features-container">
                 <!-- 1. Alanında Uzman Kadro -->
@@ -385,7 +404,8 @@ main { padding-top: 220px; }
                     </div>
                     <div class="flex-1 w-full flex justify-center">
                         <div class="w-full max-w-sm rounded-3xl overflow-hidden shadow-lg border-4 border-white">
-                            <img src="assets/kurum_binasi.jpg" alt="Malatya Referans Eğitim Dershane Kurum Binası" class="w-full h-auto object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'400\' height=\'300\' fill=\'%23f1f5f9\'/><text x=\'50%\' y=\'50%\' fill=\'%2394a3b8\' font-size=\'20\' font-family=\'sans-serif\' text-anchor=\'middle\'>Kurum Binası Görseli (kurum_binasi.jpg)</text></svg>'">
+                            <!-- Büyüyen Lightbox Görseli -->
+                            <img src="assets/kurum_binasi.jpg" alt="Malatya Referans Eğitim Dershane Kurum Binası" class="w-full h-auto object-cover cursor-zoom-in hover:scale-105 transition-transform duration-300 pointer-events-auto" onclick="openLightbox(this.src)" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'400\' height=\'300\' fill=\'%23f1f5f9\'/><text x=\'50%\' y=\'50%\' fill=\'%2394a3b8\' font-size=\'20\' font-family=\'sans-serif\' text-anchor=\'middle\'>Kurum Binası Görseli (kurum_binasi.jpg)</text></svg>'">
                         </div>
                     </div>
                 </div>
@@ -394,6 +414,11 @@ main { padding-top: 220px; }
 
     </main>
 </div> 
+
+<!-- GÖRSEL BÜYÜTME (LIGHTBOX) MODALI -->
+<div id="imageLightbox" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[60000] hidden items-center justify-center opacity-0 transition-opacity duration-300 cursor-zoom-out" onclick="closeLightbox()">
+    <img id="lightboxImg" src="" class="max-w-[90%] max-h-[90vh] rounded-2xl shadow-2xl transform scale-50 transition-transform duration-300 object-contain">
+</div>
 
 <!-- 360 MODAL -->
 <div id="tourOverlay" class="modal-overlay" onclick="if(event.target===this) closeTour()">
@@ -411,7 +436,7 @@ main { padding-top: 220px; }
     </div>
 </div>
 
-<!-- RANDEVU MODALI (Büyük WebM + Scale Animasyonu + Güvenlik) -->
+<!-- RANDEVU MODALI -->
 <div id="randevuModal" class="modal-overlay" onclick="if(event.target===this) closeModal()">
     
     <video autoplay loop muted playsinline class="flank-video flank-left hidden lg:block"><source src="assets/takvim_tilki.webm" type="video/webm"></video>
@@ -427,23 +452,22 @@ main { padding-top: 220px; }
         <div id="errBanner" class="err-banner"><span class="text-lg">❌</span><span id="errText">Hata</span></div>
 
         <form id="apptForm" class="space-y-4" onsubmit="return false;">
-            <!-- sr-only Honeypot (Bot Tuzağı) -->
             <input type="text" id="botTrap" tabindex="-1" autocomplete="off" class="sr-only">
             
             <div class="grid grid-cols-2 gap-3">
-                <input type="text" id="fIsim" placeholder="Ad Soyad" required maxlength="50" class="w-full bg-white border border-slate-200 p-3 rounded-lg text-sm focus:border-cyan-500 font-medium text-slate-900">
-                <input type="tel" id="fTelefon" placeholder="05XX XXX XX XX" required maxlength="11" oninput="this.value=this.value.replace(/[^0-9]/g,'')" class="w-full bg-white border border-slate-200 p-3 rounded-lg text-sm focus:border-cyan-500 font-medium text-slate-900">
+                <input type="text" id="fIsim" placeholder="Ad Soyad" required maxlength="50" class="w-full bg-white border border-slate-200 p-3 rounded-lg text-sm focus:border-cyan-500 font-medium text-slate-900 pointer-events-auto">
+                <input type="tel" id="fTelefon" placeholder="05XX XXX XX XX" required maxlength="11" oninput="this.value=this.value.replace(/[^0-9]/g,'')" class="w-full bg-white border border-slate-200 p-3 rounded-lg text-sm focus:border-cyan-500 font-medium text-slate-900 pointer-events-auto">
             </div>
 
             <div class="grid grid-cols-2 gap-3">
-                <select id="fSinif" required class="w-full bg-white border border-slate-200 p-3 rounded-lg text-sm focus:border-cyan-500 font-medium text-slate-600 cursor-pointer">
+                <select id="fSinif" required class="w-full bg-white border border-slate-200 p-3 rounded-lg text-sm focus:border-cyan-500 font-medium text-slate-600 cursor-pointer pointer-events-auto">
                     <option value="" disabled selected>Sınıf Seçiniz</option>
                     <option value="5-8. Sınıf">5-8. Sınıf</option>
                     <option value="9-12. Sınıf">9-12. Sınıf</option>
                     <option value="Mezun">Mezun</option>
                     <option value="DGS / KPSS / ALES">DGS / KPSS / ALES</option>
                 </select>
-                <select id="fHizmet" required class="w-full bg-white border border-slate-200 p-3 rounded-lg text-sm focus:border-cyan-500 font-medium text-slate-600 cursor-pointer">
+                <select id="fHizmet" required class="w-full bg-white border border-slate-200 p-3 rounded-lg text-sm focus:border-cyan-500 font-medium text-slate-600 cursor-pointer pointer-events-auto">
                     <option value="Kayıt Görüşmesi">Kayıt Görüşmesi</option>
                     <option value="Kurum Tanıtımı">Kurum Tanıtımı</option>
                 </select>
@@ -452,15 +476,15 @@ main { padding-top: 220px; }
             <div class="border-t border-slate-100 pt-4 mt-2">
                 <div class="flex justify-between items-end mb-1.5">
                     <label class="text-xs font-bold text-slate-500 uppercase">Tarih Seçin: <span id="dateRel" class="text-cyan-600 ml-1 font-black"></span></label>
-                    <button type="button" class="auto-btn" onclick="findNearestDate()">En Yakın Tarihi Seç</button>
+                    <button type="button" class="auto-btn pointer-events-auto" onclick="findNearestDate()">En Yakın Tarihi Seç</button>
                 </div>
-                <input type="date" id="fTarih" required class="w-full bg-white border border-slate-200 p-3 rounded-lg text-sm focus:border-cyan-500 font-medium text-slate-600 cursor-pointer mb-3">
+                <input type="date" id="fTarih" required class="w-full bg-white border border-slate-200 p-3 rounded-lg text-sm focus:border-cyan-500 font-medium text-slate-600 cursor-pointer mb-3 pointer-events-auto">
 
                 <div class="flex justify-between items-end mb-1.5">
                     <label class="text-xs font-bold text-slate-500 uppercase">Saat Seçin:</label>
-                    <button type="button" class="auto-btn" onclick="selectNearestTime()">En Yakın Saati Seç</button>
+                    <button type="button" class="auto-btn pointer-events-auto" onclick="selectNearestTime()">En Yakın Saati Seç</button>
                 </div>
-                <select id="fSaat" required disabled class="w-full bg-white border border-slate-200 p-3 rounded-lg text-sm focus:border-cyan-500 font-medium text-slate-600 cursor-pointer text-center appearance-none">
+                <select id="fSaat" required disabled class="w-full bg-white border border-slate-200 p-3 rounded-lg text-sm focus:border-cyan-500 font-medium text-slate-600 cursor-pointer text-center appearance-none pointer-events-auto">
                     <option value="" disabled selected>Önce Tarih Seçiniz</option>
                     <option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option>
                     <option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option>
@@ -468,8 +492,7 @@ main { padding-top: 220px; }
                 </select>
             </div>
 
-            <!-- Çift Tıklama Spam Engeli İçin JS Tetiklemeli Buton -->
-            <button type="button" id="btn-submit" onclick="submitAppt()" class="w-full font-black py-4 rounded-xl text-sm shadow-lg mt-4 bg-cyan-500 text-white hover:bg-cyan-600 transition-colors">
+            <button type="button" id="btn-submit" onclick="submitAppt()" class="w-full font-black py-4 rounded-xl text-sm shadow-lg mt-4 bg-cyan-500 text-white hover:bg-cyan-600 transition-colors pointer-events-auto">
                 HIZLI RANDEVU OLUŞTUR
             </button>
         </form>
@@ -479,21 +502,21 @@ main { padding-top: 220px; }
 
 </div>
 
-<!-- İLETİŞİM / FOOTER (WhatsApp İptal Edildi) -->
+<!-- İLETİŞİM / FOOTER -->
 <section id="iletisim" class="px-6 pb-10 max-w-4xl mx-auto relative z-10">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <div class="bg-white border border-slate-100 rounded-3xl p-7 text-center shadow-lg">
+    <div class="bg-white border border-slate-100 rounded-3xl p-7 text-center shadow-lg pointer-events-auto">
       <h3 class="text-lg font-extrabold text-slate-900 mb-2">Telefon Hattımız</h3>
       <p class="text-slate-500 text-xs mb-5">Danışmanlarımızla hemen görüşün.</p>
       <a href="tel:+905000000000" class="inline-block bg-slate-900 text-white font-bold px-5 py-3 rounded-xl hover:bg-cyan-500 transition-colors w-full text-sm">📞 0500 000 00 00</a>
     </div>
-    <div class="bg-white border border-slate-100 rounded-3xl p-7 text-center shadow-lg">
+    <div class="bg-white border border-slate-100 rounded-3xl p-7 text-center shadow-lg pointer-events-auto">
       <h3 class="text-lg font-extrabold text-slate-900 mb-2">Battalgazi Şubesi</h3>
       <p class="text-slate-500 text-xs mb-5">Büyük Hüseyinbey, Turfanda Sk., 44050 Battalgazi/Malatya</p>
       <a href="https://www.google.com/maps/dir/?api=1&destination=B%C3%BCy%C3%BCk+H%C3%BCseyinbey%2C+Turfanda+Sk.%2C+44050+Battalgazi%2FMalatya" target="_blank" rel="noopener" class="inline-block bg-blue-600 text-white font-bold px-5 py-3 rounded-xl hover:bg-slate-900 transition-colors w-full text-sm">📍 Yol Tarifi Al</a>
     </div>
   </div>
-  <div class="mt-8 rounded-2xl overflow-hidden shadow-lg border border-slate-100">
+  <div class="mt-8 rounded-2xl overflow-hidden shadow-lg border border-slate-100 pointer-events-auto">
     <iframe src="https://maps.google.com/maps?q=B%C3%BCy%C3%BCk%20H%C3%BCseyinbey%2C%20Turfanda%20Sk.%2C%2044050%20Battalgazi%2FMalatya&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="280" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </section>
@@ -504,6 +527,30 @@ main { padding-top: 220px; }
 </footer>
 
 <script>
+    // LIGHTBOX MANTIĞI
+    function openLightbox(src) {
+        const lb = document.getElementById('imageLightbox');
+        const img = document.getElementById('lightboxImg');
+        img.src = src;
+        lb.classList.remove('hidden');
+        lb.style.display = 'flex';
+        void lb.offsetWidth; // Reflow tetikle
+        lb.classList.remove('opacity-0');
+        img.classList.remove('scale-50');
+        img.classList.add('scale-100');
+    }
+    function closeLightbox() {
+        const lb = document.getElementById('imageLightbox');
+        const img = document.getElementById('lightboxImg');
+        lb.classList.add('opacity-0');
+        img.classList.remove('scale-100');
+        img.classList.add('scale-50');
+        setTimeout(() => {
+            lb.classList.add('hidden');
+            lb.style.display = 'none';
+        }, 300);
+    }
+
     // İLERLEME ÇUBUĞU
     window.addEventListener('scroll', function(){
         let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
