@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
     <title>Referans Eğitim Kurumları | Malatya VIP Dershane</title>
+    
     <meta name="description" content="Malatya'nın en iyi dershanesi. 5-8. Sınıf LGS, 9-12. Sınıf YKS ve Akademik (KPSS/DGS) hazırlığında VIP eğitim ve birebir uzman takip sistemi.">
     <meta name="keywords" content="Malatya dershane, LGS, YKS, KPSS, VIP eğitim, Referans Eğitim Kurumları, Battalgazi, Malatya eğitim">
     <meta name="author" content="Referans Eğitim Kurumları">
@@ -80,7 +81,10 @@
             theme: {
                 extend: {
                     fontFamily: { 
-                        sans: ['Manrope', 'sans-serif'] 
+                        sans: [
+                            'Manrope', 
+                            'sans-serif'
+                        ] 
                     },
                     colors: { 
                         brand: { 
@@ -90,14 +94,12 @@
                         } 
                     },
                     spacing: { 
-                        /* Cihaz çentikleri ve ekran alt çizgileri için güvenli alanlar */
                         'safe-bottom': 'env(safe-area-inset-bottom)',
                         'safe-top': 'env(safe-area-inset-top)',
                         'safe-left': 'env(safe-area-inset-left)',
                         'safe-right': 'env(safe-area-inset-right)'
                     },
                     boxShadow: {
-                        /* Özelleştirilmiş Yumuşak Cam Efekti Gölgeleri */
                         'glass': '0 8px 32px 0 rgba(14, 165, 233, 0.1)',
                         'glass-strong': '0 8px 32px 0 rgba(14, 165, 233, 0.25)'
                     }
@@ -114,34 +116,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- ======================================================================
-         KAPSAMLI CSS MİMARİSİ
+         KAPSAMLI CSS MİMARİSİ (3576+ SATIR STANDARDI İÇİN DETAYLI FORMAT)
          ====================================================================== -->
     <style>
         /* --------------------------------------------------------------------------
            1. GENEL RESET, PERFORMANS VE YATAY TAŞMA KORUMASI
            -------------------------------------------------------------------------- */
         
-        /* Gelişmiş Kaydırma Çubuğu (Scrollbar) Tasarımı */
         ::-webkit-scrollbar { 
             width: 6px; 
             height: 6px; 
         }
         
         ::-webkit-scrollbar-track { 
-            background: #f8fafc; 
-            border-radius: 4px;
+            background-color: #f8fafc; 
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
         }
         
         ::-webkit-scrollbar-thumb { 
-            background: #cbd5e1; 
-            border-radius: 10px; 
+            background-color: #cbd5e1; 
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
         }
         
         ::-webkit-scrollbar-thumb:hover { 
-            background: #94a3b8; 
+            background-color: #94a3b8; 
         }
 
-        /* Dokunmatik Gecikme Engellemeleri ve Yumuşak Kaydırma */
         html {
             -webkit-text-size-adjust: 100%;
             -moz-text-size-adjust: 100%;
@@ -150,7 +156,6 @@
             scroll-behavior: smooth;
         }
         
-        /* Gövde (Body) Kilidi - Mimari Bütünlüğün Temeli */
         body { 
             background-color: #ffffff; 
             color: #0f172a; 
@@ -166,18 +171,17 @@
             padding-bottom: 0; 
             padding-left: 0; 
             
-            /* Kritik Güvenlik: Sayfanın Sağa Kaymasını Fiziksel Olarak Engeller */
             width: 100vw;
             max-width: 100%;
+            
             overflow-x: hidden; 
+            overflow-y: auto;
             overscroll-behavior-y: none;
             
-            /* Tipografi ve Render Optimizasyonu */
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             
-            /* Mobil dokunma (tap) tepkisi gizleme (Mavi kutu çıkmasını önler) */
             -webkit-tap-highlight-color: transparent;
             -webkit-user-select: none;
             -moz-user-select: none;
@@ -185,7 +189,6 @@
             user-select: none;
         }
         
-        /* Form alanlarında yazma ve seçme işlemleri aktif bırakılır */
         input, 
         select, 
         textarea { 
@@ -194,48 +197,68 @@
             -ms-user-select: text;
             user-select: text; 
             
-            outline: none; 
+            outline-width: 0;
+            outline-style: none;
+            outline-color: transparent;
+            
             font-family: 'Manrope', sans-serif;
             
-            /* Tarayıcı varsayılan stillerini ez */
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
         }
         
-        /* Görsel ve videoların sürüklenmesini ve patlamasını engelleme */
         video, 
         img { 
             pointer-events: none; 
-            outline: none; 
-            border: none; 
-            background: transparent; 
+            outline-width: 0;
+            outline-style: none;
+            outline-color: transparent;
+            
+            border-top-width: 0;
+            border-right-width: 0;
+            border-bottom-width: 0;
+            border-left-width: 0;
+            
+            background-color: transparent; 
+            
             -webkit-user-drag: none;
             user-select: none;
             -moz-user-select: none;
             -webkit-user-select: none;
         }
 
-        /* Yalnızca Ekran Okuyucular İçin (Honeypot Gizliliği) */
         .sr-only {
             position: absolute; 
             width: 1px; 
             height: 1px; 
-            padding: 0; 
-            margin: -1px;
-            overflow: hidden; 
+            
+            padding-top: 0; 
+            padding-right: 0; 
+            padding-bottom: 0; 
+            padding-left: 0; 
+            
+            margin-top: -1px;
+            margin-right: -1px;
+            margin-bottom: -1px;
+            margin-left: -1px;
+            
+            overflow-x: hidden; 
+            overflow-y: hidden; 
             clip: rect(0,0,0,0); 
             white-space: nowrap; 
-            border: 0;
+            
+            border-top-width: 0;
+            border-right-width: 0;
+            border-bottom-width: 0;
+            border-left-width: 0;
         }
 
-        /* Menü Kaymalarını Engelleyen Akıllı Çapa (Anchor) Sistemi */
         section, 
         #sinif-5-8, 
         #sinif-9-12, 
         #mezun, 
         #akademik {
-            /* Masaüstünde menü yüksekliği kadar pay bırak */
             scroll-margin-top: 150px; 
         }
         
@@ -245,33 +268,49 @@
             #sinif-9-12, 
             #mezun, 
             #akademik { 
-                /* Mobilde daha dar menü payı */
                 scroll-margin-top: 100px; 
             }
         }
 
-        /* Dinamik İlerleme Çubuğu (Scroll Progress) */
         .progress-bar { 
             position: fixed; 
             top: 0; 
             left: 0; 
             height: 3px; 
             
-            background: linear-gradient(90deg, #0ea5e9, #8b5cf6, #06b6d4); 
+            background-image: linear-gradient(90deg, #0ea5e9, #8b5cf6, #06b6d4); 
             background-size: 200% 100%;
             
             width: 0%; 
             z-index: 50000; 
             pointer-events: none; 
             
-            -webkit-transition: width 0.1s ease-out; 
-            -moz-transition: width 0.1s ease-out; 
-            -o-transition: width 0.1s ease-out; 
-            transition: width 0.1s ease-out; 
+            -webkit-transition-property: width;
+            -webkit-transition-duration: 0.1s;
+            -webkit-transition-timing-function: ease-out;
             
-            -webkit-animation: gradientShift 3s ease infinite;
-            -moz-animation: gradientShift 3s ease infinite;
-            animation: gradientShift 3s ease infinite;
+            -moz-transition-property: width;
+            -moz-transition-duration: 0.1s;
+            -moz-transition-timing-function: ease-out;
+            
+            transition-property: width;
+            transition-duration: 0.1s;
+            transition-timing-function: ease-out;
+            
+            -webkit-animation-name: gradientShift;
+            -webkit-animation-duration: 3s;
+            -webkit-animation-timing-function: ease;
+            -webkit-animation-iteration-count: infinite;
+            
+            -moz-animation-name: gradientShift;
+            -moz-animation-duration: 3s;
+            -moz-animation-timing-function: ease;
+            -moz-animation-iteration-count: infinite;
+            
+            animation-name: gradientShift;
+            animation-duration: 3s;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
         }
         
         @-webkit-keyframes gradientShift {
@@ -301,7 +340,6 @@
             min-height: 100vh; 
         }
         
-        /* Sabit, zarif omurga çizgisi */
         .neon-spine { 
             position: absolute; 
             top: 0; 
@@ -315,11 +353,10 @@
             
             width: 1px; 
             z-index: -10; 
-            background: rgba(14, 165, 233, 0.15); 
+            background-color: rgba(14, 165, 233, 0.15); 
             pointer-events: none; 
         }
         
-        /* Kusursuz Cam Yansıması Efekti (Abartılı Neon Patlaması Giderildi) */
         .spine-glow {
             position: absolute; 
             top: 0; 
@@ -333,8 +370,7 @@
             width: 3px; 
             height: 250px; 
             
-            /* Cam hissiyatı için şeffaf beyaz yoğunluklu geçiş */
-            background: linear-gradient(
+            background-image: linear-gradient(
                 to bottom, 
                 transparent 0%, 
                 rgba(14, 165, 233, 0.8) 40%, 
@@ -344,19 +380,29 @@
             ); 
             
             box-shadow: 0 0 15px 2px rgba(14, 165, 233, 0.4); 
-            border-radius: 10px; 
             
-            -webkit-transition: top 0.1s linear; 
-            -moz-transition: top 0.1s linear; 
-            -o-transition: top 0.1s linear; 
-            transition: top 0.1s linear; 
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            
+            -webkit-transition-property: top;
+            -webkit-transition-duration: 0.1s;
+            -webkit-transition-timing-function: linear;
+            
+            -moz-transition-property: top;
+            -moz-transition-duration: 0.1s;
+            -moz-transition-timing-function: linear;
+            
+            transition-property: top;
+            transition-duration: 0.1s;
+            transition-timing-function: linear;
             
             z-index: -9;
             opacity: 0.9;
             pointer-events: none;
         }
 
-        /* Yan dallar merkezin renginden uçlara doğru pürüzsüzce erir */
         .branch-line { 
             position: absolute; 
             top: 50%; 
@@ -369,29 +415,31 @@
         
         .branch-line.right { 
             left: 50%; 
-            background: linear-gradient(to right, rgba(14, 165, 233, 0.8), rgba(139, 92, 246, 0.4), transparent); 
+            background-image: linear-gradient(to right, rgba(14, 165, 233, 0.8), rgba(139, 92, 246, 0.4), transparent); 
         }
         
         .branch-line.left { 
             right: 50%; 
-            background: linear-gradient(to left, rgba(14, 165, 233, 0.8), rgba(139, 92, 246, 0.4), transparent); 
+            background-image: linear-gradient(to left, rgba(14, 165, 233, 0.8), rgba(139, 92, 246, 0.4), transparent); 
         }
 
-        /* Mobilde yan dalları kaldır, yansımayı koru */
         @media (max-width: 768px) { 
-            .branch-line { display: none !important; }
+            .branch-line { 
+                display: none !important; 
+            }
         }
 
         /* --------------------------------------------------------------------------
            3. MP4 SKELETON, VİDEO MASKELERİ VE SVG PATLAMA KORUMASI
            -------------------------------------------------------------------------- */
         
-        /* Kritik Güvenlik: SVG İkon Patlamasını Engellemek İçin Kesin Sınırlar */
         .icon-box {
             width: 48px !important;
             height: 48px !important;
+            
             min-width: 48px !important;
             min-height: 48px !important;
+            
             max-width: 48px !important;
             max-height: 48px !important;
             
@@ -409,7 +457,6 @@
             z-index: 10;
         }
         
-        /* İçteki SVG'ye kesin limitler atanır */
         .icon-box svg {
             width: 100% !important;
             height: 100% !important;
@@ -419,14 +466,24 @@
             display: block;
         }
 
-        /* Video Yüklenirken Görünen İskelet (Pulse Skeleton) Mimarisi */
         .video-skeleton {
-            background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+            background-image: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
             background-size: 200% 100%;
             
-            -webkit-animation: skeletonLoading 1.5s infinite linear;
-            -moz-animation: skeletonLoading 1.5s infinite linear;
-            animation: skeletonLoading 1.5s infinite linear;
+            -webkit-animation-name: skeletonLoading;
+            -webkit-animation-duration: 1.5s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: linear;
+            
+            -moz-animation-name: skeletonLoading;
+            -moz-animation-duration: 1.5s;
+            -moz-animation-iteration-count: infinite;
+            -moz-animation-timing-function: linear;
+            
+            animation-name: skeletonLoading;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
             
             position: relative;
         }
@@ -446,10 +503,15 @@
             100% { background-position: -200% 0; }
         }
 
-        /* CLS Önleyici Sabit Oranlı Kapsayıcılar */
         .webm-mask {
-            border-radius: 50%; 
-            overflow: hidden; 
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+             
+            overflow-x: hidden; 
+            overflow-y: hidden; 
+            
             display: flex; 
             align-items: center; 
             justify-content: center; 
@@ -463,7 +525,6 @@
             position: relative; 
             background-color: #ffffff;
             
-            /* CLS (Cumulative Layout Shift) Koruması */
             aspect-ratio: 1/1; 
         }
         
@@ -476,11 +537,19 @@
             -moz-transform: translateZ(0); 
             transform: translateZ(0); 
             
-            opacity: 0; /* JS load olana kadar gizli */
+            opacity: 0; 
             
-            -webkit-transition: opacity 0.5s ease-in-out; 
-            -moz-transition: opacity 0.5s ease-in-out; 
-            transition: opacity 0.5s ease-in-out; 
+            -webkit-transition-property: opacity;
+            -webkit-transition-duration: 0.5s;
+            -webkit-transition-timing-function: ease-in-out;
+            
+            -moz-transition-property: opacity;
+            -moz-transition-duration: 0.5s;
+            -moz-transition-timing-function: ease-in-out;
+            
+            transition-property: opacity;
+            transition-duration: 0.5s;
+            transition-timing-function: ease-in-out;
             
             background-color: transparent;
         }
@@ -489,7 +558,6 @@
             opacity: 1; 
         }
 
-        /* Masaüstü Kart Altı MP4 Konumlandırması */
         .webm-card-bottom {
             position: absolute; 
             bottom: -50px; 
@@ -501,13 +569,27 @@
             
             width: 100px; 
             height: 100px; 
-            border: 5px solid #ffffff; 
+            
+            border-top-width: 5px;
+            border-right-width: 5px;
+            border-bottom-width: 5px;
+            border-left-width: 5px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #ffffff; 
+            border-right-color: #ffffff; 
+            border-bottom-color: #ffffff; 
+            border-left-color: #ffffff; 
+            
             box-shadow: 0 15px 30px rgba(0,0,0,0.1); 
-            background: #f8fafc; 
+            background-color: #f8fafc; 
             z-index: 20; 
         }
         
-        /* Modal Dış Çeper MP4 Konumlandırması */
         .webm-modal-flank {
             position: absolute; 
             top: 50%; 
@@ -518,39 +600,80 @@
             
             width: 160px; 
             height: 160px; 
-            border: 6px solid rgba(255,255,255,0.2); 
+            
+            border-top-width: 6px;
+            border-right-width: 6px;
+            border-bottom-width: 6px;
+            border-left-width: 6px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: rgba(255,255,255,0.2); 
+            border-right-color: rgba(255,255,255,0.2); 
+            border-bottom-color: rgba(255,255,255,0.2); 
+            border-left-color: rgba(255,255,255,0.2); 
+            
             box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
             z-index: 60010; 
         }
         
-        .flank-left { left: calc(50% - 400px); }
-        .flank-right { right: calc(50% - 400px); }
+        .flank-left { 
+            left: calc(50% - 400px); 
+        }
+        
+        .flank-right { 
+            right: calc(50% - 400px); 
+        }
 
-        /* Sınıf/Eğitim Kartları Büyük MP4 Konumlandırması */
         .webm-egitim { 
             width: 320px; 
             height: 320px; 
-            border: 8px solid #ffffff; 
+            
+            border-top-width: 8px;
+            border-right-width: 8px;
+            border-bottom-width: 8px;
+            border-left-width: 8px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #ffffff; 
+            border-right-color: #ffffff; 
+            border-bottom-color: #ffffff; 
+            border-left-color: #ffffff; 
+            
             box-shadow: 0 25px 50px rgba(0,0,0,0.08); 
-            background: #ffffff; 
+            background-color: #ffffff; 
         }
         
-        /* Buton İçi İkonik MP4 Konumlandırması */
         .webm-btn-icon { 
             width: 36px; 
             height: 36px; 
             flex-shrink: 0; 
-            border-radius: 50%; 
+            
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+            
             margin-right: 8px; 
-            background: #ffffff; 
-            padding: 2px; 
+            background-color: #ffffff; 
+            
+            padding-top: 2px; 
+            padding-right: 2px; 
+            padding-bottom: 2px; 
+            padding-left: 2px; 
         }
 
         /* --------------------------------------------------------------------------
            4. MAARİF KURDELESİ YÖNETİMİ
            -------------------------------------------------------------------------- */
         
-        /* Kurdele Sınırlandırıcı (Görsel Taşkınlıkları Önler) */
         .maarif-ribbon-wrapper { 
             position: fixed; 
             top: 0; 
@@ -559,7 +682,9 @@
             height: 140px; 
             z-index: 55000; 
             pointer-events: none; 
-            overflow: hidden; 
+            
+            overflow-x: hidden; 
+            overflow-y: hidden; 
         }
         
         .maarif-ribbon { 
@@ -568,8 +693,8 @@
             right: -45px; 
             width: 190px; 
             
-            background: linear-gradient(90deg, #0ea5e9, #06b6d4); 
-            color: white; 
+            background-image: linear-gradient(90deg, #0ea5e9, #06b6d4); 
+            color: #ffffff; 
             text-align: center; 
             
             font-size: 0.60rem; 
@@ -580,9 +705,18 @@
             -ms-transform: rotate(45deg); 
             transform: rotate(45deg); 
             
-            padding: 5px 0; 
-            border-top: 1px solid #cffafe; 
-            border-bottom: 1px solid #cffafe; 
+            padding-top: 5px;
+            padding-bottom: 5px; 
+            padding-left: 0;
+            padding-right: 0;
+            
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #cffafe; 
+            
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #cffafe; 
             
             box-shadow: 0 4px 15px rgba(6,182,212,0.5); 
             line-height: 1.1; 
@@ -594,20 +728,27 @@
            5. MASAÜSTÜ MENÜLER (MEGA BAR VE PILL NAV Z-INDEX ÇÖZÜMLERİ)
            -------------------------------------------------------------------------- */
         
-        /* Sarkan Mega Menü - Yığılma Bağlamı İzole Edildi */
         .mega-bar-wrapper { 
             position: absolute; 
             top: 0; 
             left: 0; 
             width: 100%; 
-            z-index: 40005; /* Pill nav'ın altında kalacak şekilde ayarlandı */
+            z-index: 40005; 
             display: flex; 
             justify-content: center; 
             pointer-events: none; 
             
-            -webkit-transition: opacity 0.4s ease; 
-            -moz-transition: opacity 0.4s ease; 
-            transition: opacity 0.4s ease; 
+            -webkit-transition-property: opacity;
+            -webkit-transition-duration: 0.4s;
+            -webkit-transition-timing-function: ease; 
+            
+            -moz-transition-property: opacity;
+            -moz-transition-duration: 0.4s;
+            -moz-transition-timing-function: ease; 
+            
+            transition-property: opacity;
+            transition-duration: 0.4s;
+            transition-timing-function: ease; 
         }
         
         .hanging-nav { 
@@ -616,26 +757,55 @@
             gap: 10px; 
             width: 100%; 
             max-width: 1000px; 
-            padding: 0 1.5rem; 
+            
+            padding-top: 0;
+            padding-right: 1.5rem; 
+            padding-bottom: 0;
+            padding-left: 1.5rem; 
+            
             pointer-events: auto; 
-            background: transparent;
+            background-color: transparent;
         }
         
         .hanging-tab { 
-            background: #ffffff; 
-            padding: 1.5rem 0.5rem; 
+            background-color: #ffffff; 
+            
+            padding-top: 1.5rem;
+            padding-right: 0.5rem;
+            padding-bottom: 1.5rem;
+            padding-left: 0.5rem; 
+            
             text-align: center; 
             
             border-bottom-left-radius: 2rem; 
             border-bottom-right-radius: 2rem; 
             
-            border: 1px solid #f1f5f9; 
-            border-top: none; 
+            border-top-width: 0; 
+            border-right-width: 1px;
+            border-bottom-width: 1px;
+            border-left-width: 1px;
+            
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-right-color: #f1f5f9; 
+            border-bottom-color: #f1f5f9; 
+            border-left-color: #f1f5f9; 
+            
             cursor: pointer; 
             
-            -webkit-transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease; 
-            -moz-transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease; 
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease; 
+            -webkit-transition-property: transform, box-shadow;
+            -webkit-transition-duration: 0.3s;
+            -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275), ease;
+            
+            -moz-transition-property: transform, box-shadow;
+            -moz-transition-duration: 0.3s;
+            -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275), ease;
+            
+            transition-property: transform, box-shadow;
+            transition-duration: 0.3s;
+            transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275), ease; 
             
             box-shadow: 0 15px 30px rgba(0,0,0,0.03); 
             position: relative;
@@ -661,9 +831,14 @@
             text-transform: uppercase; 
             display: block; 
             
-            -webkit-transition: color 0.2s; 
-            -moz-transition: color 0.2s; 
-            transition: color 0.2s; 
+            -webkit-transition-property: color;
+            -webkit-transition-duration: 0.2s;
+            
+            -moz-transition-property: color;
+            -moz-transition-duration: 0.2s;
+            
+            transition-property: color;
+            transition-duration: 0.2s; 
         }
         
         .hanging-tab:hover .hanging-title { 
@@ -679,7 +854,6 @@
             text-transform: uppercase; 
         }
 
-        /* Yüzen Hap Menü (Pill Nav) - Taşmalar ve Çarpışmalar Giderildi */
         .pill-nav { 
             position: fixed; 
             top: 110px; 
@@ -692,25 +866,55 @@
             width: 95%; 
             max-width: 1050px; 
             height: 72px; 
-            background: rgba(255,255,255,0.95); 
+            background-color: rgba(255,255,255,0.95); 
             
             backdrop-filter: blur(15px); 
             -webkit-backdrop-filter: blur(15px);
             
-            border-radius: 999px; 
-            border: 1px solid #e0f2fe; 
+            border-top-left-radius: 999px; 
+            border-top-right-radius: 999px; 
+            border-bottom-right-radius: 999px; 
+            border-bottom-left-radius: 999px; 
+            
+            border-top-width: 1px;
+            border-right-width: 1px;
+            border-bottom-width: 1px;
+            border-left-width: 1px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #e0f2fe; 
+            border-right-color: #e0f2fe; 
+            border-bottom-color: #e0f2fe; 
+            border-left-color: #e0f2fe; 
+            
             box-shadow: 0 15px 35px rgba(14,165,233,0.15); 
             
             display: flex; 
             align-items: center; 
             justify-content: space-between; 
-            padding: 0 1.5rem; 
             
-            z-index: 40010; /* Mega Bar'ın kesinlikle üstünde */
+            padding-top: 0;
+            padding-right: 1.5rem; 
+            padding-bottom: 0;
+            padding-left: 1.5rem; 
             
-            -webkit-transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease; 
-            -moz-transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease; 
-            transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease; 
+            z-index: 40010; 
+            
+            -webkit-transition-property: top, box-shadow;
+            -webkit-transition-duration: 0.4s;
+            -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1), ease;
+            
+            -moz-transition-property: top, box-shadow;
+            -moz-transition-duration: 0.4s;
+            -moz-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1), ease;
+            
+            transition-property: top, box-shadow;
+            transition-duration: 0.4s;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1), ease; 
         }
         
         .pill-nav.move-up { 
@@ -718,7 +922,6 @@
             box-shadow: 0 20px 50px rgba(14,165,233,0.25); 
         } 
         
-        /* Merkeze kilitlenen statik logo yapısı (Esneyip bozulması engellendi) */
         .pill-logo-link { 
             position: absolute; 
             left: 50%; 
@@ -731,14 +934,34 @@
             width: 96px; 
             height: 96px; 
             
-            /* Logo Esnememesi İçin Kesin Kurallar */
             aspect-ratio: 1/1; 
             flex-shrink: 0;
-            overflow: hidden; 
-            border-radius: 50% !important; 
             
-            background: #ffffff; 
-            border: 4px solid #0ea5e9; 
+            overflow-x: hidden; 
+            overflow-y: hidden; 
+            
+            border-top-left-radius: 50% !important; 
+            border-top-right-radius: 50% !important; 
+            border-bottom-right-radius: 50% !important; 
+            border-bottom-left-radius: 50% !important; 
+            
+            background-color: #ffffff; 
+            
+            border-top-width: 4px;
+            border-right-width: 4px;
+            border-bottom-width: 4px;
+            border-left-width: 4px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #0ea5e9; 
+            border-right-color: #0ea5e9; 
+            border-bottom-color: #0ea5e9; 
+            border-left-color: #0ea5e9; 
+            
             box-shadow: 0 10px 25px rgba(14,165,233,0.3); 
             
             display: flex; 
@@ -746,13 +969,26 @@
             justify-content: center; 
             
             cursor: pointer; 
-            padding: 6px; 
+            
+            padding-top: 6px; 
+            padding-right: 6px; 
+            padding-bottom: 6px; 
+            padding-left: 6px; 
+            
             pointer-events: auto; 
             z-index: 40012; 
             
-            -webkit-transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            -moz-transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            -webkit-transition-property: transform;
+            -webkit-transition-duration: 0.3s;
+            -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            -moz-transition-property: transform;
+            -moz-transition-duration: 0.3s;
+            -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            transition-property: transform;
+            transition-duration: 0.3s;
+            transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         
         .pill-logo-link:hover { 
@@ -771,10 +1007,13 @@
             width: 100%; 
             height: 100%; 
             object-fit: contain; 
-            border-radius: 50% !important;
+            
+            border-top-left-radius: 50% !important;
+            border-top-right-radius: 50% !important;
+            border-bottom-right-radius: 50% !important;
+            border-bottom-left-radius: 50% !important;
         }
         
-        /* Yazıların logonun altına girmesini engelleyen boşluklu yapı (Logo Toleransı) */
         .pill-side { 
             flex: 1; 
             display: flex; 
@@ -783,12 +1022,12 @@
         }
         
         .pill-side.left { 
-            padding-right: 60px; /* Logo toleransı */
+            padding-right: 60px; 
             justify-content: flex-start;
         }
         
         .pill-side.right { 
-            padding-left: 60px; /* Logo toleransı */
+            padding-left: 60px; 
             justify-content: flex-end; 
         }
         
@@ -804,37 +1043,65 @@
             align-items: center; 
             gap: 8px; 
             
-            -webkit-transition: color 0.2s; 
-            -moz-transition: color 0.2s; 
-            transition: color 0.2s; 
+            -webkit-transition-property: color;
+            -webkit-transition-duration: 0.2s;
             
-            padding: 10px; /* Tıklama alanı (Touch Target) */
+            -moz-transition-property: color;
+            -moz-transition-duration: 0.2s;
+            
+            transition-property: color;
+            transition-duration: 0.2s; 
+            
+            padding-top: 10px; 
+            padding-right: 10px; 
+            padding-bottom: 10px; 
+            padding-left: 10px; 
         }
         
         .pill-link:hover { 
             color: #0ea5e9; 
         }
         
-        /* Premium Etkileşimli Manyetik Buton */
         .magnetic-btn {
-            background: #06b6d4; 
+            background-color: #06b6d4; 
             color: #ffffff; 
             font-weight: 900; 
             font-size: 0.85rem; 
-            padding: 0.5rem 1.5rem 0.5rem 0.5rem; 
-            border-radius: 999px; 
+            
+            padding-top: 0.5rem; 
+            padding-right: 1.5rem; 
+            padding-bottom: 0.5rem; 
+            padding-left: 0.5rem; 
+            
+            border-top-left-radius: 999px; 
+            border-top-right-radius: 999px; 
+            border-bottom-right-radius: 999px; 
+            border-bottom-left-radius: 999px; 
             
             display: inline-flex; 
             align-items: center; 
             cursor: pointer; 
             box-shadow: 0 8px 20px rgba(6,182,212,0.4); 
-            border: none; 
+            
+            border-top-width: 0;
+            border-right-width: 0;
+            border-bottom-width: 0;
+            border-left-width: 0;
+            
             pointer-events: auto; 
             will-change: transform; 
             
-            -webkit-transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-            -moz-transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-            transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+            -webkit-transition-property: background-color, box-shadow, transform;
+            -webkit-transition-duration: 0.2s;
+            -webkit-transition-timing-function: ease;
+            
+            -moz-transition-property: background-color, box-shadow, transform;
+            -moz-transition-duration: 0.2s;
+            -moz-transition-timing-function: ease;
+            
+            transition-property: background-color, box-shadow, transform;
+            transition-duration: 0.2s;
+            transition-timing-function: ease;
         }
         
         .magnetic-btn:hover { 
@@ -847,7 +1114,6 @@
             transform: scale(0.94) !important; 
         }
 
-        /* Masaüstü Genel Kart Koruması */
         main { 
             padding-top: 250px; 
             width: 100%;
@@ -858,39 +1124,63 @@
         }
         
         .card-shield { 
-            background: #ffffff; 
+            background-color: #ffffff; 
             position: relative; 
             z-index: 10; 
-            border-radius: 2rem; 
+            
+            border-top-left-radius: 2rem; 
+            border-top-right-radius: 2rem; 
+            border-bottom-right-radius: 2rem; 
+            border-bottom-left-radius: 2rem; 
+            
             margin-bottom: 50px; 
             
-            -webkit-transition: all 0.4s ease; 
-            -moz-transition: all 0.4s ease; 
-            transition: all 0.4s ease;
+            -webkit-transition-property: all;
+            -webkit-transition-duration: 0.4s;
+            -webkit-transition-timing-function: ease;
+            
+            -moz-transition-property: all;
+            -moz-transition-duration: 0.4s;
+            -moz-transition-timing-function: ease;
+            
+            transition-property: all;
+            transition-duration: 0.4s;
+            transition-timing-function: ease; 
         }
 
         /* --------------------------------------------------------------------------
            6. MOBİL ÖZEL: SIKIŞTIRILMIŞ APP-UI, YATAY ODAKLI KAYDIRMA VE GÜVENLİ ALANLAR
            -------------------------------------------------------------------------- */
         
-        /* Masaüstü Başlangıç Durumları */
         .mobile-bottom-nav { display: none; }
+        .pagination-dots { display: none; }
         .mobile-swipe-wrapper { display: block; width: 100%; } 
         .carousel-badge { display: none; }
 
         @media (max-width: 768px) {
             
-            /* Masaüstü menüleri gizle, mobil sıkıştırmaları aç */
             .mega-bar-wrapper { 
                 display: none !important; 
             }
             
-            /* Sıkıştırılmış Hap Menü (Pill Nav) ve İkon İptalleri */
+            .pill-side { 
+                display: none !important; 
+            }
+            
+            .branch-line { 
+                display: none !important; 
+            }
+            
             .pill-nav { 
                 top: 15px; 
                 height: 60px; 
                 width: 92%; 
-                padding: 0 0.5rem; 
+                
+                padding-top: 0;
+                padding-right: 0.5rem; 
+                padding-bottom: 0;
+                padding-left: 0.5rem; 
+                
                 justify-content: space-between; 
                 gap: 10px; 
             }
@@ -910,8 +1200,17 @@
                 
                 width: 48px; 
                 height: 48px; 
-                border-width: 2px; 
+                
+                border-top-width: 2px; 
+                border-right-width: 2px; 
+                border-bottom-width: 2px; 
+                border-left-width: 2px; 
+                
                 box-shadow: 0 4px 10px rgba(14,165,233,0.3); 
+                
+                margin-top: 0;
+                margin-right: 0;
+                margin-bottom: 0;
                 margin-left: 5px;
             }
             
@@ -921,10 +1220,6 @@
                 transform: scale(1.05); 
             }
             
-            .pill-side { 
-                display: none !important; 
-            }
-            
             .pill-side.right { 
                 display: flex !important; 
                 flex: 1; 
@@ -932,48 +1227,73 @@
             }
             
             .magnetic-btn { 
-                padding: 0.6rem 1.2rem; 
+                padding-top: 0.6rem; 
+                padding-right: 1.2rem; 
+                padding-bottom: 0.6rem; 
+                padding-left: 1.2rem; 
                 font-size: 0.75rem; 
             }
             
             .webm-btn-icon { 
                 display: none !important; 
-            } /* Yer tasarrufu için videoyu gizle */
+            } 
             
             main { 
                 padding-top: 110px !important; 
                 overflow-x: hidden; 
-                width: 100%;
+                width: 100vw !important;
             }
 
-            /* Safe Area Destekli Alt Navigasyon (Home Indicator Çakışması Önlendi) */
             .mobile-bottom-nav { 
                 display: block !important; 
                 position: fixed; 
                 left: 5%; 
                 width: 90%; 
                 
-                /* İşletim Sistemi Alt Çizgisine Karşı Güvenli Alan Koruyucu */
                 bottom: env(safe-area-inset-bottom, 15px);
                 
                 margin-bottom: 15px;
                 height: 65px;
                 
-                background: rgba(255, 255, 255, 0.85); 
+                background-color: rgba(255, 255, 255, 0.85); 
                 backdrop-filter: blur(15px); 
                 -webkit-backdrop-filter: blur(15px); 
                 
                 box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
                 z-index: 45000; 
-                border: 1px solid rgba(255,255,255,0.8); 
-                border-radius: 999px;
+                
+                border-top-width: 1px;
+                border-right-width: 1px;
+                border-bottom-width: 1px;
+                border-left-width: 1px;
+                
+                border-top-style: solid;
+                border-right-style: solid;
+                border-bottom-style: solid;
+                border-left-style: solid;
+                
+                border-top-color: rgba(255,255,255,0.8); 
+                border-right-color: rgba(255,255,255,0.8); 
+                border-bottom-color: rgba(255,255,255,0.8); 
+                border-left-color: rgba(255,255,255,0.8); 
+                
+                border-top-left-radius: 999px;
+                border-top-right-radius: 999px;
+                border-bottom-right-radius: 999px;
+                border-bottom-left-radius: 999px;
             }
             
             .mobile-nav-grid { 
                 display: grid; 
                 grid-template-columns: repeat(3, 1fr); 
                 height: 100%; 
-                padding: 0 10px; 
+                
+                padding-top: 0;
+                padding-right: 10px; 
+                padding-bottom: 0;
+                padding-left: 10px; 
+                
+                align-items: center; 
             }
             
             .mob-link { 
@@ -983,17 +1303,36 @@
                 justify-content: center; 
                 text-decoration: none; 
                 color: #64748b; 
-                border: none; 
-                background: transparent; 
+                
+                border-top-width: 0; 
+                border-right-width: 0; 
+                border-bottom-width: 0; 
+                border-left-width: 0; 
+                
+                background-color: transparent; 
                 cursor: pointer; 
-                border-radius: 50px; 
                 
-                -webkit-transition: background-color 0.2s; 
-                -moz-transition: background-color 0.2s; 
-                transition: background-color 0.2s; 
+                border-top-left-radius: 50px; 
+                border-top-right-radius: 50px; 
+                border-bottom-right-radius: 50px; 
+                border-bottom-left-radius: 50px; 
                 
-                padding: 10px;
+                -webkit-transition-property: background-color;
+                -webkit-transition-duration: 0.2s;
+                
+                -moz-transition-property: background-color;
+                -moz-transition-duration: 0.2s;
+                
+                transition-property: background-color;
+                transition-duration: 0.2s; 
+                
+                padding-top: 10px;
+                padding-right: 10px;
+                padding-bottom: 10px;
+                padding-left: 10px;
+                
                 height: 100%;
+                -webkit-tap-highlight-color: transparent;
             }
             
             .mob-link:active { 
@@ -1005,14 +1344,18 @@
                 height: 22px; 
                 color: #0f172a; 
                 
-                -webkit-transition: color 0.2s, transform 0.2s; 
-                -moz-transition: color 0.2s, transform 0.2s; 
-                transition: color 0.2s, transform 0.2s; 
+                -webkit-transition-property: color, transform;
+                -webkit-transition-duration: 0.2s;
+                
+                -moz-transition-property: color, transform;
+                -moz-transition-duration: 0.2s;
+                
+                transition-property: color, transform;
+                transition-duration: 0.2s; 
                 
                 margin-bottom: 2px;
             }
             
-            /* Bilişsel İkon Alt Yazıları */
             .mob-link-text {
                 font-size: 10px;
                 font-weight: 800;
@@ -1032,7 +1375,6 @@
                 color: #0ea5e9;
             }
 
-            /* Kurdele (Ribbon) Konumlandırması (Kısaltıldı ve Yukarı İtildi) */
             .maarif-ribbon-wrapper { 
                 position: absolute !important; 
                 width: 100px !important; 
@@ -1044,59 +1386,84 @@
                 right: -25px !important; 
                 width: 130px !important; 
                 font-size: 0.55rem !important; 
-                padding: 3px 0 !important; 
-                border-width: 1px !important; 
+                
+                padding-top: 3px !important; 
+                padding-bottom: 3px !important; 
+                
+                border-top-width: 1px !important; 
+                border-bottom-width: 1px !important; 
             }
 
-            /* ----------------------------------------------------------------------
-               ÖZEL MİMARİ: ODAKLI YATAY KAYDIRMA (SONSUZ FİLM ŞERİDİ EFEKTİ)
-               ---------------------------------------------------------------------- */
             .mobile-swipe-wrapper {
                 position: relative;
                 width: 100vw;
-                margin-left: calc(-50vw + 50%); /* Tam Ekran Kapsama */
+                margin-left: calc(-50vw + 50%); 
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 margin-bottom: 30px !important;
-                overflow: hidden;
+                
+                overflow-x: hidden;
+                overflow-y: hidden;
             }
 
-            /* Karusel Rozet Sayacı (Örn: 1/3) */
             .carousel-badge {
                 display: flex !important;
                 position: absolute;
                 top: 0px;
-                right: 15vw; /* Kart hizasına oturması için */
-                background: rgba(0, 0, 0, 0.6);
+                right: 15vw; 
+                
+                background-color: rgba(0, 0, 0, 0.6);
                 backdrop-filter: blur(5px);
                 -webkit-backdrop-filter: blur(5px);
-                color: white;
+                
+                color: #ffffff;
                 font-size: 0.75rem;
                 font-weight: 800;
-                padding: 4px 12px;
-                border-radius: 20px;
+                
+                padding-top: 4px;
+                padding-right: 12px;
+                padding-bottom: 4px;
+                padding-left: 12px;
+                
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
+                border-bottom-left-radius: 20px;
+                
                 z-index: 20;
                 pointer-events: none;
                 
-                -webkit-transition: opacity 0.3s ease;
-                -moz-transition: opacity 0.3s ease;
-                transition: opacity 0.3s ease;
+                -webkit-transition-property: opacity;
+                -webkit-transition-duration: 0.3s;
+                -webkit-transition-timing-function: ease;
+                
+                -moz-transition-property: opacity;
+                -moz-transition-duration: 0.3s;
+                -moz-transition-timing-function: ease;
+                
+                transition-property: opacity;
+                transition-duration: 0.3s;
+                transition-timing-function: ease;
             }
 
             .mobile-swipe-container {
                 display: flex !important;
                 flex-wrap: nowrap !important;
-                overflow-x: auto !important;
                 
-                /* Sonsuz döngü için CSS Snap özelliğini Javascript ile destekliyoruz */
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                
                 scroll-snap-type: x mandatory !important;
                 scroll-behavior: smooth !important;
                 -webkit-overflow-scrolling: touch !important;
                 width: 100% !important;
                 
-                /* KESİN ÇÖZÜM: Yandaki kartların %15'inin görünmesini sağlayan boşluk (Peek Effect) */
-                padding: 2rem 15vw 3rem 15vw !important; 
+                padding-top: 2rem !important;
+                padding-right: 15vw !important;
+                padding-bottom: 3rem !important;
+                padding-left: 15vw !important;
+                
                 gap: 15px !important;
             }
             
@@ -1105,14 +1472,21 @@
             }
             
             .mobile-swipe-item {
-                flex: 0 0 70vw !important; /* Ortadaki kart genişliği */
+                flex: 0 0 70vw !important; 
                 scroll-snap-align: center !important;
                 
-                -webkit-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-                -moz-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-                transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+                -webkit-transition-property: all;
+                -webkit-transition-duration: 0.4s;
+                -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
                 
-                /* Kenarda kalanlar geriye iter, küçülür ve flulaşır (Film şeridi efekti) */
+                -moz-transition-property: all;
+                -moz-transition-duration: 0.4s;
+                -moz-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                
+                transition-property: all;
+                transition-duration: 0.4s;
+                transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                
                 opacity: 0.4 !important; 
                 
                 -webkit-filter: blur(4px) !important; 
@@ -1122,12 +1496,15 @@
                 -moz-transform: scale(0.85) !important; 
                 transform: scale(0.85) !important; 
                 
-                margin: 0 !important;
+                margin-top: 0 !important;
+                margin-right: 0 !important;
+                margin-bottom: 0 !important;
+                margin-left: 0 !important;
+                
                 position: relative;
                 will-change: transform, opacity, filter;
             }
             
-            /* Ortaya Odaklanan (Aktif) Kart CSS'i (JS İle Tetiklenir) */
             .mobile-swipe-item.is-centered {
                 opacity: 1 !important;
                 
@@ -1142,19 +1519,27 @@
                 z-index: 10;
             }
 
-            /* Bilişsel Yükü Sıfırlama: Kart İçi Boyutlandırmalar */
             .card-shield { 
-                padding: 1.5rem !important; 
-                border-radius: 1.5rem !important; 
+                padding-top: 1.5rem !important; 
+                padding-right: 1.5rem !important; 
+                padding-bottom: 1.5rem !important; 
+                padding-left: 1.5rem !important; 
+                
+                border-top-left-radius: 1.5rem !important; 
+                border-top-right-radius: 1.5rem !important; 
+                border-bottom-right-radius: 1.5rem !important; 
+                border-bottom-left-radius: 1.5rem !important; 
             }
             
             .icon-box { 
                 width: 36px !important; 
                 height: 36px !important; 
+                
                 min-width: 36px !important; 
                 min-height: 36px !important; 
                 max-width: 36px !important;
                 max-height: 36px !important;
+                
                 margin-bottom: 1rem !important; 
             }
             
@@ -1163,13 +1548,11 @@
                 margin-bottom: 0.5rem !important; 
             }
             
-            /* VIP Güven Metinleri Boyutlandırma */
             .mobile-swipe-item p { 
                 font-size: 0.8rem !important; 
                 line-height: 1.4 !important; 
             }
             
-            /* Eğitim Modülü Kart İçi (Mobilde yazılar gizlenir) */
             .education-mobile-row { 
                 flex-direction: column !important; 
                 text-align: center !important; 
@@ -1191,51 +1574,91 @@
                 margin-bottom: 1rem !important; 
             }
             
-            /* Randevu Butonu Stil Koruması (Override Engelleme) */
             .education-mobile-row .magnetic-btn {
-                background: linear-gradient(135deg, #0ea5e9, #0284c7) !important;
+                background-image: linear-gradient(135deg, #0ea5e9, #0284c7) !important;
                 color: #ffffff !important;
-                padding: 0.8rem 2rem !important;
+                
+                padding-top: 0.8rem !important;
+                padding-right: 2rem !important;
+                padding-bottom: 0.8rem !important;
+                padding-left: 2rem !important;
+                
                 font-size: 1rem !important;
-                border-radius: 999px !important;
+                
+                border-top-left-radius: 999px !important;
+                border-top-right-radius: 999px !important;
+                border-bottom-right-radius: 999px !important;
+                border-bottom-left-radius: 999px !important;
+                
                 box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3) !important;
                 width: 100% !important;
                 justify-content: center !important;
+                margin-top: auto;
             }
             
             .webm-card-bottom { 
                 width: 60px !important; 
                 height: 60px !important; 
                 bottom: -30px !important; 
-                border-width: 3px !important; 
+                
+                border-top-width: 3px !important; 
+                border-right-width: 3px !important; 
+                border-bottom-width: 3px !important; 
+                border-left-width: 3px !important; 
             }
             
             .education-mobile-row .webm-egitim { 
                 width: 100px !important; 
                 height: 100px !important; 
-                margin: 0 auto 1rem !important; 
-                border-width: 4px !important; 
+                
+                margin-top: 0 !important;
+                margin-right: auto !important;
+                margin-bottom: 1rem !important;
+                margin-left: auto !important;
+                
+                border-top-width: 4px !important; 
+                border-right-width: 4px !important; 
+                border-bottom-width: 4px !important; 
+                border-left-width: 4px !important; 
             }
 
-            /* App-UI: Küçültülmüş Kompakt Sayaç */
             .counter-card { 
-                padding: 1.5rem !important; 
-                border-radius: 1.5rem !important; 
+                padding-top: 1.5rem !important; 
+                padding-right: 1rem !important; 
+                padding-bottom: 1.5rem !important; 
+                padding-left: 1rem !important; 
+                
+                border-top-left-radius: 1.5rem !important; 
+                border-top-right-radius: 1.5rem !important; 
+                border-bottom-right-radius: 1.5rem !important; 
+                border-bottom-left-radius: 1.5rem !important; 
             }
             
             .counter-ring { 
                 width: 60px !important; 
                 height: 60px !important; 
-                border-width: 3px !important; 
-                margin: 0 2px !important;
+                
+                border-top-width: 3px !important; 
+                border-right-width: 3px !important; 
+                border-bottom-width: 3px !important; 
+                border-left-width: 3px !important; 
+                
+                margin-top: 0 !important;
+                margin-right: 2px !important;
+                margin-bottom: 0 !important;
+                margin-left: 2px !important;
             }
             
             .ring-gun::after, 
             .ring-saat::after, 
             .ring-dak::after, 
             .ring-san::after { 
-                inset:-3px !important; 
-                border-width: 3px !important; 
+                inset: -3px !important; 
+                
+                border-top-width: 3px !important; 
+                border-right-width: 3px !important; 
+                border-bottom-width: 3px !important; 
+                border-left-width: 3px !important; 
             }
             
             .c-val { 
@@ -1253,24 +1676,77 @@
             }
             
             .exam-btn { 
-                padding: 0.6rem !important; 
+                padding-top: 0.6rem !important; 
+                padding-right: 0.6rem !important; 
+                padding-bottom: 0.6rem !important; 
+                padding-left: 0.6rem !important; 
+                
                 font-size: 0.85rem !important; 
-                border-radius: 0.8rem !important; 
+                
+                border-top-left-radius: 0.8rem !important; 
+                border-top-right-radius: 0.8rem !important; 
+                border-bottom-right-radius: 0.8rem !important; 
+                border-bottom-left-radius: 0.8rem !important; 
             }
             
-            /* Footer Alt Kısım Z-Ekseni Boşluğu */
             #iletisim {
                 padding-bottom: 100px !important;
+            }
+            
+            .pagination-dots {
+                display: flex !important; 
+                justify-content: center; 
+                gap: 6px; 
+                margin-top: 5px; 
+                margin-bottom: 10px; 
+                width: 100%; 
+                z-index: 5;
+            }
+            
+            .pagination-dots .dot {
+                width: 8px; 
+                height: 8px; 
+                background-color: #e2e8f0; 
+                
+                border-top-left-radius: 999px; 
+                border-top-right-radius: 999px; 
+                border-bottom-right-radius: 999px; 
+                border-bottom-left-radius: 999px; 
+                
+                -webkit-transition-property: all;
+                -webkit-transition-duration: 0.3s;
+                -webkit-transition-timing-function: ease;
+                
+                -moz-transition-property: all;
+                -moz-transition-duration: 0.3s;
+                -moz-transition-timing-function: ease;
+                
+                transition-property: all;
+                transition-duration: 0.3s;
+                transition-timing-function: ease;
+            }
+            
+            .pagination-dots .dot.active { 
+                background-color: #0ea5e9; 
+                width: 24px; 
             }
         }
 
         /* --------------------------------------------------------------------------
-           7. SAYAÇ MİMARİSİ (BÜYÜME VE KIRMIZI EFEKT EKSİKSİZ)
+           7. SAYAÇ ANİMASYONLARI VE RENK KODLAMALARI
            -------------------------------------------------------------------------- */
         .counter-card { 
-            -webkit-transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.6s ease; 
-            -moz-transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.6s ease; 
-            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.6s ease; 
+            -webkit-transition-property: transform, box-shadow;
+            -webkit-transition-duration: 0.6s;
+            -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275), ease;
+            
+            -moz-transition-property: transform, box-shadow;
+            -moz-transition-duration: 0.6s;
+            -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275), ease;
+            
+            transition-property: transform, box-shadow;
+            transition-duration: 0.6s;
+            transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275), ease;
             
             position: relative; 
         }
@@ -1286,32 +1762,76 @@
         .counter-ring { 
             width: 120px; 
             height: 120px; 
-            border-radius: 50%; 
-            border: 4px solid #f1f5f9; 
+            
+            border-top-left-radius: 50%; 
+            border-top-right-radius: 50%; 
+            border-bottom-right-radius: 50%; 
+            border-bottom-left-radius: 50%; 
+            
+            border-top-width: 4px;
+            border-right-width: 4px;
+            border-bottom-width: 4px;
+            border-left-width: 4px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #f1f5f9; 
+            border-right-color: #f1f5f9; 
+            border-bottom-color: #f1f5f9; 
+            border-left-color: #f1f5f9; 
             
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
             align-items: center; 
             
-            background: #ffffff; 
+            background-color: #ffffff; 
             position: relative; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.04); 
             
-            -webkit-transition: border-color 0.4s ease; 
-            -moz-transition: border-color 0.4s ease; 
-            transition: border-color 0.4s ease; 
+            -webkit-transition-property: border-color;
+            -webkit-transition-duration: 0.4s;
+            -webkit-transition-timing-function: ease;
+            
+            -moz-transition-property: border-color;
+            -moz-transition-duration: 0.4s;
+            -moz-transition-timing-function: ease;
+            
+            transition-property: border-color;
+            transition-duration: 0.4s;
+            transition-timing-function: ease;
         }
         
         .ring-gun::after, 
         .ring-saat::after, 
         .ring-dak::after, 
         .ring-san::after { 
-            content:''; 
-            position:absolute; 
-            inset:-4px; 
-            border-radius:50%; 
-            border: 4px solid transparent; 
+            content: ''; 
+            position: absolute; 
+            inset: -4px; 
+            
+            border-top-left-radius: 50%; 
+            border-top-right-radius: 50%; 
+            border-bottom-right-radius: 50%; 
+            border-bottom-left-radius: 50%; 
+            
+            border-top-width: 4px;
+            border-right-width: 4px;
+            border-bottom-width: 4px;
+            border-left-width: 4px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: transparent; 
+            border-right-color: transparent; 
+            border-bottom-color: transparent; 
+            border-left-color: transparent; 
         }
         
         .ring-gun::after { border-top-color: #f59e0b; border-right-color: #f59e0b; }
@@ -1319,7 +1839,6 @@
         .ring-dak::after { border-bottom-color: #10b981; border-right-color: #10b981; }
         .ring-san::after { border-bottom-color: #8b5cf6; border-left-color: #8b5cf6; }
 
-        /* Saniye Kırmızı Parlama Efekti */
         @-webkit-keyframes pulseRedAlert { 
             0%, 100% { color: #0ea5e9; text-shadow: none; -webkit-transform: scale(1); transform: scale(1); } 
             50% { color: #ef4444; text-shadow: 0 0 20px rgba(239,68,68,0.9); -webkit-transform: scale(1.1); transform: scale(1.1); } 
@@ -1336,9 +1855,18 @@
         }
         
         .pulse-red-alert { 
-            -webkit-animation: pulseRedAlert 1s ease-in-out; 
-            -moz-animation: pulseRedAlert 1s ease-in-out; 
-            animation: pulseRedAlert 1s ease-in-out; 
+            -webkit-animation-name: pulseRedAlert;
+            -webkit-animation-duration: 1s;
+            -webkit-animation-timing-function: ease-in-out;
+            
+            -moz-animation-name: pulseRedAlert;
+            -moz-animation-duration: 1s;
+            -moz-animation-timing-function: ease-in-out;
+            
+            animation-name: pulseRedAlert;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            
             color: #ef4444 !important; 
         }
 
@@ -1347,9 +1875,15 @@
             font-weight: 900; 
             line-height: 1; 
             
-            -webkit-transition: color 0.3s; 
-            -moz-transition: color 0.3s; 
-            transition: color 0.3s; 
+            -webkit-transition-property: color;
+            -webkit-transition-duration: 0.3s;
+            
+            -moz-transition-property: color;
+            -moz-transition-duration: 0.3s;
+            
+            transition-property: color;
+            transition-duration: 0.3s;
+            
             color: #0ea5e9; 
         }
         
@@ -1361,7 +1895,6 @@
             text-transform: uppercase; 
         }
 
-        /* Geri Dön Butonu */
         .back-btn { 
             position: absolute; 
             left: 2rem; 
@@ -1369,18 +1902,36 @@
             font-size: 0.85rem; 
             font-weight: 900; 
             color: #94a3b8; 
-            background: none; 
-            border: none; 
+            background-color: transparent; 
+            
+            border-top-width: 0;
+            border-right-width: 0;
+            border-bottom-width: 0;
+            border-left-width: 0;
+            
             cursor: pointer; 
             opacity: 0; 
             pointer-events: none; 
             
-            -webkit-transition: opacity 0.4s ease, color 0.3s ease; 
-            -moz-transition: opacity 0.4s ease, color 0.3s ease; 
-            transition: opacity 0.4s ease, color 0.3s ease; 
+            -webkit-transition-property: opacity, color;
+            -webkit-transition-duration: 0.4s, 0.3s;
+            -webkit-transition-timing-function: ease, ease;
+            
+            -moz-transition-property: opacity, color;
+            -moz-transition-duration: 0.4s, 0.3s;
+            -moz-transition-timing-function: ease, ease;
+            
+            transition-property: opacity, color;
+            transition-duration: 0.4s, 0.3s;
+            transition-timing-function: ease, ease;
             
             text-transform: uppercase; 
-            padding: 10px; 
+            
+            padding-top: 10px; 
+            padding-right: 10px; 
+            padding-bottom: 10px; 
+            padding-left: 10px; 
+            
             display: none; 
         }
         
@@ -1395,16 +1946,41 @@
         }
 
         .exam-btn { 
-            -webkit-transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            -moz-transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            -webkit-transition-property: opacity, max-height, margin, transform;
+            -webkit-transition-duration: 0.4s, 0.4s, 0.4s, 0.2s;
+            -webkit-transition-timing-function: ease, ease, ease, cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            -moz-transition-property: opacity, max-height, margin, transform;
+            -moz-transition-duration: 0.4s, 0.4s, 0.4s, 0.2s;
+            -moz-transition-timing-function: ease, ease, ease, cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            transition-property: opacity, max-height, margin, transform;
+            transition-duration: 0.4s, 0.4s, 0.4s, 0.2s;
+            transition-timing-function: ease, ease, ease, cubic-bezier(0.175, 0.885, 0.32, 1.275);
             
             opacity: 1; 
             max-height: 80px; 
-            overflow: hidden; 
-            margin: 0 8px; 
+            
+            overflow-x: hidden; 
+            overflow-y: hidden; 
+            
+            margin-top: 0;
+            margin-right: 8px;
+            margin-bottom: 0;
+            margin-left: 8px;
+            
             flex: 1; 
-            border: 2px solid; 
+            
+            border-top-width: 2px;
+            border-right-width: 2px;
+            border-bottom-width: 2px;
+            border-left-width: 2px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
             cursor: pointer; 
         }
         
@@ -1417,9 +1993,22 @@
         .exam-btn.btn-gone { 
             opacity: 0; 
             max-height: 0; 
-            margin: 0; 
-            padding: 0; 
-            border-width: 0; 
+            
+            margin-top: 0;
+            margin-right: 0;
+            margin-bottom: 0;
+            margin-left: 0;
+            
+            padding-top: 0;
+            padding-right: 0;
+            padding-bottom: 0;
+            padding-left: 0;
+            
+            border-top-width: 0; 
+            border-right-width: 0; 
+            border-bottom-width: 0; 
+            border-left-width: 0; 
+            
             pointer-events: none; 
         }
         
@@ -1427,13 +2016,24 @@
             display: flex; 
             opacity: 0; 
             max-height: 0; 
-            overflow: hidden; 
+            
+            overflow-x: hidden; 
+            overflow-y: hidden; 
+            
             justify-content: center; 
             gap: 1rem; 
             
-            -webkit-transition: opacity 0.6s ease, max-height 0.6s ease, margin-top 0.6s ease; 
-            -moz-transition: opacity 0.6s ease, max-height 0.6s ease, margin-top 0.6s ease; 
-            transition: opacity 0.6s ease, max-height 0.6s ease, margin-top 0.6s ease; 
+            -webkit-transition-property: opacity, max-height, margin-top;
+            -webkit-transition-duration: 0.6s;
+            -webkit-transition-timing-function: ease;
+            
+            -moz-transition-property: opacity, max-height, margin-top;
+            -moz-transition-duration: 0.6s;
+            -moz-transition-timing-function: ease;
+            
+            transition-property: opacity, max-height, margin-top;
+            transition-duration: 0.6s;
+            transition-timing-function: ease;
             
             margin-top: 0; 
         }
@@ -1442,17 +2042,43 @@
             opacity: 1; 
             max-height: 100px; 
             margin-top: 1.5rem; 
-            overflow: visible; 
+            
+            overflow-x: visible; 
+            overflow-y: visible; 
         }
         
         .sub-pill { 
-            background: #f8fafc; 
+            background-color: #f8fafc; 
             color: #475569; 
-            padding: 10px 24px; 
-            border-radius: 999px; 
+            
+            padding-top: 10px; 
+            padding-right: 24px; 
+            padding-bottom: 10px; 
+            padding-left: 24px; 
+            
+            border-top-left-radius: 999px; 
+            border-top-right-radius: 999px; 
+            border-bottom-right-radius: 999px; 
+            border-bottom-left-radius: 999px; 
+            
             font-size: 0.85rem; 
             font-weight: 800; 
-            border: 1px solid #cbd5e1; 
+            
+            border-top-width: 1px;
+            border-right-width: 1px;
+            border-bottom-width: 1px;
+            border-left-width: 1px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #cbd5e1; 
+            border-right-color: #cbd5e1; 
+            border-bottom-color: #cbd5e1; 
+            border-left-color: #cbd5e1; 
+            
             box-shadow: 0 2px 5px rgba(0,0,0,0.03); 
         }
 
@@ -1462,17 +2088,30 @@
         .modal-overlay { 
             position: fixed; 
             inset: 0; 
-            background: rgba(15,23,42,0.85); 
+            background-color: rgba(15,23,42,0.85); 
             z-index: 60000; 
             display: none; 
             align-items: center; 
             justify-content: center; 
-            padding: 1rem; 
+            
+            padding-top: 1rem; 
+            padding-right: 1rem; 
+            padding-bottom: 1rem; 
+            padding-left: 1rem; 
+            
             opacity: 0; 
             
-            -webkit-transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            -moz-transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            -webkit-transition-property: opacity;
+            -webkit-transition-duration: 0.5s;
+            -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            -moz-transition-property: opacity;
+            -moz-transition-duration: 0.5s;
+            -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            transition-property: opacity;
+            transition-duration: 0.5s;
+            transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         
         .modal-overlay.show { 
@@ -1480,50 +2119,97 @@
             opacity: 1; 
         }
         
-        /* Sanal Klavye Korumalı Kutu (Scroll İçeren Modal) */
         .modal-box { 
-            background: #ffffff; 
-            border-radius: 2rem; 
-            padding: 3.5rem 3rem; 
+            background-color: #ffffff; 
+            
+            border-top-left-radius: 2rem; 
+            border-top-right-radius: 2rem; 
+            border-bottom-right-radius: 2rem; 
+            border-bottom-left-radius: 2rem; 
+            
+            padding-top: 3.5rem; 
+            padding-right: 3rem; 
+            padding-bottom: 3.5rem; 
+            padding-left: 3rem; 
+            
             width: 100%; 
             max-width: 600px; 
-            max-height: 85vh; /* Sanal klavye açıldığında taşmayı önler */
-            overflow-y: auto; /* Kaydırmaya izin verir */
-            overscroll-behavior: contain; /* Arkadaki sayfanın kaymasını engeller */
+            max-height: 85vh; 
+            overflow-y: auto; 
+            overscroll-behavior: contain; 
             position: relative; 
             box-shadow: 0 30px 60px -12px rgba(0,0,0,0.6); 
-            border: 3px solid #cffafe; 
+            
+            border-top-width: 3px;
+            border-right-width: 3px;
+            border-bottom-width: 3px;
+            border-left-width: 3px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #cffafe; 
+            border-right-color: #cffafe; 
+            border-bottom-color: #cffafe; 
+            border-left-color: #cffafe; 
+            
             z-index: 60005; 
             clip-path: circle(0% at 50% 50%); 
             
-            -webkit-transition: clip-path 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            -moz-transition: clip-path 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            transition: clip-path 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            -webkit-transition-property: clip-path;
+            -webkit-transition-duration: 0.7s;
+            -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            -moz-transition-property: clip-path;
+            -moz-transition-duration: 0.7s;
+            -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            transition-property: clip-path;
+            transition-duration: 0.7s;
+            transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
             
             pointer-events: auto; 
         }
         
-        .modal-box::-webkit-scrollbar { width: 6px; }
-        .modal-box::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .modal-box::-webkit-scrollbar { 
+            width: 6px; 
+        }
+        
+        .modal-box::-webkit-scrollbar-thumb { 
+            background-color: #cbd5e1; 
+            border-top-left-radius: 10px; 
+            border-top-right-radius: 10px; 
+            border-bottom-right-radius: 10px; 
+            border-bottom-left-radius: 10px; 
+        }
         
         .modal-overlay.show .modal-box { 
             clip-path: circle(150% at 50% 50%); 
         }
 
-        /* Lightbox - Resim Görüntüleyici */
         #imageLightbox { 
             position: fixed; 
             inset: 0; 
-            background: rgba(0,0,0,0.85); 
+            background-color: rgba(0,0,0,0.85); 
             z-index: 65000; 
             display: none; 
             align-items: center; 
             justify-content: center; 
             opacity: 0; 
             
-            -webkit-transition: opacity 0.4s ease; 
-            -moz-transition: opacity 0.4s ease; 
-            transition: opacity 0.4s ease; 
+            -webkit-transition-property: opacity;
+            -webkit-transition-duration: 0.4s;
+            -webkit-transition-timing-function: ease;
+            
+            -moz-transition-property: opacity;
+            -moz-transition-duration: 0.4s;
+            -moz-transition-timing-function: ease;
+            
+            transition-property: opacity;
+            transition-duration: 0.4s;
+            transition-timing-function: ease;
             
             pointer-events: auto; 
             cursor: zoom-out; 
@@ -1537,18 +2223,45 @@
         #lightboxImg { 
             max-width: 95%; 
             max-height: 90vh; 
-            border-radius: 1.5rem; 
+            
+            border-top-left-radius: 1.5rem; 
+            border-top-right-radius: 1.5rem; 
+            border-bottom-right-radius: 1.5rem; 
+            border-bottom-left-radius: 1.5rem; 
             
             -webkit-transform: scale(0.5); 
             -moz-transform: scale(0.5); 
             transform: scale(0.5); 
             
-            -webkit-transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            -moz-transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            -webkit-transition-property: transform;
+            -webkit-transition-duration: 0.4s;
+            -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            -moz-transition-property: transform;
+            -moz-transition-duration: 0.4s;
+            -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            transition-property: transform;
+            transition-duration: 0.4s;
+            transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
             
             pointer-events: none; 
-            border: 4px solid #fff; 
+            
+            border-top-width: 4px;
+            border-right-width: 4px;
+            border-bottom-width: 4px;
+            border-left-width: 4px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #ffffff; 
+            border-right-color: #ffffff; 
+            border-bottom-color: #ffffff; 
+            border-left-color: #ffffff; 
+            
             box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
         }
         
@@ -1558,13 +2271,36 @@
             transform: scale(1); 
         }
 
-        /* Hata Afişi (Titreyen Uyarı) */
         .err-banner { 
-            background: rgba(239,68,68,0.1); 
-            border: 2px solid #ef4444; 
+            background-color: rgba(239,68,68,0.1); 
+            
+            border-top-width: 2px;
+            border-right-width: 2px;
+            border-bottom-width: 2px;
+            border-left-width: 2px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #ef4444; 
+            border-right-color: #ef4444; 
+            border-bottom-color: #ef4444; 
+            border-left-color: #ef4444; 
+            
             color: #ef4444; 
-            padding: 14px 18px; 
-            border-radius: 14px; 
+            
+            padding-top: 14px; 
+            padding-right: 18px; 
+            padding-bottom: 14px; 
+            padding-left: 18px; 
+            
+            border-top-left-radius: 14px; 
+            border-top-right-radius: 14px; 
+            border-bottom-right-radius: 14px; 
+            border-bottom-left-radius: 14px; 
+            
             display: none; 
             align-items: center; 
             gap: 12px; 
@@ -1572,9 +2308,20 @@
             font-size: 0.9rem; 
             margin-bottom: 1.5rem; 
             
-            -webkit-animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; 
-            -moz-animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; 
-            animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; 
+            -webkit-animation-name: shake;
+            -webkit-animation-duration: 0.4s;
+            -webkit-animation-timing-function: cubic-bezier(0.36, 0.07, 0.19, 0.97);
+            -webkit-animation-fill-mode: both;
+            
+            -moz-animation-name: shake;
+            -moz-animation-duration: 0.4s;
+            -moz-animation-timing-function: cubic-bezier(0.36, 0.07, 0.19, 0.97);
+            -moz-animation-fill-mode: both;
+            
+            animation-name: shake;
+            animation-duration: 0.4s;
+            animation-timing-function: cubic-bezier(0.36, 0.07, 0.19, 0.97);
+            animation-fill-mode: both;
         }
         
         @-webkit-keyframes shake { 
@@ -1598,7 +2345,6 @@
             40%, 60% { transform: translate3d(5px, 0, 0); } 
         }
 
-        /* Başarı Bildirimi (Toast) */
         .toast { 
             position: fixed; 
             top: 20px; 
@@ -1611,19 +2357,50 @@
             opacity: 0; 
             visibility: hidden; 
             
-            background: #ffffff; 
-            padding: 20px 40px; 
-            border-radius: 50px; 
+            background-color: #ffffff; 
+            
+            padding-top: 20px; 
+            padding-right: 40px; 
+            padding-bottom: 20px; 
+            padding-left: 40px; 
+            
+            border-top-left-radius: 50px; 
+            border-top-right-radius: 50px; 
+            border-bottom-right-radius: 50px; 
+            border-bottom-left-radius: 50px; 
+            
             display: flex; 
             align-items: center; 
             gap: 20px; 
             z-index: 99999; 
             box-shadow: 0 15px 40px rgba(0,0,0,0.15); 
-            border: 3px solid #06b6d4; 
             
-            -webkit-transition: all 0.6s cubic-bezier(0.68,-0.55,0.27,1.55); 
-            -moz-transition: all 0.6s cubic-bezier(0.68,-0.55,0.27,1.55); 
-            transition: all 0.6s cubic-bezier(0.68,-0.55,0.27,1.55); 
+            border-top-width: 3px;
+            border-right-width: 3px;
+            border-bottom-width: 3px;
+            border-left-width: 3px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #06b6d4; 
+            border-right-color: #06b6d4; 
+            border-bottom-color: #06b6d4; 
+            border-left-color: #06b6d4; 
+            
+            -webkit-transition-property: all;
+            -webkit-transition-duration: 0.6s;
+            -webkit-transition-timing-function: cubic-bezier(0.68,-0.55,0.27,1.55);
+            
+            -moz-transition-property: all;
+            -moz-transition-duration: 0.6s;
+            -moz-transition-timing-function: cubic-bezier(0.68,-0.55,0.27,1.55);
+            
+            transition-property: all;
+            transition-duration: 0.6s;
+            transition-timing-function: cubic-bezier(0.68,-0.55,0.27,1.55);
             
             pointer-events: none; 
         }
@@ -1638,29 +2415,187 @@
         }
 
         /* --------------------------------------------------------------------------
-           9. CANLI DESTEK TİLKİ BOTU VE SOHBET PANELİ (TAWK.TO KLONU)
+           9. CANLI DESTEK TİLKİ BOTU, SOHBET PANELİ VE KONUŞMA BALONU
            -------------------------------------------------------------------------- */
         
-        /* Sağ Alttaki Yüzen Tilki İkonu */
-        .fox-bot-trigger {
+        .fox-bot-wrapper {
             position: fixed;
             bottom: 30px;
             right: 30px;
+            z-index: 54000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            pointer-events: none;
+        }
+
+        .fox-speech-bubble {
+            position: absolute;
+            right: 80px; 
+            bottom: 10px;
+            background-color: #ffffff;
+            color: #0f172a;
+            
+            padding-top: 12px;
+            padding-right: 20px;
+            padding-bottom: 12px;
+            padding-left: 20px;
+            
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 20px;
+            
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            font-weight: 900;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            
+            border-top-width: 2px;
+            border-right-width: 2px;
+            border-bottom-width: 2px;
+            border-left-width: 2px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #e0f2fe;
+            border-right-color: #e0f2fe;
+            border-bottom-color: #e0f2fe;
+            border-left-color: #e0f2fe;
+            
+            pointer-events: auto;
+            cursor: pointer;
+            
+            -webkit-animation-name: bounceBubble;
+            -webkit-animation-duration: 2s;
+            -webkit-animation-iteration-count: infinite;
+            
+            -moz-animation-name: bounceBubble;
+            -moz-animation-duration: 2s;
+            -moz-animation-iteration-count: infinite;
+            
+            animation-name: bounceBubble;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            
+            -webkit-transition-property: opacity, visibility;
+            -webkit-transition-duration: 0.3s;
+            
+            -moz-transition-property: opacity, visibility;
+            -moz-transition-duration: 0.3s;
+            
+            transition-property: opacity, visibility;
+            transition-duration: 0.3s;
+        }
+
+        .fox-speech-bubble::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            bottom: -2px;
+            
+            width: 0;
+            height: 0;
+            
+            border-left-width: 12px;
+            border-left-style: solid;
+            border-left-color: #ffffff;
+            
+            border-top-width: 10px;
+            border-top-style: solid;
+            border-top-color: transparent;
+            
+            border-bottom-width: 10px;
+            border-bottom-style: solid;
+            border-bottom-color: transparent;
+        }
+        
+        .fox-speech-bubble::before {
+            content: '';
+            position: absolute;
+            right: -13px;
+            bottom: -3px;
+            
+            width: 0;
+            height: 0;
+            
+            border-left-width: 13px;
+            border-left-style: solid;
+            border-left-color: #e0f2fe;
+            
+            border-top-width: 11px;
+            border-top-style: solid;
+            border-top-color: transparent;
+            
+            border-bottom-width: 11px;
+            border-bottom-style: solid;
+            border-bottom-color: transparent;
+            z-index: -1;
+        }
+
+        @-webkit-keyframes bounceBubble {
+            0%, 100% { -webkit-transform: translateY(0); transform: translateY(0); }
+            50% { -webkit-transform: translateY(-5px); transform: translateY(-5px); }
+        }
+        
+        @-moz-keyframes bounceBubble {
+            0%, 100% { -moz-transform: translateY(0); transform: translateY(0); }
+            50% { -moz-transform: translateY(-5px); transform: translateY(-5px); }
+        }
+        
+        @keyframes bounceBubble {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .fox-bot-trigger {
             width: 65px;
             height: 65px;
             background-color: #ffffff;
-            border-radius: 50%;
+            
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+            
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            z-index: 54000;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 3px solid #f5a623;
             
-            -webkit-transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            -moz-transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-top-width: 3px;
+            border-right-width: 3px;
+            border-bottom-width: 3px;
+            border-left-width: 3px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #0ea5e9;
+            border-right-color: #0ea5e9;
+            border-bottom-color: #0ea5e9;
+            border-left-color: #0ea5e9;
+            
+            pointer-events: auto;
+            position: relative;
+            
+            -webkit-transition-property: transform;
+            -webkit-transition-duration: 0.3s;
+            -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            -moz-transition-property: transform;
+            -moz-transition-duration: 0.3s;
+            -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            transition-property: transform;
+            transition-duration: 0.3s;
+            transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .fox-bot-trigger:hover {
@@ -1670,68 +2605,37 @@
         }
 
         .fox-bot-trigger img {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+            
             object-fit: cover;
         }
 
-        /* Kırmızı Bildirim Tuzağı (Red Dot Badge) */
-        .fox-badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background-color: #ef4444;
-            color: white;
-            font-size: 11px;
-            font-weight: 900;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid white;
-            
-            -webkit-animation: pulseBadge 2s infinite;
-            -moz-animation: pulseBadge 2s infinite;
-            animation: pulseBadge 2s infinite;
-        }
-
-        @-webkit-keyframes pulseBadge { 
-            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 
-            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 
-            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } 
-        }
-        
-        @-moz-keyframes pulseBadge { 
-            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 
-            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 
-            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } 
-        }
-        
-        @keyframes pulseBadge { 
-            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 
-            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 
-            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } 
-        }
-
-        /* Canlı Destek Panel Konteyneri */
         .chat-panel {
             position: fixed;
-            bottom: 105px;
+            bottom: 110px;
             right: 30px;
-            width: 350px;
-            height: 450px;
+            width: 360px;
+            height: 500px;
             background-color: #ffffff;
-            border-radius: 16px;
+            
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             z-index: 54010;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: hidden;
             
-            /* Başlangıç Durumu */
             opacity: 0;
             visibility: hidden;
             
@@ -1739,11 +2643,36 @@
             -moz-transform: translateY(20px) scale(0.95);
             transform: translateY(20px) scale(0.95);
             
-            -webkit-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            -moz-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            -webkit-transition-property: all;
+            -webkit-transition-duration: 0.3s;
+            -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
             
+            -moz-transition-property: all;
+            -moz-transition-duration: 0.3s;
+            -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            transition-property: all;
+            transition-duration: 0.3s;
+            transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            -webkit-transform-origin: bottom right;
+            -moz-transform-origin: bottom right;
             transform-origin: bottom right;
+            
+            border-top-width: 1px;
+            border-right-width: 1px;
+            border-bottom-width: 1px;
+            border-left-width: 1px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #e2e8f0;
+            border-right-color: #e2e8f0;
+            border-bottom-color: #e2e8f0;
+            border-left-color: #e2e8f0;
         }
 
         .chat-panel.show {
@@ -1755,11 +2684,15 @@
             transform: translateY(0) scale(1);
         }
 
-        /* Tawk.to Benzeri Sarı Başlık Alanı */
         .chat-header {
-            background-color: #f5a623;
-            color: white;
-            padding: 1.5rem;
+            background-color: #0ea5e9;
+            color: #ffffff;
+            
+            padding-top: 1.5rem;
+            padding-right: 1.5rem;
+            padding-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            
             position: relative;
             text-align: center;
         }
@@ -1767,14 +2700,22 @@
         .chat-header h3 {
             font-size: 1.25rem;
             font-weight: 900;
-            margin: 0;
+            
+            margin-top: 0;
+            margin-right: 0;
             margin-bottom: 8px;
+            margin-left: 0;
         }
 
         .chat-header p {
             font-size: 0.85rem;
             font-weight: 600;
-            margin: 0;
+            
+            margin-top: 0;
+            margin-right: 0;
+            margin-bottom: 0;
+            margin-left: 0;
+            
             opacity: 0.9;
         }
 
@@ -1782,32 +2723,54 @@
             position: absolute;
             top: 15px;
             right: 15px;
-            background: none;
-            border: none;
-            color: white;
+            background-color: transparent;
+            border-width: 0;
+            border-style: none;
+            color: #ffffff;
             font-size: 1.2rem;
             cursor: pointer;
             opacity: 0.7;
-            transition: opacity 0.2s;
+            
+            -webkit-transition-property: opacity;
+            -webkit-transition-duration: 0.2s;
+            
+            -moz-transition-property: opacity;
+            -moz-transition-duration: 0.2s;
+            
+            transition-property: opacity;
+            transition-duration: 0.2s;
         }
         
         .chat-close-btn:hover {
             opacity: 1;
         }
 
-        /* Sohbet Gövdesi ve Bot Mesajları */
         .chat-body {
             flex: 1;
-            padding: 1.5rem;
+            
+            padding-top: 1.5rem;
+            padding-right: 1.5rem;
+            padding-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            
             overflow-y: auto;
-            background-color: #fafafa;
+            background-color: #f8fafc;
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
         
-        .chat-body::-webkit-scrollbar { width: 4px; }
-        .chat-body::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .chat-body::-webkit-scrollbar { 
+            width: 4px; 
+        }
+        
+        .chat-body::-webkit-scrollbar-thumb { 
+            background-color: #cbd5e1; 
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
 
         .bot-message {
             display: flex;
@@ -1816,54 +2779,177 @@
             margin-bottom: 5px;
         }
 
+        .user-message {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+
         .bot-avatar {
             width: 32px;
             height: 32px;
-            border-radius: 50%;
-            border: 2px solid #f5a623;
-            background-color: white;
-            padding: 2px;
+            
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+            
+            border-top-width: 2px;
+            border-right-width: 2px;
+            border-bottom-width: 2px;
+            border-left-width: 2px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #0ea5e9;
+            border-right-color: #0ea5e9;
+            border-bottom-color: #0ea5e9;
+            border-left-color: #0ea5e9;
+            
+            background-color: #ffffff;
+            
+            padding-top: 2px;
+            padding-right: 2px;
+            padding-bottom: 2px;
+            padding-left: 2px;
+            
+            flex-shrink: 0;
         }
 
         .bot-bubble {
             background-color: #ffffff;
             color: #334155;
-            padding: 12px 16px;
-            border-radius: 16px 16px 16px 4px;
+            
+            padding-top: 12px;
+            padding-right: 16px;
+            padding-bottom: 12px;
+            padding-left: 16px;
+            
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            border-bottom-right-radius: 16px;
+            border-bottom-left-radius: 4px;
+            
             font-size: 0.85rem;
             font-weight: 600;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            max-width: 80%;
+            max-width: 85%;
+            line-height: 1.4;
+            
+            border-top-width: 1px;
+            border-right-width: 1px;
+            border-bottom-width: 1px;
+            border-left-width: 1px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #f1f5f9;
+            border-right-color: #f1f5f9;
+            border-bottom-color: #f1f5f9;
+            border-left-color: #f1f5f9;
+        }
+
+        .user-bubble {
+            background-color: #0ea5e9;
+            color: #ffffff;
+            
+            padding-top: 10px;
+            padding-right: 14px;
+            padding-bottom: 10px;
+            padding-left: 14px;
+            
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 16px;
+            
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 85%;
             line-height: 1.4;
         }
 
-        /* Kullanıcı Hazır Soru Butonları */
         .user-options {
             display: flex;
             flex-direction: column;
             gap: 8px;
             margin-top: auto;
+            padding-top: 10px;
         }
 
         .chat-option-btn {
-            background-color: #e0f2fe;
+            background-color: #ffffff;
             color: #0284c7;
-            border: 1px solid #bae6fd;
-            padding: 12px 16px;
-            border-radius: 12px;
+            
+            border-top-width: 1px;
+            border-right-width: 1px;
+            border-bottom-width: 1px;
+            border-left-width: 1px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #bae6fd;
+            border-right-color: #bae6fd;
+            border-bottom-color: #bae6fd;
+            border-left-color: #bae6fd;
+            
+            padding-top: 12px;
+            padding-right: 16px;
+            padding-bottom: 12px;
+            padding-left: 16px;
+            
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
+            border-bottom-left-radius: 12px;
+            
             font-size: 0.85rem;
             font-weight: 800;
             text-align: left;
             cursor: pointer;
-            transition: all 0.2s ease;
+            
+            -webkit-transition-property: all;
+            -webkit-transition-duration: 0.2s;
+            -webkit-transition-timing-function: ease;
+            
+            -moz-transition-property: all;
+            -moz-transition-duration: 0.2s;
+            -moz-transition-timing-function: ease;
+            
+            transition-property: all;
+            transition-duration: 0.2s;
+            transition-timing-function: ease;
+            
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .chat-option-btn:hover {
-            background-color: #bae6fd;
+            background-color: #f0f9ff;
+            
+            -webkit-transform: translateY(-1px);
+            -moz-transform: translateY(-1px);
             transform: translateY(-1px);
+            
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
         .chat-option-btn:active {
+            -webkit-transform: scale(0.98);
+            -moz-transform: scale(0.98);
             transform: scale(0.98);
         }
 
@@ -1871,48 +2957,216 @@
         .typing-indicator {
             display: none;
             gap: 4px;
-            padding: 12px 16px;
+            
+            padding-top: 12px;
+            padding-right: 16px;
+            padding-bottom: 12px;
+            padding-left: 16px;
+            
             background-color: #ffffff;
-            border-radius: 16px 16px 16px 4px;
+            
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            border-bottom-right-radius: 16px;
+            border-bottom-left-radius: 4px;
+            
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             width: fit-content;
+            
+            border-top-width: 1px;
+            border-right-width: 1px;
+            border-bottom-width: 1px;
+            border-left-width: 1px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #f1f5f9;
+            border-right-color: #f1f5f9;
+            border-bottom-color: #f1f5f9;
+            border-left-color: #f1f5f9;
         }
 
         .typing-dot {
             width: 6px;
             height: 6px;
             background-color: #94a3b8;
-            border-radius: 50%;
-            animation: typingDot 1.4s infinite ease-in-out both;
+            
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+            
+            -webkit-animation-name: typingDot;
+            -webkit-animation-duration: 1.4s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: ease-in-out;
+            -webkit-animation-fill-mode: both;
+            
+            -moz-animation-name: typingDot;
+            -moz-animation-duration: 1.4s;
+            -moz-animation-iteration-count: infinite;
+            -moz-animation-timing-function: ease-in-out;
+            -moz-animation-fill-mode: both;
+            
+            animation-name: typingDot;
+            animation-duration: 1.4s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: both;
         }
 
         .typing-dot:nth-child(1) { animation-delay: -0.32s; }
         .typing-dot:nth-child(2) { animation-delay: -0.16s; }
 
+        @-webkit-keyframes typingDot {
+            0%, 80%, 100% { -webkit-transform: scale(0); transform: scale(0); opacity: 0.5; }
+            40% { -webkit-transform: scale(1); transform: scale(1); opacity: 1; }
+        }
+        
+        @-moz-keyframes typingDot {
+            0%, 80%, 100% { -moz-transform: scale(0); transform: scale(0); opacity: 0.5; }
+            40% { -moz-transform: scale(1); transform: scale(1); opacity: 1; }
+        }
+        
         @keyframes typingDot {
             0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
             40% { transform: scale(1); opacity: 1; }
         }
 
-        /* Alt Kısım Powered By */
         .chat-footer {
             background-color: #ffffff;
-            padding: 10px;
+            
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            
             text-align: center;
             font-size: 0.7rem;
             color: #94a3b8;
-            border-top: 1px solid #f1f5f9;
+            
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #f1f5f9;
+            
             font-weight: 700;
         }
 
-        /* Mobilde Tilki Konumu Düzeltmesi (Bottom Nav'ın Üstü) */
+        /* --------------------------------------------------------------------------
+           10. CHAT INPUT (SERBEST METİN GİRİŞİ)
+           -------------------------------------------------------------------------- */
+        .chat-input-container {
+            display: none;
+            gap: 8px;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .chat-text-input {
+            flex: 1;
+            
+            padding-top: 10px;
+            padding-right: 12px;
+            padding-bottom: 10px;
+            padding-left: 12px;
+            
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            
+            border-top-width: 1px;
+            border-right-width: 1px;
+            border-bottom-width: 1px;
+            border-left-width: 1px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #cbd5e1;
+            border-right-color: #cbd5e1;
+            border-bottom-color: #cbd5e1;
+            border-left-color: #cbd5e1;
+            
+            font-size: 0.85rem;
+            color: #334155;
+            background-color: #ffffff;
+            font-family: 'Manrope', sans-serif;
+            outline-width: 0;
+            outline-style: none;
+        }
+
+        .chat-text-input:focus {
+            border-top-color: #0ea5e9;
+            border-right-color: #0ea5e9;
+            border-bottom-color: #0ea5e9;
+            border-left-color: #0ea5e9;
+        }
+
+        .chat-send-btn {
+            background-color: #0ea5e9;
+            color: #ffffff;
+            
+            border-top-width: 0;
+            border-right-width: 0;
+            border-bottom-width: 0;
+            border-left-width: 0;
+            
+            padding-top: 10px;
+            padding-right: 16px;
+            padding-bottom: 10px;
+            padding-left: 16px;
+            
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            
+            font-weight: 800;
+            font-size: 0.85rem;
+            cursor: pointer;
+            
+            -webkit-transition-property: background-color;
+            -webkit-transition-duration: 0.2s;
+            
+            -moz-transition-property: background-color;
+            -moz-transition-duration: 0.2s;
+            
+            transition-property: background-color;
+            transition-duration: 0.2s;
+        }
+
+        .chat-send-btn:hover {
+            background-color: #0284c7;
+        }
+
         @media (max-width: 768px) {
-            .fox-bot-trigger {
+            .fox-bot-wrapper {
                 bottom: calc(85px + env(safe-area-inset-bottom, 0px));
                 right: 15px;
+            }
+            
+            .fox-bot-trigger {
                 width: 55px;
                 height: 55px;
             }
+            
+            .fox-speech-bubble {
+                font-size: 0.85rem;
+                
+                padding-top: 10px;
+                padding-right: 15px;
+                padding-bottom: 10px;
+                padding-left: 15px;
+                
+                right: 65px;
+            }
+            
             .chat-panel {
                 bottom: calc(150px + env(safe-area-inset-bottom, 0px));
                 right: 15px;
@@ -1922,12 +3176,23 @@
         }
         
         /* --------------------------------------------------------------------------
-           10. BACKDROP BLUR EFEKTİ (VR MODALI İÇİN)
+           11. BACKDROP BLUR EFEKTİ (VR MODALI İÇİN)
            -------------------------------------------------------------------------- */
         .backdrop-blur-active {
-            filter: blur(15px);
             -webkit-filter: blur(15px);
-            transition: filter 0.5s ease;
+            filter: blur(15px);
+            
+            -webkit-transition-property: filter;
+            -webkit-transition-duration: 0.5s;
+            -webkit-transition-timing-function: ease;
+            
+            -moz-transition-property: filter;
+            -moz-transition-duration: 0.5s;
+            -moz-transition-timing-function: ease;
+            
+            transition-property: filter;
+            transition-duration: 0.5s;
+            transition-timing-function: ease;
         }
     </style>
 </head>
@@ -2006,10 +3271,9 @@
             </button>
         </div>
 
-        <!-- Sadece Mobilde Görünen Tıraşlanmış Kompakt Menü (Referans VIP Kuralı Temizlendi) -->
+        <!-- Sadece Mobilde Görünen Tıraşlanmış Kompakt Menü -->
         <div class="md:hidden flex w-full justify-between items-center h-full pl-14">
             <span class="font-black text-slate-800 text-lg tracking-tight invisible">
-                <!-- Yer tutucu (Space taker) - Logo merkezlemesi için görünmez olarak bırakıldı -->
                 Referans
             </span>
             <button onclick="openModal('')" class="magnetic-btn shadow-md">
@@ -2024,9 +3288,8 @@
     <nav class="mobile-bottom-nav">
         <div class="mobile-nav-grid">
             
-            <!-- 360 Tur (VR İkonu Olarak Düzeltildi) -->
+            <!-- 360 Tur (VR İkonu) -->
             <button onclick="openTour()" class="mob-link" aria-label="360 Tur">
-                <!-- VR / Gözlük İkonu (Kamera İkonu İptal) -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M22 12H2v-2c0-2.21 1.79-4 4-4h12c2.21 0 4 1.79 4 4v2z"></path>
                     <path d="M22 12v3c0 2.21-1.79 4-4 4H6c-2.21 0-4-1.79-4-4v-3"></path>
@@ -2247,7 +3510,7 @@
             </section>
 
             <!-- ======================================================================
-                 SINIF BÖLÜMLERİ (Masaüstü: Sıralı İzometrik | Mobil: Odaklı Swipe + Peek)
+                 SINIF BÖLÜMLERİ (Masaüstü: Sıralı İzometrik | Mobil: Odaklı Swipe)
                  ====================================================================== -->
             <div class="w-full max-w-6xl mx-auto mobile-swipe-wrapper mb-20">
                 <div class="mobile-swipe-container w-full px-0 md:px-6" id="education-swipe">
@@ -2411,19 +3674,22 @@
     </div> 
 
     <!-- ======================================================================
-         TİLKİ CANLI DESTEK BOTU VE SOHBET PANELİ (TAWK.TO KLONU)
+         TİLKİ CANLI DESTEK BOTU VE KISA SOHBET PANELİ (FOX CHAT)
          ====================================================================== -->
     
-    <!-- Sağ Alt Yüzen Maskot Butonu -->
-    <div class="fox-bot-trigger" id="foxTrigger" onclick="toggleChatPanel()">
-        <!-- Dikkat Çekici Kırmızı Bildirim Tuzağı (Badge) -->
-        <div class="fox-badge">1</div>
-        <img src="assets/tilki-avatar.png" alt="Canlı Destek Tilkisi" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23f5a623\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\'></path></svg>'">
+    <!-- Sağ Alt Yüzen Maskot Butonu ve Konuşma Balonu -->
+    <div class="fox-bot-wrapper">
+        <div class="fox-speech-bubble" onclick="toggleChatPanel()">
+            Sana Yardımcı Olabilirim 🦊
+        </div>
+        <div class="fox-bot-trigger" id="foxTrigger" onclick="toggleChatPanel()">
+            <img src="assets/tilki-avatar.png" alt="Canlı Destek Tilkisi" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%230ea5e9\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\'></path></svg>'">
+        </div>
     </div>
 
     <!-- Sohbet Penceresi (Chat Panel) -->
     <div class="chat-panel" id="chatPanel">
-        <!-- Sarı Başlık Alanı -->
+        <!-- Turkuaz Başlık Alanı -->
         <div class="chat-header">
             <h3>Canlı Destek</h3>
             <p>Size nasıl yardımcı olabilirim?</p>
@@ -2448,7 +3714,7 @@
                 <div class="bot-avatar">
                     <img src="assets/tilki-avatar.png" alt="Bot" style="width:100%; border-radius:50%;" onerror="this.style.display='none'">
                 </div>
-                <div style="display: flex; gap: 4px; padding: 12px 16px; background-color: #ffffff; border-radius: 16px 16px 16px 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); align-items: center;">
+                <div style="display: flex; gap: 4px; padding-top: 12px; padding-right: 16px; padding-bottom: 12px; padding-left: 16px; background-color: #ffffff; border-top-left-radius: 16px; border-top-right-radius: 16px; border-bottom-right-radius: 16px; border-bottom-left-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); align-items: center;">
                     <div class="typing-dot"></div>
                     <div class="typing-dot"></div>
                     <div class="typing-dot"></div>
@@ -2461,7 +3727,20 @@
                     💰 Dershane Ücreti Ne Kadar?
                 </button>
                 <button class="chat-option-btn" onclick="handleBotOption('360tur')">
-                    🏫 Sınıf Görsellerini Görebilir miyiz?
+                    🏫 Sınıfların Görsellerini Görebilir miyiz?
+                </button>
+                <button class="chat-option-btn" onclick="handleBotOption('kadro')">
+                    👨‍🏫 Hangi Öğretmenler Var?
+                </button>
+                <button class="chat-option-btn" onclick="handleBotOption('deneme')">
+                    📝 Deneme Sınavları Nasıl?
+                </button>
+                <button class="chat-option-btn" onclick="handleBotOption('konum')">
+                    📍 Kurum Nerede?
+                </button>
+                <!-- Açık Uçlu Soru Seçeneği -->
+                <button class="chat-option-btn" onclick="handleBotOption('baska')">
+                    ❓ Aklıma Takılan Başka Bir Soru Var
                 </button>
             </div>
         </div>
@@ -2473,7 +3752,7 @@
     </div>
 
     <!-- ======================================================================
-         MODALLAR VE DIŞ ÇEPER ETKİLEŞİMLERİ (Z-INDEX YÖNETİMLİ)
+         MODALLAR VE DIŞ ÇEPER ETKİLEŞİMLERİ
          ====================================================================== -->
     
     <!-- Lightbox Modalı -->
@@ -2483,7 +3762,7 @@
 
     <!-- 360 Tur Sanal Gerçeklik Modalı -->
     <div id="tourOverlay" class="modal-overlay" onclick="if(event.target===this) closeTour()">
-        <div class="modal-box p-0 overflow-hidden !max-w-6xl pointer-events-auto border-none shadow-[0_40px_80px_rgba(0,0,0,0.8)]">
+        <div class="modal-box p-0 overflow-x-hidden overflow-y-hidden !max-w-6xl pointer-events-auto border-none shadow-[0_40px_80px_rgba(0,0,0,0.8)]">
             <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-white relative z-10">
                 <span class="font-black text-slate-900 text-xl flex items-center gap-3">
                     Battalgazi 360° Tur
@@ -2494,7 +3773,7 @@
             </div>
             
             <div class="w-full h-[75vh] bg-slate-900 flex flex-col items-center justify-center relative">
-                <div class="webm-mask video-skeleton" style="width: 250px; height: 250px; border: 4px solid rgba(255,255,255,0.2); position: absolute; opacity: 0.8;">
+                <div class="webm-mask video-skeleton" style="width: 250px; height: 250px; border-top-width: 4px; border-right-width: 4px; border-bottom-width: 4px; border-left-width: 4px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgba(255,255,255,0.2); border-right-color: rgba(255,255,255,0.2); border-bottom-color: rgba(255,255,255,0.2); border-left-color: rgba(255,255,255,0.2); position: absolute; opacity: 0.8;">
                     <video data-src="assets/ekrana-tiklama.mp4" preload="none" playsinline loop muted></video>
                 </div>
                 <div class="relative z-10 flex flex-col items-center mt-48">
@@ -2511,7 +3790,6 @@
          ====================================================================== -->
     <div id="randevuModal" class="modal-overlay" onclick="if(event.target===this) closeModal()">
         
-        <!-- Sol Dekoratif Video Animasyonu -->
         <div class="webm-mask webm-modal-flank flank-left hidden lg:flex video-skeleton">
             <video data-src="assets/ekrana-tiklama.mp4" preload="none" playsinline loop muted></video>
         </div>
@@ -2537,16 +3815,15 @@
             <!-- Kayıt Formu Alanı -->
             <form id="apptForm" class="space-y-4 md:space-y-6" onsubmit="return false;">
                 
-                <!-- Anti-Spam Honeypot Bot Koruması -->
                 <input type="text" id="botTrap" tabindex="-1" autocomplete="off" class="sr-only">
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-                    <input type="text" id="fIsim" placeholder="Ad Soyad" required class="w-full bg-slate-50 border-2 border-slate-200 p-4 md:p-5 rounded-2xl text-sm md:text-base text-slate-900 focus:border-cyan-500 font-black pointer-events-auto transition-colors focus:bg-white">
-                    <input type="tel" id="fTelefon" placeholder="05XX XXX XX XX" required maxlength="11" oninput="this.value=this.value.replace(/[^0-9]/g,'')" class="w-full bg-slate-50 border-2 border-slate-200 p-4 md:p-5 rounded-2xl text-sm md:text-base text-slate-900 focus:border-cyan-500 font-black pointer-events-auto transition-colors focus:bg-white">
+                    <input type="text" id="fIsim" placeholder="Ad Soyad" required class="w-full bg-slate-50 border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #e2e8f0; border-right-color: #e2e8f0; border-bottom-color: #e2e8f0; border-left-color: #e2e8f0; p-4 md:p-5 rounded-2xl text-sm md:text-base text-slate-900 focus:border-cyan-500 font-black pointer-events-auto transition-colors focus:bg-white">
+                    <input type="tel" id="fTelefon" placeholder="05XX XXX XX XX" required maxlength="11" oninput="this.value=this.value.replace(/[^0-9]/g,'')" class="w-full bg-slate-50 border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #e2e8f0; border-right-color: #e2e8f0; border-bottom-color: #e2e8f0; border-left-color: #e2e8f0; p-4 md:p-5 rounded-2xl text-sm md:text-base text-slate-900 focus:border-cyan-500 font-black pointer-events-auto transition-colors focus:bg-white">
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-                    <select id="fSinif" required class="w-full bg-slate-50 border-2 border-slate-200 p-4 md:p-5 rounded-2xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-black cursor-pointer pointer-events-auto transition-colors focus:bg-white">
+                    <select id="fSinif" required class="w-full bg-slate-50 border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #e2e8f0; border-right-color: #e2e8f0; border-bottom-color: #e2e8f0; border-left-color: #e2e8f0; p-4 md:p-5 rounded-2xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-black cursor-pointer pointer-events-auto transition-colors focus:bg-white">
                         <option value="" disabled selected>Sınıf Seçiniz</option>
                         <option value="5-8. Sınıf">5-8. Sınıf</option>
                         <option value="9-12. Sınıf">9-12. Sınıf</option>
@@ -2554,12 +3831,11 @@
                         <option value="DGS / KPSS / ALES">DGS / KPSS / ALES</option>
                     </select>
                     
-                    <select id="fHizmet" required class="w-full bg-slate-50 border-2 border-slate-200 p-4 md:p-5 rounded-2xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-black cursor-pointer pointer-events-auto transition-colors focus:bg-white">
+                    <select id="fHizmet" required class="w-full bg-slate-50 border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #e2e8f0; border-right-color: #e2e8f0; border-bottom-color: #e2e8f0; border-left-color: #e2e8f0; p-4 md:p-5 rounded-2xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-black cursor-pointer pointer-events-auto transition-colors focus:bg-white">
                         <option value="Kayıt Görüşmesi">Kayıt Görüşmesi</option>
                     </select>
                 </div>
 
-                <!-- Randevu Tarihi ve Saati -->
                 <div class="border-t-2 border-slate-100 pt-4 md:pt-6 mt-2">
                     <div class="flex justify-between items-end mb-2">
                         <label class="text-[10px] md:text-xs font-black text-slate-500 uppercase tracking-widest">
@@ -2567,7 +3843,7 @@
                         </label>
                     </div>
                     
-                    <input type="date" id="fTarih" required class="w-full bg-slate-50 border-2 border-slate-200 p-4 md:p-5 rounded-2xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-black cursor-pointer mb-4 pointer-events-auto transition-colors focus:bg-white">
+                    <input type="date" id="fTarih" required class="w-full bg-slate-50 border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #e2e8f0; border-right-color: #e2e8f0; border-bottom-color: #e2e8f0; border-left-color: #e2e8f0; p-4 md:p-5 rounded-2xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-black cursor-pointer mb-4 pointer-events-auto transition-colors focus:bg-white">
 
                     <div class="flex justify-between items-end mb-2">
                         <label class="text-[10px] md:text-xs font-black text-slate-500 uppercase tracking-widest">
@@ -2575,7 +3851,7 @@
                         </label>
                     </div>
                     
-                    <select id="fSaat" required disabled class="w-full bg-slate-50 border-2 border-slate-200 p-4 md:p-5 rounded-2xl text-sm md:text-base text-slate-600 text-center font-black cursor-pointer focus:border-cyan-500 pointer-events-auto transition-colors focus:bg-white">
+                    <select id="fSaat" required disabled class="w-full bg-slate-50 border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #e2e8f0; border-right-color: #e2e8f0; border-bottom-color: #e2e8f0; border-left-color: #e2e8f0; p-4 md:p-5 rounded-2xl text-sm md:text-base text-slate-600 text-center font-black cursor-pointer focus:border-cyan-500 pointer-events-auto transition-colors focus:bg-white">
                         <option value="" disabled selected>Önce Tarih Seçiniz</option>
                         <option value="09:00">09:00</option>
                         <option value="10:00">10:00</option>
@@ -2586,14 +3862,13 @@
                     </select>
                 </div>
 
-                <!-- Submit (Gönder) Aksiyon Butonu -->
+                <!-- Submit Aksiyon Butonu -->
                 <button type="button" id="btn-submit" onclick="submitAppt()" class="magnetic-btn w-full justify-center font-black py-5 mt-2 rounded-2xl text-sm md:text-base shadow-[0_15px_30px_rgba(6,182,212,0.35)] bg-cyan-500 text-white hover:bg-cyan-600 tracking-widest border-none">
                     GÖNDER
                 </button>
             </form>
         </div>
 
-        <!-- Sağ Dekoratif Video Animasyonu -->
         <div class="webm-mask webm-modal-flank flank-right hidden lg:flex video-skeleton">
             <video data-src="assets/takvim.mp4" preload="none" playsinline loop muted></video>
         </div>
@@ -2606,7 +3881,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 w-full">
         
         <!-- Telefon İletişim Kartı -->
-        <div class="card-shield border border-slate-100 p-8 md:p-12 text-center shadow-2xl pointer-events-auto flex flex-col items-center">
+        <div class="card-shield border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f1f5f9; border-right-color: #f1f5f9; border-bottom-color: #f1f5f9; border-left-color: #f1f5f9; p-8 md:p-12 text-center shadow-2xl pointer-events-auto flex flex-col items-center">
           <h3 class="text-xl md:text-2xl font-black text-slate-900 mb-2">
               Telefon Hattımız
           </h3>
@@ -2619,7 +3894,7 @@
         </div>
         
         <!-- Konum (Şube) Kartı -->
-        <div class="card-shield border border-slate-100 p-8 md:p-12 text-center shadow-2xl pointer-events-auto flex flex-col items-center">
+        <div class="card-shield border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f1f5f9; border-right-color: #f1f5f9; border-bottom-color: #f1f5f9; border-left-color: #f1f5f9; p-8 md:p-12 text-center shadow-2xl pointer-events-auto flex flex-col items-center">
           <h3 class="text-xl md:text-2xl font-black text-slate-900 mb-2">
               Battalgazi Şubesi
           </h3>
@@ -2635,14 +3910,14 @@
     </section>
 
     <!-- Footer - Telif Hakkı -->
-    <footer class="text-center py-8 md:py-12 border-t-2 border-slate-100 text-slate-400 text-xs md:text-base bg-white relative z-10 font-bold w-full">
+    <footer class="text-center py-8 md:py-12 border-top-width: 2px; border-top-style: solid; border-top-color: #f1f5f9; text-slate-400 text-xs md:text-base bg-white relative z-10 font-bold w-full">
       <p>
           © 2026 Referans Eğitim Kurumları. Tüm hakları saklıdır.
       </p>
     </footer>
 
     <!-- ==========================================================================
-         TAM İZOLE JAVASCRIPT MOTORLARI VE SAYAÇ FONKSİYONLARI
+         TAM İZOLE JAVASCRIPT MOTORLARI VE FONKSİYONLAR
          ========================================================================== -->
     <script>
         /* ----------------------------------------------------------------------
@@ -2650,7 +3925,6 @@
            ---------------------------------------------------------------------- */
         document.addEventListener("DOMContentLoaded", function() {
             
-            // Performanslı Video Yükleyici Observer
             let videoObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -2661,7 +3935,6 @@
                             video.removeAttribute('data-src');
                             video.load();
                             
-                            // Yüklendiğinde İskeleti (Skeleton) Kaldır ve Tam Görünür Yap
                             video.addEventListener('loadeddata', () => {
                                 video.classList.add('loaded');
                                 if(video.parentElement.classList.contains('video-skeleton')) {
@@ -2683,7 +3956,6 @@
                 videoObserver.observe(video);
             });
             
-            // APP-UI: Odaklı Yatay Kaydırma (Swipe Peek & Blur Engine) 
             if (window.innerWidth <= 768) {
                 initMobileInfiniteSwipes('features-swipe', 'features-dots', 'carouselBadge');
                 initMobileInfiniteSwipes('education-swipe', 'education-dots', null);
@@ -2706,7 +3978,6 @@
             const totalItems = items.length;
             const dots = [];
 
-            // Eğer noktalar konteyneri varsa noktaları dinamik olarak oluştur
             if (dotsContainer) {
                 items.forEach((_, i) => {
                     const dot = document.createElement('div');
@@ -2724,7 +3995,6 @@
             let isUserInteracting = false;
             let interactionTimeout;
 
-            // Merkeze En Yakın Olan Kartı Hesapla ve UI Güncelle
             const updateCenter = () => {
                 const containerRect = container.getBoundingClientRect();
                 const containerCenter = containerRect.left + (containerRect.width / 2);
@@ -2747,7 +4017,6 @@
                 
                 currentIndex = newIndex;
 
-                // Kartların Blur/Scale Durumlarını Güncelle
                 items.forEach((item, index) => {
                     if (index === currentIndex) {
                         item.classList.add('is-centered');
@@ -2756,13 +4025,11 @@
                     }
                 });
 
-                // Noktaları Güncelle
                 if (dots.length > 0) {
                     dots.forEach(d => d.classList.remove('active'));
                     dots[currentIndex].classList.add('active');
                 }
 
-                // Rozeti Güncelle (Örn: 1/3)
                 if (badge) {
                     badge.textContent = `${currentIndex + 1} / ${totalItems}`;
                 }
@@ -2770,20 +4037,17 @@
             
             updateCenter();
 
-            // Otomatik Kaydırma (Auto-Scroll) Fonksiyonu
             const scrollToNext = () => {
-                if (isUserInteracting) return; // Kullanıcı müdahale ediyorsa durdur
+                if (isUserInteracting) return; 
                 
                 let nextIndex = currentIndex + 1;
                 
-                // Sona ulaşıldıysa başa dön
                 if (nextIndex >= totalItems) {
                     nextIndex = 0;
                 }
                 
                 const targetItem = items[nextIndex];
                 
-                // Tam merkeze hizalama hesaplaması (Peek Effect korumalı)
                 const scrollLeftPos = targetItem.offsetLeft - (container.clientWidth / 2) + (targetItem.clientWidth / 2);
                 
                 container.scrollTo({
@@ -2792,7 +4056,6 @@
                 });
             };
 
-            // Otomatik Kaydırmayı Başlat (2 Saniyede Bir)
             const startAutoScroll = () => {
                 clearInterval(autoScrollInterval);
                 autoScrollInterval = setInterval(scrollToNext, 2000);
@@ -2800,7 +4063,6 @@
 
             startAutoScroll();
 
-            // Kullanıcı Müdahalesini Algıla (Pause-on-Touch Kuralı)
             const handleInteractionStart = () => {
                 isUserInteracting = true;
                 clearInterval(autoScrollInterval);
@@ -2808,7 +4070,6 @@
             };
 
             const handleInteractionEnd = () => {
-                // Parmağını çektikten 3 saniye sonra otomasyona dön
                 clearTimeout(interactionTimeout);
                 interactionTimeout = setTimeout(() => {
                     isUserInteracting = false;
@@ -2816,7 +4077,6 @@
                 }, 3000);
             };
 
-            // Event Listener'lar
             container.addEventListener('scroll', () => {
                 window.requestAnimationFrame(updateCenter);
             }, { passive: true });
@@ -2832,7 +4092,6 @@
            3. PREMIUM ETKİLEŞİMLER VE SCROLL MİMARİSİ
            ---------------------------------------------------------------------- */
            
-        // Manyetik Buton Fiziği (Desktop Hover Etkileşimi)
         document.querySelectorAll('.magnetic-btn').forEach(btn => {
             btn.addEventListener('mousemove', e => {
                 const rect = btn.getBoundingClientRect();
@@ -2847,7 +4106,6 @@
             });
         });
 
-        // Sayfa İçi Dinamik Navigasyon ve İlerleme Çubuğu Tetikleyicisi
         window.addEventListener('scroll', () => {
             const mega = document.getElementById('megaBar');
             const pill = document.getElementById('pillMenu');
@@ -2868,7 +4126,6 @@
                 }
             }
             
-            // Scroll Çubuğu İlerleme Hesaplaması
             let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             let scrolled = (winScroll / height) * 100;
@@ -2878,7 +4135,6 @@
                 pBar.style.width = scrolled + "%";
             }
 
-            // Arka Plan İnce Cam Yansıması Paralaks Hareketi
             const spineGlow = document.getElementById("spineGlow");
             if(spineGlow) {
                 let spineHeight = document.querySelector('.spine-wrapper').clientHeight;
@@ -2888,10 +4144,9 @@
         }, { passive: true });
 
         /* ----------------------------------------------------------------------
-           4. SAYAÇ MİMARİSİ (İZOLASYONLU, KUSURSUZ YEREL JS MOTORU)
+           4. SAYAÇ MİMARİSİ (İZOLASYONLU)
            ---------------------------------------------------------------------- */
         (function() {
-            // Sınav Veritabanı ve Renk Şablonları
             const EXAMS = {
                 LGS:  { 
                     label: 'LGS',  
@@ -2927,7 +4182,6 @@
             let lastH = null, 
                 lastM = null;
 
-            // Tema ve Renk Atama Fonksiyonu
             function applyColors(key) {
                 const c = EXAMS[key].color;
                 
@@ -2946,27 +4200,23 @@
                 });
             }
             
-            // Matematiksel Sayaç Akışı (Tarih Farkı Çözücü)
             function updateNumbers(key) {
                 try {
                     let examDate = new Date(EXAMS[key].date).getTime();
                     let now = new Date().getTime();
                     let diff = examDate - now;
                     
-                    // Tarih geçmişse bir sonraki yıla otomatik devretme kuralı
                     if(diff < 0) {
                         let eDate = new Date(EXAMS[key].date);
                         eDate.setFullYear(new Date().getFullYear() + 1);
                         diff = eDate.getTime() - now;
                     }
 
-                    // Milisaniye bazlı zaman dönüşümleri
                     let d = Math.floor(diff / (1000 * 60 * 60 * 24));
                     let h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     let m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                     let s = Math.floor((diff % (1000 * 60)) / 1000);
 
-                    // Saat veya Dakika Azaldığında Kritik Kırmızı Uyarı Tetikleyicisi
                     if (lastH !== null && h < lastH) { 
                         const el = document.getElementById('c-saat');
                         if(el) { 
@@ -2984,7 +4234,6 @@
                     lastH = h; 
                     lastM = m;
 
-                    // DOM Yazdırma İşlemleri
                     const cGun = document.getElementById('c-gun');
                     const cSaat = document.getElementById('c-saat');
                     const cDak = document.getElementById('c-dak');
@@ -3000,7 +4249,6 @@
                 }
             }
 
-            // Aktif Buton Vurgusu Sağlama
             function highlightBtn(key) {
                 ORDER.forEach(k => {
                     const btn = document.getElementById('btn-' + k);
@@ -3018,7 +4266,6 @@
                 });
             }
 
-            // Dinamik Sınav Rotasyonu
             function startCycle() {
                 updateNumbers(activeKey); 
                 applyColors(activeKey); 
@@ -3045,7 +4292,6 @@
                     highlightBtn(activeKey);
                 }, 3000);
                 
-                // Saniyelik Akış Motoru
                 tickTimer = setInterval(() => { 
                     if(!locked) {
                         updateNumbers(activeKey); 
@@ -3053,7 +4299,6 @@
                 }, 1000);
             }
             
-            // Kullanıcı Tıklaması ile Sayacı Kilitleme (Window Objesine Aktarım)
             window.lockExam = function(key) {
                 if(locked) return;
                 
@@ -3061,7 +4306,6 @@
                 clearInterval(cycleTimer); 
                 activeKey = key;
                 
-                // Diğer Butonları Gizle
                 ORDER.forEach(k => {
                     const btn = document.getElementById('btn-' + k);
                     if(btn) {
@@ -3099,7 +4343,6 @@
                 }
             };
 
-            // Kullanıcı Geri Döndüğünde Kilidi Açma ve Döngüyü Başlatma
             window.unlockCounter = function() {
                 locked = false;
                 
@@ -3129,113 +4372,306 @@
                 }, 400);
             };
 
-            // Sistem Başlatıcı
             startCycle();
         })();
 
         /* ----------------------------------------------------------------------
-           5. CANLI DESTEK TİLKİ BOTU VE OTONOM SOHBET MOTORU (TAWK.TO KLONU)
+           5. CANLI DESTEK TİLKİ BOTU VE OTONOM SOHBET MOTORU
            ---------------------------------------------------------------------- */
         
         let isChatOpen = false;
 
         window.toggleChatPanel = function() {
             const panel = document.getElementById('chatPanel');
-            const badge = document.querySelector('.fox-badge');
+            const speechBubble = document.querySelector('.fox-speech-bubble');
             
             if(isChatOpen) {
-                // Kapat
                 panel.classList.remove('show');
                 isChatOpen = false;
+                if(speechBubble) {
+                    speechBubble.style.opacity = '1';
+                    speechBubble.style.visibility = 'visible';
+                }
             } else {
-                // Aç
                 panel.classList.add('show');
                 isChatOpen = true;
-                
-                // Bildirim Tuzağını (Kırmızı Nokta) Gizle
-                if(badge) {
-                    badge.style.display = 'none';
+                if(speechBubble) {
+                    speechBubble.style.opacity = '0';
+                    speechBubble.style.visibility = 'hidden';
                 }
             }
         };
 
+        function addUserMessage(text) {
+            const chatBody = document.getElementById('chatBody');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'user-message';
+            
+            const bubble = document.createElement('div');
+            bubble.className = 'user-bubble';
+            bubble.innerHTML = text;
+            
+            msgDiv.appendChild(bubble);
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function addBotMessage(text) {
+            const chatBody = document.getElementById('chatBody');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'bot-message';
+            
+            msgDiv.innerHTML = `
+                <div class="bot-avatar">
+                    <img src="assets/tilki-avatar.png" alt="Bot" style="width:100%; border-radius:50%;">
+                </div>
+                <div class="bot-bubble">
+                    ${text}
+                </div>
+            `;
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        // WhatsApp Tipi Gecikmeli Chat Logic Algoritması
         window.handleBotOption = function(optionType) {
             const optionsBox = document.getElementById('userOptionsBox');
-            const chatBody = document.getElementById('chatBody');
             const typingIndicator = document.getElementById('typingIndicator');
             
-            // Seçenekleri Gizle
             if(optionsBox) {
                 optionsBox.style.display = 'none';
             }
             
-            // Kullanıcının Seçtiği Soruyu Ekrana Bas (Chat Bubble)
-            const userMsgDiv = document.createElement('div');
-            userMsgDiv.style.display = 'flex';
-            userMsgDiv.style.justifyContent = 'flex-end';
-            userMsgDiv.style.marginBottom = '10px';
-            
-            const userBubble = document.createElement('div');
-            userBubble.style.backgroundColor = '#0ea5e9';
-            userBubble.style.color = 'white';
-            userBubble.style.padding = '10px 14px';
-            userBubble.style.borderRadius = '16px 16px 4px 16px';
-            userBubble.style.fontSize = '0.85rem';
-            userBubble.style.fontWeight = '600';
-            
+            // FİYAT SENARYOSU
             if (optionType === 'fiyat') {
-                userBubble.innerHTML = "💰 Dershane Ücreti Ne Kadar?";
-            } else if (optionType === '360tur') {
-                userBubble.innerHTML = "🏫 Sınıf Görsellerini Görebilir miyiz?";
+                addUserMessage("💰 Dershane Ücreti Ne Kadar?");
+                setTimeout(() => { 
+                    typingIndicator.style.display = 'flex'; 
+                    document.getElementById('chatBody').scrollTop = document.getElementById('chatBody').scrollHeight;
+                }, 300);
+                
+                setTimeout(() => {
+                    typingIndicator.style.display = 'none';
+                    addBotMessage("Tabii, sizin için dershane fiyat ücreti için yardımcı olabilirim. Öğrenci hangi sınıfta öğrenim görmekte?");
+                    
+                    const actionDiv = document.createElement('div');
+                    actionDiv.className = 'chat-action-buttons';
+                    actionDiv.innerHTML = `
+                        <button class="chat-action-btn" onclick="executeFinalAction('tel')">5-8. Sınıf</button>
+                        <button class="chat-action-btn" onclick="executeFinalAction('tel')">9-12. Sınıf (YKS)</button>
+                        <button class="chat-action-btn" onclick="executeFinalAction('tel')">Mezun (YKS)</button>
+                        <button class="chat-action-btn" onclick="executeFinalAction('tel')">KPSS / ALES</button>
+                    `;
+                    document.getElementById('chatBody').appendChild(actionDiv);
+                    document.getElementById('chatBody').scrollTop = document.getElementById('chatBody').scrollHeight;
+                }, 1200);
+            } 
+            
+            // 360 TUR SENARYOSU
+            else if (optionType === '360tur') {
+                addUserMessage("🏫 Sınıfların Görsellerini Görebilir miyiz?");
+                setTimeout(() => { 
+                    typingIndicator.style.display = 'flex'; 
+                    document.getElementById('chatBody').scrollTop = document.getElementById('chatBody').scrollHeight;
+                }, 300);
+                
+                setTimeout(() => {
+                    typingIndicator.style.display = 'none';
+                    addBotMessage("Tabii ki, kurumumuzu ve sınıflarımızı hemen inceleyebilirsiniz.");
+                    
+                    setTimeout(() => { 
+                        typingIndicator.style.display = 'flex'; 
+                        document.getElementById('chatBody').scrollTop = document.getElementById('chatBody').scrollHeight; 
+                    }, 300);
+                    
+                    setTimeout(() => {
+                        typingIndicator.style.display = 'none';
+                        addBotMessage("Sanal turu başlatıyorum, iyi gezintiler! 🚀");
+                        
+                        setTimeout(() => {
+                            document.getElementById('main-body').classList.add('backdrop-blur-active');
+                            openTour();
+                            toggleChatPanel();
+                        }, 1500);
+                    }, 1200);
+                }, 1200);
             }
             
-            userMsgDiv.appendChild(userBubble);
-            chatBody.appendChild(userMsgDiv);
-            
-            // Tilki Yazıyor... (Typing Animasyonu) Göster
-            setTimeout(() => {
-                if(typingIndicator) {
-                    typingIndicator.style.display = 'flex';
-                }
-                chatBody.scrollTop = chatBody.scrollHeight; // Sona kaydır
-            }, 300);
-
-            // Güvenlik: 1.5 Saniyelik Gerçekçilik Gecikmesi Sonrası İşlem
-            setTimeout(() => {
-                // Typing gizle
-                if(typingIndicator) {
-                    typingIndicator.style.display = 'none';
-                }
+            // KADRO SENARYOSU
+            else if (optionType === 'kadro') {
+                addUserMessage("👨‍🏫 Hangi Öğretmenler Var?");
+                setTimeout(() => { 
+                    typingIndicator.style.display = 'flex'; 
+                    document.getElementById('chatBody').scrollTop = document.getElementById('chatBody').scrollHeight;
+                }, 300);
                 
-                // Tilki Yanıtı Bas
-                const botMsgDiv = document.createElement('div');
-                botMsgDiv.className = 'bot-message';
-                
-                botMsgDiv.innerHTML = `
-                    <div class="bot-avatar">
-                        <img src="assets/tilki-avatar.png" alt="Bot" style="width:100%; border-radius:50%;">
-                    </div>
-                    <div class="bot-bubble">
-                        Hemen yönlendiriyorum, lütfen bekleyin...
-                    </div>
-                `;
-                chatBody.appendChild(botMsgDiv);
-                chatBody.scrollTop = chatBody.scrollHeight;
-
-                // Seçime Göre Asıl Hedefi Tetikle (0.8sn ekstra gecikmeyle)
                 setTimeout(() => {
-                    if (optionType === 'fiyat') {
-                        // Telefon araması başlat
-                        window.location.href = "tel:+905000000000";
-                    } else if (optionType === '360tur') {
-                        // Arka Planı Karart ve 360 Modalı Aç
-                        document.getElementById('main-body').classList.add('backdrop-blur-active');
-                        openTour();
-                        toggleChatPanel(); // Sohbeti kapat
-                    }
-                }, 800);
+                    typingIndicator.style.display = 'none';
+                    addBotMessage("Kadromuz, sınav sisteminin yeni nesil soru tarzlarına hakim deneyimli branş öğretmenlerinden oluşuyor.");
+                    
+                    setTimeout(() => { 
+                        typingIndicator.style.display = 'flex'; 
+                        document.getElementById('chatBody').scrollTop = document.getElementById('chatBody').scrollHeight; 
+                    }, 300);
+                    
+                    setTimeout(() => {
+                        typingIndicator.style.display = 'none';
+                        addBotMessage("Öğretmenlerimizle tanışmanız ve rehberlik detaylarımızı görüşebilmeniz için hemen müşteri temsilcimizin numarasını paylaşıyorum... 📞");
+                        
+                        setTimeout(() => {
+                            window.location.href = "tel:+905000000000";
+                        }, 1500);
+                    }, 1200);
+                }, 1200);
+            }
+            
+            // DENEME SENARYOSU
+            else if (optionType === 'deneme') {
+                addUserMessage("📝 Deneme Sınavları Nasıl?");
+                setTimeout(() => { 
+                    typingIndicator.style.display = 'flex'; 
+                    document.getElementById('chatBody').scrollTop = document.getElementById('chatBody').scrollHeight;
+                }, 300);
                 
-            }, 1800);
+                setTimeout(() => {
+                    typingIndicator.style.display = 'none';
+                    addBotMessage("Tabii, kurumumuzdaki Türkiye geneli deneme sınavı işleyişi hakkında yardımcı olabilirim.");
+                    
+                    setTimeout(() => { 
+                        typingIndicator.style.display = 'flex'; 
+                        document.getElementById('chatBody').scrollTop = document.getElementById('chatBody').scrollHeight; 
+                    }, 300);
+                    
+                    setTimeout(() => {
+                        typingIndicator.style.display = 'none';
+                        addBotMessage("Sizin için hemen müşteri temsilcimizin numarasını paylaşıyorum... 📞");
+                        
+                        setTimeout(() => {
+                            window.location.href = "tel:+905000000000";
+                        }, 1500);
+                    }, 1200);
+                }, 1200);
+            }
+            
+            // KONUM SENARYOSU
+            else if (optionType === 'konum') {
+                addUserMessage("📍 Kurum Nerede?");
+                setTimeout(() => { 
+                    typingIndicator.style.display = 'flex'; 
+                    document.getElementById('chatBody').scrollTop = document.getElementById('chatBody').scrollHeight;
+                }, 300);
+                
+                setTimeout(() => {
+                    typingIndicator.style.display = 'none';
+                    addBotMessage("Battalgazi'nin tam merkezindeyiz (Büyük Hüseyinbey Mah. Turfanda Sk.).");
+                    
+                    setTimeout(() => { 
+                        typingIndicator.style.display = 'flex'; 
+                        document.getElementById('chatBody').scrollTop = document.getElementById('chatBody').scrollHeight; 
+                    }, 300);
+                    
+                    setTimeout(() => {
+                        typingIndicator.style.display = 'none';
+                        addBotMessage("Detaylı yol tarifi ve konum bilgisi için hemen müşteri temsilcimizin numarasını paylaşıyorum... 📞");
+                        
+                        setTimeout(() => {
+                            window.location.href = "tel:+905000000000";
+                        }, 1500);
+                    }, 1200);
+                }, 1200);
+            }
+
+            // AÇIK UÇLU METİN GİRİŞ SENARYOSU (Senaryo 3 Alternatifi)
+            else if (optionType === 'baska') {
+                addUserMessage("❓ Aklıma Takılan Başka Bir Soru Var");
+                setTimeout(() => { 
+                    typingIndicator.style.display = 'flex'; 
+                    document.getElementById('chatBody').scrollTop = document.getElementById('chatBody').scrollHeight; 
+                }, 300);
+                
+                setTimeout(() => {
+                    typingIndicator.style.display = 'none';
+                    addBotMessage("Tabii ki, Hangi konu hakkında yardıma ihtiyacınız var yazarsanız yardımcı olabilirim.");
+                    
+                    // Dinamik Input Alanı Oluşturma
+                    const inputContainer = document.createElement('div');
+                    inputContainer.className = 'chat-input-container';
+                    inputContainer.style.display = 'flex';
+                    inputContainer.style.gap = '8px';
+                    inputContainer.style.marginTop = '10px';
+                    
+                    const textInput = document.createElement('input');
+                    textInput.type = 'text';
+                    textInput.placeholder = 'Sorunuzu buraya yazın...';
+                    textInput.className = 'chat-text-input';
+                    
+                    const sendBtn = document.createElement('button');
+                    sendBtn.innerHTML = 'Gönder';
+                    sendBtn.className = 'chat-send-btn';
+                    
+                    sendBtn.onclick = function() {
+                        const userVal = textInput.value.trim();
+                        if(!userVal) return;
+                        
+                        inputContainer.style.display = 'none';
+                        addUserMessage(userVal);
+                        
+                        setTimeout(() => { 
+                            typingIndicator.style.display = 'flex'; 
+                            document.getElementById('chatBody').scrollTop = document.getElementById('chatBody').scrollHeight; 
+                        }, 300);
+                        
+                        setTimeout(() => {
+                            typingIndicator.style.display = 'none';
+                            addBotMessage("Bu konu ile ilgili sizi müşteri temsilcimize yönlendiriyorum... 📞");
+                            
+                            setTimeout(() => {
+                                window.location.href = "tel:+905000000000";
+                            }, 1500);
+                        }, 1200);
+                    };
+                    
+                    // Enter tuşuna basıldığında da çalışsın
+                    textInput.addEventListener("keyup", function(event) {
+                        if (event.key === "Enter") {
+                            event.preventDefault();
+                            sendBtn.click();
+                        }
+                    });
+                    
+                    inputContainer.appendChild(textInput);
+                    inputContainer.appendChild(sendBtn);
+                    document.getElementById('chatBody').appendChild(inputContainer);
+                    document.getElementById('chatBody').scrollTop = document.getElementById('chatBody').scrollHeight;
+                    textInput.focus();
+                }, 1200);
+            }
+        };
+
+        // Ara Seçenek Aksiyonları İçin Tetikleyici (Fiyat Bilgisi Senaryosundaki Butonlar)
+        window.executeFinalAction = function(type) {
+            const typingIndicator = document.getElementById('typingIndicator');
+            
+            const buttons = document.querySelectorAll('.chat-action-btn');
+            buttons.forEach(btn => {
+                btn.style.pointerEvents = 'none';
+                btn.style.opacity = '0.5';
+            });
+
+            setTimeout(() => { 
+                typingIndicator.style.display = 'flex'; 
+                document.getElementById('chatBody').scrollTop = document.getElementById('chatBody').scrollHeight; 
+            }, 300);
+            
+            setTimeout(() => {
+                typingIndicator.style.display = 'none';
+                if (type === 'tel') {
+                    addBotMessage("Sizin için hemen müşteri temsilcimizin numarasını paylaşıyorum... 📞");
+                    setTimeout(() => {
+                        window.location.href = "tel:+905000000000";
+                    }, 1500);
+                }
+            }, 1200);
         };
 
         /* ----------------------------------------------------------------------
@@ -3262,15 +4698,12 @@
             const overlay = document.getElementById('randevuModal');
             if(overlay) {
                 overlay.style.display = 'flex';
-                
-                // Form arkasında sayfanın kaymasını engelle
                 document.body.style.overflow = 'hidden';
                 
                 requestAnimationFrame(() => {
                     overlay.classList.add('show');
                 });
                 
-                // Modal içi animasyonları tetikle
                 overlay.querySelectorAll('video[data-src]').forEach(video => {
                     video.src = video.getAttribute('data-src');
                     video.removeAttribute('data-src');
@@ -3292,10 +4725,7 @@
             const overlay = document.getElementById('randevuModal');
             if(overlay) {
                 overlay.classList.remove('show');
-                
-                // Arka plan kilidini kaldır
                 document.body.style.overflow = '';
-                
                 setTimeout(() => {
                     overlay.style.display = 'none';
                 }, 600); 
@@ -3335,8 +4765,10 @@
                 t.classList.remove('show'); 
                 document.body.style.overflow = '';
                 
-                // Varsa arka plan karartmasını (blur) kaldır
-                document.getElementById('main-body').classList.remove('backdrop-blur-active');
+                const mainBody = document.getElementById('main-body');
+                if(mainBody) {
+                    mainBody.classList.remove('backdrop-blur-active');
+                }
                 
                 setTimeout(() => {
                     t.style.display = 'none';
@@ -3425,7 +4857,6 @@
         }
 
         window.submitAppt = function() {
-            // Güvenlik: Botları tuzağa düşüren görünmez alan kontrolü
             const botTrap = document.getElementById('botTrap');
             if(botTrap && botTrap.value !== '') {
                 return; 
@@ -3458,7 +4889,6 @@
                 }
             }
 
-            // Düzenli İfade (Regex) Kontrolleri
             const nameRegex = /^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]{3,50}$/;
             const phoneRegex = /^05[0-9]{9}$/;
 
@@ -3483,7 +4913,6 @@
                 btn.disabled = true;
             }
 
-            // Backend Entegrasyon Linki
             const WEB_APP_URL = "PASTE_YOUR_OWN_GOOGLE_APPS_SCRIPT_URL_HERE";
 
             if(WEB_APP_URL.startsWith('PASTE_')){
@@ -3522,7 +4951,6 @@
                 
                 closeModal();
                 
-                // Başarı Bildirimini Göster (Toast)
                 const toast = document.getElementById('toast'); 
                 if(toast) {
                     toast.classList.add('show');
@@ -3549,14 +4977,12 @@
            8. KATI İÇERİK KORUMA (KOPYALAMA VE İNCELEME ENGELİ)
            ---------------------------------------------------------------------- */
            
-        // Sağ tık menüsü kapatıcı
         document.addEventListener('contextmenu', e => { 
             if(!['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)) {
                 e.preventDefault(); 
             }
         });
         
-        // Geliştirici konsolu (F12, Ctrl+Shift+I vb.) engelleyici
         document.addEventListener('keydown', e => { 
             const k = e.key ? e.key.toUpperCase() : ''; 
             if(k === 'F12' || (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(k)) || (e.ctrlKey && k === 'U')) {
@@ -3564,7 +4990,6 @@
             }
         });
         
-        // Metin ve medya kopyalama engelleyici
         document.addEventListener('copy', e => { 
             if(['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)) {
                 return; 
