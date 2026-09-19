@@ -1,34 +1,84 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    
+    <!-- Temel Meta Etiketleri -->
     <title>Referans Eğitim Kurumları | Malatya LGS, YKS, KPSS Dershanesi</title>
     <meta name="description" content="Malatya Battalgazi'de 5-8. sınıf LGS, 9-12. sınıf TYT-AYT, mezun YKS ve DGS/KPSS/ALES hazırlığında güvenilir dershane. Birebir takip, alanında uzman deneyimli kadro.">
-    <meta name="keywords" content="Malatya dershane, Malatya LGS kursu, Malatya YKS kursu, Battalgazi dershane, KPSS hazırlık Malatya, Ortaöğretim, Yüksek Öğretim, Eğitim">
+    <meta name="keywords" content="Malatya dershane, Malatya LGS kursu, Malatya YKS kursu, Battalgazi dershane, KPSS hazırlık Malatya, Ortaöğretim, Yüksek Öğretim, VIP Eğitim">
     <meta name="author" content="Referans Eğitim Kurumları">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Açık Grafik (Open Graph) Meta Etiketleri -->
+    <meta property="og:title" content="Referans Eğitim Kurumları | Malatya Dershanesi">
+    <meta property="og:description" content="Malatya'nın en prestijli eğitim kurumu. LGS, YKS ve KPSS hazırlığında uzman kadro ve birebir takip sistemi.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.referansegitim.com/">
+    <meta property="og:image" content="assets/logo.png">
+
+    <!-- Canonical URL ve İkonlar -->
     <link rel="canonical" href="https://www.referansegitim.com/">
     <link rel="icon" href="assets/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
 
-    <!-- Tailwind CSS İçe Aktarımı -->
+    <!-- Tailwind CSS İçe Aktarımı ve Özelleştirme -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            light: '#e0f2fe',
+                            DEFAULT: '#0ea5e9',
+                            dark: '#0284c7',
+                        }
+                    },
+                    spacing: {
+                        'safe-bottom': 'env(safe-area-inset-bottom)',
+                        'safe-top': 'env(safe-area-inset-top)',
+                    }
+                }
+            }
+        }
+    </script>
     
     <!-- Google Fonts: Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+    <!-- Kapsamlı CSS Mimarisi -->
     <style>
         /* ==========================================================================
-           1. GENEL RESET, GÜVENLİK VE TEMEL İSKELET
+           1. GENEL RESET VE PERFORMANS OPTİMİZASYONLARI
            ========================================================================== */
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #f8fafc; }
-        ::-webkit-scrollbar-thumb { background: #0ea5e9; border-radius: 10px; border: 2px solid #f8fafc; }
-        ::-webkit-scrollbar-thumb:hover { background: #0284c7; }
+        
+        /* Gelişmiş Kaydırma Çubuğu (Scrollbar) Tasarımı */
+        ::-webkit-scrollbar { 
+            width: 8px; 
+            height: 8px; 
+        }
+        ::-webkit-scrollbar-track { 
+            background: #f8fafc; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb { 
+            background: #0ea5e9; 
+            border-radius: 8px; 
+            border: 2px solid #f8fafc; 
+        }
+        ::-webkit-scrollbar-thumb:hover { 
+            background: #0284c7; 
+        }
 
-        html { 
-            scroll-behavior: smooth; 
+        /* Dokunmatik Gecikme ve Mobil Tıklama Efektlerinin Engellenmesi */
+        html {
             -webkit-text-size-adjust: 100%;
         }
         
@@ -36,20 +86,28 @@
             background-color: #ffffff; 
             color: #0f172a; 
             overflow-x: hidden; 
-            font-family: 'Manrope', sans-serif; 
+            width: 100vw;
+            max-width: 100%;
             margin: 0; 
             padding: 0; 
+            font-family: 'Manrope', sans-serif; 
+            
+            /* Metin seçimi engellemeleri (sadece okunabilirlik için) */
             -webkit-user-select: none; 
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none; 
+            
+            /* Tipografi optimizasyonu */
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            
+            /* Mobil dokunma tepkisi gizleme */
             -webkit-tap-highlight-color: transparent;
         }
         
-        /* Form alanlarında yazma ve seçme işlemleri aktif */
+        /* Form alanlarında yazma ve seçme işlemleri aktif bırakılır */
         input, select, textarea { 
             -webkit-user-select: text;
             -moz-user-select: text;
@@ -59,163 +117,331 @@
             font-family: 'Manrope', sans-serif;
         }
         
-        /* Görsel ve videoların sürüklenmesini engelleme */
+        /* Görsel ve videoların sürüklenmesini ve patlamasını engelleme */
         video, img { 
             pointer-events: none; 
             outline: none; 
             border: none; 
             background: transparent; 
             -webkit-user-drag: none;
+            user-select: none;
         }
 
+        /* Yalnızca Ekran Okuyucular İçin (Erişilebilirlik & Güvenlik) */
         .sr-only {
-            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-            overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+            position: absolute; 
+            width: 1px; 
+            height: 1px; 
+            padding: 0; 
+            margin: -1px;
+            overflow: hidden; 
+            clip: rect(0,0,0,0); 
+            white-space: nowrap; 
+            border: 0;
         }
 
-        /* Menü kaymalarını önleyen çapa sistemi */
-        section, #sinif-5-8, #sinif-9-12, #mezun, #akademik {
-            scroll-margin-top: 180px; 
+        /* Menü Kaymalarını Engelleyen Akıllı Çapa (Anchor) Sistemi */
+        section, 
+        #sinif-5-8, 
+        #sinif-9-12, 
+        #mezun, 
+        #akademik {
+            scroll-margin-top: 200px; 
         }
+        
         @media (max-width: 768px) {
-            section, #sinif-5-8, #sinif-9-12, #mezun, #akademik { 
-                scroll-margin-top: 120px; 
+            section, 
+            #sinif-5-8, 
+            #sinif-9-12, 
+            #mezun, 
+            #akademik { 
+                scroll-margin-top: 130px; 
             }
         }
 
+        /* Üst İlerleme Çubuğu (Scroll Progress) */
         .progress-bar { 
-            position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, #0ea5e9, #8b5cf6); 
-            width: 0%; z-index: 50000; box-shadow: 0 0 10px rgba(14,165,233, 0.8); pointer-events: none; transition: width 0.1s ease; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            height: 4px; 
+            background: linear-gradient(90deg, #0ea5e9, #8b5cf6, #06b6d4); 
+            background-size: 200% 100%;
+            width: 0%; 
+            z-index: 50000; 
+            box-shadow: 0 0 12px rgba(14,165,233, 0.9); 
+            pointer-events: none; 
+            transition: width 0.1s ease-out; 
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         /* ==========================================================================
            2. İNCE CAM YANSIMASI (GLASS REFLECTION) VE ARKA PLAN MİMARİSİ
            ========================================================================== */
         .spine-wrapper { 
-            position: relative; width: 100%; min-height: 100vh; 
+            position: relative; 
+            width: 100%; 
+            min-height: 100vh; 
         }
         
-        /* Sabit, çok hafif ana çizgi */
+        /* Sabit, zarif omurga çizgisi */
         .neon-spine { 
-            position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); 
-            width: 1px; z-index: -10; background: rgba(14, 165, 233, 0.10); pointer-events: none; 
+            position: absolute; 
+            top: 0; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 1px; 
+            z-index: -10; 
+            background: rgba(14, 165, 233, 0.10); 
+            pointer-events: none; 
         }
         
-        /* Neon Patlaması Giderildi -> Zarif Cam İçi Işık Süzülmesi (Glass Reflection) */
+        /* Kusursuz Cam Yansıması Efekti (Abartılı Neon Patlaması Giderildi) */
         .spine-glow {
-            position: absolute; top: 0; left: 50%; transform: translateX(-50%); 
-            width: 2px; height: 180px; 
-            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.95), rgba(14, 165, 233, 0.4), transparent); 
+            position: absolute; 
+            top: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 2px; 
+            height: 180px; 
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.95), rgba(14, 165, 233, 0.3), transparent); 
             box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.4); 
-            border-radius: 10px; transition: top 0.1s ease-out; z-index: -9; opacity: 0.8;
+            border-radius: 10px; 
+            transition: top 0.1s ease-out; 
+            z-index: -9;
+            opacity: 0.85;
+            pointer-events: none;
         }
 
-        /* Yan dallar merkezin renginden uçlara doğru erir */
-        .branch-line { position: absolute; top: 50%; height: 1px; width: 22vw; z-index: -10; pointer-events: none; opacity: 0.6; }
-        .branch-line.right { left: 50%; background: linear-gradient(to right, #0ea5e9, #8b5cf6, transparent); }
-        .branch-line.left { right: 50%; background: linear-gradient(to left, #0ea5e9, #8b5cf6, transparent); }
+        /* Yan dallar merkezin renginden uçlara doğru pürüzsüzce erir */
+        .branch-line { 
+            position: absolute; 
+            top: 50%; 
+            height: 1px; 
+            width: 22vw; 
+            z-index: -10; 
+            pointer-events: none; 
+            opacity: 0.6;
+        }
         
+        .branch-line.right { 
+            left: 50%; 
+            background: linear-gradient(to right, rgba(14, 165, 233, 0.8), rgba(139, 92, 246, 0.4), transparent); 
+        }
+        
+        .branch-line.left { 
+            right: 50%; 
+            background: linear-gradient(to left, rgba(14, 165, 233, 0.8), rgba(139, 92, 246, 0.4), transparent); 
+        }
+
+        /* Mobilde arka plan dekorasyonlarını kapat */
         @media (max-width: 768px) { 
-            .branch-line, .neon-spine, .spine-glow { display: none !important; } 
+            .branch-line, .neon-spine, .spine-glow { 
+                display: none !important; 
+            } 
         }
 
         /* ==========================================================================
            3. MP4 SKELETON, VİDEO MASKELERİ VE SVG PATLAMA KORUMASI
            ========================================================================== */
-        /* SVG Patlamasını Engellemek İçin Kesin Sınırlar */
+        
+        /* Kritik Güvenlik: SVG İkon Patlamasını Engellemek İçin Kesin Sınırlar */
         .icon-box {
             width: 48px !important;
             height: 48px !important;
             min-width: 48px !important;
             min-height: 48px !important;
-            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            flex-shrink: 0;
             margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 10;
         }
+        
         .icon-box svg {
             width: 100% !important;
             height: 100% !important;
             max-width: 48px !important;
             max-height: 48px !important;
+            object-fit: contain;
         }
 
-        /* Video Yüklenirken Görünen İskelet (Pulse Skeleton) */
+        /* Video Yüklenirken Görünen İskelet (Pulse Skeleton) Mimarisi */
         .video-skeleton {
             background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
             background-size: 200% 100%;
-            animation: skeletonLoading 1.5s infinite;
+            animation: skeletonLoading 1.5s infinite linear;
+            position: relative;
         }
+        
         @keyframes skeletonLoading {
             0% { background-position: 200% 0; }
             100% { background-position: -200% 0; }
         }
 
+        /* CLS Önleyici Sabit Oranlı Kapsayıcılar */
         .webm-mask {
-            border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; 
-            transform: translateZ(0); will-change: transform; position: relative; background-color: #ffffff;
+            border-radius: 50%; 
+            overflow: hidden; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            transform: translateZ(0); 
+            will-change: transform; 
+            position: relative; 
+            background-color: #ffffff;
+            /* CLS koruması */
+            aspect-ratio: 1/1; 
         }
         
         .webm-mask video { 
-            width: 100%; height: 100%; object-fit: cover; transform: translateZ(0); 
-            opacity: 0; transition: opacity 0.5s ease; 
-        }
-        .webm-mask video.loaded { opacity: 1; }
-
-        /* Masaüstü Kart Altı MP4 */
-        .webm-card-bottom {
-            position: absolute; bottom: -50px; left: 50%; transform: translateX(-50%) translateZ(0); 
-            width: 100px; height: 100px; border: 5px solid #ffffff; box-shadow: 0 15px 30px rgba(0,0,0,0.1); 
-            background: #f8fafc; z-index: 20; aspect-ratio: 1/1;
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transform: translateZ(0); 
+            opacity: 0; /* JS load olana kadar gizli */
+            transition: opacity 0.5s ease-in-out; 
+            background-color: transparent;
         }
         
-        /* Modal Yanları MP4 */
+        .webm-mask video.loaded { 
+            opacity: 1; 
+        }
+
+        /* Masaüstü Kart Altı MP4 Konumlandırması */
+        .webm-card-bottom {
+            position: absolute; 
+            bottom: -50px; 
+            left: 50%; 
+            transform: translateX(-50%) translateZ(0); 
+            width: 100px; 
+            height: 100px; 
+            border: 5px solid #ffffff; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1); 
+            background: #f8fafc; 
+            z-index: 20; 
+        }
+        
+        /* Modal Dış Çeper MP4 Konumlandırması */
         .webm-modal-flank {
-            position: absolute; top: 50%; transform: translateY(-50%) translateZ(0); 
-            width: 160px; height: 160px; border: 6px solid rgba(255,255,255,0.2); 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3); z-index: 60010; aspect-ratio: 1/1;
+            position: absolute; 
+            top: 50%; 
+            transform: translateY(-50%) translateZ(0); 
+            width: 160px; 
+            height: 160px; 
+            border: 6px solid rgba(255,255,255,0.2); 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
+            z-index: 60010; 
         }
         .flank-left { left: calc(50% - 420px); }
         .flank-right { right: calc(50% - 420px); }
 
-        /* Eğitim Kartları MP4 */
+        /* Sınıf/Eğitim Kartları Büyük MP4 Konumlandırması */
         .webm-egitim { 
-            width: 320px; height: 320px; border: 8px solid #ffffff; 
-            box-shadow: 0 25px 50px rgba(0,0,0,0.08); background: #ffffff; aspect-ratio: 1/1;
+            width: 320px; 
+            height: 320px; 
+            border: 8px solid #ffffff; 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.08); 
+            background: #ffffff; 
         }
         
-        /* Buton İçi MP4 */
+        /* Buton İçi İkonik MP4 Konumlandırması */
         .webm-btn-icon { 
-            width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; 
-            margin-right: 8px; background: #ffffff; padding: 2px; aspect-ratio: 1/1;
+            width: 36px; 
+            height: 36px; 
+            flex-shrink: 0; 
+            border-radius: 50%; 
+            margin-right: 8px; 
+            background: #ffffff; 
+            padding: 2px; 
         }
 
         /* ==========================================================================
-           4. MAARİF KURDELESİ VE CANLI DESTEK (SADECE TELEFON ARAMASI)
+           4. MAARİF KURDELESİ VE CANLI DESTEK (SADECE TELEFON ARAMASI - WHATSAPP İPTAL)
            ========================================================================== */
+        
+        /* Kurdele Sınırlandırıcı (Görsel Taşkınlıkları Önler) */
         .maarif-ribbon-wrapper { 
-            position: fixed; top: 0; right: 0; width: 160px; height: 160px; 
-            z-index: 55000; pointer-events: none; overflow: hidden; 
+            position: fixed; 
+            top: 0; 
+            right: 0; 
+            width: 160px; 
+            height: 160px; 
+            z-index: 55000; 
+            pointer-events: none; 
+            overflow: hidden; 
         }
+        
         .maarif-ribbon { 
-            position: absolute; top: 35px; right: -45px; width: 200px; 
-            background: linear-gradient(90deg, #0ea5e9, #06b6d4); color: white; text-align: center; 
-            font-size: 0.65rem; font-weight: 900; transform: rotate(45deg); padding: 8px 0; 
-            border-top: 2px solid #cffafe; border-bottom: 2px solid #cffafe; 
-            box-shadow: 0 4px 15px rgba(6,182,212,0.5); line-height: 1.2; letter-spacing: 1px; 
+            position: absolute; 
+            top: 35px; 
+            right: -45px; 
+            width: 200px; 
+            background: linear-gradient(90deg, #0ea5e9, #06b6d4); 
+            color: white; 
+            text-align: center; 
+            font-size: 0.65rem; 
+            font-weight: 900; 
+            transform: rotate(45deg); 
+            padding: 8px 0; 
+            border-top: 2px solid #cffafe; 
+            border-bottom: 2px solid #cffafe; 
+            box-shadow: 0 4px 15px rgba(6,182,212,0.5); 
+            line-height: 1.2; 
+            letter-spacing: 1px; 
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
-        /* Standart Arama Butonu - Minimum Touch Target Ayarlı */
+        /* Standart Telefon Arama Butonu - Minimum Touch Target Ayarlı */
         .live-chat-btn { 
-            position: fixed; bottom: 30px; left: 30px; width: 70px; height: 70px; 
-            background: linear-gradient(135deg, #10b981, #059669); border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; 
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.5); z-index: 55000; cursor: pointer; 
+            position: fixed; 
+            bottom: 30px; 
+            left: 30px; 
+            width: 70px; 
+            height: 70px; 
+            background: linear-gradient(135deg, #10b981, #059669); 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.5); 
+            z-index: 55000; 
+            cursor: pointer; 
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            animation: pulseChat 2s infinite; pointer-events: auto; text-decoration: none; 
-            border: 4px solid #fff; padding: 10px; 
+            animation: pulseChat 2s infinite; 
+            pointer-events: auto; 
+            text-decoration: none; 
+            border: 4px solid #fff; 
+            padding: 10px; /* Görünmez dokunmatik alan toleransı */
+            outline: none;
         }
-        .live-chat-btn:active { transform: scale(0.9); animation: none; }
-        .live-chat-btn:hover { transform: scale(1.15) rotate(-10deg); animation: none; }
-        .live-chat-btn svg { width: 34px; height: 34px; color: white; }
+        
+        /* Mekanik Basma Hissi (Spring Physics) */
+        .live-chat-btn:active { 
+            transform: scale(0.9); 
+            animation: none; 
+        }
+        
+        .live-chat-btn:hover { 
+            transform: scale(1.15) rotate(-10deg); 
+            animation: none; 
+        }
+        
+        .live-chat-btn svg { 
+            width: 34px; 
+            height: 34px; 
+            color: white; 
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
         
         @keyframes pulseChat { 
             0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); } 
@@ -224,160 +450,341 @@
         }
 
         /* ==========================================================================
-           5. MASAÜSTÜ MENÜLER (MEGA BAR VE PILL NAV)
+           5. MASAÜSTÜ MENÜLER (MEGA BAR VE PILL NAV Z-INDEX ÇÖZÜMLERİ)
            ========================================================================== */
+        
+        /* Sarkan Mega Menü - Yığılma Bağlamı İzole Edildi */
         .mega-bar-wrapper { 
-            position: absolute; top: 0; left: 0; width: 100%; z-index: 40005; 
-            display: flex; justify-content: center; pointer-events: none; transition: opacity 0.4s ease; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            z-index: 40005; /* Pill nav'ın altında kalacak şekilde ayarlandı */
+            display: flex; 
+            justify-content: center; 
+            pointer-events: none; 
+            transition: opacity 0.4s ease; 
         }
+        
         .hanging-nav { 
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; 
-            width: 100%; max-width: 1000px; padding: 0 1.5rem; pointer-events: auto; 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 10px; 
+            width: 100%; 
+            max-width: 1000px; 
+            padding: 0 1.5rem; 
+            pointer-events: auto; 
+            background: transparent;
         }
+        
         .hanging-tab { 
-            background: #ffffff; padding: 1.5rem 0.5rem; text-align: center; 
-            border-bottom-left-radius: 2rem; border-bottom-right-radius: 2rem; 
-            border: 1px solid #f1f5f9; border-top: none; cursor: pointer; 
+            background: #ffffff; 
+            padding: 1.5rem 0.5rem; 
+            text-align: center; 
+            border-bottom-left-radius: 2rem; 
+            border-bottom-right-radius: 2rem; 
+            border: 1px solid #f1f5f9; 
+            border-top: none; 
+            cursor: pointer; 
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease; 
             box-shadow: 0 15px 30px rgba(0,0,0,0.03); 
+            position: relative;
         }
-        .hanging-tab:hover { transform: translateY(5px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
-        .hanging-tab:active { transform: translateY(2px) scale(0.98); }
         
-        .hanging-title { font-size: 0.9rem; font-weight: 900; color: #0f172a; text-transform: uppercase; display: block; transition: color 0.2s; }
+        .hanging-tab:hover { 
+            transform: translateY(5px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06); 
+        }
+        
+        .hanging-tab:active { 
+            transform: translateY(2px) scale(0.98); 
+        }
+        
+        .hanging-title { 
+            font-size: 0.9rem; 
+            font-weight: 900; 
+            color: #0f172a; 
+            text-transform: uppercase; 
+            display: block; 
+            transition: color 0.2s; 
+        }
+        
         .hanging-tab:hover .hanging-title { color: #0ea5e9; }
-        .hanging-sub { display: block; font-size: 0.7rem; font-weight: 800; color: #0ea5e9; margin-top: 6px; text-transform: uppercase; }
-
-        /* Yüzen Hap Menü (Pill Nav) */
-        .pill-nav { 
-            position: fixed; top: 110px; left: 50%; transform: translateX(-50%); 
-            width: 95%; max-width: 1050px; height: 72px; background: rgba(255,255,255,0.95); 
-            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            border-radius: 999px; border: 1px solid #e0f2fe; box-shadow: 0 15px 35px rgba(14,165,233,0.15); 
-            display: flex; align-items: center; justify-content: space-between; padding: 0 1.5rem; 
-            z-index: 40000; transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease; 
-        }
-        .pill-nav.move-up { top: 20px; box-shadow: 0 20px 50px rgba(14,165,233,0.25); } 
         
+        .hanging-sub { 
+            display: block; 
+            font-size: 0.7rem; 
+            font-weight: 800; 
+            color: #0ea5e9; 
+            margin-top: 6px; 
+            text-transform: uppercase; 
+        }
+
+        /* Yüzen Hap Menü (Pill Nav) - Taşmalar ve Çarpışmalar Giderildi */
+        .pill-nav { 
+            position: fixed; 
+            top: 110px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 95%; 
+            max-width: 1050px; 
+            height: 72px; 
+            background: rgba(255,255,255,0.95); 
+            backdrop-filter: blur(15px); 
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 999px; 
+            border: 1px solid #e0f2fe; 
+            box-shadow: 0 15px 35px rgba(14,165,233,0.15); 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 0 1.5rem; 
+            z-index: 40010; /* Mega Bar'ın kesinlikle üstünde */
+            transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease; 
+        }
+        
+        .pill-nav.move-up { 
+            top: 20px; 
+            box-shadow: 0 20px 50px rgba(14,165,233,0.25); 
+        } 
+        
+        /* Merkeze kilitlenen statik logo yapısı */
         .pill-logo-link { 
-            position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); 
-            width: 96px; height: 96px; background: #ffffff; border-radius: 50%; 
-            border: 4px solid #0ea5e9; box-shadow: 0 10px 25px rgba(14,165,233,0.3); 
-            display: flex; align-items: center; justify-content: center; cursor: pointer; 
-            padding: 6px; overflow: hidden; pointer-events: auto; z-index: 40002; 
+            position: absolute; 
+            left: 50%; 
+            top: 50%; 
+            transform: translate(-50%, -50%); 
+            width: 96px; 
+            height: 96px; 
+            background: #ffffff; 
+            border-radius: 50%; 
+            border: 4px solid #0ea5e9; 
+            box-shadow: 0 10px 25px rgba(14,165,233,0.3); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            cursor: pointer; 
+            padding: 6px; 
+            overflow: hidden; 
+            pointer-events: auto; 
+            z-index: 40012; 
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+        
         .pill-logo-link:hover { transform: translate(-50%, -50%) scale(1.08); }
         .pill-logo-link:active { transform: translate(-50%, -50%) scale(0.95); }
-        .pill-logo-link img { width: 100%; height: 100%; object-fit: contain; }
         
-        .pill-side { flex: 1; display: flex; align-items: center; gap: 2.5rem; }
-        .pill-side.right { justify-content: flex-end; }
+        .pill-logo-link img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+        }
+        
+        /* Yazıların logonun altına girmesini engelleyen boşluklu yapı */
+        .pill-side { 
+            flex: 1; 
+            display: flex; 
+            align-items: center; 
+            gap: 2rem; 
+        }
+        .pill-side.left { 
+            padding-right: 60px; /* Logo toleransı */
+            justify-content: flex-start;
+        }
+        .pill-side.right { 
+            padding-left: 60px; /* Logo toleransı */
+            justify-content: flex-end; 
+        }
         
         .pill-link { 
-            font-weight: 800; font-size: 0.85rem; color: #475569; cursor: pointer; 
-            text-decoration: none; text-transform: uppercase; display: flex; align-items: center; 
-            gap: 8px; transition: color 0.2s; padding: 10px; 
+            font-weight: 800; 
+            font-size: 0.85rem; 
+            color: #475569; 
+            cursor: pointer; 
+            text-decoration: none; 
+            text-transform: uppercase; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            transition: color 0.2s; 
+            padding: 10px; /* Tıklama alanı (Touch Target) */
         }
         .pill-link:hover { color: #0ea5e9; }
         
         /* Premium Etkileşimli Manyetik Buton */
         .magnetic-btn {
-            background: #06b6d4; color: #ffffff; font-weight: 900; font-size: 0.85rem; 
-            padding: 0.5rem 1.5rem 0.5rem 0.5rem; border-radius: 999px; display: inline-flex; 
-            align-items: center; cursor: pointer; box-shadow: 0 8px 20px rgba(6,182,212,0.4); 
-            border: none; pointer-events: auto; will-change: transform; 
+            background: #06b6d4; 
+            color: #ffffff; 
+            font-weight: 900; 
+            font-size: 0.85rem; 
+            padding: 0.5rem 1.5rem 0.5rem 0.5rem; 
+            border-radius: 999px; 
+            display: inline-flex; 
+            align-items: center; 
+            cursor: pointer; 
+            box-shadow: 0 8px 20px rgba(6,182,212,0.4); 
+            border: none; 
+            pointer-events: auto; 
+            will-change: transform; 
             transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
         }
         .magnetic-btn:hover { background-color: #0ea5e9; }
         .magnetic-btn:active { transform: scale(0.94) !important; }
 
-        /* Masaüstü Genel Kart ve İçerik Koruması */
-        main { padding-top: 250px; }
+        /* Masaüstü Genel Kart Koruması */
+        main { 
+            padding-top: 250px; 
+            width: 100%;
+            overflow-x: hidden;
+        }
+        
         .card-shield { 
-            background: #ffffff; position: relative; z-index: 10; border-radius: 2rem; 
-            margin-bottom: 50px; transition: all 0.4s ease;
+            background: #ffffff; 
+            position: relative; 
+            z-index: 10; 
+            border-radius: 2rem; 
+            margin-bottom: 50px; 
+            transition: all 0.4s ease;
         }
 
         /* ==========================================================================
            6. MOBİL ÖZEL: SIKIŞTIRILMIŞ APP-UI, YATAY ODAKLI KAYDIRMA VE GÜVENLİ ALANLAR
            ========================================================================== */
+        
+        /* Masaüstü Başlangıç Durumları */
         .mobile-bottom-nav { display: none; }
-        .mobile-swipe-wrapper { display: block; } /* Masaüstünde grid, sarmalayıcıya etki etmez */
+        .mobile-swipe-wrapper { display: block; width: 100%; } 
         .pagination-dots { display: none; }
 
         @media (max-width: 768px) {
-            /* Masaüstü menüleri gizle, mobil sıkıştırmaları aç */
+            
+            /* Masaüstü menüleri ve dekorları gizle, mobil sıkıştırmaları aç */
             .mega-bar-wrapper { display: none !important; }
             
             /* Sıkıştırılmış Hap Menü (Pill Nav) ve İkon İptalleri */
             .pill-nav { 
-                top: 15px; height: 60px; width: 92%; padding: 0 0.5rem; 
-                justify-content: space-between; gap: 10px; 
+                top: 15px; 
+                height: 60px; 
+                width: 92%; 
+                padding: 0 0.5rem; 
+                justify-content: space-between; 
+                gap: 10px; 
             }
             .pill-nav.move-up { top: 10px; }
             
+            /* Mobil Logo Küçültme */
             .pill-logo-link { 
-                position: relative; left: 0; top: 0; transform: none; width: 48px; height: 48px; 
-                border-width: 2px; box-shadow: 0 4px 10px rgba(14,165,233,0.3); margin-left: 5px;
+                position: relative; 
+                left: 0; 
+                top: 0; 
+                transform: none; 
+                width: 48px; 
+                height: 48px; 
+                border-width: 2px; 
+                box-shadow: 0 4px 10px rgba(14,165,233,0.3); 
+                margin-left: 5px;
             }
             .pill-logo-link:hover { transform: scale(1.05); }
             
             .pill-side { display: none !important; }
-            .pill-side.right { display: flex !important; flex: 1; justify-content: flex-end; }
+            .pill-side.right { display: flex !important; flex: 1; justify-content: flex-end; padding-left: 0;}
             
-            .magnetic-btn { padding: 0.6rem 1.2rem; font-size: 0.75rem; }
-            .webm-btn-icon { display: none !important; } /* Yer tasarrufu için videoyu gizle */
+            /* Mobil Randevu Butonu İçi Metin Sıkıştırması */
+            .magnetic-btn { padding: 0.6rem 1.2rem; font-size: 0.75rem; letter-spacing: 0.5px;}
+            .webm-btn-icon { display: none !important; } /* Yer tasarrufu için butondaki videoyu gizle */
             
-            main { padding-top: 110px !important; overflow-x: hidden; }
+            main { padding-top: 110px !important; overflow-x: hidden; width: 100%;}
 
             /* Safe Area Destekli Alt Navigasyon (Home Indicator Çakışması Önlendi) */
             .mobile-bottom-nav { 
-                display: block !important; position: fixed; left: 5%; width: 90%; 
+                display: block !important; 
+                position: fixed; 
+                left: 5%; 
+                width: 90%; 
                 bottom: env(safe-area-inset-bottom, 15px);
                 height: 65px;
-                background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); 
-                box-shadow: 0 15px 35px rgba(0,0,0,0.15); z-index: 45000; 
-                border: 1px solid rgba(255,255,255,0.8); border-radius: 999px;
+                background: rgba(255, 255, 255, 0.85); 
+                backdrop-filter: blur(15px); 
+                -webkit-backdrop-filter: blur(15px); 
+                box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
+                z-index: 45000; 
+                border: 1px solid rgba(255,255,255,0.8); 
+                border-radius: 999px;
             }
-            .mobile-nav-grid { display: grid; grid-template-columns: repeat(3, 1fr); height: 100%; padding: 0 10px; }
+            
+            .mobile-nav-grid { 
+                display: grid; 
+                grid-template-columns: repeat(3, 1fr); 
+                height: 65px; /* Sadece safe area üstü kısmı merkezle */
+                padding: 0 10px; 
+                align-items: center;
+            }
+            
             .mob-link { 
                 display: flex; flex-direction: column; align-items: center; justify-content: center; 
                 text-decoration: none; color: #64748b; border: none; background: transparent; 
-                cursor: pointer; border-radius: 50px; transition: background-color 0.2s; padding: 10px;
+                cursor: pointer; border-radius: 50px; transition: background-color 0.2s; 
+                height: 100%;
             }
+            
             .mob-link:active { background-color: rgba(6, 182, 212, 0.1); }
             .mob-link svg { width: 24px; height: 24px; color: #0f172a; transition: color 0.2s, transform 0.2s; }
             .mob-link:active svg { color: #0ea5e9; transform: scale(0.9); }
 
-            /* Canlı Destek Butonunu Güvenli Alana İt (Bottom Nav'ın üstüne) */
+            /* Canlı Destek Butonunu Güvenli Alana İt (Bottom Nav'ın üstüne ve sola) */
             .live-chat-btn { 
-                width: 55px !important; height: 55px !important; 
-                bottom: calc(100px + env(safe-area-inset-bottom, 0px)) !important; 
-                left: 15px !important; border-width: 3px !important; 
+                width: 55px !important; 
+                height: 55px !important; 
+                bottom: calc(90px + env(safe-area-inset-bottom, 0px)) !important; 
+                left: 15px !important; 
+                border-width: 3px !important; 
             }
             .live-chat-btn svg { width: 24px !important; height: 24px !important; }
 
-            /* Kurdele (Ribbon) Konumlandırması */
-            .maarif-ribbon-wrapper { position: absolute !important; width: 120px !important; height: 120px !important; }
-            .maarif-ribbon { top: 20px !important; right: -35px !important; width: 150px !important; font-size: 0.5rem !important; padding: 4px 0 !important; border-width: 1px !important; }
+            /* Kurdele (Ribbon) Konumlandırması - Ekranın Dışına Çıkması Engellendi */
+            .maarif-ribbon-wrapper { 
+                position: absolute !important; 
+                width: 120px !important; 
+                height: 120px !important; 
+                top: 0 !important;
+                right: 0 !important;
+            }
+            .maarif-ribbon { 
+                top: 20px !important; 
+                right: -35px !important; 
+                width: 150px !important; 
+                font-size: 0.5rem !important; 
+                padding: 4px 0 !important; 
+                border-width: 1px !important; 
+            }
 
             /* ----------------------------------------------------------------------
                ÖZEL MİMARİ: ODAKLI YATAY KAYDIRMA (SWIPE, BLUR & PEEK EFFECT)
                ---------------------------------------------------------------------- */
             .mobile-swipe-wrapper {
-                position: relative; width: 100vw; margin-left: calc(-50vw + 50%); /* Tam ekran taşması */
-                display: flex; flex-direction: column; align-items: center; margin-bottom: 40px !important;
+                position: relative; 
+                width: 100vw; 
+                margin-left: calc(-50vw + 50%); /* Kapsayıcıyı tam ekran genişliğine yay */
+                display: flex; 
+                flex-direction: column; 
+                align-items: center; 
+                margin-bottom: 40px !important;
+                overflow: hidden; /* Dışarıya scroll bar taşmasını önler */
             }
 
             .mobile-swipe-container {
-                display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; 
-                scroll-snap-type: x mandatory !important; scroll-behavior: smooth !important; 
-                -webkit-overflow-scrolling: touch !important; width: 100% !important; 
+                display: flex !important; 
+                flex-wrap: nowrap !important; 
+                overflow-x: auto !important; 
+                scroll-snap-type: x mandatory !important; 
+                scroll-behavior: smooth !important; 
+                -webkit-overflow-scrolling: touch !important; 
+                width: 100% !important; 
                 /* Kenarlardan %12'lik "Peek" (İpucu) payı bırakıyoruz */
                 padding: 1rem 12vw 3rem 12vw !important; 
                 gap: 1rem !important;
             }
+            
             .mobile-swipe-container::-webkit-scrollbar { display: none !important; }
             
             .mobile-swipe-item {
@@ -386,49 +793,130 @@
                 transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
                 opacity: 0.45 !important; /* Kenardakiler saydam */
                 filter: blur(4px) !important; /* Kenardakiler puslu */
-                transform: scale(0.88) !important; /* Kenardakiler küçük */
-                margin: 0 !important; position: relative;
+                transform: scale(0.88) !important; /* Kenardakiler küçük ve geride */
+                margin: 0 !important; 
+                position: relative;
+                will-change: transform, opacity, filter;
             }
             
-            /* Merkeze Odaklanan Aktif Kart CSS'i */
+            /* Merkeze Odaklanan Aktif Kart CSS'i (IntersectionObserver Tarafından Eklenir) */
             .mobile-swipe-item.is-centered {
-                opacity: 1 !important; filter: blur(0px) !important; transform: scale(1) !important; 
-                box-shadow: 0 20px 40px rgba(14, 165, 233, 0.12) !important; z-index: 10;
+                opacity: 1 !important; 
+                filter: blur(0px) !important; 
+                transform: scale(1) !important; 
+                box-shadow: 0 20px 40px rgba(14, 165, 233, 0.12) !important; 
+                z-index: 10;
             }
 
             /* Sayfalama Noktaları (Pagination Dots) */
             .pagination-dots {
-                display: flex !important; justify-content: center; gap: 8px; margin-top: -15px; margin-bottom: 10px;
+                display: flex !important; 
+                justify-content: center; 
+                gap: 8px; 
+                margin-top: -15px; 
+                margin-bottom: 10px;
+                width: 100%;
             }
             .pagination-dots .dot {
-                width: 8px; height: 8px; background-color: #e2e8f0; border-radius: 999px; transition: all 0.3s ease;
+                width: 8px; 
+                height: 8px; 
+                background-color: #e2e8f0; 
+                border-radius: 999px; 
+                transition: all 0.3s ease;
             }
-            .pagination-dots .dot.active { background-color: #0ea5e9; width: 24px; }
+            .pagination-dots .dot.active { 
+                background-color: #0ea5e9; 
+                width: 24px; 
+            }
 
-            /* Bilişsel Yük Sıfırlama: Kart İçi Boyutlandırmalar */
-            .card-shield { padding: 1.5rem !important; border-radius: 1.5rem !important; }
-            .icon-box { width: 36px !important; height: 36px !important; min-width: 36px !important; min-height: 36px !important; margin-bottom: 1rem !important; }
-            .icon-box svg { max-width: 36px !important; max-height: 36px !important; }
+            /* Bilişsel Yük Sıfırlama: Kart İçi Boyutlandırmalar ve Tasarım Restorasyonu */
+            .card-shield { 
+                padding: 1.5rem !important; 
+                border-radius: 1.5rem !important; 
+            }
             
-            .mobile-swipe-item h3 { font-size: 1.15rem !important; margin-bottom: 0.5rem !important; }
-            .mobile-swipe-item p { font-size: 0.8rem !important; line-height: 1.4 !important; display: none !important; } /* Metinleri gizle */
+            .icon-box { 
+                width: 36px !important; 
+                height: 36px !important; 
+                min-width: 36px !important; 
+                min-height: 36px !important; 
+                margin-bottom: 1rem !important; 
+            }
+            
+            .mobile-swipe-item h3 { 
+                font-size: 1.15rem !important; 
+                margin-bottom: 0.5rem !important; 
+            }
+            
+            .mobile-swipe-item p { 
+                font-size: 0.8rem !important; 
+                line-height: 1.4 !important; 
+                display: none !important; /* Mobilde metinleri gizle */
+            } 
             
             /* Eğitim Modülü Kart İçi (Mobilde yazılar gizlenir) */
-            .education-mobile-row { flex-direction: column !important; text-align: center !important; justify-content: space-between !important; height: 300px !important;}
+            .education-mobile-row { 
+                flex-direction: column !important; 
+                text-align: center !important; 
+                justify-content: space-between !important; 
+                height: 300px !important;
+            }
             .education-mobile-row h2 { font-size: 1.8rem !important; margin-bottom: 0.25rem !important; }
-            .education-mobile-row h3 { font-size: 0.9rem !important; margin-bottom: 1rem !important; }
+            .education-mobile-row h3 { font-size: 0.9rem !important; margin-bottom: 1.5rem !important; }
             
-            .webm-card-bottom { width: 60px !important; height: 60px !important; bottom: -30px !important; border-width: 3px !important; }
-            .education-mobile-row .webm-egitim { width: 100px !important; height: 100px !important; margin: 0 auto 1rem !important; border-width: 4px !important; }
+            /* Mobil Randevu Butonunu Orijinal Stilinde Tutma (Override Engelleme) */
+            .education-mobile-row .magnetic-btn {
+                background: linear-gradient(135deg, #0ea5e9, #0284c7) !important;
+                color: #ffffff !important;
+                padding: 0.8rem 2rem !important;
+                font-size: 1rem !important;
+                border-radius: 999px !important;
+                box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3) !important;
+                width: 100% !important;
+                justify-content: center !important;
+            }
+            
+            .webm-card-bottom { 
+                width: 60px !important; 
+                height: 60px !important; 
+                bottom: -30px !important; 
+                border-width: 3px !important; 
+            }
+            
+            .education-mobile-row .webm-egitim { 
+                width: 100px !important; 
+                height: 100px !important; 
+                margin: 0 auto 1rem !important; 
+                border-width: 4px !important; 
+            }
 
-            /* App-UI: Kompakt Sayaç Modülü */
-            .counter-card { padding: 1.5rem !important; border-radius: 1.5rem !important; }
-            .counter-ring { width: 60px !important; height: 60px !important; border-width: 3px !important; margin: 0 2px !important;}
-            .ring-gun::after, .ring-saat::after, .ring-dak::after, .ring-san::after { inset:-3px !important; border-width: 3px !important; }
+            /* Desktop Özel Çizgileri Mobilde Kapat */
+            .branch-line { display: none !important; }
+
+            /* App-UI: Küçültülmüş Kompakt Sayaç Modülü */
+            .counter-card { 
+                padding: 1.5rem 1rem !important; 
+                border-radius: 1.5rem !important; 
+            }
+            .counter-ring { 
+                width: 60px !important; 
+                height: 60px !important; 
+                border-width: 3px !important; 
+                margin: 0 2px !important;
+            }
+            .ring-gun::after, .ring-saat::after, .ring-dak::after, .ring-san::after { 
+                inset:-3px !important; 
+                border-width: 3px !important; 
+            }
             .c-val { font-size: 1.15rem !important; }
             .c-lbl { font-size: 0.45rem !important; margin-top: 2px !important; }
             #counterTitle { font-size: 1.25rem !important; margin-bottom: 1.5rem !important; }
             .exam-btn { padding: 0.5rem !important; font-size: 0.8rem !important; border-radius: 0.5rem !important; }
+            
+            /* Footer Alt Alan Çakışması İptali */
+            #iletisim {
+                padding-bottom: 150px !important; /* Alt menü üstüne binmesin diye */
+            }
         }
 
         /* ==========================================================================
@@ -487,35 +975,68 @@
         /* ==========================================================================
            8. MODAL, GÜVENLİK (KLAVYE KİLİDİ) VE BLURSUZ LIGHTBOX
            ========================================================================== */
+        
+        /* Modal Arka Plan Karartması */
         .modal-overlay { 
             position: fixed; inset: 0; background: rgba(15,23,42,0.85); z-index: 60000; display: none; 
-            align-items: center; justify-content: center; padding: 1rem; opacity: 0; transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            align-items: center; justify-content: center; padding: 1rem; opacity: 0; 
+            transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
         }
         .modal-overlay.show { display: flex; opacity: 1; }
         
-        /* Sanal Klavye Korumalı Modal */
+        /* Sanal Klavye Korumalı Scroll Edilebilir Modal Box */
         .modal-box { 
             background: #ffffff; border-radius: 2rem; padding: 3.5rem 3rem; width: 100%; max-width: 600px; 
             max-height: 85vh; overflow-y: auto; overscroll-behavior: contain; position: relative; 
             box-shadow: 0 30px 60px -12px rgba(0,0,0,0.6); border: 3px solid #cffafe; z-index: 60005; 
-            clip-path: circle(0% at 50% 50%); transition: clip-path 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275); pointer-events: auto; 
+            clip-path: circle(0% at 50% 50%); transition: clip-path 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            pointer-events: auto; 
         }
         .modal-box::-webkit-scrollbar { width: 6px; }
         .modal-box::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
         .modal-overlay.show .modal-box { clip-path: circle(150% at 50% 50%); }
 
-        /* Lightbox - Sadece Karartma */
-        #imageLightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 65000; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease; pointer-events: auto; cursor: zoom-out; }
+        /* Resim Büyütme Modülü (Lightbox) */
+        #imageLightbox { 
+            position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 65000; display: none; 
+            align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease; 
+            pointer-events: auto; cursor: zoom-out; 
+        }
         #imageLightbox.show { display: flex; opacity: 1; }
-        #lightboxImg { max-width: 95%; max-height: 90vh; border-radius: 1.5rem; transform: scale(0.5); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); pointer-events: none; border: 4px solid #fff; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        #lightboxImg { 
+            max-width: 95%; max-height: 90vh; border-radius: 1.5rem; transform: scale(0.5); 
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); pointer-events: none; 
+            border: 4px solid #fff; box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+        }
         #imageLightbox.show #lightboxImg { transform: scale(1); }
         @media (min-width: 768px) { #lightboxImg { max-width: 80%; } }
 
-        .err-banner { background: rgba(239,68,68,0.1); border: 2px solid #ef4444; color: #ef4444; padding: 14px 18px; border-radius: 14px; display: none; align-items: center; gap: 12px; font-weight: 800; font-size: 0.9rem; margin-bottom: 1.5rem; animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; }
-        @keyframes shake { 10%, 90% { transform: translate3d(-2px, 0, 0); } 20%, 80% { transform: translate3d(3px, 0, 0); } 30%, 50%, 70% { transform: translate3d(-5px, 0, 0); } 40%, 60% { transform: translate3d(5px, 0, 0); } }
+        /* Hata Afişi (Titreyen Uyarı) */
+        .err-banner { 
+            background: rgba(239,68,68,0.1); border: 2px solid #ef4444; color: #ef4444; padding: 14px 18px; 
+            border-radius: 14px; display: none; align-items: center; gap: 12px; font-weight: 800; 
+            font-size: 0.9rem; margin-bottom: 1.5rem; animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; 
+        }
+        @keyframes shake { 
+            10%, 90% { transform: translate3d(-2px, 0, 0); } 
+            20%, 80% { transform: translate3d(3px, 0, 0); } 
+            30%, 50%, 70% { transform: translate3d(-5px, 0, 0); } 
+            40%, 60% { transform: translate3d(5px, 0, 0); } 
+        }
 
-        .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-150px); background: #ffffff; padding: 20px 40px; border-radius: 50px; display: flex; align-items: center; gap: 20px; z-index: 99999; box-shadow: 0 15px 40px rgba(0,0,0,0.15); border: 3px solid #06b6d4; transition: transform 0.6s cubic-bezier(0.68,-0.55,0.27,1.55); pointer-events: none; }
-        .toast.show { transform: translateX(-50%) translateY(0); }
+        /* Başarı Bildirimi (Toast) Ghost Yazı Hatası Giderildi */
+        .toast { 
+            position: fixed; top: 20px; left: 50%; 
+            transform: translateX(-50%) translateY(-150px); opacity: 0; visibility: hidden;
+            background: #ffffff; padding: 20px 40px; border-radius: 50px; display: flex; 
+            align-items: center; gap: 20px; z-index: 99999; box-shadow: 0 15px 40px rgba(0,0,0,0.15); 
+            border: 3px solid #06b6d4; transition: all 0.6s cubic-bezier(0.68,-0.55,0.27,1.55); 
+            pointer-events: none; 
+        }
+        .toast.show { 
+            transform: translateX(-50%) translateY(0); 
+            opacity: 1; visibility: visible; 
+        }
     </style>
 </head>
 <body class="selection:bg-cyan-500 selection:text-white">
@@ -523,7 +1044,7 @@
     <!-- ÜST İLERLEME ÇUBUĞU -->
     <div class="progress-bar" id="progressBar"></div>
 
-    <!-- SOL ALT CANLI DESTEK BUTONU (TELEFON ARAMASI) -->
+    <!-- SOL ALT CANLI DESTEK BUTONU (SADECE TELEFON ARAMASI) -->
     <a href="tel:+905000000000" class="live-chat-btn" aria-label="Bizi Arayın">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
@@ -535,7 +1056,7 @@
         <div class="maarif-ribbon">MAARİF EĞİTİM<br>MODELİ'NE UYGUNDUR</div>
     </div>
 
-    <!-- KATMAN 1: ANA SARKAN MENÜ (MASAÜSTÜ İÇİN) -->
+    <!-- KATMAN 1: ANA SARKAN MENÜ (MASAÜSTÜ İÇİN - ÇAKIŞMA İZOLE EDİLDİ) -->
     <div class="mega-bar-wrapper" id="megaBar">
         <nav class="hanging-nav hidden md:grid">
             <div class="hanging-tab" onclick="window.location.href='#sinif-5-8'">
@@ -557,35 +1078,44 @@
         </nav>
     </div>
 
-    <!-- KATMAN 2: YÜZEN HAP MENÜ (PILL NAV) -->
+    <!-- KATMAN 2: YÜZEN HAP MENÜ (PILL NAV - LOGO TAŞMASI DÜZELTİLDİ) -->
     <nav class="pill-nav" id="pillMenu">
-        <div class="pill-side pl-2 md:pl-4">
-            <a href="#anasayfa" class="pill-link hidden md:flex">ANASAYFA</a>
-            <a href="#hakkimizda" class="pill-link hidden md:flex">HAKKIMIZDA</a>
-            <button onclick="openTour()" class="pill-link hidden md:flex">360 GEZİN</button>
+        
+        <div class="pill-side left hidden md:flex">
+            <a href="#anasayfa" class="pill-link">ANASAYFA</a>
+            <a href="#hakkimizda" class="pill-link">HAKKIMIZDA</a>
+            <button onclick="openTour()" class="pill-link">360 GEZİN</button>
         </div>
         
         <a href="#anasayfa" class="pill-logo-link" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
             <img src="assets/logo.png" alt="Referans Eğitim Kurumları Logosu">
         </a>
 
-        <div class="pill-side right pr-2 md:pr-4">
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="pill-link hidden md:flex">
+        <div class="pill-side right hidden md:flex">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="pill-link">
                 YOL TARİFİ
             </a>
-            <a href="tel:+905000000000" class="pill-link text-cyan-600 font-extrabold hidden sm:flex items-center gap-2">
+            <a href="tel:+905000000000" class="pill-link text-cyan-600 font-extrabold items-center gap-2">
                 BİZE ULAŞIN
             </a>
             <button onclick="openModal('')" class="magnetic-btn">
-                <div class="webm-mask webm-btn-icon video-skeleton md:flex">
+                <div class="webm-mask webm-btn-icon video-skeleton">
                     <video data-src="assets/bakma-goz-kirpma.mp4" preload="none" playsinline loop muted></video>
                 </div>
                 HIZLI RANDEVU
             </button>
         </div>
+
+        <!-- Sadece Mobilde Görünen Menü İçeriği -->
+        <div class="md:hidden flex w-full justify-between items-center h-full">
+            <span class="font-black text-slate-800 text-lg ml-14">Referans VIP</span>
+            <button onclick="openModal('')" class="magnetic-btn" style="padding: 0.5rem 1rem;">
+                RANDEVU AL
+            </button>
+        </div>
     </nav>
 
-    <!-- KATMAN 3: MOBİL GLASSMORPHISM ALT MENÜ (SADECE MOBİL) -->
+    <!-- KATMAN 3: MOBİL GLASSMORPHISM ALT MENÜ (SADECE MOBİL - SAFE AREA DESTEKLİ) -->
     <nav class="mobile-bottom-nav">
         <div class="mobile-nav-grid">
             <button onclick="openTour()" class="mob-link" aria-label="360 Tur">
@@ -638,7 +1168,7 @@
             </section>
 
             <!-- ======================================================================
-                 3'LÜ ÖZELLİK KARTLARI (Masaüstü: Izgara | Mobil: Odaklı Yatay Kaydırma)
+                 3'LÜ ÖZELLİK KARTLARI (Masaüstü: Izgara | Mobil: Odaklı Swipe + Blur)
                  ====================================================================== -->
             <section class="w-full max-w-6xl mx-auto px-0 md:px-6 mb-20 md:mb-40 relative z-10">
                 
@@ -646,15 +1176,16 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 relative mobile-swipe-container" id="features-swipe">
                         
                         <div class="mobile-swipe-item card-shield border border-slate-100 p-12 pb-20 text-center shadow-[0_25px_50px_rgba(0,0,0,0.05)] flex flex-col items-center relative">
-                            <!-- SVG PATLAMA KORUMASI EKLENDİ -->
+                            <!-- SVG PATLAMA KORUMASI -->
                             <div class="icon-box text-cyan-500">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M22 10 12 5 2 10l10 5 10-5Z"></path>
                                     <path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"></path>
                                 </svg>
                             </div>
                             <h3 class="font-black text-slate-900 text-xl mb-4">Alanında Uzman Kadro</h3>
                             <p class="text-slate-500 font-bold leading-relaxed">Deneyimli, güncel müfredata hakim öğretmenlerle başarıyı yakalayın.</p>
+                            <!-- CLS Korumalı Skeleton Video Maskesi -->
                             <div class="webm-mask webm-card-bottom video-skeleton">
                                 <video data-src="assets/rahatlama.mp4" preload="none" playsinline loop muted></video>
                             </div>
@@ -662,7 +1193,7 @@
                         
                         <div class="mobile-swipe-item card-shield border border-slate-100 p-12 pb-20 text-center shadow-[0_25px_50px_rgba(0,0,0,0.05)] flex flex-col items-center relative">
                             <div class="icon-box text-blue-500">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle>
                                 </svg>
                             </div>
@@ -675,7 +1206,7 @@
                         
                         <div class="mobile-swipe-item card-shield border border-slate-100 p-12 pb-20 text-center shadow-[0_25px_50px_rgba(0,0,0,0.05)] flex flex-col items-center relative">
                             <div class="icon-box text-cyan-500">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline>
                                 </svg>
                             </div>
@@ -693,7 +1224,7 @@
             </section>
 
             <!-- ======================================================================
-                 SAYAÇ MODÜLÜ (TAMAMEN ORİJİNAL KOD VE FONKSİYONLAR)
+                 SAYAÇ MODÜLÜ (MASAÜSTÜ VE MOBİL İÇİN KORUNMUŞ YAPI)
                  ====================================================================== -->
             <section class="w-full max-w-4xl px-4 md:px-6 mb-32 md:mb-40 relative z-10 text-center">
                 
@@ -743,8 +1274,10 @@
                             <h3 class="text-cyan-500 font-black text-xl md:text-2xl tracking-widest mb-6 uppercase">LGS Hazırlık</h3>
                             <p class="text-slate-500 font-bold text-base leading-relaxed mb-8">Akademik temellerin atıldığı bu dönemde, okuduğunu anlama ve sınav stresi yönetimi üzerine kusursuz rehberlik sunuyoruz.</p>
                             
-                            <!-- Bilişsel Yük Sıfırlama: Mobil video -->
-                            <div class="webm-mask webm-egitim md:hidden video-skeleton"><video data-src="assets/kalem-yazma.mp4" preload="none" playsinline loop muted></video></div>
+                            <!-- Mobil video -->
+                            <div class="webm-mask webm-egitim md:hidden video-skeleton">
+                                <video data-src="assets/kalem-yazma.mp4" preload="none" playsinline loop muted></video>
+                            </div>
                             
                             <button onclick="openModal('5-8. Sınıf')" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 rounded-xl hover:bg-cyan-500 transition-colors text-base shadow-xl border-none">
                                 Randevu Al
@@ -764,7 +1297,9 @@
                             <h3 class="text-blue-500 font-black text-xl md:text-2xl tracking-widest mb-6 uppercase">TYT - AYT Maratonu</h3>
                             <p class="text-slate-500 font-bold text-base leading-relaxed mb-8">Zaman yönetiminden stres kontrolüne kadar tüm süreçleri profesyonel kadromuzla yönetiyoruz.</p>
                             
-                            <div class="webm-mask webm-egitim md:hidden video-skeleton"><video data-src="assets/bu-taraftan-gidiyoruz.mp4" preload="none" playsinline loop muted></video></div>
+                            <div class="webm-mask webm-egitim md:hidden video-skeleton">
+                                <video data-src="assets/bu-taraftan-gidiyoruz.mp4" preload="none" playsinline loop muted></video>
+                            </div>
                             
                             <button onclick="openModal('9-12. Sınıf')" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 rounded-xl hover:bg-slate-900 transition-colors text-base shadow-xl border-none">
                                 Randevu Al
@@ -784,7 +1319,9 @@
                             <h3 class="text-cyan-500 font-black text-xl md:text-2xl tracking-widest mb-6 uppercase">YKS Hedef Büyütme</h3>
                             <p class="text-slate-500 font-bold text-base leading-relaxed mb-8">Hedefine ulaşmak için eksik odaklı, yoğunlaştırılmış VIP eğitim sunuyoruz.</p>
                             
-                            <div class="webm-mask webm-egitim md:hidden video-skeleton"><video data-src="assets/sevinme.mp4" preload="none" playsinline loop muted></video></div>
+                            <div class="webm-mask webm-egitim md:hidden video-skeleton">
+                                <video data-src="assets/sevinme.mp4" preload="none" playsinline loop muted></video>
+                            </div>
                             
                             <button onclick="openModal('Mezun')" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 rounded-xl hover:bg-cyan-500 transition-colors text-base shadow-xl border-none">
                                 Randevu Al
@@ -804,7 +1341,9 @@
                             <h3 class="text-blue-500 font-black text-xl md:text-2xl tracking-widest mb-6 uppercase">DGS / KPSS / ALES</h3>
                             <p class="text-slate-500 font-bold text-base leading-relaxed mb-8">Memurluk veya akademik kariyer hedeflerinize yönelik nokta atışı taktikler.</p>
                             
-                            <div class="webm-mask webm-egitim md:hidden video-skeleton"><video data-src="assets/soru-cozme.mp4" preload="none" playsinline loop muted></video></div>
+                            <div class="webm-mask webm-egitim md:hidden video-skeleton">
+                                <video data-src="assets/soru-cozme.mp4" preload="none" playsinline loop muted></video>
+                            </div>
                             
                             <button onclick="openModal('DGS / KPSS / ALES')" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 rounded-xl hover:bg-slate-900 transition-colors text-base shadow-xl border-none">
                                 Randevu Al
@@ -850,6 +1389,8 @@
     <!-- ======================================================================
          MODALLAR VE DIŞ ÇEPER MP4 YERLEŞİMLERİ
          ====================================================================== -->
+    
+    <!-- Lightbox Modalı -->
     <div id="imageLightbox" onclick="closeLightbox()">
         <img id="lightboxImg" src="" alt="Büyük Görsel">
     </div>
@@ -882,6 +1423,7 @@
             <video data-src="assets/ekrana-tiklama.mp4" preload="none" playsinline loop muted></video>
         </div>
 
+        <!-- Form Çökmesini Engelleyen Scroll Box -->
         <div class="modal-box pointer-events-auto" id="appointment-modal-box">
             <button onclick="closeModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-slate-100 hover:bg-red-100 text-slate-400 hover:text-red-500 font-black text-xl flex items-center justify-center transition-colors">✕</button>
             
@@ -943,9 +1485,9 @@
         </div>
     </div>
 
-    <!-- ALT BİLGİ VE İLETİŞİM ALANI -->
-    <section id="iletisim" class="px-6 pb-20 max-w-5xl mx-auto relative z-10">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    <!-- ALT BİLGİ VE İLETİŞİM ALANI (FOOTER ÇAKIŞMASI GİDERİLDİ) -->
+    <section id="iletisim" class="px-6 pb-20 max-w-5xl mx-auto relative z-10 w-full">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full">
         <div class="card-shield border border-slate-100 p-12 text-center shadow-2xl pointer-events-auto flex flex-col items-center">
           <h3 class="text-2xl font-black text-slate-900 mb-3">Telefon Hattımız</h3>
           <p class="text-slate-500 text-base mb-8 font-bold">Danışmanlarımızla hemen görüşün.</p>
@@ -963,14 +1505,15 @@
       </div>
     </section>
 
-    <footer class="text-center py-12 border-t-2 border-slate-100 text-slate-400 text-base bg-white relative z-10 font-bold">
+    <footer class="text-center py-12 border-t-2 border-slate-100 text-slate-400 text-base bg-white relative z-10 font-bold w-full">
       <p>© 2026 Referans Eğitim Kurumları. Tüm hakları saklıdır.</p>
     </footer>
 
+    <!-- ==========================================================================
+         JAVASCRIPT FONKSİYONLARI VE MOTORLARI
+         ========================================================================== -->
     <script>
-        /* ==========================================================================
-           1. AKILLI YÜKLEYİCİ (INTERSECTION OBSERVER - SKELETON MP4)
-           ========================================================================== */
+        /* 1. AKILLI YÜKLEYİCİ (INTERSECTION OBSERVER - SKELETON MP4) */
         document.addEventListener("DOMContentLoaded", function() {
             let videoObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
@@ -980,6 +1523,7 @@
                             video.src = video.getAttribute('data-src');
                             video.load();
                             
+                            // Yüklendiğinde İskeleti (Skeleton) Kaldır ve Görünür Yap
                             video.addEventListener('loadeddata', () => {
                                 video.classList.add('loaded');
                                 if(video.parentElement.classList.contains('video-skeleton')) {
@@ -1006,7 +1550,7 @@
             }
         });
 
-        // Yatay Kaydırma (Swipe) Motoru ve Pagination Noktaları
+        // Yatay Kaydırma (Swipe) Motoru ve Pagination Noktaları Hesabı
         function initMobileSwipes(containerId, dotsId) {
             const container = document.getElementById(containerId);
             const dotsContainer = document.getElementById(dotsId);
@@ -1015,7 +1559,7 @@
             const items = container.querySelectorAll('.mobile-swipe-item');
             const dots = [];
 
-            // Noktaları Oluştur
+            // Noktaları Dinamik Olarak Oluştur
             items.forEach((_, i) => {
                 const dot = document.createElement('div');
                 dot.className = 'dot';
@@ -1024,6 +1568,7 @@
                 dots.push(dot);
             });
 
+            // Merkeze En Yakın Olan Kartı Hesapla ve Blur/Scale Efektlerini Uygula
             const updateCenter = () => {
                 const containerRect = container.getBoundingClientRect();
                 const containerCenter = containerRect.left + (containerRect.width / 2);
@@ -1061,9 +1606,7 @@
             });
         }
 
-        /* ==========================================================================
-           2. PREMIUM ETKİLEŞİMLER: MANYETİK BUTON VE DİNAMİK SCROLL
-           ========================================================================== */
+        /* 2. PREMIUM ETKİLEŞİMLER: MANYETİK BUTON VE DİNAMİK SCROLL */
         document.querySelectorAll('.magnetic-btn').forEach(btn => {
             btn.addEventListener('mousemove', e => {
                 const rect = btn.getBoundingClientRect();
@@ -1103,9 +1646,7 @@
             }
         });
 
-        /* ==========================================================================
-           3. MODAL VE LIGHTBOX YÖNETİMİ (SANAL KLAVYE KORUMASI)
-           ========================================================================== */
+        /* 3. MODAL VE LIGHTBOX YÖNETİMİ (SANAL KLAVYE KORUMASI İLE) */
         function openModal(preset) {
             document.getElementById('errBanner').style.display='none';
             const sel = document.getElementById('fSinif');
@@ -1119,11 +1660,12 @@
             const overlay = document.getElementById('randevuModal');
             overlay.style.display = 'flex';
             
-            // Arka Plan Scroll Kilidi
+            // Arka Plan Scroll Kilidi (Mobil Form Çökmesini Engeller)
             document.body.style.overflow = 'hidden';
             
             requestAnimationFrame(() => overlay.classList.add('show'));
             
+            // Modal içindeki MP4'leri tetikle
             overlay.querySelectorAll('video[data-src]').forEach(video => {
                 video.src = video.getAttribute('data-src');
                 video.load();
@@ -1141,7 +1683,9 @@
         function closeModal() {
             const overlay = document.getElementById('randevuModal');
             overlay.classList.remove('show');
+            // Arka Plan Scroll Kilidini Kaldır
             document.body.style.overflow = '';
+            
             setTimeout(() => overlay.style.display='none', 700); 
         }
         
@@ -1185,9 +1729,7 @@
             document.body.style.overflow = '';
         }
 
-        /* ==========================================================================
-           4. ORİJİNAL SAYAÇ MİMARİSİ (BÜYÜME VE KIRMIZI EFEKT EKSİKSİZ)
-           ========================================================================== */
+        /* 4. ORİJİNAL SAYAÇ MİMARİSİ (BÜYÜME VE KIRMIZI EFEKT EKSİKSİZ) */
         const EXAMS = {
             LGS:  {label:'LGS',  date:'2027-06-06T10:15:00', color:'#06b6d4', bg:'#ecfeff', border:'#a5f3fc'},
             YKS:  {label:'YKS',  date:'2027-06-19T10:15:00', color:'#3b82f6', bg:'#eff6ff', border:'#bfdbfe'},
@@ -1297,7 +1839,6 @@
             
             document.getElementById('counterCard').classList.add('grown');
             document.getElementById('btn-back').classList.add('show');
-            document.getElementById('btn-back').style.display = 'block';
             
             const sub = document.getElementById('sub-' + key);
             if(sub) sub.classList.add('open');
@@ -1309,7 +1850,6 @@
             
             document.getElementById('counterCard').classList.remove('grown');
             document.getElementById('btn-back').classList.remove('show');
-            setTimeout(() => document.getElementById('btn-back').style.display = 'none', 400);
             
             setTimeout(() => {
                 ORDER.forEach(k => {
@@ -1321,9 +1861,7 @@
             }, 500);
         };
 
-        /* ==========================================================================
-           5. FORM MANTIĞI VE KATI GÜVENLİK
-           ========================================================================== */
+        /* 5. FORM MANTIĞI VE KATI GÜVENLİK */
         const fTarih = document.getElementById('fTarih');
         const today = new Date();
         const todayStr = today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
@@ -1369,6 +1907,8 @@
             function showErr(msg){ 
                 errText.innerHTML = msg; 
                 err.style.display='flex'; 
+                
+                // Hata mesajına kaydır (scroll into view)
                 const modalBox = document.getElementById('appointment-modal-box');
                 if (modalBox) modalBox.scrollTo({ top: 0, behavior: 'smooth' });
             }
@@ -1405,6 +1945,7 @@
                 btn.disabled = false;
                 if(res.durum==='hata'){ showErr(res.mesaj); return; }
                 closeModal();
+                
                 const toast = document.getElementById('toast'); 
                 toast.classList.add('show');
                 setTimeout(()=>toast.classList.remove('show'), 7000);
@@ -1416,6 +1957,7 @@
             });
         }
 
+        // Katı Güvenlik ve Kopyalama Caydırıcıları
         document.addEventListener('contextmenu', e=> { 
             if(!['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)) e.preventDefault(); 
         });
