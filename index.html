@@ -581,7 +581,7 @@
             transform: scale(1.4) translateY(12%) translateZ(0) !important;
         }
         
-        /* TAKVİM TİLKİSİ (SAYAÇ ÜSTÜ) ALT KISIM GİZLEME VE BÜYÜTME */
+        /* TAKVİM TİLKİSİ (SAYAÇ ÜSTÜ) BÜYÜTME VE KESME */
         .video-crop-calendar video {
             object-position: center top !important;
             
@@ -684,7 +684,7 @@
             border-bottom-color: #ffffff; 
             border-left-color: #ffffff; 
             
-            /* Sınıf Kartlarındaki MP4'lere Özel Tok Siyah Gölge EKLENDİ */
+            /* MP4 yuvarlaklara sert gölge KORUNDU */
             box-shadow: 12px 12px 0px 0px rgba(15, 23, 42, 0.9) !important; 
             background-color: #ffffff; 
         }
@@ -1151,34 +1151,35 @@
             transform: scale(0.94) !important; 
         }
 
-        /* YUVARLAK MASAÜSTÜ CANLI DESTEK İKONU (Randevu Butonu Mantığında) */
+        /* YUVARLAK MASAÜSTÜ CANLI DESTEK İKONU (Tam Randevu Butonu Mantığında Mavi Dolgulu) */
         .desktop-chat-btn-wrapper {
-            background-color: transparent; border: 2px solid #06b6d4; color: #06b6d4; 
-            width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            background-color: #0ea5e9; color: #ffffff; 
+            width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
             cursor: pointer; font-size: 1.2rem; transition: all 0.3s ease; position: relative; z-index: 40015;
-            box-shadow: 0 4px 10px rgba(6,182,212,0.2);
+            box-shadow: 0 4px 10px rgba(14,165,233,0.3); border: none;
         }
         .desktop-chat-btn-wrapper:hover {
-            background-color: #0ea5e9; color: #ffffff; transform: scale(1.05); box-shadow: 0 6px 15px rgba(14,165,233,0.4);
+            background-color: #0284c7; transform: scale(1.05); box-shadow: 0 6px 15px rgba(14,165,233,0.4);
         }
         .desktop-chat-btn-wrapper.fading { opacity: 0.3; pointer-events: none; }
 
-        /* Masaüstü Üst Bar Konuşma Baloncuğu - Yönü Sola ve Yukarı Bakacak Şekilde */
+        /* Masaüstü Üst Bar Konuşma Baloncuğu - Yönü Sola ve Yukarı Bakacak Şekilde İkona Hedefli */
         .top-chat-bubble-desktop {
-            position: absolute; top: 55px; left: -10px; background-color: #ffffff; color: #0f172a; padding: 8px 16px;
+            position: absolute; top: 55px; left: 50%; background-color: #ffffff; color: #0f172a; padding: 8px 16px;
             border-radius: 0 16px 16px 16px; font-weight: 900; font-size: 0.85rem; white-space: nowrap;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 2px solid #e0f2fe; opacity: 0; visibility: hidden;
-            transition: opacity 0.4s ease, transform 0.4s ease; transform: translateY(-10px); z-index: 40000; pointer-events: none;
+            transition: opacity 0.4s ease, transform 0.4s ease; transform: translateX(-50%) translateY(-10px); z-index: 40000; pointer-events: none;
         }
+        /* Sivri ok işareti tam yukarı, ikona bakacak şekilde ayarlandı */
         .top-chat-bubble-desktop::before {
-            content: ''; position: absolute; top: -10px; left: 10px; width: 0; height: 0;
+            content: ''; position: absolute; top: -10px; left: calc(50% - 10px); width: 0; height: 0;
             border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 10px solid #e0f2fe;
         }
         .top-chat-bubble-desktop::after {
-            content: ''; position: absolute; top: -7px; left: 11px; width: 0; height: 0;
+            content: ''; position: absolute; top: -7px; left: calc(50% - 9px); width: 0; height: 0;
             border-left: 9px solid transparent; border-right: 9px solid transparent; border-bottom: 9px solid #ffffff;
         }
-        .top-chat-bubble-desktop.show { opacity: 1; visibility: visible; transform: translateY(0); }
+        .top-chat-bubble-desktop.show { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
 
         main { 
             padding-top: 250px; 
@@ -1286,19 +1287,20 @@
                 white-space: nowrap;
             }
             
-            /* MOBİL YUVARLAK CANLI DESTEK İKONU */
+            /* MOBİL YUVARLAK CANLI DESTEK İKONU (Randevu Butonu Mantığında Mavi) */
             .mobile-top-chat-btn-wrapper {
-                background-color: transparent; border: 2px solid #06b6d4; color: #06b6d4; 
-                width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-                cursor: pointer; font-size: 1rem; transition: all 0.3s ease; position: relative; z-index: 40015;
+                background-color: #0ea5e9; color: #ffffff; 
+                width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+                cursor: pointer; font-size: 1.1rem; transition: all 0.3s ease; position: relative; z-index: 40015;
+                border: none; box-shadow: 0 4px 10px rgba(14,165,233,0.3);
             }
             .mobile-top-chat-btn-wrapper.fading { opacity: 0.3; pointer-events: none; }
 
-            /* 3. Saniyede Çıkan Canlı Destek Balonu (Mobil) */
+            /* Mobilde Çıkan Canlı Destek Balonu (UX Mantığı - Yukarı İkona Baktırıldı) */
             .top-chat-bubble {
                 position: absolute;
-                top: 45px;
-                left: -10px;
+                top: 50px;
+                left: 50%;
                 background-color: #ffffff;
                 color: #0f172a;
                 padding: 6px 12px;
@@ -1311,23 +1313,24 @@
                 opacity: 0;
                 visibility: hidden;
                 transition: opacity 0.4s ease, transform 0.4s ease;
-                transform: translateY(-10px);
+                transform: translateX(-50%) translateY(-10px);
                 z-index: 40018;
                 pointer-events: none;
             }
             
+            /* Ok işareti tam ortadan yukarıya doğru */
             .top-chat-bubble::before {
-                content: ''; position: absolute; top: -8px; left: 10px; width: 0; height: 0;
+                content: ''; position: absolute; top: -8px; left: calc(50% - 8px); width: 0; height: 0;
                 border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid #e0f2fe;
             }
             
             .top-chat-bubble::after {
-                content: ''; position: absolute; top: -5px; left: 11px; width: 0; height: 0;
+                content: ''; position: absolute; top: -5px; left: calc(50% - 7px); width: 0; height: 0;
                 border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid #ffffff;
             }
 
             .top-chat-bubble.show {
-                opacity: 1; visibility: visible; transform: translateY(0);
+                opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
             }
             
             .mobile-pill-right {
@@ -1607,6 +1610,7 @@
                 overflow-x: auto !important;
                 overflow-y: visible !important;
                 
+                /* ESKİ MANTIK - SNAP AÇIK */
                 scroll-snap-type: x mandatory !important; 
                 scroll-behavior: smooth !important;
                 -webkit-overflow-scrolling: touch !important;
@@ -1624,6 +1628,7 @@
                 display: none !important; 
             }
             
+            /* SINIFLARIN MOBİL ARAYÜZÜ BİREBİR ESKİSİ GİBİ YAPILDI (85vw ODAKLI) */
             .mobile-swipe-item {
                 flex: 0 0 85vw !important; 
                 scroll-snap-align: center !important;
@@ -1670,7 +1675,7 @@
                 
                 z-index: 10;
             }
-
+            
             .card-shield-hard { 
                 padding-top: 1.5rem !important; 
                 padding-right: 1.5rem !important; 
@@ -1872,6 +1877,7 @@
             
             #counterTitle { 
                 font-size: 1.25rem !important; 
+                margin-top: 1.5rem !important;
                 margin-bottom: 1.5rem !important; 
             }
             
@@ -2101,8 +2107,8 @@
 
         .back-btn { 
             position: absolute; 
-            left: 2rem; 
-            top: 2rem; 
+            left: 1.5rem; 
+            top: 1.5rem; 
             font-size: 0.85rem; 
             font-weight: 900; 
             color: #94a3b8; 
@@ -2777,7 +2783,7 @@
                 <!-- Canlı Destek Menü İçi İkonu (Tilki Emoji) -->
                 <button class="mobile-top-chat-btn-wrapper" id="mobileChatTrigger" onclick="triggerTopChat()">
                     🦊
-                    <!-- Mobilde Gecikmeli Açılan Baloncuk -->
+                    <!-- Mobilde Yarım Saniyede Açılan Baloncuk -->
                     <div class="top-chat-bubble" id="topChatBubbleMobile">
                         Sana Yardımcı Olabilirim 🦊
                     </div>
@@ -2955,6 +2961,7 @@
             <section class="w-full max-w-4xl px-4 md:px-6 mb-24 md:mb-40 relative z-10 text-center">
                 
                 <div class="flex justify-center mb-8">
+                    <!-- Takvim Tilkisi (Crop class'ı atandı, bacaklar gizlendi, büyütüldü) -->
                     <div class="webm-mask video-skeleton video-crop-calendar" style="width: 110px; height: 110px; border-top-width: 6px; border-right-width: 6px; border-bottom-width: 6px; border-left-width: 6px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #ffffff; border-right-color: #ffffff; border-bottom-color: #ffffff; border-left-color: #ffffff; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
                         <video data-src="assets/takvim.mp4" preload="none" playsinline loop muted></video>
                     </div>
@@ -3408,13 +3415,13 @@
                 initMobileInfiniteSwipes('education-swipe');
             }
             
-            // 3 Saniye Sonra Canlı Destek Baloncuğunu Göster (Mobil & Masaüstü)
+            // 3 Saniye Sonra Canlı Destek Baloncuğunu Göster
             setTimeout(() => {
                 const bubbleMobile = document.getElementById('topChatBubbleMobile');
                 const bubbleDesktop = document.getElementById('topChatBubbleDesktop');
                 if (bubbleMobile && !isChatOpen) bubbleMobile.classList.add('show');
                 if (bubbleDesktop && !isChatOpen) bubbleDesktop.classList.add('show');
-            }, 3000);
+            }, 500);
         });
 
         /* ----------------------------------------------------------------------
@@ -3809,17 +3816,15 @@
         
         let isChatOpen = false;
 
-        // Emoji ve JPG Avatar arası geçiş için yardımcı foksiyon
         function setAvatarToJPG() {
             const btnMobile = document.getElementById('mobileChatTrigger');
             const btnDesktop = document.getElementById('desktopChatTrigger');
             
-            // Eğer butonlar içindeki içerik değişmemişse, JPG ile değiştir
             if (btnMobile && !btnMobile.innerHTML.includes('<img')) {
-                btnMobile.innerHTML = `<img src="assets/tilki-avatar.png" alt="Tilki" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.outerHTML='🦊'">`;
+                btnMobile.innerHTML = `<img src="assets/tilki-avatar.png" alt="Tilki" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.outerHTML='<span style=\\'font-size:16px;\\'>🦊</span>'">`;
             }
             if (btnDesktop && !btnDesktop.innerHTML.includes('<img')) {
-                btnDesktop.innerHTML = `<img src="assets/tilki-avatar.png" alt="Tilki" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.outerHTML='🦊'">`;
+                btnDesktop.innerHTML = `<img src="assets/tilki-avatar.png" alt="Tilki" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.outerHTML='<span style=\\'font-size:16px;\\'>🦊</span>'">`;
             }
         }
 
@@ -3836,41 +3841,23 @@
             if (bubbleDesktop) bubbleDesktop.style.display = 'none';
             
             if(!isChatOpen) {
-                // Tıklama anında ikonlar soluklaşır
-                if (btnMobile) btnMobile.classList.add('fading');
-                if (btnDesktop) btnDesktop.classList.add('fading');
-                
-                // 1.5 saniye sonra avatarı JPG yapıp paneli açıyoruz
-                setTimeout(() => {
-                    setAvatarToJPG();
-                    if (btnMobile) btnMobile.classList.remove('fading');
-                    if (btnDesktop) btnDesktop.classList.remove('fading');
-                    
-                    panel.classList.add('show');
-                    isChatOpen = true;
-                }, 1500);
+                // Anında panel açılır
+                panel.classList.add('show');
+                isChatOpen = true;
             } else {
                 panel.classList.remove('show');
-                if (btnMobile) btnMobile.classList.remove('fading');
-                if (btnDesktop) btnDesktop.classList.remove('fading');
                 isChatOpen = false;
             }
         };
 
         window.toggleChatPanel = function() {
             const panel = document.getElementById('chatPanel');
-            const btnMobile = document.getElementById('mobileChatTrigger');
-            const btnDesktop = document.getElementById('desktopChatTrigger');
             
             if(isChatOpen) {
                 panel.classList.remove('show');
-                if(btnMobile) btnMobile.classList.remove('fading');
-                if(btnDesktop) btnDesktop.classList.remove('fading');
                 isChatOpen = false;
             } else {
                 panel.classList.add('show');
-                if(btnMobile) btnMobile.classList.add('fading');
-                if(btnDesktop) btnDesktop.classList.add('fading');
                 isChatOpen = true;
             }
         };
@@ -3896,8 +3883,7 @@
             scrollToBottom();
         }
 
-        // isJPG parametresi eklendi. True gelirse JPG basar, false gelirse 🦊 emojisi
-        function addBotMessage(text, isJPG = true) {
+        function addBotMessage(text, isJPG = false) {
             const chatBody = document.getElementById('chatBody');
             const msgDiv = document.createElement('div');
             msgDiv.className = 'bot-message';
@@ -3929,14 +3915,13 @@
             if (optionType === 'fiyat') {
                 addUserMessage("💰 Dershane Ücreti Ne Kadar?");
                 
-                // Kullanıcı cevaba tıkladıktan sonra 1 saniyelik Delay (Gecikme) Eklendi
                 setTimeout(() => {
                     typingIndicator.style.display = 'flex'; 
                     scrollToBottom();
                     
                     setTimeout(() => {
                         typingIndicator.style.display = 'none';
-                        // Sonraki mesajlar JPG ile gelir (isJPG = true)
+                        setAvatarToJPG();
                         addBotMessage("Tabii, sizin için dershane fiyat ücreti için yardımcı olabilirim.", true);
                         
                         setTimeout(() => { 
@@ -3960,7 +3945,7 @@
                             scrollToBottom();
                         }, 1000);
                     }, 1000);
-                }, 1000); // Ekstra 1 sn delay
+                }, 1000);
             } 
             
             else if (optionType === '360tur') {
@@ -3972,6 +3957,7 @@
                     
                     setTimeout(() => {
                         typingIndicator.style.display = 'none';
+                        setAvatarToJPG();
                         addBotMessage("Tabii ki, kurumumuzu ve sınıflarımızı hemen inceleyebilirsiniz.", true);
                         
                         setTimeout(() => { 
@@ -3990,7 +3976,7 @@
                             }, 2000); 
                         }, 1000);
                     }, 1000);
-                }, 1000); // Ekstra 1 sn delay
+                }, 1000);
             }
 
             else if (optionType === 'baska') {
@@ -4002,6 +3988,7 @@
                     
                     setTimeout(() => {
                         typingIndicator.style.display = 'none';
+                        setAvatarToJPG();
                         addBotMessage("Tabii ki, Hangi konu hakkında yardıma ihtiyacınız var yazarsanız yardımcı olabilirim.", true);
                         
                         const inputContainer = document.createElement('div');
@@ -4054,7 +4041,7 @@
                         scrollToBottom();
                         textInput.focus();
                     }, 1000);
-                }, 1000); // Ekstra 1 sn delay
+                }, 1000);
             }
         };
 
