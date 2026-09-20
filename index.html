@@ -1151,7 +1151,6 @@
             align-items: center;
         }
         
-        /* Kartın Kesilmemesi İçin KESİN KURAL: overflow visible yapıldı */
         .card-shield { 
             background-color: #ffffff; 
             position: relative; 
@@ -1176,6 +1175,7 @@
             transition-duration: 0.4s;
             transition-timing-function: ease; 
             
+            /* KESİN ÇÖZÜM: KARTLARIN KESİLMEMESİ İÇİN GÖRÜNÜR YAPILDI */
             overflow-x: visible !important;
             overflow-y: visible !important;
         }
@@ -1210,7 +1210,7 @@
                 display: none !important; 
             }
             
-            /* Mobil Üst Menü 52px Olarak Daraltıldı */
+            /* Mobil Üst Menü 52px Olarak Daraltıldı ve Ortalama İçin Flex Yapıldı */
             .pill-nav { 
                 top: 15px; 
                 height: 52px; 
@@ -1237,10 +1237,12 @@
                 font-weight: 900;
                 color: #0ea5e9;
                 text-decoration: none;
+                
                 padding-top: 5px;
                 padding-right: 5px;
                 padding-bottom: 5px;
                 padding-left: 10px;
+                
                 flex: 1;
                 text-align: left;
                 z-index: 40015;
@@ -1446,10 +1448,9 @@
                 height: 100px !important; 
             }
             
-            /* Kurdelenin M harfi kesilmemesi için ayarlandı */
             .maarif-ribbon { 
-                top: 25px !important; 
-                right: -30px !important; 
+                top: 30px !important; 
+                right: -20px !important; 
                 width: 140px !important; 
                 font-size: 0.55rem !important; 
                 
@@ -1470,7 +1471,7 @@
                 margin-bottom: 30px !important;
                 
                 overflow-x: hidden;
-                overflow-y: hidden;
+                overflow-y: visible !important;
             }
 
             .carousel-badge {
@@ -1518,7 +1519,7 @@
                 flex-wrap: nowrap !important;
                 
                 overflow-x: auto !important;
-                overflow-y: hidden !important;
+                overflow-y: visible !important;
                 
                 scroll-snap-type: none !important; 
                 scroll-behavior: smooth !important;
@@ -1642,15 +1643,13 @@
                 border-bottom-right-radius: 1.5rem !important; 
                 border-bottom-left-radius: 1.5rem !important; 
                 
-                /* KESİN ÇÖZÜM: VİDEOLARIN KESİLMEMESİ İÇİN VİSİBLE YAPILDI */
                 overflow-x: visible !important;
                 overflow-y: visible !important;
             }
             
-            /* Sadece dikey kartlarda eğitim videoları taşmasın diye özel kilit */
             .education-mobile-row { 
-                overflow-x: hidden !important;
-                overflow-y: hidden !important;
+                overflow-x: visible !important;
+                overflow-y: visible !important;
                 
                 flex-direction: column !important; 
                 text-align: center !important; 
@@ -1857,7 +1856,6 @@
                 width: 24px; 
             }
             
-            /* Konuşma Balonunun Mobil UX Koruması */
             .fox-speech-bubble {
                 white-space: nowrap !important;
                 font-size: 0.85rem !important;
@@ -2131,25 +2129,32 @@
         }
         
         .exam-btn.btn-gone { 
-            opacity: 0; 
-            max-height: 0; 
+            opacity: 0 !important; 
+            max-height: 0 !important; 
             
-            margin-top: 0;
-            margin-right: 0;
-            margin-bottom: 0;
-            margin-left: 0;
+            width: 0 !important;
+            flex: 0 !important;
+            min-width: 0 !important;
             
-            padding-top: 0;
-            padding-right: 0;
-            padding-bottom: 0;
-            padding-left: 0;
+            margin-top: 0 !important;
+            margin-right: 0 !important;
+            margin-bottom: 0 !important;
+            margin-left: 0 !important;
             
-            border-top-width: 0; 
-            border-right-width: 0; 
-            border-bottom-width: 0; 
-            border-left-width: 0; 
+            padding-top: 0 !important;
+            padding-right: 0 !important;
+            padding-bottom: 0 !important;
+            padding-left: 0 !important;
             
-            pointer-events: none; 
+            border-top-width: 0 !important; 
+            border-right-width: 0 !important; 
+            border-bottom-width: 0 !important; 
+            border-left-width: 0 !important; 
+            
+            pointer-events: none !important; 
+            
+            overflow-x: hidden !important;
+            overflow-y: hidden !important;
         }
         
         .sub-row { 
@@ -2746,7 +2751,6 @@
             transform: scale(1.1);
         }
 
-        /* Orijinal PNG yüklendiğinde bu gösterilir */
         .fox-bot-trigger img {
             width: 100%;
             height: 100%;
@@ -3040,6 +3044,73 @@
             padding-top: 10px;
         }
 
+        .chat-action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .chat-action-btn {
+            background-color: #0ea5e9;
+            color: #ffffff;
+            
+            border-top-width: 0;
+            border-right-width: 0;
+            border-bottom-width: 0;
+            border-left-width: 0;
+            
+            padding-top: 12px;
+            padding-right: 16px;
+            padding-bottom: 12px;
+            padding-left: 16px;
+            
+            border-top-left-radius: 999px;
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+            border-bottom-left-radius: 999px;
+            
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-align: center;
+            cursor: pointer;
+            
+            box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3);
+            
+            -webkit-transition-property: all;
+            -webkit-transition-duration: 0.2s;
+            -webkit-transition-timing-function: ease;
+            
+            -moz-transition-property: all;
+            -moz-transition-duration: 0.2s;
+            -moz-transition-timing-function: ease;
+            
+            transition-property: all;
+            transition-duration: 0.2s;
+            transition-timing-function: ease;
+            
+            display: block;
+            width: 100%;
+            margin-bottom: 8px;
+        }
+
+        .chat-action-btn:hover {
+            background-color: #0284c7;
+            
+            -webkit-transform: translateY(-2px);
+            -moz-transform: translateY(-2px);
+            transform: translateY(-2px);
+            
+            box-shadow: 0 6px 15px rgba(14, 165, 233, 0.4);
+        }
+
+        .chat-action-btn:active {
+            -webkit-transform: scale(0.96);
+            -moz-transform: scale(0.96);
+            transform: scale(0.96);
+        }
+
         .chat-option-btn {
             background-color: #ffffff;
             color: #0284c7;
@@ -3321,6 +3392,34 @@
             transition-duration: 0.5s;
             transition-timing-function: ease;
         }
+
+        @media (max-width: 768px) {
+            
+            .chat-panel {
+                left: 50% !important;
+                right: auto !important;
+                
+                -webkit-transform: translateX(-50%) translateY(20px) scale(0.95) !important;
+                -moz-transform: translateX(-50%) translateY(20px) scale(0.95) !important;
+                transform: translateX(-50%) translateY(20px) scale(0.95) !important;
+                
+                width: 90vw !important;
+                max-width: 320px !important;
+                height: 420px !important;
+                
+                bottom: calc(130px + env(safe-area-inset-bottom, 0px)) !important;
+                
+                -webkit-transform-origin: bottom center !important;
+                -moz-transform-origin: bottom center !important;
+                transform-origin: bottom center !important;
+            }
+            
+            .chat-panel.show {
+                -webkit-transform: translateX(-50%) translateY(0) scale(1) !important;
+                -moz-transform: translateX(-50%) translateY(0) scale(1) !important;
+                transform: translateX(-50%) translateY(0) scale(1) !important;
+            }
+        }
     </style>
 </head>
 <body class="selection:bg-cyan-500 selection:text-white" id="main-body">
@@ -3364,7 +3463,6 @@
          ========================================================================== -->
     <nav class="pill-nav" id="pillMenu">
         
-        <!-- Masaüstü Sol Linkler Grubu -->
         <div class="pill-side left hidden md:flex">
             <a href="#anasayfa" class="pill-link">
                 ANASAYFA
@@ -3372,7 +3470,7 @@
             <a href="#hakkimizda" class="pill-link">
                 HAKKIMIZDA
             </a>
-            <button onclick="openTour()" class="pill-link">
+            <button onclick="openTour()" class="pill-link flex items-center gap-1">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1.25rem; height:1.25rem;">
                     <rect x="7" y="3" width="10" height="18" rx="2" ry="2"></rect>
                     <path d="M3 12c0-3.3 2.7-6 6-6"></path>
@@ -3384,12 +3482,10 @@
             </button>
         </div>
         
-        <!-- Merkez Kilitli Logo -->
         <a href="#anasayfa" class="pill-logo-link" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
             <img src="assets/logo.png" alt="Referans Eğitim Kurumları Logosu">
         </a>
 
-        <!-- Masaüstü Sağ Linkler Grubu -->
         <div class="pill-side right hidden md:flex">
             <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="pill-link">
                 YOL TARİFİ
@@ -3405,7 +3501,6 @@
             </button>
         </div>
 
-        <!-- Sadece Mobilde Görünen Kapsayıcı (Hakkımızda Linki Eklendi) -->
         <div class="mobile-pill-actions md:hidden" style="width: 100%; justify-content: space-between; align-items: center;">
             <a href="#hakkimizda" class="mobile-hakkimizda-link">
                 HAKKIMIZDA
@@ -3422,7 +3517,6 @@
     <nav class="mobile-bottom-nav">
         <div class="mobile-nav-grid">
             
-            <!-- 360 Tur (Özel İkon) -->
             <button onclick="openTour()" class="mob-link" aria-label="360 Tur">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="7" y="3" width="10" height="18" rx="2" ry="2"></rect>
@@ -3436,7 +3530,6 @@
                 </span>
             </button>
             
-            <!-- Yol Tarifi İkonu -->
             <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="mob-link" aria-label="Yol Tarifi">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -3447,7 +3540,6 @@
                 </span>
             </a>
             
-            <!-- Telefon Arama İkonu -->
             <a href="tel:+905000000000" class="mob-link" aria-label="Arama Yap">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
@@ -3496,7 +3588,6 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 relative mobile-swipe-container" id="features-swipe">
                         
-                        <!-- KART 1: Alanında Uzman Kadro -->
                         <div class="mobile-swipe-item card-shield border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f1f5f9; border-right-color: #f1f5f9; border-bottom-color: #f1f5f9; border-left-color: #f1f5f9; p-12 pb-20 text-center shadow-[0_25px_50px_rgba(0,0,0,0.05)] flex flex-col items-center relative">
                             <div class="icon-box text-cyan-500">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3515,7 +3606,6 @@
                             </div>
                         </div>
                         
-                        <!-- KART 2: Birebir Takip -->
                         <div class="mobile-swipe-item card-shield border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f1f5f9; border-right-color: #f1f5f9; border-bottom-color: #f1f5f9; border-left-color: #f1f5f9; p-12 pb-20 text-center shadow-[0_25px_50px_rgba(0,0,0,0.05)] flex flex-col items-center relative">
                             <div class="icon-box text-blue-500">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3535,7 +3625,6 @@
                             </div>
                         </div>
                         
-                        <!-- KART 3: Deneme & Analiz -->
                         <div class="mobile-swipe-item card-shield border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f1f5f9; border-right-color: #f1f5f9; border-bottom-color: #f1f5f9; border-left-color: #f1f5f9; p-12 pb-20 text-center shadow-[0_25px_50px_rgba(0,0,0,0.05)] flex flex-col items-center relative">
                             <div class="icon-box text-cyan-500">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3565,7 +3654,6 @@
             <section class="w-full max-w-4xl px-4 md:px-6 mb-24 md:mb-40 relative z-10 text-center">
                 
                 <div class="flex justify-center mb-8">
-                    <!-- Takvim Videosu Normal Ölçek -->
                     <div class="webm-mask video-skeleton" style="width: 110px; height: 110px; border-top-width: 6px; border-right-width: 6px; border-bottom-width: 6px; border-left-width: 6px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #ffffff; border-right-color: #ffffff; border-bottom-color: #ffffff; border-left-color: #ffffff; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
                         <video data-src="assets/takvim.mp4" preload="none" playsinline loop muted></video>
                     </div>
@@ -3639,7 +3727,6 @@
                     
                     <div class="mobile-double-slide">
                         
-                        <!-- BÖLÜM: 5-8. SINIF -->
                         <div id="sinif-5-8" class="education-mobile-row relative w-full flex flex-col md:flex-row items-center justify-between mb-32 md:mb-40 mx-auto card-shield border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f8fafc; border-right-color: #f8fafc; border-bottom-color: #f8fafc; border-left-color: #f8fafc;">
                             <div class="branch-line right"></div>
                             <div class="flex-1 text-center md:text-left w-full flex flex-col h-full">
@@ -3669,7 +3756,6 @@
                             </div>
                         </div>
 
-                        <!-- BÖLÜM: 9-12. SINIF -->
                         <div id="sinif-9-12" class="education-mobile-row relative w-full flex flex-col md:flex-row-reverse items-center justify-between mb-32 md:mb-40 mx-auto card-shield border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f8fafc; border-right-color: #f8fafc; border-bottom-color: #f8fafc; border-left-color: #f8fafc;">
                             <div class="branch-line left"></div>
                             <div class="flex-1 text-center md:text-right w-full flex flex-col h-full">
@@ -3684,7 +3770,6 @@
                                     Zaman yönetiminden stres kontrolüne kadar tüm süreçleri profesyonel kadromuzla yönetiyoruz.
                                 </p>
                                 
-                                <!-- 9-12 Sınıf Videosuna Özel Kadraj Kırpması Sınıfı Eklendi -->
                                 <div class="webm-mask webm-egitim video-crop-9-12 md:hidden video-skeleton">
                                     <video data-src="assets/bu-taraftan-gidiyoruz.mp4" preload="none" playsinline loop muted></video>
                                 </div>
@@ -3704,7 +3789,6 @@
 
                     <div class="mobile-double-slide">
 
-                        <!-- BÖLÜM: MEZUN -->
                         <div id="mezun" class="education-mobile-row relative w-full flex flex-col md:flex-row items-center justify-between mb-32 md:mb-40 mx-auto card-shield border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f8fafc; border-right-color: #f8fafc; border-bottom-color: #f8fafc; border-left-color: #f8fafc;">
                             <div class="branch-line right"></div>
                             <div class="flex-1 text-center md:text-left w-full flex flex-col h-full">
@@ -3734,7 +3818,6 @@
                             </div>
                         </div>
 
-                        <!-- BÖLÜM: AKADEMİK (DGS/KPSS) -->
                         <div id="akademik" class="education-mobile-row relative w-full flex flex-col md:flex-row-reverse items-center justify-between mb-40 mx-auto card-shield border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f8fafc; border-right-color: #f8fafc; border-bottom-color: #f8fafc; border-left-color: #f8fafc;">
                             <div class="branch-line left"></div>
                             <div class="flex-1 text-center md:text-right w-full flex flex-col h-full">
@@ -3810,7 +3893,6 @@
             Sana Yardımcı Olabilirim 🦊
         </div>
         <div class="fox-bot-trigger" id="foxTrigger" onclick="toggleChatPanel()">
-            <!-- Görsel bozuksa otomatik SVG tilki ikonuna dönüşür (Fallback) -->
             <img src="assets/tilki-avatar.png" alt="Canlı Destek Tilkisi" onerror="this.outerHTML='<div style=\'width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#0ea5e9; color:#fff; font-size:24px; border-radius:50%;\'>🦊</div>'">
         </div>
     </div>
@@ -3825,7 +3907,7 @@
         <div class="chat-body" id="chatBody">
             <div class="bot-message">
                 <div class="bot-avatar">
-                    <img src="assets/tilki-avatar.png" alt="Bot" style="width:100%; height:100%; border-radius:50%;" onerror="this.outerHTML='<div style=\'width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#0ea5e9; color:#fff; font-size:16px; border-radius:50%;\'>🦊</div>'">
+                    <img src="assets/tilki-avatar.png" alt="Bot" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.outerHTML='<div style=\'width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#0ea5e9; color:#fff; font-size:16px; border-radius:50%;\'>🦊</div>'">
                 </div>
                 <div class="bot-bubble">
                     Merhaba! Ben Referans Tilki 🦊<br>Sizin için hazır bazı kısayollarım var. Hangisini istersiniz?
@@ -3834,7 +3916,7 @@
 
             <div class="typing-indicator" id="typingIndicator">
                 <div class="bot-avatar">
-                    <img src="assets/tilki-avatar.png" alt="Bot" style="width:100%; height:100%; border-radius:50%;" onerror="this.outerHTML='<div style=\'width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#0ea5e9; color:#fff; font-size:16px; border-radius:50%;\'>🦊</div>'">
+                    <img src="assets/tilki-avatar.png" alt="Bot" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.outerHTML='<div style=\'width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#0ea5e9; color:#fff; font-size:16px; border-radius:50%;\'>🦊</div>'">
                 </div>
                 <div style="display: flex; gap: 4px; padding-top: 12px; padding-right: 16px; padding-bottom: 12px; padding-left: 16px; background-color: #ffffff; border-top-left-radius: 16px; border-top-right-radius: 16px; border-bottom-right-radius: 16px; border-bottom-left-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); align-items: center;">
                     <div class="typing-dot"></div>
@@ -3920,7 +4002,6 @@
                 <span id="errText">Hata</span>
             </div>
 
-            <!-- Kayıt Formu Alanı -->
             <form id="apptForm" class="space-y-4 md:space-y-6" onsubmit="return false;">
                 
                 <input type="text" id="botTrap" tabindex="-1" autocomplete="off" class="sr-only">
@@ -4404,9 +4485,7 @@
                 }, 3000);
                 
                 tickTimer = setInterval(() => { 
-                    if(!locked) {
-                        updateNumbers(activeKey); 
-                    }
+                    updateNumbers(activeKey); 
                 }, 1000);
             }
             
@@ -4541,7 +4620,7 @@
             
             msgDiv.innerHTML = `
                 <div class="bot-avatar">
-                    <img src="assets/tilki-avatar.png" alt="Bot" style="width:100%; height:100%; border-radius:50%;" onerror="this.outerHTML='<div style=\'width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#0ea5e9; color:#fff; font-size:16px; border-radius:50%;\'>🦊</div>'">
+                    <img src="assets/tilki-avatar.png" alt="Bot" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.outerHTML='<div style=\\'width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#0ea5e9; color:#fff; font-size:16px; border-radius:50%;\\'>🦊</div>'">
                 </div>
                 <div class="bot-bubble">
                     ${text}
@@ -4559,7 +4638,6 @@
                 optionsBox.style.display = 'none';
             }
             
-            // FİYAT SENARYOSU
             if (optionType === 'fiyat') {
                 addUserMessage("💰 Dershane Ücreti Ne Kadar?");
                 setTimeout(() => { 
@@ -4594,7 +4672,6 @@
                 }, 1000);
             } 
             
-            // 360 TUR SENARYOSU
             else if (optionType === '360tur') {
                 addUserMessage("🏫 Sınıfların Görsellerini Görebilir miyiz?");
                 setTimeout(() => { 
@@ -4624,7 +4701,6 @@
                 }, 1000);
             }
 
-            // AÇIK UÇLU METİN GİRİŞ SENARYOSU
             else if (optionType === 'baska') {
                 addUserMessage("❓ Aklıma Takılan Başka Bir Soru Var");
                 setTimeout(() => { 
