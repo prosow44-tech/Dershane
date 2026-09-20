@@ -134,7 +134,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- ======================================================================
-         KAPSAMLI CSS MİMARİSİ (HACİM STANDARDI VE KUSURSUZ DETAYLAR)
+         KAPSAMLI CSS MİMARİSİ
          ====================================================================== -->
     <style>
         /* --------------------------------------------------------------------------
@@ -581,7 +581,7 @@
             transform: scale(1.4) translateY(12%) translateZ(0) !important;
         }
         
-        /* TAKVİM TİLKİSİ (SAYAÇ ÜSTÜ) ALT KISIM GİZLEME VE BÜYÜTME */
+        /* TAKVİM TİLKİSİ (SAYAÇ ÜSTÜ) BÜYÜTME VE KESME */
         .video-crop-calendar video {
             object-position: center top !important;
             
@@ -684,8 +684,8 @@
             border-bottom-color: #ffffff; 
             border-left-color: #ffffff; 
             
-            /* Sınıf MP4'lerinde Yalnızca Alt Kısımda Sayaç Gölgesi Gibi Hafif Gölge */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important; 
+            /* MP4 yuvarlaklara sert gölge KORUNDU */
+            box-shadow: 12px 12px 0px 0px rgba(15, 23, 42, 0.9) !important; 
             background-color: #ffffff; 
         }
         
@@ -1483,7 +1483,7 @@
                 transform: translate(-50%, -50%) scale(1.05) !important; 
             }
 
-            /* RANDEVU BUTONU ŞEFFAF (Hakkımızda Gibi) Yalnızca Metin */
+            /* RANDEVU BUTONU ŞEFFAF Yalnızca Metin */
             .mobile-randevu-text-btn { 
                 background-color: transparent; 
                 color: #0ea5e9; 
@@ -2724,7 +2724,7 @@
         }
 
         /* --------------------------------------------------------------------------
-           9. CANLI DESTEK TİLKİ BOTU VE SOHBET PANELİ (Masaüstü Uyumu Dahil)
+           9. CANLI DESTEK SOHBET PANELİ MİMARİSİ
            -------------------------------------------------------------------------- */
         
         .chat-panel {
@@ -2819,23 +2819,22 @@
     </div>
 
     <!-- ==========================================================================
-         KATMAN 2: YÜZEN HAP MENÜ (PILL NAV) - Masaüstü Yeni Tasarımı
+         KATMAN 2: YÜZEN HAP MENÜ (PILL NAV) - Düzeltilmiş Şablon
          ========================================================================== -->
     <nav class="pill-nav" id="pillMenu">
         
-        <!-- Masaüstü Sol: Hakkımızda + Canlı Destek -->
-        <div class="pill-side left hidden md:flex items-center gap-6">
+        <!-- Masaüstü Sol: Canlı Destek + Hakkımızda + 360 Gezin -->
+        <div class="pill-side left hidden md:flex items-center" style="gap: 1.5rem; flex: 1; justify-content: flex-start;">
             <div class="flex flex-col items-center relative group">
                 <button class="desktop-chat-btn-wrapper" id="desktopChatTrigger" onclick="triggerTopChat()">
                     🦊
-                    <!-- Masaüstü için Baloncuk Yönü İkona (Yukarı) Bakıp Sağa Uzayacak -->
                     <div class="top-chat-bubble-desktop" id="topChatBubbleDesktop">
                         Sana Yardımcı Olabilirim 🦊
                     </div>
                 </button>
                 <span class="neon-text-gradient absolute -bottom-5 text-[10px] font-black tracking-widest whitespace-nowrap">Canlı Destek</span>
             </div>
-            <a href="#hakkimizda" class="pill-link">
+            <a href="#hakkimizda" class="pill-link" style="margin-left: 10px;">
                 HAKKIMIZDA
             </a>
             <button onclick="openTour()" class="solid-blue-btn flex items-center gap-1">
@@ -2855,13 +2854,13 @@
             <img src="assets/logo.png" alt="Referans Eğitim Kurumları Logosu">
         </a>
 
-        <!-- Masaüstü Sağ: Yol Tarifi İkonu + Randevu Al -->
-        <div class="pill-side right hidden md:flex items-center gap-6">
+        <!-- Masaüstü Sağ: Bize Ulaşın + Yol Tarifi İkonu + Randevu Al -->
+        <div class="pill-side right hidden md:flex items-center" style="gap: 1.5rem; flex: 1; justify-content: flex-end;">
             <a href="tel:+905000000000" class="solid-blue-btn items-center gap-2">
                 BİZE ULAŞIN
             </a>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="pill-link" aria-label="Yol Tarifi" style="color: #0ea5e9; font-weight: 900;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px; margin-right: 4px;">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="pill-link flex items-center gap-1" aria-label="Yol Tarifi" style="color: #0ea5e9; font-weight: 900; margin-right: 10px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                     <circle cx="12" cy="10" r="3"></circle>
                 </svg>
@@ -2872,14 +2871,12 @@
             </button>
         </div>
 
-        <!-- YENİ MOBİL ÜST MENÜ: Sol (Chat + Hakkımızda), Orta (Logo), Sağ (Yol Tarifi + Randevu) -->
+        <!-- YENİ MOBİL ÜST MENÜ: Simetrik Çerçevesiz Dağılım -->
         <div class="mobile-pill-container md:hidden">
             
             <div class="mobile-pill-left">
-                <!-- Canlı Destek Menü İçi İkonu (Mavi Dolgulu) -->
                 <button class="mobile-top-chat-btn-wrapper" id="mobileChatTrigger" onclick="triggerTopChat()">
                     🦊
-                    <!-- Mobilde Tam Ortadan Yukarı Bakan Baloncuk -->
                     <div class="top-chat-bubble" id="topChatBubbleMobile">
                         Sana Yardımcı Olabilirim 🦊
                     </div>
@@ -2890,14 +2887,12 @@
             </div>
             
             <div class="mobile-pill-right">
-                <!-- Yol Tarifi İkonu (Mavi Yuvarlaklı) -->
                 <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="mobile-route-icon" aria-label="Yol Tarifi">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;">
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                         <circle cx="12" cy="10" r="3"></circle>
                     </svg>
                 </a>
-                
                 <button onclick="openModal('')" class="mobile-randevu-text-btn">
                     RANDEVU AL
                 </button>
@@ -3123,105 +3118,126 @@
             </section>
 
             <!-- ======================================================================
-                 SINIF BÖLÜMLERİ (Masaüstü: Zig-Zag İzometrik | Mobil: TEKLİ ODAKLI KAYDIRMA)
+                 SINIF BÖLÜMLERİ (Masaüstü: İZOMETRİK ESKİ YAPI | Mobil: Çift Kart Sürgüsü)
                  ====================================================================== -->
-            <div class="w-full max-w-6xl mx-auto mobile-swipe-wrapper mb-20">
+            <div class="w-full max-w-6xl mx-auto mobile-swipe-wrapper mb-20 relative">
+                
+                <!-- Mobil Özel Sürgü Yönlendirme ve Sayacı -->
+                <div class="w-full flex justify-between px-6 mb-2 md:hidden">
+                    <span class="text-slate-400 font-bold text-[10px] flex items-center gap-1 opacity-70">
+                        &larr; kaydırınız
+                    </span>
+                    <div class="carousel-badge" id="educationBadge" style="position:static; display:inline-flex !important; margin:0;">
+                        1 / 2
+                    </div>
+                </div>
+
                 <div class="mobile-swipe-container w-full px-0 md:px-6" id="education-swipe">
                     
-                    <!-- BÖLÜM: 5-8. SINIF -->
-                    <div id="sinif-5-8" class="mobile-swipe-item card-shield-clean-desktop mx-auto">
-                        <div class="branch-line right hidden md:block"></div>
-                        <div class="text-side-desktop">
-                            <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">
-                                5-8. SINIF
-                            </h2>
-                            <h3 class="text-cyan-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">
-                                LGS Hazırlık
-                            </h3>
-                            <p class="text-slate-500 font-bold text-base leading-relaxed mb-8 hidden md:block">
-                                Akademik temellerin atıldığı bu dönemde, okuduğunu anlama ve sınav stresi yönetimi üzerine kusursuz rehberlik sunuyoruz.
-                            </p>
-                            <button onclick="openModal('5-8. Sınıf')" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 rounded-xl hover:bg-cyan-500 transition-colors text-base border-none md:flex hidden">
-                                Randevu Al
-                            </button>
-                        </div>
-                        <div class="video-side-desktop">
-                            <div class="webm-mask webm-egitim video-skeleton">
-                                <video data-src="assets/kalem-yazma.mp4" preload="none" playsinline loop muted></video>
+                    <!-- 1. MOBİL SLAYT GRUBU (5-8 ve 9-12 Sınıf - Masaüstünde Ayrı) -->
+                    <div class="mobile-double-slide">
+                        
+                        <!-- BÖLÜM: 5-8. SINIF -->
+                        <div id="sinif-5-8" class="card-shield-clean-desktop mx-auto">
+                            <div class="branch-line right hidden md:block"></div>
+                            <div class="text-side-desktop">
+                                <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">
+                                    5-8. SINIF
+                                </h2>
+                                <h3 class="text-cyan-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">
+                                    LGS Hazırlık
+                                </h3>
+                                <p class="text-slate-500 font-bold text-base leading-relaxed mb-8">
+                                    Akademik temellerin atıldığı bu dönemde, okuduğunu anlama ve sınav stresi yönetimi üzerine kusursuz rehberlik sunuyoruz.
+                                </p>
+                                <button onclick="openModal('5-8. Sınıf')" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 rounded-xl hover:bg-cyan-500 transition-colors text-base border-none md:flex hidden">
+                                    Randevu Al
+                                </button>
+                            </div>
+                            <div class="video-side-desktop">
+                                <div class="webm-mask webm-egitim video-skeleton">
+                                    <video data-src="assets/kalem-yazma.mp4" preload="none" playsinline loop muted></video>
+                                </div>
                             </div>
                         </div>
+
+                        <!-- BÖLÜM: 9-12. SINIF -->
+                        <div id="sinif-9-12" class="card-shield-clean-desktop mx-auto md:flex-row-reverse" style="flex-direction: row-reverse !important;">
+                            <div class="branch-line left hidden md:block"></div>
+                            <div class="text-side-desktop-rev">
+                                <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">
+                                    9-12. SINIF
+                                </h2>
+                                <h3 class="text-blue-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">
+                                    TYT - AYT Maratonu
+                                </h3>
+                                <p class="text-slate-500 font-bold text-base leading-relaxed mb-8">
+                                    Zaman yönetiminden stres kontrolüne kadar tüm süreçleri profesyonel kadromuzla yönetiyoruz.
+                                </p>
+                                <button onclick="openModal('9-12. Sınıf')" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 rounded-xl hover:bg-slate-900 transition-colors text-base border-none md:flex hidden">
+                                    Randevu Al
+                                </button>
+                            </div>
+                            <div class="video-side-desktop">
+                                <div class="webm-mask webm-egitim video-crop-9-12 video-skeleton">
+                                    <video data-src="assets/bu-taraftan-gidiyoruz.mp4" preload="none" playsinline loop muted></video>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <!-- BÖLÜM: 9-12. SINIF -->
-                    <div id="sinif-9-12" class="mobile-swipe-item card-shield-clean-desktop mx-auto" style="flex-direction: row-reverse !important;">
-                        <div class="branch-line left hidden md:block"></div>
-                        <div class="text-side-desktop-rev">
-                            <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">
-                                9-12. SINIF
-                            </h2>
-                            <h3 class="text-blue-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">
-                                TYT - AYT Maratonu
-                            </h3>
-                            <p class="text-slate-500 font-bold text-base leading-relaxed mb-8 hidden md:block">
-                                Zaman yönetiminden stres kontrolüne kadar tüm süreçleri profesyonel kadromuzla yönetiyoruz.
-                            </p>
-                            <button onclick="openModal('9-12. Sınıf')" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 rounded-xl hover:bg-slate-900 transition-colors text-base border-none md:flex hidden">
-                                Randevu Al
-                            </button>
-                        </div>
-                        <div class="video-side-desktop">
-                            <div class="webm-mask webm-egitim video-crop-9-12 video-skeleton">
-                                <video data-src="assets/bu-taraftan-gidiyoruz.mp4" preload="none" playsinline loop muted></video>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- 2. MOBİL SLAYT GRUBU (Mezun ve Akademik - Masaüstünde Ayrı) -->
+                    <div class="mobile-double-slide">
 
-                    <!-- BÖLÜM: MEZUN -->
-                    <div id="mezun" class="mobile-swipe-item card-shield-clean-desktop mx-auto">
-                        <div class="branch-line right hidden md:block"></div>
-                        <div class="text-side-desktop">
-                            <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">
-                                MEZUN
-                            </h2>
-                            <h3 class="text-cyan-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">
-                                YKS Hedef Büyütme
-                            </h3>
-                            <p class="text-slate-500 font-bold text-base leading-relaxed mb-8 hidden md:block">
-                                Hedefine ulaşmak için eksik odaklı, yoğunlaştırılmış VIP eğitim sunuyoruz.
-                            </p>
-                            <button onclick="openModal('Mezun')" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 rounded-xl hover:bg-cyan-500 transition-colors text-base border-none md:flex hidden">
-                                Randevu Al
-                            </button>
-                        </div>
-                        <div class="video-side-desktop">
-                            <div class="webm-mask webm-egitim video-skeleton">
-                                <video data-src="assets/sevinme.mp4" preload="none" playsinline loop muted></video>
+                        <!-- BÖLÜM: MEZUN -->
+                        <div id="mezun" class="card-shield-clean-desktop mx-auto">
+                            <div class="branch-line right hidden md:block"></div>
+                            <div class="text-side-desktop">
+                                <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">
+                                    MEZUN
+                                </h2>
+                                <h3 class="text-cyan-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">
+                                    YKS Hedef Büyütme
+                                </h3>
+                                <p class="text-slate-500 font-bold text-base leading-relaxed mb-8">
+                                    Hedefine ulaşmak için eksik odaklı, yoğunlaştırılmış VIP eğitim sunuyoruz.
+                                </p>
+                                <button onclick="openModal('Mezun')" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 rounded-xl hover:bg-cyan-500 transition-colors text-base border-none md:flex hidden">
+                                    Randevu Al
+                                </button>
+                            </div>
+                            <div class="video-side-desktop">
+                                <div class="webm-mask webm-egitim video-skeleton">
+                                    <video data-src="assets/sevinme.mp4" preload="none" playsinline loop muted></video>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- BÖLÜM: AKADEMİK (DGS/KPSS) -->
-                    <div id="akademik" class="mobile-swipe-item card-shield-clean-desktop mx-auto" style="flex-direction: row-reverse !important;">
-                        <div class="branch-line left hidden md:block"></div>
-                        <div class="text-side-desktop-rev">
-                            <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">
-                                AKADEMİK
-                            </h2>
-                            <h3 class="text-blue-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">
-                                DGS / KPSS / ALES
-                            </h3>
-                            <p class="text-slate-500 font-bold text-base leading-relaxed mb-8 hidden md:block">
-                                Memurluk veya akademik kariyer hedeflerinize yönelik nokta atışı taktikler.
-                            </p>
-                            <button onclick="openModal('DGS / KPSS / ALES')" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 rounded-xl hover:bg-slate-900 transition-colors text-base border-none md:flex hidden">
-                                Randevu Al
-                            </button>
-                        </div>
-                        <div class="video-side-desktop">
-                            <div class="webm-mask webm-egitim video-skeleton">
-                                <video data-src="assets/soru-cozme.mp4" preload="none" playsinline loop muted></video>
+                        <!-- BÖLÜM: AKADEMİK (DGS/KPSS) -->
+                        <div id="akademik" class="card-shield-clean-desktop mx-auto md:flex-row-reverse" style="flex-direction: row-reverse !important;">
+                            <div class="branch-line left hidden md:block"></div>
+                            <div class="text-side-desktop-rev">
+                                <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">
+                                    AKADEMİK
+                                </h2>
+                                <h3 class="text-blue-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">
+                                    DGS / KPSS / ALES
+                                </h3>
+                                <p class="text-slate-500 font-bold text-base leading-relaxed mb-8">
+                                    Memurluk veya akademik kariyer hedeflerinize yönelik nokta atışı taktikler.
+                                </p>
+                                <button onclick="openModal('DGS / KPSS / ALES')" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 rounded-xl hover:bg-slate-900 transition-colors text-base border-none md:flex hidden">
+                                    Randevu Al
+                                </button>
+                            </div>
+                            <div class="video-side-desktop">
+                                <div class="webm-mask webm-egitim video-skeleton">
+                                    <video data-src="assets/soru-cozme.mp4" preload="none" playsinline loop muted></video>
+                                </div>
                             </div>
                         </div>
+
                     </div>
 
                 </div>
@@ -3317,12 +3333,12 @@
         <img id="lightboxImg" src="" alt="Büyük Görsel">
     </div>
 
-    <!-- 360 Tur Sanal Gerçeklik Modalı (Direkt IFRAME Açılır) -->
+    <!-- 360 Tur Sanal Gerçeklik Modalı -->
     <div id="tourOverlay" class="modal-overlay" onclick="if(event.target===this) closeTour()">
         <div class="modal-box p-0 overflow-x-hidden overflow-y-hidden !max-w-6xl pointer-events-auto border-none shadow-[0_40px_80px_rgba(0,0,0,0.8)] h-[85vh] flex flex-col">
             <div class="p-4 border-b border-slate-100 flex justify-between items-center bg-white relative z-10 shrink-0">
                 <span class="font-black text-slate-900 text-lg flex items-center gap-3">
-                    Battalgazi 360° Tur
+                    Referans Eğitim Kurumları
                 </span>
                 <button onclick="closeTour()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-red-100 hover:text-red-500 font-bold text-lg flex items-center justify-center transition-colors">
                     ✕
@@ -3506,11 +3522,11 @@
             });
             
             if (window.innerWidth <= 768) {
-                initMobileInfiniteSwipes('features-swipe');
-                initMobileInfiniteSwipes('education-swipe');
+                initMobileInfiniteSwipes('features-swipe', 'features-dots');
+                initMobileInfiniteSwipes('education-swipe', 'education-dots');
             }
             
-            // Başlangıç Balonu Delayı: 3 Saniye sonra çalışır.
+            // Başlangıç Balonu Delayı (3sn)
             setTimeout(() => {
                 const bubbleMobile = document.getElementById('topChatBubbleMobile');
                 const bubbleDesktop = document.getElementById('topChatBubbleDesktop');
@@ -3520,14 +3536,14 @@
         });
 
         /* ----------------------------------------------------------------------
-           2. OTOMATİK KAYDIRMA (CAROUSEL) MOTORU 
+           2. OTOMATİK KAYDIRMA (CAROUSEL) MOTORU - Çarpma Mantığı & UX Onarımı
            ---------------------------------------------------------------------- */
-        function initMobileInfiniteSwipes(containerId) {
+        function initMobileInfiniteSwipes(containerId, dotsId) {
             const container = document.getElementById(containerId);
             if (!container) return;
 
             let items = Array.from(container.children).filter(c => 
-                c.classList.contains('mobile-swipe-item')
+                c.classList.contains('mobile-swipe-item') || c.classList.contains('mobile-double-slide')
             );
             
             if (items.length === 0) return;
@@ -3537,6 +3553,20 @@
             let autoScrollInterval;
             let isUserInteracting = false;
             let interactionTimeout;
+            
+            const dotsContainer = document.getElementById(dotsId);
+            const dots = [];
+            if(dotsContainer) {
+                dotsContainer.innerHTML = '';
+                items.forEach((_, i) => {
+                    let d = document.createElement('div');
+                    d.className = 'dot' + (i === 0 ? ' active' : '');
+                    dotsContainer.appendChild(d);
+                    dots.push(d);
+                });
+            }
+            
+            const badge = document.getElementById('educationBadge');
 
             const updateCenter = () => {
                 const containerRect = container.getBoundingClientRect();
@@ -3565,6 +3595,16 @@
                         item.classList.remove('is-centered');
                     }
                 });
+                
+                if(dots.length > 0) {
+                    dots.forEach(d => d.classList.remove('active'));
+                    if(dots[currentIndex]) dots[currentIndex].classList.add('active');
+                }
+                
+                // Badge Güncelleme
+                if(containerId === 'education-swipe' && badge) {
+                    badge.textContent = (currentIndex + 1) + " / " + items.length;
+                }
             };
 
             const scrollToNext = () => {
@@ -3589,12 +3629,13 @@
 
             const startAutoScroll = () => {
                 clearInterval(autoScrollInterval);
-                autoScrollInterval = setInterval(scrollToNext, 2000);
+                autoScrollInterval = setInterval(scrollToNext, 3000); // 3 sn stabil süre
             };
 
             updateCenter();
             startAutoScroll();
 
+            // Etkileşim Anında Algoritma Çakışmasını Engelleme
             const handleInteractionStart = () => {
                 isUserInteracting = true;
                 clearInterval(autoScrollInterval);
@@ -3606,7 +3647,7 @@
                 interactionTimeout = setTimeout(() => {
                     isUserInteracting = false;
                     startAutoScroll();
-                }, 3000); 
+                }, 1500); // Bıraktıktan 1.5 saniye sonra otonoma geri döner
             };
 
             container.addEventListener('scroll', () => {
@@ -3614,6 +3655,7 @@
             }, { passive: true });
 
             container.addEventListener('touchstart', handleInteractionStart, { passive: true });
+            container.addEventListener('touchmove', handleInteractionStart, { passive: true });
             container.addEventListener('touchend', handleInteractionEnd, { passive: true });
             container.addEventListener('mousedown', handleInteractionStart, { passive: true });
             container.addEventListener('mouseup', handleInteractionEnd, { passive: true });
@@ -3906,7 +3948,7 @@
         })();
 
         /* ----------------------------------------------------------------------
-           5. CANLI DESTEK TİLKİ BOTU VE OTONOM SOHBET MOTORU (Masaüstü/Mobil Ortak)
+           5. CANLI DESTEK TİLKİ BOTU VE OTONOM SOHBET MOTORU
            ---------------------------------------------------------------------- */
         
         let isChatOpen = false;
@@ -3928,20 +3970,15 @@
         }
 
         window.triggerTopChat = function() {
-            const btnMobile = document.getElementById('mobileChatTrigger');
+            const panel = document.getElementById('chatPanel');
             const bubbleMobile = document.getElementById('topChatBubbleMobile');
-            
-            const btnDesktop = document.getElementById('desktopChatTrigger');
             const bubbleDesktop = document.getElementById('topChatBubbleDesktop');
             
-            const panel = document.getElementById('chatPanel');
-            
-            // Konuşma baloncuğunu kalıcı olarak gizle
             if (bubbleMobile) bubbleMobile.style.display = 'none';
             if (bubbleDesktop) bubbleDesktop.style.display = 'none';
             
             if(!isChatOpen) {
-                // Tıklama anında anında panel açılır
+                // Anında panel açılır
                 panel.classList.add('show');
                 isChatOpen = true;
             } else {
@@ -3983,7 +4020,6 @@
             scrollToBottom();
         }
 
-        // isJPG parametresi eklendi. True gelirse JPG basar, false gelirse 🦊 emojisi
         function addBotMessage(text, isJPG = false) {
             const chatBody = document.getElementById('chatBody');
             const msgDiv = document.createElement('div');
@@ -4017,7 +4053,6 @@
                 addUserMessage("💰 Dershane Ücreti Ne Kadar?");
                 
                 setTimeout(() => {
-                    // Düşünme sırasında JPG gelsin
                     setAvatarToJPG();
                     typingIndicator.querySelector('.bot-avatar').innerHTML = `<img src="assets/tilki-avatar.png" alt="Bot" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">`;
                     typingIndicator.style.display = 'flex'; 
