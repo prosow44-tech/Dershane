@@ -116,6 +116,10 @@
                         'safe-top': 'env(safe-area-inset-top)',
                         'safe-left': 'env(safe-area-inset-left)',
                         'safe-right': 'env(safe-area-inset-right)'
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(14, 165, 233, 0.1)',
+                        'glass-strong': '0 8px 32px 0 rgba(14, 165, 233, 0.25)'
                     }
                 }
             }
@@ -130,7 +134,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- ======================================================================
-         KAPSAMLI CSS MİMARİSİ
+         KAPSAMLI CSS MİMARİSİ (HACİM STANDARDI VE KUSURSUZ DETAYLAR)
          ====================================================================== -->
     <style>
         /* --------------------------------------------------------------------------
@@ -577,7 +581,7 @@
             transform: scale(1.4) translateY(12%) translateZ(0) !important;
         }
         
-        /* TAKVİM TİLKİSİ (SAYAÇ ÜSTÜ) BÜYÜTME VE KESME */
+        /* TAKVİM TİLKİSİ (SAYAÇ ÜSTÜ) ALT KISIM GİZLEME VE BÜYÜTME */
         .video-crop-calendar video {
             object-position: center top !important;
             
@@ -680,8 +684,8 @@
             border-bottom-color: #ffffff; 
             border-left-color: #ffffff; 
             
-            /* MP4 yuvarlaklara sert gölge KORUNDU */
-            box-shadow: 12px 12px 0px 0px rgba(15, 23, 42, 0.9) !important; 
+            /* Sınıf MP4'lerinde Yalnızca Alt Kısımda Sayaç Gölgesi Gibi Hafif Gölge */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important; 
             background-color: #ffffff; 
         }
         
@@ -1147,7 +1151,54 @@
             transform: scale(0.94) !important; 
         }
 
-        /* YUVARLAK MASAÜSTÜ CANLI DESTEK İKONU (Tam Dolgulu Mavi) */
+        /* YENİ TASARIM: Masaüstü Üst Menü "360 Gezin" ve "Bize Ulaşın" İçi Dolu Mavi Buton */
+        .solid-blue-btn {
+            background-color: #0ea5e9;
+            color: #ffffff; 
+            font-weight: 900; 
+            font-size: 0.85rem; 
+            
+            padding-top: 0.5rem; 
+            padding-right: 1.5rem; 
+            padding-bottom: 0.5rem; 
+            padding-left: 0.5rem; 
+            
+            border-top-left-radius: 999px; 
+            border-top-right-radius: 999px; 
+            border-bottom-right-radius: 999px; 
+            border-bottom-left-radius: 999px;
+            
+            display: inline-flex; 
+            align-items: center; 
+            cursor: pointer; 
+            pointer-events: auto; 
+            will-change: transform; 
+            
+            -webkit-transition-property: background-color, box-shadow, transform;
+            -webkit-transition-duration: 0.2s;
+            -webkit-transition-timing-function: ease;
+            
+            -moz-transition-property: background-color, box-shadow, transform;
+            -moz-transition-duration: 0.2s;
+            -moz-transition-timing-function: ease;
+            
+            transition-property: background-color, box-shadow, transform;
+            transition-duration: 0.2s;
+            transition-timing-function: ease;
+        }
+
+        .solid-blue-btn:hover {
+            background-color: #0284c7;
+            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+        }
+
+        .solid-blue-btn:active {
+            -webkit-transform: scale(0.94) !important; 
+            -moz-transform: scale(0.94) !important; 
+            transform: scale(0.94) !important; 
+        }
+
+        /* YUVARLAK MASAÜSTÜ CANLI DESTEK İKONU */
         .desktop-chat-btn-wrapper {
             background-color: #0ea5e9; color: #ffffff; 
             width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
@@ -1159,14 +1210,13 @@
         }
         .desktop-chat-btn-wrapper.fading { opacity: 0.3; pointer-events: none; }
 
-        /* Masaüstü Üst Bar Konuşma Baloncuğu - Yönü Yukarı Bakacak Şekilde İkona Hedefli ve Sağa Uzayan */
+        /* Masaüstü Üst Bar Konuşma Baloncuğu */
         .top-chat-bubble-desktop {
             position: absolute; top: 55px; left: 0; background-color: #ffffff; color: #0f172a; padding: 8px 16px;
             border-radius: 0 16px 16px 16px; font-weight: 900; font-size: 0.85rem; white-space: nowrap;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 2px solid #e0f2fe; opacity: 0; visibility: hidden;
             transition: opacity 0.4s ease, transform 0.4s ease; transform: translateY(-10px); z-index: 40000; pointer-events: none;
         }
-        /* Sivri ok işareti tam yukarı, ikona bakacak şekilde ayarlandı */
         .top-chat-bubble-desktop::before {
             content: ''; position: absolute; top: -10px; left: 10px; width: 0; height: 0;
             border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 10px solid #e0f2fe;
@@ -1177,7 +1227,7 @@
         }
         .top-chat-bubble-desktop.show { opacity: 1; visibility: visible; transform: translateY(0); }
 
-        /* YENİ: Neon Canlı Destek Metni (İkon Altı) */
+        /* YENİ: Neon Canlı Destek Metni (İkon Altı) Tam İçeride Ortalanmış ve Bold */
         .neon-text-gradient {
             background-image: linear-gradient(90deg, #0ea5e9, #8b5cf6, #06b6d4, #0ea5e9);
             background-size: 300% 100%;
@@ -1226,6 +1276,50 @@
             overflow-y: visible !important;
         }
 
+        /* MASAÜSTÜ SINIF KARTLARI - YAN YANA İZOMETRİK ESKİ YAPI (Gölgesiz, Temiz) */
+        .card-shield-clean-desktop {
+            background-color: transparent !important; 
+            border: none !important;
+            box-shadow: none !important;
+            
+            padding-top: 0 !important; 
+            padding-right: 0 !important; 
+            padding-bottom: 0 !important; 
+            padding-left: 0 !important; 
+            
+            overflow-x: visible !important;
+            overflow-y: visible !important;
+            
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            
+            width: 100% !important;
+            margin-bottom: 80px !important;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .text-side-desktop {
+            flex: 1;
+            text-align: left;
+            padding: 0 40px;
+        }
+
+        .text-side-desktop-rev {
+            flex: 1;
+            text-align: right;
+            padding: 0 40px;
+        }
+        
+        .video-side-desktop {
+            width: 320px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         /* --------------------------------------------------------------------------
            6. MOBİL ÖZEL: APP-UI, TEKLİ EĞİTİM KARUSELİ, DARALTILMIŞ ALT BAR
            -------------------------------------------------------------------------- */
@@ -1269,7 +1363,7 @@
                 top: 10px; 
             }
             
-            /* ÜST MENÜ MOBİL YENİ TASARIMI (Hakkımızda + Chat | Randevu + Yol Tarifi) */
+            /* ÜST MENÜ MOBİL YENİ TASARIMI */
             .mobile-pill-container {
                 display: flex !important;
                 width: 100% !important;
@@ -1293,7 +1387,7 @@
                 white-space: nowrap;
             }
             
-            /* MOBİL YUVARLAK CANLI DESTEK İKONU (Randevu Butonu Mantığında Mavi) */
+            /* MOBİL YUVARLAK CANLI DESTEK İKONU */
             .mobile-top-chat-btn-wrapper {
                 background-color: #0ea5e9; color: #ffffff; 
                 width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
@@ -1302,7 +1396,7 @@
             }
             .mobile-top-chat-btn-wrapper.fading { opacity: 0.3; pointer-events: none; }
 
-            /* Mobilde Çıkan Canlı Destek Balonu (UX Mantığı - Yukarı İkona Baktırıldı, Sağa Uzuyor) */
+            /* Mobilde Çıkan Canlı Destek Balonu */
             .top-chat-bubble {
                 position: absolute;
                 top: 50px;
@@ -1324,7 +1418,6 @@
                 pointer-events: none;
             }
             
-            /* Ok işareti tam ortadan yukarıya doğru */
             .top-chat-bubble::before {
                 content: ''; position: absolute; top: -8px; left: 10px; width: 0; height: 0;
                 border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid #e0f2fe;
@@ -1347,12 +1440,12 @@
                 flex: 1 !important;
             }
             
+            /* YOL TARİFİ İKONU (Logo Yanında - Mavi Yuvarlaklı) */
             .mobile-route-icon {
-                color: #0ea5e9;
-                text-decoration: none;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                color: #ffffff; background-color: #0ea5e9;
+                width: 30px; height: 30px; border-radius: 50%;
+                text-decoration: none; display: flex; align-items: center; justify-content: center;
+                box-shadow: 0 4px 10px rgba(14,165,233,0.3);
             }
             
             .pill-logo-link { 
@@ -1390,21 +1483,14 @@
                 transform: translate(-50%, -50%) scale(1.05) !important; 
             }
 
-            .magnetic-btn-small { 
-                background-color: #06b6d4; 
-                color: #ffffff; 
+            /* RANDEVU BUTONU ŞEFFAF (Hakkımızda Gibi) Yalnızca Metin */
+            .mobile-randevu-text-btn { 
+                background-color: transparent; 
+                color: #0ea5e9; 
                 font-weight: 900; 
-                
-                padding-top: 0.5rem; 
-                padding-right: 0.8rem; 
-                padding-bottom: 0.5rem; 
-                padding-left: 0.8rem; 
-                
-                border-radius: 999px; 
                 font-size: 0.65rem; 
-                position: relative;
-                z-index: 40015;
-                box-shadow: 0 4px 10px rgba(6,182,212,0.4); 
+                text-transform: uppercase;
+                cursor: pointer;
             }
             
             .webm-btn-icon { 
@@ -1616,7 +1702,6 @@
                 overflow-x: auto !important;
                 overflow-y: visible !important;
                 
-                /* ESKİ MANTIK - SNAP AÇIK */
                 scroll-snap-type: x mandatory !important; 
                 scroll-behavior: smooth !important;
                 -webkit-overflow-scrolling: touch !important;
@@ -1634,7 +1719,6 @@
                 display: none !important; 
             }
             
-            /* SINIFLARIN MOBİL ARAYÜZÜ BİREBİR ESKİSİ GİBİ YAPILDI (85vw ODAKLI) */
             .mobile-swipe-item {
                 flex: 0 0 85vw !important; 
                 scroll-snap-align: center !important;
@@ -1697,7 +1781,7 @@
                 overflow-y: visible !important;
             }
 
-            /* Ortadan İkiye Bölünmüş Şeffaf Kart CSS Yapısı (Mobilde) */
+            /* MOBİL SINIF KARTLARI ŞEFFAF YAPISI (DİKEY) */
             .card-shield-clean-desktop {
                 background-color: transparent !important; 
                 border: none !important;
@@ -1712,36 +1796,35 @@
                 overflow-y: visible !important;
                 
                 display: flex !important;
-                flex-direction: row !important; 
+                flex-direction: column !important; 
                 align-items: center !important;
                 justify-content: space-between !important;
                 gap: 15px !important;
                 
-                height: 220px !important;
-                margin-bottom: 30px !important;
+                height: 300px !important;
+                margin-bottom: 0 !important;
+                width: 100% !important;
+                
+                border-bottom: 2px solid #f1f5f9 !important;
+                border-radius: 1.5rem !important;
             }
             
-            .text-side-desktop {
+            .text-side-desktop, .text-side-desktop-rev {
                 flex: 1 !important;
-                text-align: left !important;
+                text-align: center !important;
                 background: transparent !important;
                 padding: 10px !important;
                 z-index: 10 !important;
-            }
-
-            .text-side-desktop-rev {
-                flex: 1 !important;
-                text-align: right !important;
-                background: transparent !important;
-                padding: 10px !important;
-                z-index: 10 !important;
+                width: 100% !important;
             }
             
             .video-side-desktop {
-                flex-shrink: 0 !important;
-                width: 140px !important;
+                width: 100px !important;
+                height: 100px !important;
                 display: flex !important;
                 justify-content: center !important;
+                align-items: center !important;
+                margin: 0 auto 1rem auto !important;
                 z-index: 10 !important;
             }
             
@@ -1768,32 +1851,31 @@
             }
             
             .text-side-desktop p, .text-side-desktop-rev p { 
-                font-size: 0.75rem !important;
-                line-height: 1.3 !important;
-                margin-bottom: 15px !important;
-                display: block !important; 
+                display: none !important; 
             }
             
             .text-side-desktop h2, .text-side-desktop-rev h2 { 
-                font-size: 1.5rem !important; 
+                font-size: 1.8rem !important; 
                 margin-bottom: 0.25rem !important; 
+                text-align: center !important;
             }
             
             .text-side-desktop h3, .text-side-desktop-rev h3 { 
-                font-size: 0.8rem !important; 
-                margin-bottom: 0.5rem !important; 
+                font-size: 0.9rem !important; 
+                margin-bottom: 1rem !important; 
+                text-align: center !important;
             }
             
             .text-side-desktop .magnetic-btn, .text-side-desktop-rev .magnetic-btn {
                 background-image: linear-gradient(135deg, #0ea5e9, #0284c7) !important;
                 color: #ffffff !important;
                 
-                padding-top: 0.6rem !important;
-                padding-right: 1.5rem !important;
-                padding-bottom: 0.6rem !important;
-                padding-left: 1.5rem !important;
+                padding-top: 0.8rem !important;
+                padding-right: 2rem !important;
+                padding-bottom: 0.8rem !important;
+                padding-left: 2rem !important;
                 
-                font-size: 0.85rem !important;
+                font-size: 1rem !important;
                 
                 border-top-left-radius: 999px !important;
                 border-top-right-radius: 999px !important;
@@ -1801,7 +1883,9 @@
                 border-bottom-left-radius: 999px !important;
                 
                 box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3) !important;
-                width: auto !important;
+                width: 100% !important;
+                justify-content: center !important;
+                margin-top: auto !important;
                 display: inline-flex !important;
             }
             
@@ -1817,8 +1901,8 @@
             }
             
             .video-side-desktop .webm-egitim { 
-                width: 130px !important; 
-                height: 130px !important; 
+                width: 100px !important; 
+                height: 100px !important; 
                 
                 margin: 0 !important;
                 
@@ -1827,7 +1911,8 @@
                 border-bottom-width: 4px !important; 
                 border-left-width: 4px !important; 
                 
-                box-shadow: 12px 12px 0px 0px rgba(15, 23, 42, 0.9) !important;
+                /* Sadece MP4 yuvarlaklara Hafif Gölge uygulandı */
+                box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
             }
 
             .counter-card { 
@@ -1883,6 +1968,7 @@
             
             #counterTitle { 
                 font-size: 1.25rem !important; 
+                /* Geri Dön butonuyla çakışmayı engellemek için margin ayarı */
                 margin-top: 1.5rem !important;
                 margin-bottom: 1.5rem !important; 
             }
@@ -2752,7 +2838,7 @@
             <a href="#hakkimizda" class="pill-link">
                 HAKKIMIZDA
             </a>
-            <button onclick="openTour()" class="magnetic-btn flex items-center gap-1">
+            <button onclick="openTour()" class="solid-blue-btn flex items-center gap-1">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1.25rem; height:1.25rem;">
                     <rect x="7" y="3" width="10" height="18" rx="2" ry="2"></rect>
                     <path d="M3 12c0-3.3 2.7-6 6-6"></path>
@@ -2771,7 +2857,7 @@
 
         <!-- Masaüstü Sağ: Yol Tarifi İkonu + Randevu Al -->
         <div class="pill-side right hidden md:flex items-center gap-6">
-            <a href="tel:+905000000000" class="magnetic-btn items-center gap-2">
+            <a href="tel:+905000000000" class="solid-blue-btn items-center gap-2">
                 BİZE ULAŞIN
             </a>
             <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="pill-link" aria-label="Yol Tarifi" style="color: #0ea5e9; font-weight: 900;">
@@ -2786,14 +2872,14 @@
             </button>
         </div>
 
-        <!-- YENİ MOBİL ÜST MENÜ: Sol (Hakkımızda + Chat), Orta (Logo), Sağ (Randevu + Yol Tarifi) -->
+        <!-- YENİ MOBİL ÜST MENÜ: Sol (Chat + Hakkımızda), Orta (Logo), Sağ (Yol Tarifi + Randevu) -->
         <div class="mobile-pill-container md:hidden">
             
             <div class="mobile-pill-left">
-                <!-- Canlı Destek Menü İçi İkonu (Tilki Emoji) -->
+                <!-- Canlı Destek Menü İçi İkonu (Mavi Dolgulu) -->
                 <button class="mobile-top-chat-btn-wrapper" id="mobileChatTrigger" onclick="triggerTopChat()">
                     🦊
-                    <!-- Mobilde Gecikmeli Açılan Baloncuk -->
+                    <!-- Mobilde Tam Ortadan Yukarı Bakan Baloncuk -->
                     <div class="top-chat-bubble" id="topChatBubbleMobile">
                         Sana Yardımcı Olabilirim 🦊
                     </div>
@@ -2804,7 +2890,7 @@
             </div>
             
             <div class="mobile-pill-right">
-                <!-- Yol Tarifi İkonu -->
+                <!-- Yol Tarifi İkonu (Mavi Yuvarlaklı) -->
                 <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="mobile-route-icon" aria-label="Yol Tarifi">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;">
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -2812,7 +2898,7 @@
                     </svg>
                 </a>
                 
-                <button onclick="openModal('')" class="magnetic-btn-small">
+                <button onclick="openModal('')" class="mobile-randevu-text-btn">
                     RANDEVU AL
                 </button>
             </div>
@@ -2893,7 +2979,7 @@
             </section>
 
             <!-- ======================================================================
-                 3'LÜ ÖZELLİK KARTLARI (TAM OTOMATİK SONSUZ FİLM ŞERİDİ EFEKTİ)
+                 3'LÜ ÖZELLİK KARTLARI
                  ====================================================================== -->
             <section class="w-full max-w-6xl mx-auto px-0 md:px-6 mb-16 md:mb-40 relative z-10">
                 
@@ -3424,7 +3510,7 @@
                 initMobileInfiniteSwipes('education-swipe');
             }
             
-            // Başlangıç Balonu Delayı
+            // Başlangıç Balonu Delayı: 3 Saniye sonra çalışır.
             setTimeout(() => {
                 const bubbleMobile = document.getElementById('topChatBubbleMobile');
                 const bubbleDesktop = document.getElementById('topChatBubbleDesktop');
@@ -3850,10 +3936,12 @@
             
             const panel = document.getElementById('chatPanel');
             
+            // Konuşma baloncuğunu kalıcı olarak gizle
             if (bubbleMobile) bubbleMobile.style.display = 'none';
             if (bubbleDesktop) bubbleDesktop.style.display = 'none';
             
             if(!isChatOpen) {
+                // Tıklama anında anında panel açılır
                 panel.classList.add('show');
                 isChatOpen = true;
             } else {
@@ -3895,6 +3983,7 @@
             scrollToBottom();
         }
 
+        // isJPG parametresi eklendi. True gelirse JPG basar, false gelirse 🦊 emojisi
         function addBotMessage(text, isJPG = false) {
             const chatBody = document.getElementById('chatBody');
             const msgDiv = document.createElement('div');
@@ -3928,7 +4017,7 @@
                 addUserMessage("💰 Dershane Ücreti Ne Kadar?");
                 
                 setTimeout(() => {
-                    // Düşünme sırasında Emoji yok (Boş beyaz kutu veya default ikon bırakılır. Ancak kuralda "emoji düşünürken kullanılmayacaktı" dendiği için JPG'ye alıyoruz.)
+                    // Düşünme sırasında JPG gelsin
                     setAvatarToJPG();
                     typingIndicator.querySelector('.bot-avatar').innerHTML = `<img src="assets/tilki-avatar.png" alt="Bot" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">`;
                     typingIndicator.style.display = 'flex'; 
