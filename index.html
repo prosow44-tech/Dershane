@@ -581,7 +581,7 @@
             transform: scale(1.4) translateY(12%) translateZ(0) !important;
         }
         
-        /* TAKVİM TİLKİSİ (SAYAÇ ÜSTÜ) BÜYÜTME VE KESME */
+        /* TAKVİM TİLKİSİ (SAYAÇ ÜSTÜ) ALT KISIM GİZLEME VE BÜYÜTME */
         .video-crop-calendar video {
             object-position: center top !important;
             
@@ -684,7 +684,7 @@
             border-bottom-color: #ffffff; 
             border-left-color: #ffffff; 
             
-            /* MP4 yuvarlaklara sert gölge KORUNDU */
+            /* Sınıf Kartlarındaki MP4'lere Özel Tok Siyah Gölge EKLENDİ */
             box-shadow: 12px 12px 0px 0px rgba(15, 23, 42, 0.9) !important; 
             background-color: #ffffff; 
         }
@@ -1151,35 +1151,108 @@
             transform: scale(0.94) !important; 
         }
 
-        /* YUVARLAK MASAÜSTÜ CANLI DESTEK İKONU (Tam Randevu Butonu Mantığında Mavi Dolgulu) */
+        /* YENİ: OUTLINE BUTON STİLİ (360 Gezin ve Bize Ulaşın için) */
+        .outline-btn {
+            background-color: transparent; 
+            color: #0ea5e9; 
+            font-weight: 900; 
+            font-size: 0.85rem; 
+            
+            padding-top: 0.5rem; 
+            padding-right: 1.5rem; 
+            padding-bottom: 0.5rem; 
+            padding-left: 0.5rem; 
+            
+            border-top-left-radius: 999px; 
+            border-top-right-radius: 999px; 
+            border-bottom-right-radius: 999px; 
+            border-bottom-left-radius: 999px;
+            
+            border-top-width: 2px;
+            border-right-width: 2px;
+            border-bottom-width: 2px;
+            border-left-width: 2px;
+            
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            
+            border-top-color: #0ea5e9;
+            border-right-color: #0ea5e9;
+            border-bottom-color: #0ea5e9;
+            border-left-color: #0ea5e9;
+            
+            display: inline-flex; 
+            align-items: center; 
+            cursor: pointer; 
+            pointer-events: auto; 
+            will-change: transform; 
+            
+            -webkit-transition-property: background-color, color, box-shadow, transform;
+            -webkit-transition-duration: 0.2s;
+            -webkit-transition-timing-function: ease;
+            
+            -moz-transition-property: background-color, color, box-shadow, transform;
+            -moz-transition-duration: 0.2s;
+            -moz-transition-timing-function: ease;
+            
+            transition-property: background-color, color, box-shadow, transform;
+            transition-duration: 0.2s;
+            transition-timing-function: ease;
+        }
+
+        .outline-btn:hover {
+            background-color: #0ea5e9;
+            color: #ffffff;
+            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+        }
+
+        .outline-btn:active {
+            -webkit-transform: scale(0.94) !important; 
+            -moz-transform: scale(0.94) !important; 
+            transform: scale(0.94) !important; 
+        }
+
+        /* YUVARLAK MASAÜSTÜ CANLI DESTEK İKONU (Randevu Butonu Mantığında Mavi Dolgulu) */
         .desktop-chat-btn-wrapper {
             background-color: #0ea5e9; color: #ffffff; 
             width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
             cursor: pointer; font-size: 1.2rem; transition: all 0.3s ease; position: relative; z-index: 40015;
-            box-shadow: 0 4px 10px rgba(14,165,233,0.3); border: none;
+            box-shadow: 0 4px 10px rgba(14,165,233,0.3); border: none; flex-shrink: 0;
         }
         .desktop-chat-btn-wrapper:hover {
             background-color: #0284c7; transform: scale(1.05); box-shadow: 0 6px 15px rgba(14,165,233,0.4);
         }
         .desktop-chat-btn-wrapper.fading { opacity: 0.3; pointer-events: none; }
 
-        /* Masaüstü Üst Bar Konuşma Baloncuğu - Yönü Sola ve Yukarı Bakacak Şekilde İkona Hedefli */
+        /* Masaüstü Üst Bar Konuşma Baloncuğu - Yönü Yukarı Bakacak Şekilde İkona Hedefli ve Sağa Uzayan */
         .top-chat-bubble-desktop {
-            position: absolute; top: 55px; left: 50%; background-color: #ffffff; color: #0f172a; padding: 8px 16px;
+            position: absolute; top: 55px; left: 0; background-color: #ffffff; color: #0f172a; padding: 8px 16px;
             border-radius: 0 16px 16px 16px; font-weight: 900; font-size: 0.85rem; white-space: nowrap;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 2px solid #e0f2fe; opacity: 0; visibility: hidden;
-            transition: opacity 0.4s ease, transform 0.4s ease; transform: translateX(-50%) translateY(-10px); z-index: 40000; pointer-events: none;
+            transition: opacity 0.4s ease, transform 0.4s ease; transform: translateY(-10px); z-index: 40000; pointer-events: none;
         }
         /* Sivri ok işareti tam yukarı, ikona bakacak şekilde ayarlandı */
         .top-chat-bubble-desktop::before {
-            content: ''; position: absolute; top: -10px; left: calc(50% - 10px); width: 0; height: 0;
+            content: ''; position: absolute; top: -10px; left: 10px; width: 0; height: 0;
             border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 10px solid #e0f2fe;
         }
         .top-chat-bubble-desktop::after {
-            content: ''; position: absolute; top: -7px; left: calc(50% - 9px); width: 0; height: 0;
+            content: ''; position: absolute; top: -7px; left: 11px; width: 0; height: 0;
             border-left: 9px solid transparent; border-right: 9px solid transparent; border-bottom: 9px solid #ffffff;
         }
-        .top-chat-bubble-desktop.show { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .top-chat-bubble-desktop.show { opacity: 1; visibility: visible; transform: translateY(0); }
+
+        /* YENİ: Neon Canlı Destek Metni (İkon Altı) */
+        .neon-text-gradient {
+            background-image: linear-gradient(90deg, #0ea5e9, #8b5cf6, #06b6d4, #0ea5e9);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientShift 3s ease infinite;
+        }
 
         main { 
             padding-top: 250px; 
@@ -1292,15 +1365,15 @@
                 background-color: #0ea5e9; color: #ffffff; 
                 width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
                 cursor: pointer; font-size: 1.1rem; transition: all 0.3s ease; position: relative; z-index: 40015;
-                border: none; box-shadow: 0 4px 10px rgba(14,165,233,0.3);
+                border: none; box-shadow: 0 4px 10px rgba(14,165,233,0.3); flex-shrink: 0;
             }
             .mobile-top-chat-btn-wrapper.fading { opacity: 0.3; pointer-events: none; }
 
-            /* Mobilde Çıkan Canlı Destek Balonu (UX Mantığı - Yukarı İkona Baktırıldı) */
+            /* Mobilde Çıkan Canlı Destek Balonu (UX Mantığı - Yukarı İkona Baktırıldı, Sağa Uzuyor) */
             .top-chat-bubble {
                 position: absolute;
                 top: 50px;
-                left: 50%;
+                left: -10px;
                 background-color: #ffffff;
                 color: #0f172a;
                 padding: 6px 12px;
@@ -1313,24 +1386,24 @@
                 opacity: 0;
                 visibility: hidden;
                 transition: opacity 0.4s ease, transform 0.4s ease;
-                transform: translateX(-50%) translateY(-10px);
+                transform: translateY(-10px);
                 z-index: 40018;
                 pointer-events: none;
             }
             
             /* Ok işareti tam ortadan yukarıya doğru */
             .top-chat-bubble::before {
-                content: ''; position: absolute; top: -8px; left: calc(50% - 8px); width: 0; height: 0;
+                content: ''; position: absolute; top: -8px; left: 10px; width: 0; height: 0;
                 border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid #e0f2fe;
             }
             
             .top-chat-bubble::after {
-                content: ''; position: absolute; top: -5px; left: calc(50% - 7px); width: 0; height: 0;
+                content: ''; position: absolute; top: -5px; left: 11px; width: 0; height: 0;
                 border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid #ffffff;
             }
 
             .top-chat-bubble.show {
-                opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+                opacity: 1; visibility: visible; transform: translateY(0);
             }
             
             .mobile-pill-right {
@@ -1735,7 +1808,7 @@
                 flex-shrink: 0 !important;
                 width: 140px !important;
                 display: flex !important;
-                justify-content: center !important;
+                justify-content: flex-end !important;
                 z-index: 10 !important;
             }
             
@@ -2733,17 +2806,20 @@
         
         <!-- Masaüstü Sol: Hakkımızda + Canlı Destek -->
         <div class="pill-side left hidden md:flex items-center gap-6">
-            <button class="desktop-chat-btn-wrapper" id="desktopChatTrigger" onclick="triggerTopChat()">
-                🦊
-                <!-- Masaüstü için Baloncuk Yönü Solda Yukarı -->
-                <div class="top-chat-bubble-desktop" id="topChatBubbleDesktop">
-                    Sana Yardımcı Olabilirim 🦊
-                </div>
-            </button>
+            <div class="flex flex-col items-center relative group">
+                <button class="desktop-chat-btn-wrapper" id="desktopChatTrigger" onclick="triggerTopChat()">
+                    🦊
+                    <!-- Masaüstü için Baloncuk Yönü İkona (Yukarı) Bakıp Sağa Uzayacak -->
+                    <div class="top-chat-bubble-desktop" id="topChatBubbleDesktop">
+                        Sana Yardımcı Olabilirim 🦊
+                    </div>
+                </button>
+                <span class="neon-text-gradient absolute -bottom-5 text-[10px] font-black tracking-widest whitespace-nowrap">Canlı Destek</span>
+            </div>
             <a href="#hakkimizda" class="pill-link">
                 HAKKIMIZDA
             </a>
-            <button onclick="openTour()" class="pill-link flex items-center gap-1">
+            <button onclick="openTour()" class="outline-btn flex items-center gap-1">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1.25rem; height:1.25rem;">
                     <rect x="7" y="3" width="10" height="18" rx="2" ry="2"></rect>
                     <path d="M3 12c0-3.3 2.7-6 6-6"></path>
@@ -2762,14 +2838,15 @@
 
         <!-- Masaüstü Sağ: Yol Tarifi İkonu + Randevu Al -->
         <div class="pill-side right hidden md:flex items-center gap-6">
-            <a href="tel:+905000000000" class="pill-link text-cyan-600 font-extrabold items-center gap-2">
+            <a href="tel:+905000000000" class="outline-btn items-center gap-2">
                 BİZE ULAŞIN
             </a>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="pill-link" aria-label="Yol Tarifi" style="color: #0ea5e9;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="pill-link" aria-label="Yol Tarifi" style="color: #0ea5e9; font-weight: 900;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px; margin-right: 4px;">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                     <circle cx="12" cy="10" r="3"></circle>
                 </svg>
+                YOL TARİFİ
             </a>
             <button onclick="openModal('')" class="magnetic-btn" style="padding: 0.6rem 1.5rem;">
                 HIZLI RANDEVU
@@ -2783,7 +2860,7 @@
                 <!-- Canlı Destek Menü İçi İkonu (Tilki Emoji) -->
                 <button class="mobile-top-chat-btn-wrapper" id="mobileChatTrigger" onclick="triggerTopChat()">
                     🦊
-                    <!-- Mobilde Yarım Saniyede Açılan Baloncuk -->
+                    <!-- Mobilde Gecikmeli Açılan Baloncuk -->
                     <div class="top-chat-bubble" id="topChatBubbleMobile">
                         Sana Yardımcı Olabilirim 🦊
                     </div>
@@ -2961,7 +3038,6 @@
             <section class="w-full max-w-4xl px-4 md:px-6 mb-24 md:mb-40 relative z-10 text-center">
                 
                 <div class="flex justify-center mb-8">
-                    <!-- Takvim Tilkisi (Crop class'ı atandı, bacaklar gizlendi, büyütüldü) -->
                     <div class="webm-mask video-skeleton video-crop-calendar" style="width: 110px; height: 110px; border-top-width: 6px; border-right-width: 6px; border-bottom-width: 6px; border-left-width: 6px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #ffffff; border-right-color: #ffffff; border-bottom-color: #ffffff; border-left-color: #ffffff; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
                         <video data-src="assets/takvim.mp4" preload="none" playsinline loop muted></video>
                     </div>
@@ -3415,13 +3491,13 @@
                 initMobileInfiniteSwipes('education-swipe');
             }
             
-            // 3 Saniye Sonra Canlı Destek Baloncuğunu Göster
+            // 3 Saniye Sonra Canlı Destek Baloncuğunu Göster (Mobil & Masaüstü)
             setTimeout(() => {
                 const bubbleMobile = document.getElementById('topChatBubbleMobile');
                 const bubbleDesktop = document.getElementById('topChatBubbleDesktop');
                 if (bubbleMobile && !isChatOpen) bubbleMobile.classList.add('show');
                 if (bubbleDesktop && !isChatOpen) bubbleDesktop.classList.add('show');
-            }, 500);
+            }, 3000);
         });
 
         /* ----------------------------------------------------------------------
@@ -3828,6 +3904,11 @@
             }
         }
 
+        // Random delay üretici (1.5s ile 2.5s arası)
+        function getRandomDelay() {
+            return Math.floor(Math.random() * (2500 - 1500 + 1)) + 1500;
+        }
+
         window.triggerTopChat = function() {
             const btnMobile = document.getElementById('mobileChatTrigger');
             const bubbleMobile = document.getElementById('topChatBubbleMobile');
@@ -3837,11 +3918,12 @@
             
             const panel = document.getElementById('chatPanel');
             
+            // Konuşma baloncuğunu kalıcı olarak gizle
             if (bubbleMobile) bubbleMobile.style.display = 'none';
             if (bubbleDesktop) bubbleDesktop.style.display = 'none';
             
             if(!isChatOpen) {
-                // Anında panel açılır
+                // Tıklama anında anında panel açılır
                 panel.classList.add('show');
                 isChatOpen = true;
             } else {
@@ -3883,6 +3965,7 @@
             scrollToBottom();
         }
 
+        // isJPG parametresi eklendi. True gelirse JPG basar, false gelirse 🦊 emojisi
         function addBotMessage(text, isJPG = false) {
             const chatBody = document.getElementById('chatBody');
             const msgDiv = document.createElement('div');
@@ -3919,6 +4002,7 @@
                     typingIndicator.style.display = 'flex'; 
                     scrollToBottom();
                     
+                    const dynamicDelay1 = getRandomDelay();
                     setTimeout(() => {
                         typingIndicator.style.display = 'none';
                         setAvatarToJPG();
@@ -3929,6 +4013,7 @@
                             scrollToBottom(); 
                         }, 300);
                         
+                        const dynamicDelay2 = getRandomDelay();
                         setTimeout(() => {
                             typingIndicator.style.display = 'none';
                             addBotMessage("Öğrenci hangi sınıfta öğrenim görmekte? 👇", true);
@@ -3943,9 +4028,9 @@
                             `;
                             document.getElementById('chatBody').appendChild(actionDiv);
                             scrollToBottom();
-                        }, 1000);
-                    }, 1000);
-                }, 1000);
+                        }, dynamicDelay2);
+                    }, dynamicDelay1);
+                }, 300);
             } 
             
             else if (optionType === '360tur') {
@@ -3955,6 +4040,7 @@
                     typingIndicator.style.display = 'flex'; 
                     scrollToBottom();
                     
+                    const dynamicDelay1 = getRandomDelay();
                     setTimeout(() => {
                         typingIndicator.style.display = 'none';
                         setAvatarToJPG();
@@ -3965,6 +4051,7 @@
                             scrollToBottom(); 
                         }, 300);
                         
+                        const dynamicDelay2 = getRandomDelay();
                         setTimeout(() => {
                             typingIndicator.style.display = 'none';
                             addBotMessage("Sanal turu başlatıyorum, iyi gezintiler! 🚀", true);
@@ -3974,9 +4061,9 @@
                                 openTour();
                                 toggleChatPanel();
                             }, 2000); 
-                        }, 1000);
-                    }, 1000);
-                }, 1000);
+                        }, dynamicDelay2);
+                    }, dynamicDelay1);
+                }, 300);
             }
 
             else if (optionType === 'baska') {
@@ -3986,6 +4073,7 @@
                     typingIndicator.style.display = 'flex'; 
                     scrollToBottom(); 
                     
+                    const dynamicDelay1 = getRandomDelay();
                     setTimeout(() => {
                         typingIndicator.style.display = 'none';
                         setAvatarToJPG();
@@ -4018,6 +4106,7 @@
                                 scrollToBottom(); 
                             }, 300);
                             
+                            const dynamicDelay3 = getRandomDelay();
                             setTimeout(() => {
                                 typingIndicator.style.display = 'none';
                                 addBotMessage("Bu sorunuzu yetkili hocalarımıza iletmek ve size en doğru cevabı sunabilmek için sizi doğrudan çağrı merkezimize aktarıyorum... 📞", true);
@@ -4025,7 +4114,7 @@
                                 setTimeout(() => {
                                     window.location.href = "tel:+905000000000";
                                 }, 2000); 
-                            }, 1000);
+                            }, dynamicDelay3);
                         };
                         
                         textInput.addEventListener("keyup", function(event) {
@@ -4040,8 +4129,8 @@
                         document.getElementById('chatBody').appendChild(inputContainer);
                         scrollToBottom();
                         textInput.focus();
-                    }, 1000);
-                }, 1000);
+                    }, dynamicDelay1);
+                }, 300);
             }
         };
 
@@ -4059,6 +4148,7 @@
                 scrollToBottom(); 
             }, 300);
             
+            const dynamicDelayFinal = getRandomDelay();
             setTimeout(() => {
                 typingIndicator.style.display = 'none';
                 if (type === 'tel') {
@@ -4067,7 +4157,7 @@
                         window.location.href = "tel:+905000000000";
                     }, 2000); 
                 }
-            }, 1000);
+            }, dynamicDelayFinal);
         };
 
         /* ----------------------------------------------------------------------
