@@ -134,7 +134,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- ======================================================================
-         KAPSAMLI CSS MİMARİSİ
+         KAPSAMLI CSS MİMARİSİ (HACİM STANDARDI VE KUSURSUZ DETAYLAR)
          ====================================================================== -->
     <style>
         /* --------------------------------------------------------------------------
@@ -581,7 +581,7 @@
             transform: scale(1.4) translateY(12%) translateZ(0) !important;
         }
         
-        /* TAKVİM TİLKİSİ (SAYAÇ ÜSTÜ) ALT KISIM GİZLEME VE BÜYÜTME */
+        /* TAKVİM TİLKİSİ (SAYAÇ ÜSTÜ) BÜYÜTME VE KESME */
         .video-crop-calendar video {
             object-position: center top !important;
             
@@ -621,7 +621,6 @@
             border-bottom-color: #ffffff; 
             border-left-color: #ffffff; 
             
-            /* Özellik Kartları İçin Tok Siyah Gölge KORUNDU */
             box-shadow: 12px 12px 0px 0px rgba(15, 23, 42, 0.9) !important; 
             
             background-color: #f8fafc; 
@@ -685,7 +684,7 @@
             border-bottom-color: #ffffff; 
             border-left-color: #ffffff; 
             
-            /* Sınıf Kartlarındaki MP4'lere Özel Tok Siyah Gölge EKLENDİ */
+            /* MP4 yuvarlaklara sert gölge KORUNDU */
             box-shadow: 12px 12px 0px 0px rgba(15, 23, 42, 0.9) !important; 
             background-color: #ffffff; 
         }
@@ -713,7 +712,7 @@
            4. MAARİF KURDELESİ YÖNETİMİ
            -------------------------------------------------------------------------- */
         
-        /* Kurdele menüleri engellemesin diye Hero Video kapsayıcısının içine hapsedildi */
+        /* Kurdele Hero Video kapsayıcısının içine hapsedildi */
         .maarif-ribbon-wrapper { 
             position: absolute; 
             top: 0; 
@@ -744,7 +743,6 @@
             -ms-transform: rotate(45deg); 
             transform: rotate(45deg); 
             
-            /* Metin tam ortalanacak şekilde hizalama yapıldı */
             padding-top: 6px;
             padding-bottom: 6px; 
             padding-left: 0;
@@ -760,8 +758,6 @@
             border-bottom-color: #cffafe; 
             
             box-shadow: 0 4px 15px rgba(6,182,212,0.5); 
-            
-            /* Kırılmaları engelleyen kilit kural */
             white-space: nowrap !important;
             letter-spacing: 0.5px; 
             text-shadow: 0 1px 2px rgba(0,0,0,0.2);
@@ -1196,7 +1192,7 @@
             overflow-y: visible !important;
         }
         
-        /* Eğitim Sınıfı Kartları İÇİN GÖLGE İPTAL EDİLDİ - Alt Çizgi Eklendi */
+        /* Eğitim Sınıfı Kartları İÇİN GÖLGE İPTAL EDİLDİ - Sadece Alt Çizgi Korundu */
         .card-shield-clean {
             background-color: #ffffff; 
             position: relative; 
@@ -1209,7 +1205,6 @@
             
             margin-bottom: 50px; 
             
-            /* KULLANICI TALEBİ: "sınıf bölümlerinde gölgeyi sadece yuvarlaklara yani mp4 lere uygula" */
             box-shadow: none !important;
             border-bottom: 2px solid #f1f5f9;
             
@@ -1253,7 +1248,7 @@
                 display: none !important; 
             }
             
-            /* Mobil Üst Menü 52px Olarak Daraltıldı ve Ortalama İçin Flex Yapıldı */
+            /* Mobil Üst Menü Flex Dağılımı ve Daraltma */
             .pill-nav { 
                 top: 15px; 
                 height: 52px; 
@@ -1273,24 +1268,7 @@
                 top: 10px; 
             }
             
-            /* Üst Menü Sol Taraf: Sadece Ev İkonu (Simetri İçin) */
-            .mobile-hakkimizda-link {
-                display: flex !important;
-                align-items: center;
-                justify-content: center;
-                color: #0ea5e9;
-                text-decoration: none;
-                
-                padding-top: 5px;
-                padding-right: 5px;
-                padding-bottom: 5px;
-                padding-left: 10px;
-                
-                flex: 1;
-                z-index: 40015;
-            }
-            
-            /* Logo Tam Merkez Kilidi */
+            /* Logo Merkez Kilit */
             .pill-logo-link { 
                 position: absolute !important; 
                 left: 50% !important; 
@@ -1326,20 +1304,127 @@
                 transform: translate(-50%, -50%) scale(1.05) !important; 
             }
             
-            .mobile-pill-actions {
+            /* ÜST MENÜ MOBİL YENİ TASARIMI (Hakkımızda + Chat | Randevu + Yol Tarifi) */
+            .mobile-pill-container {
                 display: flex !important;
-                flex: 1 !important;
-                justify-content: flex-end !important;
+                width: 100% !important;
+                justify-content: space-between !important;
+                align-items: center !important;
             }
             
-            .magnetic-btn { 
-                padding-top: 0.6rem; 
-                padding-right: 1.2rem; 
-                padding-bottom: 0.6rem; 
-                padding-left: 1.2rem; 
-                font-size: 0.70rem; 
+            .mobile-pill-left {
+                display: flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+                flex: 1 !important;
+            }
+            
+            .mobile-hakkimizda-text {
+                font-size: 0.65rem;
+                font-weight: 900;
+                color: #0ea5e9;
+                text-decoration: none;
+                padding-left: 10px;
+                white-space: nowrap;
+            }
+            
+            .mobile-top-chat-btn {
+                background: none;
+                border: none;
+                font-size: 1.2rem;
+                cursor: pointer;
+                position: relative;
+                padding: 0;
+                transition: opacity 0.3s;
+            }
+
+            .mobile-top-chat-btn.fading {
+                opacity: 0.3;
+            }
+
+            /* 3. Saniyede Çıkan Canlı Destek Balonu (UX Mantığı) */
+            .top-chat-bubble {
+                position: absolute;
+                top: 35px;
+                left: -10px;
+                background-color: #ffffff;
+                color: #0f172a;
+                padding: 6px 12px;
+                border-radius: 0 12px 12px 12px;
+                font-weight: 900;
+                font-size: 0.75rem;
+                white-space: nowrap;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+                border: 2px solid #e0f2fe;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.4s ease, transform 0.4s ease;
+                transform: translateY(-10px);
+                z-index: 40018;
+                pointer-events: none;
+            }
+            
+            .top-chat-bubble::before {
+                content: '';
+                position: absolute;
+                top: -8px;
+                left: 10px;
+                width: 0;
+                height: 0;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-bottom: 8px solid #e0f2fe;
+            }
+            
+            .top-chat-bubble::after {
+                content: '';
+                position: absolute;
+                top: -5px;
+                left: 11px;
+                width: 0;
+                height: 0;
+                border-left: 7px solid transparent;
+                border-right: 7px solid transparent;
+                border-bottom: 7px solid #ffffff;
+            }
+
+            .top-chat-bubble.show {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+            
+            .mobile-pill-right {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: flex-end !important;
+                gap: 8px !important;
+                flex: 1 !important;
+            }
+            
+            .mobile-route-icon {
+                color: #0ea5e9;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .magnetic-btn-small { 
+                background-color: #06b6d4; 
+                color: #ffffff; 
+                font-weight: 900; 
+                
+                padding-top: 0.5rem; 
+                padding-right: 0.8rem; 
+                padding-bottom: 0.5rem; 
+                padding-left: 0.8rem; 
+                
+                border-radius: 999px; 
+                font-size: 0.65rem; 
                 position: relative;
                 z-index: 40015;
+                box-shadow: 0 4px 10px rgba(6,182,212,0.4); 
             }
             
             .webm-btn-icon { 
@@ -1352,7 +1437,6 @@
                 width: 100vw !important;
             }
 
-            /* Alt çubuk boyutu 52px */
             .mobile-bottom-nav { 
                 display: block !important; 
                 position: fixed; 
@@ -1552,8 +1636,8 @@
                 overflow-x: auto !important;
                 overflow-y: visible !important;
                 
-                /* Sonsuz Döngü JS kurgusu için snap iptal */
-                scroll-snap-type: none !important; 
+                /* ESKİ MANTIK - SNAP AÇIK */
+                scroll-snap-type: x mandatory !important; 
                 scroll-behavior: smooth !important;
                 -webkit-overflow-scrolling: touch !important;
                 width: 100% !important;
@@ -1570,6 +1654,7 @@
                 display: none !important; 
             }
             
+            /* SINIFLARIN MOBİL ARAYÜZÜ BİREBİR ESKİSİ GİBİ YAPILDI (85vw ODAKLI) */
             .mobile-swipe-item {
                 flex: 0 0 85vw !important; 
                 scroll-snap-align: center !important;
@@ -1617,53 +1702,6 @@
                 z-index: 10;
             }
             
-            /* Dikey istifleme (2x2) mantığı EKLENDİ */
-            .mobile-double-slide {
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 15px !important;
-                
-                flex: 0 0 85vw !important; 
-                scroll-snap-align: center !important;
-                
-                -webkit-transition-property: all;
-                -webkit-transition-duration: 0.4s;
-                -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-                
-                -moz-transition-property: all;
-                -moz-transition-duration: 0.4s;
-                -moz-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-                
-                transition-property: all;
-                transition-duration: 0.4s;
-                transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-                
-                opacity: 0.4 !important; 
-                
-                -webkit-filter: blur(4px) !important; 
-                filter: blur(4px) !important; 
-                
-                -webkit-transform: scale(0.85) !important; 
-                -moz-transform: scale(0.85) !important; 
-                transform: scale(0.85) !important; 
-                
-                position: relative;
-                will-change: transform, opacity, filter;
-            }
-            
-            .mobile-double-slide.is-centered {
-                opacity: 1 !important;
-                
-                -webkit-filter: blur(0px) !important;
-                filter: blur(0px) !important;
-                
-                -webkit-transform: scale(1) !important;
-                -moz-transform: scale(1) !important;
-                transform: scale(1) !important;
-                
-                z-index: 10;
-            }
-
             .card-shield-hard { 
                 padding-top: 1.5rem !important; 
                 padding-right: 1.5rem !important; 
@@ -1679,33 +1717,47 @@
                 overflow-y: visible !important;
             }
 
-            .card-shield-clean { 
-                padding-top: 1.5rem !important; 
-                padding-right: 1.5rem !important; 
-                padding-bottom: 1.5rem !important; 
-                padding-left: 1.5rem !important; 
+            /* Ortadan İkiye Bölünmüş Şeffaf Kart CSS Yapısı */
+            .card-shield-clean {
+                background-color: transparent !important; 
+                border: none !important;
+                box-shadow: none !important;
                 
-                border-top-left-radius: 1.5rem !important; 
-                border-top-right-radius: 1.5rem !important; 
-                border-bottom-right-radius: 1.5rem !important; 
-                border-bottom-left-radius: 1.5rem !important; 
+                padding-top: 0 !important; 
+                padding-right: 0 !important; 
+                padding-bottom: 0 !important; 
+                padding-left: 0 !important; 
                 
                 overflow-x: visible !important;
                 overflow-y: visible !important;
+                
+                display: flex !important;
+                flex-direction: row !important; /* Dikey bölünme sağlar */
+                align-items: center !important;
+                justify-content: space-between !important;
+                gap: 15px !important;
+                
+                height: 220px !important;
+                margin-bottom: 30px !important;
+            }
+            
+            .card-text-side {
+                flex: 1 !important;
+                text-align: left !important;
+                background: transparent !important;
+                padding: 10px !important;
+                z-index: 10 !important;
+            }
+            
+            .card-video-side {
+                flex-shrink: 0 !important;
+                width: 140px !important;
+                display: flex !important;
+                justify-content: flex-end !important;
+                z-index: 10 !important;
             }
             
             .education-mobile-row { 
-                overflow-x: visible !important;
-                overflow-y: visible !important;
-                
-                flex-direction: column !important; 
-                text-align: center !important; 
-                justify-content: space-between !important; 
-                height: 300px !important;
-                margin-bottom: 0 !important;
-                width: 100% !important;
-                
-                /* GÖLGE İPTAL EDİLDİ */
                 box-shadow: none !important;
             }
             
@@ -1732,29 +1784,34 @@
             }
             
             .education-mobile-row p { 
-                display: none !important; 
+                font-size: 0.75rem !important;
+                line-height: 1.3 !important;
+                margin-bottom: 15px !important;
+                display: block !important; 
             }
             
             .education-mobile-row h2 { 
-                font-size: 1.8rem !important; 
+                font-size: 1.5rem !important; 
                 margin-bottom: 0.25rem !important; 
+                text-align: left !important;
             }
             
             .education-mobile-row h3 { 
-                font-size: 0.9rem !important; 
-                margin-bottom: 1rem !important; 
+                font-size: 0.8rem !important; 
+                margin-bottom: 0.5rem !important; 
+                text-align: left !important;
             }
             
             .education-mobile-row .magnetic-btn {
                 background-image: linear-gradient(135deg, #0ea5e9, #0284c7) !important;
                 color: #ffffff !important;
                 
-                padding-top: 0.8rem !important;
-                padding-right: 2rem !important;
-                padding-bottom: 0.8rem !important;
-                padding-left: 2rem !important;
+                padding-top: 0.6rem !important;
+                padding-right: 1.5rem !important;
+                padding-bottom: 0.6rem !important;
+                padding-left: 1.5rem !important;
                 
-                font-size: 1rem !important;
+                font-size: 0.85rem !important;
                 
                 border-top-left-radius: 999px !important;
                 border-top-right-radius: 999px !important;
@@ -1762,9 +1819,8 @@
                 border-bottom-left-radius: 999px !important;
                 
                 box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3) !important;
-                width: 100% !important;
-                justify-content: center !important;
-                margin-top: auto;
+                width: auto !important;
+                display: inline-flex !important;
             }
             
             .webm-card-bottom { 
@@ -1779,18 +1835,18 @@
             }
             
             .education-mobile-row .webm-egitim { 
-                width: 100px !important; 
-                height: 100px !important; 
+                width: 130px !important; 
+                height: 130px !important; 
                 
-                margin-top: 0 !important;
-                margin-right: auto !important;
-                margin-bottom: 1rem !important;
-                margin-left: auto !important;
+                margin: 0 !important;
                 
                 border-top-width: 4px !important; 
                 border-right-width: 4px !important; 
                 border-bottom-width: 4px !important; 
                 border-left-width: 4px !important; 
+                
+                /* Sadece MP4 yuvarlaklara Sert Gölge uygulandı */
+                box-shadow: 12px 12px 0px 0px rgba(15, 23, 42, 0.9) !important;
             }
 
             .counter-card { 
@@ -2603,198 +2659,9 @@
            9. CANLI DESTEK TİLKİ BOTU, SOHBET PANELİ VE KONUŞMA BALONU
            -------------------------------------------------------------------------- */
         
+        /* Sağ alttaki buton tamamen gizlendi, üst menüye aktarıldı */
         .fox-bot-wrapper {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 54000;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            pointer-events: none;
-        }
-
-        .fox-speech-bubble {
-            position: absolute;
-            right: 80px; 
-            bottom: 10px;
-            background-color: #ffffff;
-            color: #0f172a;
-            
-            padding-top: 12px;
-            padding-right: 20px;
-            padding-bottom: 12px;
-            padding-left: 20px;
-            
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-            border-bottom-right-radius: 0px;
-            border-bottom-left-radius: 20px;
-            
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            font-weight: 900;
-            font-size: 0.95rem;
-            white-space: nowrap !important;
-            
-            border-top-width: 2px;
-            border-right-width: 2px;
-            border-bottom-width: 2px;
-            border-left-width: 2px;
-            
-            border-top-style: solid;
-            border-right-style: solid;
-            border-bottom-style: solid;
-            border-left-style: solid;
-            
-            border-top-color: #e0f2fe;
-            border-right-color: #e0f2fe;
-            border-bottom-color: #e0f2fe;
-            border-left-color: #e0f2fe;
-            
-            pointer-events: auto;
-            cursor: pointer;
-            
-            -webkit-animation-name: bounceBubble;
-            -webkit-animation-duration: 2s;
-            -webkit-animation-iteration-count: infinite;
-            
-            -moz-animation-name: bounceBubble;
-            -moz-animation-duration: 2s;
-            -moz-animation-iteration-count: infinite;
-            
-            animation-name: bounceBubble;
-            animation-duration: 2s;
-            animation-iteration-count: infinite;
-            
-            -webkit-transition-property: opacity, visibility;
-            -webkit-transition-duration: 0.3s;
-            
-            -moz-transition-property: opacity, visibility;
-            -moz-transition-duration: 0.3s;
-            
-            transition-property: opacity, visibility;
-            transition-duration: 0.3s;
-        }
-
-        .fox-speech-bubble::after {
-            content: '';
-            position: absolute;
-            right: -10px;
-            bottom: -2px;
-            
-            width: 0;
-            height: 0;
-            
-            border-left-width: 12px;
-            border-left-style: solid;
-            border-left-color: #ffffff;
-            
-            border-top-width: 10px;
-            border-top-style: solid;
-            border-top-color: transparent;
-            
-            border-bottom-width: 10px;
-            border-bottom-style: solid;
-            border-bottom-color: transparent;
-        }
-        
-        .fox-speech-bubble::before {
-            content: '';
-            position: absolute;
-            right: -13px;
-            bottom: -3px;
-            
-            width: 0;
-            height: 0;
-            
-            border-left-width: 13px;
-            border-left-style: solid;
-            border-left-color: #e0f2fe;
-            
-            border-top-width: 11px;
-            border-top-style: solid;
-            border-top-color: transparent;
-            
-            border-bottom-width: 11px;
-            border-bottom-style: solid;
-            border-bottom-color: transparent;
-            z-index: -1;
-        }
-
-        @-webkit-keyframes bounceBubble {
-            0%, 100% { -webkit-transform: translateY(0); transform: translateY(0); }
-            50% { -webkit-transform: translateY(-5px); transform: translateY(-5px); }
-        }
-        
-        @-moz-keyframes bounceBubble {
-            0%, 100% { -moz-transform: translateY(0); transform: translateY(0); }
-            50% { -moz-transform: translateY(-5px); transform: translateY(-5px); }
-        }
-        
-        @keyframes bounceBubble {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-
-        .fox-bot-trigger {
-            width: 65px;
-            height: 65px;
-            background-color: #ffffff;
-            
-            border-top-left-radius: 50%;
-            border-top-right-radius: 50%;
-            border-bottom-right-radius: 50%;
-            border-bottom-left-radius: 50%;
-            
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-            border-top-width: 3px;
-            border-right-width: 3px;
-            border-bottom-width: 3px;
-            border-left-width: 3px;
-            
-            border-top-style: solid;
-            border-right-style: solid;
-            border-bottom-style: solid;
-            border-left-style: solid;
-            
-            border-top-color: #0ea5e9;
-            border-right-color: #0ea5e9;
-            border-bottom-color: #0ea5e9;
-            border-left-color: #0ea5e9;
-            
-            pointer-events: auto;
-            position: relative;
-            
-            -webkit-transition-property: transform;
-            -webkit-transition-duration: 0.3s;
-            -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            
-            -moz-transition-property: transform;
-            -moz-transition-duration: 0.3s;
-            -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            
-            transition-property: transform;
-            transition-duration: 0.3s;
-            transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            
-            overflow: hidden;
-        }
-
-        .fox-bot-trigger:hover {
-            -webkit-transform: scale(1.1);
-            -moz-transform: scale(1.1);
-            transform: scale(1.1);
-        }
-
-        .fox-bot-trigger img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            display: none !important;
         }
 
         .chat-panel {
@@ -3439,8 +3306,6 @@
     <!-- Dinamik İlerleme Çubuğu -->
     <div class="progress-bar" id="progressBar"></div>
 
-    <!-- MAARİF KURDELESİ (Hero Alanı İçine Taşındı) -->
-
     <!-- ==========================================================================
          KATMAN 1: ANA SARKAN MENÜ (MASAÜSTÜ İÇİN)
          ========================================================================== -->
@@ -3508,16 +3373,38 @@
             </button>
         </div>
 
-        <div class="mobile-pill-actions md:hidden" style="width: 100%; justify-content: space-between; align-items: center;">
-            <a href="#hakkimizda" class="mobile-hakkimizda-link">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                </svg>
-            </a>
-            <button onclick="openModal('')" class="magnetic-btn shadow-md">
-                RANDEVU AL
-            </button>
+        <!-- YENİ MOBİL ÜST MENÜ: Sol (Hakkımızda + Chat), Orta (Logo), Sağ (Randevu + Yol Tarifi) -->
+        <div class="mobile-pill-container md:hidden">
+            
+            <div class="mobile-pill-left">
+                <a href="#hakkimizda" class="mobile-hakkimizda-text">
+                    HAKKIMIZDA
+                </a>
+                
+                <!-- Canlı Destek Menü İçi İkonu (Tilki Emoji) -->
+                <button class="mobile-top-chat-btn" id="topChatTrigger" onclick="triggerTopChat()">
+                    🦊
+                    <!-- Gecikmeli Açılan Baloncuk -->
+                    <div class="top-chat-bubble" id="topChatBubble">
+                        Sana Yardımcı Olabilirim 🦊
+                    </div>
+                </button>
+            </div>
+            
+            <div class="mobile-pill-right">
+                <!-- Yol Tarifi İkonu -->
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="mobile-route-icon" aria-label="Yol Tarifi">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </a>
+                
+                <button onclick="openModal('')" class="magnetic-btn-small">
+                    RANDEVU AL
+                </button>
+            </div>
+            
         </div>
     </nav>
 
@@ -3573,7 +3460,7 @@
             
             <!-- Hero Video ve Maarif Kurdelesi -->
             <section id="anasayfa" class="w-full max-w-5xl mx-auto px-6 mb-16 md:mb-32 text-center relative z-10">
-                <div class="w-full relative rounded-[3rem] overflow-hidden flex items-center justify-center bg-transparent">
+                <div class="w-full relative rounded-[3rem] overflow-hidden flex items-center justify-center bg-transparent" style="box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-bottom: 2px solid #f1f5f9;">
                     
                     <div class="maarif-ribbon-wrapper">
                         <div class="maarif-ribbon">
@@ -3606,26 +3493,6 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 relative mobile-swipe-container" id="features-swipe">
                         
-                        <!-- KLONLANMIŞ ÖĞE (Sonsuz Döngü İçin Başa Eklenir - Öğrenci görmez, JS sıçrar) -->
-                        <div class="mobile-swipe-item card-shield-hard border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f1f5f9; border-right-color: #f1f5f9; border-bottom-color: #f1f5f9; border-left-color: #f1f5f9; p-12 pb-20 text-center flex flex-col items-center relative md:hidden">
-                            <div class="icon-box text-cyan-500">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
-                                    <polyline points="16 7 22 7 22 13"></polyline>
-                                </svg>
-                            </div>
-                            <h3 class="font-black text-slate-900 text-xl mb-4">
-                                Deneme & Analiz
-                            </h3>
-                            <p class="text-slate-500 font-bold leading-relaxed">
-                                Gerçek sınav zorluğundaki Türkiye geneli denemeler ve detaylı ölçülebilir gelişim raporları.
-                            </p>
-                            <div class="webm-mask webm-card-bottom video-skeleton">
-                                <video data-src="assets/net-artirma.mp4" preload="none" playsinline loop muted></video>
-                            </div>
-                        </div>
-
-                        <!-- ORİJİNAL KART 1: Alanında Uzman Kadro -->
                         <div class="mobile-swipe-item card-shield-hard border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f1f5f9; border-right-color: #f1f5f9; border-bottom-color: #f1f5f9; border-left-color: #f1f5f9; p-12 pb-20 text-center flex flex-col items-center relative">
                             <div class="icon-box text-cyan-500">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3644,7 +3511,6 @@
                             </div>
                         </div>
                         
-                        <!-- ORİJİNAL KART 2: Birebir Takip -->
                         <div class="mobile-swipe-item card-shield-hard border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f1f5f9; border-right-color: #f1f5f9; border-bottom-color: #f1f5f9; border-left-color: #f1f5f9; p-12 pb-20 text-center flex flex-col items-center relative">
                             <div class="icon-box text-blue-500">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3664,7 +3530,6 @@
                             </div>
                         </div>
                         
-                        <!-- ORİJİNAL KART 3: Deneme & Analiz -->
                         <div class="mobile-swipe-item card-shield-hard border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f1f5f9; border-right-color: #f1f5f9; border-bottom-color: #f1f5f9; border-left-color: #f1f5f9; p-12 pb-20 text-center flex flex-col items-center relative">
                             <div class="icon-box text-cyan-500">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3682,25 +3547,6 @@
                                 <video data-src="assets/net-artirma.mp4" preload="none" playsinline loop muted></video>
                             </div>
                         </div>
-
-                        <!-- KLONLANMIŞ ÖĞE (Sonsuz Döngü İçin Sona Eklenir - JS anında 1. karta sıçrar) -->
-                        <div class="mobile-swipe-item card-shield-hard border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f1f5f9; border-right-color: #f1f5f9; border-bottom-color: #f1f5f9; border-left-color: #f1f5f9; p-12 pb-20 text-center flex flex-col items-center relative md:hidden">
-                            <div class="icon-box text-cyan-500">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M22 10 12 5 2 10l10 5 10-5Z"></path>
-                                    <path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"></path>
-                                </svg>
-                            </div>
-                            <h3 class="font-black text-slate-900 text-xl mb-4">
-                                Alanında Uzman Kadro
-                            </h3>
-                            <p class="text-slate-500 font-bold leading-relaxed">
-                                Sınav sisteminin tüm şifrelerine hakim, dereceler çıkartan profesyonel eğitmen kadrosu.
-                            </p>
-                            <div class="webm-mask webm-card-bottom video-skeleton">
-                                <video data-src="assets/rahatlama.mp4" preload="none" playsinline loop muted></video>
-                            </div>
-                        </div>
                         
                     </div>
                     <div class="pagination-dots md:hidden" id="features-dots"></div>
@@ -3713,13 +3559,12 @@
             <section class="w-full max-w-4xl px-4 md:px-6 mb-24 md:mb-40 relative z-10 text-center">
                 
                 <div class="flex justify-center mb-8">
-                    <!-- Takvim Tilkisi (Crop class'ı atıldı, bacaklar gizlendi, büyütüldü) -->
+                    <!-- Takvim Tilkisi Büyütüldü (scale 1.3) -->
                     <div class="webm-mask video-skeleton video-crop-calendar" style="width: 110px; height: 110px; border-top-width: 6px; border-right-width: 6px; border-bottom-width: 6px; border-left-width: 6px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #ffffff; border-right-color: #ffffff; border-bottom-color: #ffffff; border-left-color: #ffffff; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
                         <video data-src="assets/takvim.mp4" preload="none" playsinline loop muted></video>
                     </div>
                 </div>
 
-                <!-- Sayaç Kartı Soft Gölge İle Bırakıldı -->
                 <div id="counterCard" class="card-shield-soft counter-card border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f1f5f9; border-right-color: #f1f5f9; border-bottom-color: #f1f5f9; border-left-color: #f1f5f9; p-8 md:p-16 w-full inline-block relative">
                     
                     <button id="btn-back" class="back-btn" onclick="unlockCounter()">
@@ -3781,223 +3626,95 @@
             </section>
 
             <!-- ======================================================================
-                 SINIF BÖLÜMLERİ (Masaüstü: Sıralı İzometrik | Mobil: SONSUZ 2X2 DÖNGÜ)
+                 SINIF BÖLÜMLERİ (Ortadan ikiye bölünen şeffaf kart yapısı - Tekli Kayan)
                  ====================================================================== -->
             <div class="w-full max-w-6xl mx-auto mobile-swipe-wrapper mb-20">
                 <div class="mobile-swipe-container w-full px-0 md:px-6" id="education-swipe">
                     
-                    <!-- EĞİTİM KLON 1 (Sonsuz Döngü Başı) -->
-                    <div class="mobile-double-slide md:hidden">
-                        <div class="education-mobile-row relative w-full flex flex-col md:flex-row items-center justify-between mb-32 md:mb-40 mx-auto card-shield-clean border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f8fafc; border-right-color: #f8fafc; border-bottom-color: #f8fafc; border-left-color: #f8fafc;">
-                            <div class="flex-1 text-center md:text-left w-full flex flex-col h-full">
-                                <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">
-                                    MEZUN
-                                </h2>
-                                <h3 class="text-cyan-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">
-                                    YKS Hedef Büyütme
-                                </h3>
-                                <p class="text-slate-500 font-bold text-base leading-relaxed mb-8">
-                                    Hedefine ulaşmak için eksik odaklı, yoğunlaştırılmış VIP eğitim sunuyoruz.
-                                </p>
-                                <div class="webm-mask webm-egitim md:hidden video-skeleton">
-                                    <video data-src="assets/sevinme.mp4" preload="none" playsinline loop muted></video>
-                                </div>
-                                <button onclick="openModal('Mezun')" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 rounded-xl hover:bg-cyan-500 transition-colors text-base border-none">
-                                    Randevu Al
-                                </button>
-                            </div>
+                    <div id="sinif-5-8" class="mobile-swipe-item education-mobile-row card-shield-clean mx-auto">
+                        <div class="card-text-side">
+                            <h2 class="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter">
+                                5-8. SINIF
+                            </h2>
+                            <h3 class="text-cyan-500 font-black text-base md:text-2xl tracking-widest uppercase">
+                                LGS Hazırlık
+                            </h3>
+                            <p class="text-slate-500 font-bold text-base leading-relaxed">
+                                Akademik temellerin atıldığı bu dönemde kusursuz rehberlik sunuyoruz.
+                            </p>
+                            <button onclick="openModal('5-8. Sınıf')" class="magnetic-btn bg-slate-900 text-white font-black border-none">
+                                Randevu Al
+                            </button>
                         </div>
-
-                        <div class="education-mobile-row relative w-full flex flex-col md:flex-row-reverse items-center justify-between mb-40 mx-auto card-shield-clean border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f8fafc; border-right-color: #f8fafc; border-bottom-color: #f8fafc; border-left-color: #f8fafc;">
-                            <div class="flex-1 text-center md:text-right w-full flex flex-col h-full">
-                                <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">
-                                    AKADEMİK
-                                </h2>
-                                <h3 class="text-blue-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">
-                                    DGS / KPSS / ALES
-                                </h3>
-                                <p class="text-slate-500 font-bold text-base leading-relaxed mb-8">
-                                    Memurluk veya akademik kariyer hedeflerinize yönelik nokta atışı taktikler.
-                                </p>
-                                <div class="webm-mask webm-egitim md:hidden video-skeleton">
-                                    <video data-src="assets/soru-cozme.mp4" preload="none" playsinline loop muted></video>
-                                </div>
-                                <button onclick="openModal('DGS / KPSS / ALES')" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 rounded-xl hover:bg-slate-900 transition-colors text-base border-none">
-                                    Randevu Al
-                                </button>
+                        <div class="card-video-side">
+                            <div class="webm-mask webm-egitim video-skeleton">
+                                <video data-src="assets/kalem-yazma.mp4" preload="none" playsinline loop muted></video>
                             </div>
                         </div>
                     </div>
 
-                    <!-- EĞİTİM GERÇEK SLAYT 1 (5-8 ve 9-12) -->
-                    <div class="mobile-double-slide">
-                        
-                        <!-- BÖLÜM: 5-8. SINIF -->
-                        <div id="sinif-5-8" class="education-mobile-row relative w-full flex flex-col md:flex-row items-center justify-between mb-32 md:mb-40 mx-auto card-shield-clean border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f8fafc; border-right-color: #f8fafc; border-bottom-color: #f8fafc; border-left-color: #f8fafc;">
-                            <div class="branch-line right"></div>
-                            <div class="flex-1 text-center md:text-left w-full flex flex-col h-full">
-                                
-                                <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">
-                                    5-8. SINIF
-                                </h2>
-                                <h3 class="text-cyan-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">
-                                    LGS Hazırlık
-                                </h3>
-                                <p class="text-slate-500 font-bold text-base leading-relaxed mb-8">
-                                    Akademik temellerin atıldığı bu dönemde, okuduğunu anlama ve sınav stresi yönetimi üzerine kusursuz rehberlik sunuyoruz.
-                                </p>
-                                
-                                <div class="webm-mask webm-egitim md:hidden video-skeleton">
-                                    <video data-src="assets/kalem-yazma.mp4" preload="none" playsinline loop muted></video>
-                                </div>
-                                
-                                <button onclick="openModal('5-8. Sınıf')" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 rounded-xl hover:bg-cyan-500 transition-colors text-base border-none">
-                                    Randevu Al
-                                </button>
-                            </div>
-                            <div class="w-full md:w-1/2 justify-center md:justify-end mt-10 md:mt-0 relative z-10 hidden md:flex">
-                                <div class="webm-mask webm-egitim video-skeleton">
-                                    <video data-src="assets/kalem-yazma.mp4" preload="none" playsinline loop muted></video>
-                                </div>
+                    <div id="sinif-9-12" class="mobile-swipe-item education-mobile-row card-shield-clean mx-auto">
+                        <div class="card-text-side">
+                            <h2 class="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter">
+                                9-12. SINIF
+                            </h2>
+                            <h3 class="text-blue-500 font-black text-base md:text-2xl tracking-widest uppercase">
+                                TYT - AYT Maratonu
+                            </h3>
+                            <p class="text-slate-500 font-bold text-base leading-relaxed">
+                                Stres kontrolüne kadar tüm süreçleri profesyonelce yönetiyoruz.
+                            </p>
+                            <button onclick="openModal('9-12. Sınıf')" class="magnetic-btn bg-blue-600 text-white font-black border-none">
+                                Randevu Al
+                            </button>
+                        </div>
+                        <div class="card-video-side">
+                            <div class="webm-mask webm-egitim video-crop-9-12 video-skeleton">
+                                <video data-src="assets/bu-taraftan-gidiyoruz.mp4" preload="none" playsinline loop muted></video>
                             </div>
                         </div>
-
-                        <!-- BÖLÜM: 9-12. SINIF -->
-                        <div id="sinif-9-12" class="education-mobile-row relative w-full flex flex-col md:flex-row-reverse items-center justify-between mb-32 md:mb-40 mx-auto card-shield-clean border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f8fafc; border-right-color: #f8fafc; border-bottom-color: #f8fafc; border-left-color: #f8fafc;">
-                            <div class="branch-line left"></div>
-                            <div class="flex-1 text-center md:text-right w-full flex flex-col h-full">
-                                
-                                <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">
-                                    9-12. SINIF
-                                </h2>
-                                <h3 class="text-blue-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">
-                                    TYT - AYT Maratonu
-                                </h3>
-                                <p class="text-slate-500 font-bold text-base leading-relaxed mb-8">
-                                    Zaman yönetiminden stres kontrolüne kadar tüm süreçleri profesyonel kadromuzla yönetiyoruz.
-                                </p>
-                                
-                                <div class="webm-mask webm-egitim video-crop-9-12 md:hidden video-skeleton">
-                                    <video data-src="assets/bu-taraftan-gidiyoruz.mp4" preload="none" playsinline loop muted></video>
-                                </div>
-                                
-                                <button onclick="openModal('9-12. Sınıf')" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 rounded-xl hover:bg-slate-900 transition-colors text-base border-none">
-                                    Randevu Al
-                                </button>
-                            </div>
-                            <div class="w-full md:w-1/2 justify-center md:justify-start mt-10 md:mt-0 relative z-10 hidden md:flex">
-                                <div class="webm-mask webm-egitim video-crop-9-12 video-skeleton">
-                                    <video data-src="assets/bu-taraftan-gidiyoruz.mp4" preload="none" playsinline loop muted></video>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
-                    <!-- EĞİTİM GERÇEK SLAYT 2 (Mezun ve Akademik) -->
-                    <div class="mobile-double-slide">
-
-                        <!-- BÖLÜM: MEZUN -->
-                        <div id="mezun" class="education-mobile-row relative w-full flex flex-col md:flex-row items-center justify-between mb-32 md:mb-40 mx-auto card-shield-clean border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f8fafc; border-right-color: #f8fafc; border-bottom-color: #f8fafc; border-left-color: #f8fafc;">
-                            <div class="branch-line right"></div>
-                            <div class="flex-1 text-center md:text-left w-full flex flex-col h-full">
-                                
-                                <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">
-                                    MEZUN
-                                </h2>
-                                <h3 class="text-cyan-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">
-                                    YKS Hedef Büyütme
-                                </h3>
-                                <p class="text-slate-500 font-bold text-base leading-relaxed mb-8">
-                                    Hedefine ulaşmak için eksik odaklı, yoğunlaştırılmış VIP eğitim sunuyoruz.
-                                </p>
-                                
-                                <div class="webm-mask webm-egitim md:hidden video-skeleton">
-                                    <video data-src="assets/sevinme.mp4" preload="none" playsinline loop muted></video>
-                                </div>
-                                
-                                <button onclick="openModal('Mezun')" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 rounded-xl hover:bg-cyan-500 transition-colors text-base border-none">
-                                    Randevu Al
-                                </button>
-                            </div>
-                            <div class="w-full md:w-1/2 justify-center md:justify-end mt-10 md:mt-0 relative z-10 hidden md:flex">
-                                <div class="webm-mask webm-egitim video-skeleton">
-                                    <video data-src="assets/sevinme.mp4" preload="none" playsinline loop muted></video>
-                                </div>
+                    <div id="mezun" class="mobile-swipe-item education-mobile-row card-shield-clean mx-auto">
+                        <div class="card-text-side">
+                            <h2 class="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter">
+                                MEZUN
+                            </h2>
+                            <h3 class="text-cyan-500 font-black text-base md:text-2xl tracking-widest uppercase">
+                                YKS Hedef Büyütme
+                            </h3>
+                            <p class="text-slate-500 font-bold text-base leading-relaxed">
+                                Hedefine ulaşmak için eksik odaklı, VIP eğitim sunuyoruz.
+                            </p>
+                            <button onclick="openModal('Mezun')" class="magnetic-btn bg-slate-900 text-white font-black border-none">
+                                Randevu Al
+                            </button>
+                        </div>
+                        <div class="card-video-side">
+                            <div class="webm-mask webm-egitim video-skeleton">
+                                <video data-src="assets/sevinme.mp4" preload="none" playsinline loop muted></video>
                             </div>
                         </div>
-
-                        <!-- BÖLÜM: AKADEMİK (DGS/KPSS) -->
-                        <div id="akademik" class="education-mobile-row relative w-full flex flex-col md:flex-row-reverse items-center justify-between mb-40 mx-auto card-shield-clean border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f8fafc; border-right-color: #f8fafc; border-bottom-color: #f8fafc; border-left-color: #f8fafc;">
-                            <div class="branch-line left"></div>
-                            <div class="flex-1 text-center md:text-right w-full flex flex-col h-full">
-                                
-                                <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">
-                                    AKADEMİK
-                                </h2>
-                                <h3 class="text-blue-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">
-                                    DGS / KPSS / ALES
-                                </h3>
-                                <p class="text-slate-500 font-bold text-base leading-relaxed mb-8">
-                                    Memurluk veya akademik kariyer hedeflerinize yönelik nokta atışı taktikler.
-                                </p>
-                                
-                                <div class="webm-mask webm-egitim md:hidden video-skeleton">
-                                    <video data-src="assets/soru-cozme.mp4" preload="none" playsinline loop muted></video>
-                                </div>
-                                
-                                <button onclick="openModal('DGS / KPSS / ALES')" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 rounded-xl hover:bg-slate-900 transition-colors text-base border-none">
-                                    Randevu Al
-                                </button>
-                            </div>
-                            <div class="w-full md:w-1/2 justify-center md:justify-start mt-10 md:mt-0 relative z-10 hidden md:flex">
-                                <div class="webm-mask webm-egitim video-skeleton">
-                                    <video data-src="assets/soru-cozme.mp4" preload="none" playsinline loop muted></video>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
-                    <!-- EĞİTİM KLON 2 (Sonsuz Döngü Sonu - JS anında Başa Sıçrar) -->
-                    <div class="mobile-double-slide md:hidden">
-                        <div class="education-mobile-row relative w-full flex flex-col md:flex-row items-center justify-between mb-32 md:mb-40 mx-auto card-shield-clean border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f8fafc; border-right-color: #f8fafc; border-bottom-color: #f8fafc; border-left-color: #f8fafc;">
-                            <div class="flex-1 text-center md:text-left w-full flex flex-col h-full">
-                                <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">
-                                    5-8. SINIF
-                                </h2>
-                                <h3 class="text-cyan-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">
-                                    LGS Hazırlık
-                                </h3>
-                                <p class="text-slate-500 font-bold text-base leading-relaxed mb-8">
-                                    Akademik temellerin atıldığı bu dönemde, okuduğunu anlama ve sınav stresi yönetimi üzerine kusursuz rehberlik sunuyoruz.
-                                </p>
-                                <div class="webm-mask webm-egitim md:hidden video-skeleton">
-                                    <video data-src="assets/kalem-yazma.mp4" preload="none" playsinline loop muted></video>
-                                </div>
-                                <button onclick="openModal('5-8. Sınıf')" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 rounded-xl hover:bg-cyan-500 transition-colors text-base border-none">
-                                    Randevu Al
-                                </button>
-                            </div>
+                    <div id="akademik" class="mobile-swipe-item education-mobile-row card-shield-clean mx-auto">
+                        <div class="card-text-side">
+                            <h2 class="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter">
+                                AKADEMİK
+                            </h2>
+                            <h3 class="text-blue-500 font-black text-base md:text-2xl tracking-widest uppercase">
+                                DGS / KPSS / ALES
+                            </h3>
+                            <p class="text-slate-500 font-bold text-base leading-relaxed">
+                                Akademik kariyer hedeflerinize yönelik nokta atışı taktikler.
+                            </p>
+                            <button onclick="openModal('DGS / KPSS / ALES')" class="magnetic-btn bg-blue-600 text-white font-black border-none">
+                                Randevu Al
+                            </button>
                         </div>
-
-                        <div class="education-mobile-row relative w-full flex flex-col md:flex-row-reverse items-center justify-between mb-32 md:mb-40 mx-auto card-shield-clean border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #f8fafc; border-right-color: #f8fafc; border-bottom-color: #f8fafc; border-left-color: #f8fafc;">
-                            <div class="flex-1 text-center md:text-right w-full flex flex-col h-full">
-                                <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">
-                                    9-12. SINIF
-                                </h2>
-                                <h3 class="text-blue-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">
-                                    TYT - AYT Maratonu
-                                </h3>
-                                <p class="text-slate-500 font-bold text-base leading-relaxed mb-8">
-                                    Zaman yönetiminden stres kontrolüne kadar tüm süreçleri profesyonel kadromuzla yönetiyoruz.
-                                </p>
-                                <div class="webm-mask webm-egitim video-crop-9-12 md:hidden video-skeleton">
-                                    <video data-src="assets/bu-taraftan-gidiyoruz.mp4" preload="none" playsinline loop muted></video>
-                                </div>
-                                <button onclick="openModal('9-12. Sınıf')" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 rounded-xl hover:bg-slate-900 transition-colors text-base border-none">
-                                    Randevu Al
-                                </button>
+                        <div class="card-video-side">
+                            <div class="webm-mask webm-egitim video-skeleton">
+                                <video data-src="assets/soru-cozme.mp4" preload="none" playsinline loop muted></video>
                             </div>
                         </div>
                     </div>
@@ -4042,15 +3759,6 @@
          TİLKİ CANLI DESTEK BOTU VE KISA SOHBET PANELİ (FOX CHAT)
          ====================================================================== -->
     
-    <div class="fox-bot-wrapper">
-        <div class="fox-speech-bubble" onclick="toggleChatPanel()">
-            Sana Yardımcı Olabilirim 🦊
-        </div>
-        <div class="fox-bot-trigger" id="foxTrigger" onclick="toggleChatPanel()">
-            <img src="assets/tilki-avatar.png" alt="Canlı Destek Tilkisi" onerror="this.outerHTML='<div style=\'width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#0ea5e9; color:#fff; font-size:24px;\'>🦊</div>'">
-        </div>
-    </div>
-
     <div class="chat-panel" id="chatPanel">
         <div class="chat-header">
             <h3>Canlı Destek</h3>
@@ -4105,32 +3813,26 @@
         <img id="lightboxImg" src="" alt="Büyük Görsel">
     </div>
 
+    <!-- 360 Tur Sanal Gerçeklik Modalı (Direkt IFRAME Açılır) -->
     <div id="tourOverlay" class="modal-overlay" onclick="if(event.target===this) closeTour()">
-        <div class="modal-box p-0 overflow-x-hidden overflow-y-hidden !max-w-6xl pointer-events-auto border-none shadow-[0_40px_80px_rgba(0,0,0,0.8)]">
-            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-white relative z-10">
-                <span class="font-black text-slate-900 text-xl flex items-center gap-3">
+        <div class="modal-box p-0 overflow-x-hidden overflow-y-hidden !max-w-6xl pointer-events-auto border-none shadow-[0_40px_80px_rgba(0,0,0,0.8)] h-[85vh] flex flex-col">
+            <div class="p-4 border-b border-slate-100 flex justify-between items-center bg-white relative z-10 shrink-0">
+                <span class="font-black text-slate-900 text-lg flex items-center gap-3">
                     Battalgazi 360° Tur
                 </span>
-                <button onclick="closeTour()" class="w-10 h-10 rounded-full bg-slate-100 hover:bg-red-100 hover:text-red-500 font-bold text-xl flex items-center justify-center transition-colors">
+                <button onclick="closeTour()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-red-100 hover:text-red-500 font-bold text-lg flex items-center justify-center transition-colors">
                     ✕
                 </button>
             </div>
             
-            <div class="w-full h-[75vh] bg-slate-900 flex flex-col items-center justify-center relative">
-                <div class="webm-mask video-skeleton" style="width: 250px; height: 250px; border-top-width: 4px; border-right-width: 4px; border-bottom-width: 4px; border-left-width: 4px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgba(255,255,255,0.2); border-right-color: rgba(255,255,255,0.2); border-bottom-color: rgba(255,255,255,0.2); border-left-color: rgba(255,255,255,0.2); position: absolute; opacity: 0.8;">
-                    <video data-src="assets/ekrana-tiklama.mp4" preload="none" playsinline loop muted></video>
-                </div>
-                <div class="relative z-10 flex flex-col items-center mt-48">
-                    <span class="magnetic-btn bg-cyan-500 text-white px-10 py-5 rounded-full shadow-2xl font-black text-2xl tracking-widest cursor-pointer">
-                        TURU BAŞLAT ▶
-                    </span>
-                </div>
+            <div class="w-full flex-1 bg-slate-900 relative" id="iframeContainer">
+                <!-- IFRAME JavaScript ile tıklanınca yüklenecek -->
             </div>
         </div>
     </div>
 
     <!-- ======================================================================
-         RANDEVU FORMU MODALI (Klavye Taşma Korumalı ve Scroll Özellikli)
+         RANDEVU FORMU MODALI
          ====================================================================== -->
     <div id="randevuModal" class="modal-overlay" onclick="if(event.target===this) closeModal()">
         
@@ -4303,50 +4005,31 @@
                 initMobileInfiniteSwipes('features-swipe');
                 initMobileInfiniteSwipes('education-swipe');
             }
+            
+            // 3 Saniye Sonra Canlı Destek Baloncuğunu Göster
+            setTimeout(() => {
+                const bubble = document.getElementById('topChatBubble');
+                if (bubble && !isChatOpen) {
+                    bubble.classList.add('show');
+                }
+            }, 3000);
         });
 
         /* ----------------------------------------------------------------------
-           2. SONSUZ FİLM ŞERİDİ (INFINITE LOOP CAROUSEL) MOTORU 
-           (Sürekli Sağa Kayan, Atlamasız Döngü JS)
+           2. OTOMATİK KAYDIRMA (CAROUSEL) MOTORU 
            ---------------------------------------------------------------------- */
         function initMobileInfiniteSwipes(containerId) {
             const container = document.getElementById(containerId);
             if (!container) return;
 
-            // Dot'ları veya badge'leri dahil etmiyoruz. CSS ile gizlendiler.
             let items = Array.from(container.children).filter(c => 
-                c.classList.contains('mobile-swipe-item') || 
-                c.classList.contains('mobile-double-slide')
+                c.classList.contains('mobile-swipe-item')
             );
             
             if (items.length === 0) return;
 
-            // Sonsuz döngü yanılsaması için son elementi başa, ilk elementi sona ekliyoruz.
-            // Bu sayede scroll her iki yönde de kopukluk olmadan hareket edebilir.
-            const firstClone = items[0].cloneNode(true);
-            const lastClone = items[items.length - 1].cloneNode(true);
-            
-            firstClone.classList.add('clone-item');
-            lastClone.classList.add('clone-item');
-
-            container.appendChild(firstClone);
-            container.insertBefore(lastClone, items[0]);
-            
-            // Tüm geçerli kartların yeni listesi
-            let allItems = Array.from(container.children).filter(c => 
-                c.classList.contains('mobile-swipe-item') || 
-                c.classList.contains('mobile-double-slide')
-            );
-
-            // Başlangıç konumu: Klonlanmış son elementi atlayıp ilk gerçek elemente odaklan.
-            let currentIndex = 1;
-            
-            setTimeout(() => {
-                container.style.scrollBehavior = 'auto'; // Anlık sıçrama için
-                container.scrollLeft = allItems[currentIndex].offsetLeft - (container.clientWidth / 2) + (allItems[currentIndex].clientWidth / 2);
-                container.style.scrollBehavior = 'smooth'; // Animasyonu geri aç
-            }, 100);
-
+            let currentIndex = 0;
+            let direction = 1; 
             let autoScrollInterval;
             let isUserInteracting = false;
             let interactionTimeout;
@@ -4358,7 +4041,7 @@
                 let closestDistance = Infinity;
                 let newIndex = currentIndex;
                 
-                allItems.forEach((item, index) => {
+                items.forEach((item, index) => {
                     const rect = item.getBoundingClientRect();
                     const itemCenter = rect.left + (rect.width / 2);
                     const distance = Math.abs(containerCenter - itemCenter);
@@ -4371,7 +4054,7 @@
                 
                 currentIndex = newIndex;
 
-                allItems.forEach((item, index) => {
+                items.forEach((item, index) => {
                     if (index === currentIndex) {
                         item.classList.add('is-centered');
                     } else {
@@ -4380,47 +4063,32 @@
                 });
             };
 
-            const checkAndJump = () => {
-                // Eğer scroll görünmez klona ulaştıysa, anlık olarak (animasyonsuz) gerçek karşılığına zıpla.
-                // En sona ulaşıldığında -> Gerçek Başa
-                if (currentIndex === allItems.length - 1) {
-                    container.style.scrollBehavior = 'auto';
-                    currentIndex = 1;
-                    container.scrollLeft = allItems[currentIndex].offsetLeft - (container.clientWidth / 2) + (allItems[currentIndex].clientWidth / 2);
-                    // Tarayıcının repaint yapması için ufak bir tetikleme
-                    container.offsetHeight; 
-                    container.style.scrollBehavior = 'smooth';
-                }
-                // En başa (geri) çekildiğinde -> Gerçek Sona
-                else if (currentIndex === 0) {
-                    container.style.scrollBehavior = 'auto';
-                    currentIndex = allItems.length - 2;
-                    container.scrollLeft = allItems[currentIndex].offsetLeft - (container.clientWidth / 2) + (allItems[currentIndex].clientWidth / 2);
-                    container.offsetHeight; 
-                    container.style.scrollBehavior = 'smooth';
-                }
-            };
-
             const scrollToNext = () => {
                 if (isUserInteracting) return; 
                 
-                currentIndex++;
-                let targetItem = allItems[currentIndex];
+                if (currentIndex >= items.length - 1) {
+                    direction = -1;
+                } else if (currentIndex <= 0) {
+                    direction = 1;
+                }
+                
+                currentIndex += direction;
+                let targetItem = items[currentIndex];
                 
                 if(targetItem) {
-                    container.style.scrollBehavior = 'smooth';
-                    container.scrollLeft = targetItem.offsetLeft - (container.clientWidth / 2) + (targetItem.clientWidth / 2);
-                    
-                    // Geçiş animasyonu bittikten (yaklaşık 400ms) sonra sınır kontrolü yap
-                    setTimeout(checkAndJump, 450);
+                    container.scrollTo({
+                        left: targetItem.offsetLeft - (container.clientWidth / 2) + (targetItem.clientWidth / 2),
+                        behavior: 'smooth'
+                    });
                 }
             };
 
             const startAutoScroll = () => {
                 clearInterval(autoScrollInterval);
-                autoScrollInterval = setInterval(scrollToNext, 2500);
+                autoScrollInterval = setInterval(scrollToNext, 2000);
             };
 
+            updateCenter();
             startAutoScroll();
 
             const handleInteractionStart = () => {
@@ -4430,14 +4098,11 @@
             };
 
             const handleInteractionEnd = () => {
-                // Kullanıcı manuel kaydırmayı bıraktığında önce konumunu kontrol edip gerekirse zıplatalım
-                setTimeout(checkAndJump, 450);
-                
                 clearTimeout(interactionTimeout);
                 interactionTimeout = setTimeout(() => {
                     isUserInteracting = false;
                     startAutoScroll();
-                }, 3000);
+                }, 3000); 
             };
 
             container.addEventListener('scroll', () => {
@@ -4656,7 +4321,6 @@
                 }, 3000);
                 
                 tickTimer = setInterval(() => { 
-                    // Locked bile olsa saniye saymaya devam etsin
                     updateNumbers(activeKey); 
                 }, 1000);
             }
@@ -4730,7 +4394,6 @@
                             btn.style.pointerEvents = 'auto';
                         }
                     });
-                    // Start cycle clears tickTimer too, so we don't duplicate
                     startCycle();
                 }, 400);
             };
@@ -4744,24 +4407,41 @@
         
         let isChatOpen = false;
 
+        window.triggerTopChat = function() {
+            const btn = document.getElementById('topChatTrigger');
+            const bubble = document.getElementById('topChatBubble');
+            const panel = document.getElementById('chatPanel');
+            
+            if (bubble) {
+                bubble.style.display = 'none';
+            }
+            
+            if(!isChatOpen) {
+                btn.classList.add('fading');
+                
+                setTimeout(() => {
+                    panel.classList.add('show');
+                    isChatOpen = true;
+                }, 1500);
+            } else {
+                panel.classList.remove('show');
+                btn.classList.remove('fading');
+                isChatOpen = false;
+            }
+        };
+
         window.toggleChatPanel = function() {
             const panel = document.getElementById('chatPanel');
-            const speechBubble = document.querySelector('.fox-speech-bubble');
+            const btn = document.getElementById('topChatTrigger');
             
             if(isChatOpen) {
                 panel.classList.remove('show');
+                if(btn) btn.classList.remove('fading');
                 isChatOpen = false;
-                if(speechBubble) {
-                    speechBubble.style.opacity = '1';
-                    speechBubble.style.visibility = 'visible';
-                }
             } else {
                 panel.classList.add('show');
+                if(btn) btn.classList.add('fading');
                 isChatOpen = true;
-                if(speechBubble) {
-                    speechBubble.style.opacity = '0';
-                    speechBubble.style.visibility = 'hidden';
-                }
             }
         };
 
@@ -5023,27 +4703,18 @@
         
         window.openTour = function() { 
             const t = document.getElementById('tourOverlay');
-            if(t) {
+            const iframeContainer = document.getElementById('iframeContainer');
+            
+            if(t && iframeContainer) {
                 t.style.display = 'flex'; 
                 document.body.style.overflow = 'hidden';
                 
+                if(iframeContainer.innerHTML.trim() === '') {
+                    iframeContainer.innerHTML = '<iframe src="https://my.matterport.com/show/?m=J2b34X5T3xY&play=1" frameborder="0" allowfullscreen allow="xr-spatial-tracking" style="width:100%; height:100%; border:none;"></iframe>';
+                }
+
                 requestAnimationFrame(() => {
                     t.classList.add('show');
-                });
-                
-                t.querySelectorAll('video[data-src]').forEach(video => {
-                    video.src = video.getAttribute('data-src');
-                    video.removeAttribute('data-src');
-                    video.load();
-                    
-                    video.addEventListener('loadeddata', () => {
-                        video.classList.add('loaded');
-                        if(video.parentElement.classList.contains('video-skeleton')) {
-                            video.parentElement.classList.remove('video-skeleton');
-                        }
-                    });
-                    
-                    video.play().catch(e => console.warn(e));
                 });
             }
         };
@@ -5061,6 +4732,8 @@
                 
                 setTimeout(() => {
                     t.style.display = 'none';
+                    const iframeContainer = document.getElementById('iframeContainer');
+                    if(iframeContainer) iframeContainer.innerHTML = '';
                 }, 500);
             }
         };
