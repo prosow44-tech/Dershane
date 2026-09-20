@@ -205,9 +205,25 @@
         .pill-logo-link:active { transform: translate(-50%, -50%) scale(0.95); }
         .pill-logo-link img { width: 100%; height: 100%; object-fit: contain; border-radius: 50% !important; }
         
-        .pill-side { flex: 1; display: flex; align-items: center; gap: 2rem; justify-content: center; }
-        .pill-side.left { padding-right: 50px; justify-content: flex-end; }
-        .pill-side.right { padding-left: 50px; justify-content: flex-start; }
+        /* ---------------------------------------------------------
+           YENİ: SİMETRİK DAĞILIM İÇİN FLEX AYARLARI 
+           Sol ve Sağ grupları logodan (ortadan) eşit mesafede tutar
+           --------------------------------------------------------- */
+        .pill-side { flex: 1; display: flex; align-items: center; }
+        
+        /* Sol Blok (Logonun Solu): Canlı Destek, Hakkımızda, 360 Gezin */
+        .pill-side.left { 
+            padding-right: 70px; /* Logoya olan mesafe */
+            justify-content: flex-end; /* Sağ tarafa, yani logoya yanaşık dizer */
+            gap: 1.5rem;
+        }
+        
+        /* Sağ Blok (Logonun Sağı): Bize Ulaşın, Yol Tarifi, Hızlı Randevu */
+        .pill-side.right { 
+            padding-left: 70px; /* Logoya olan mesafe */
+            justify-content: flex-start; /* Sol tarafa, yani logoya yanaşık dizer */
+            gap: 1.5rem;
+        }
         
         .pill-link { font-weight: 800; font-size: 0.85rem; color: #475569; cursor: pointer; text-decoration: none; text-transform: uppercase; display: flex; align-items: center; gap: 8px; transition: color 0.2s; padding: 10px; }
         .pill-link:hover { color: #0ea5e9; }
@@ -216,37 +232,57 @@
         .magnetic-btn:hover { background-color: #0ea5e9; box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3); }
         .magnetic-btn:active { transform: scale(0.94) !important; }
 
+        /* YENİ TASARIM: Masaüstü Üst Menü "360 Gezin" ve "Bize Ulaşın" İçi Dolu Mavi Buton, Yazıları Kaydırarak (Padding) Harf Kesilmesini Önleme */
         .solid-blue-btn { background-color: #0ea5e9; color: #ffffff; font-weight: 900; font-size: 0.85rem; padding: 0.5rem 1.5rem; border-radius: 999px; display: inline-flex; align-items: center; cursor: pointer; pointer-events: auto; will-change: transform; transition: all 0.2s ease; }
         .solid-blue-btn:hover { background-color: #0284c7; box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3); }
         .solid-blue-btn:active { transform: scale(0.94) !important; }
+        
+        /* N harfi kesilmesin diye sağdan itme */
+        .solid-blue-btn.shift-right { padding-right: 2.5rem !important; }
+        /* B harfi kesilmesin diye soldan itme */
+        .solid-blue-btn.shift-left { padding-left: 2.5rem !important; }
 
-        /* Masaüstü Canlı Destek Butonu */
+        /* YENİ: Masaüstü Canlı Destek Menü Entegrasyonu (Yol Tarifi formatı gibi en solda) */
         .desktop-chat-btn-wrapper {
-            background-color: #0ea5e9; color: #ffffff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.4rem; transition: all 0.3s ease; position: absolute; top: 90px; left: 40px; box-shadow: 0 4px 10px rgba(14,165,233,0.3); border: none; flex-shrink: 0; z-index: 40015;
+            display: flex; align-items: center; gap: 8px; cursor: pointer; text-decoration: none;
+            background: transparent; border: none; padding: 0; margin: 0;
+            position: relative;
         }
-        .desktop-chat-btn-wrapper:hover { background-color: #0284c7; transform: scale(1.05); box-shadow: 0 6px 15px rgba(14,165,233,0.4); }
-        .desktop-chat-btn-wrapper.fading { opacity: 0.3; pointer-events: none; }
+        .desktop-chat-btn-wrapper:hover .chat-text-bold { color: #0284c7; }
+        
+        .chat-icon-circle {
+            background-color: #0ea5e9; color: #ffffff; 
+            width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            font-size: 1rem; transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(14,165,233,0.3); flex-shrink: 0;
+        }
+        .desktop-chat-btn-wrapper:hover .chat-icon-circle { background-color: #0284c7; transform: scale(1.05); }
+        .chat-text-bold { font-weight: 900; font-size: 0.85rem; color: #0ea5e9; text-transform: uppercase; transition: color 0.2s; white-space: nowrap; }
 
-        /* Masaüstü Balon */
+        /* Masaüstü Üst Bar Konuşma Baloncuğu */
         .top-chat-bubble-desktop {
-            position: absolute; top: 10px; left: 65px; background-color: #ffffff; color: #0f172a; padding: 8px 16px; border-radius: 16px 16px 16px 0; font-weight: 900; font-size: 0.85rem; white-space: nowrap; box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 2px solid #e0f2fe; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, transform 0.4s ease; transform: translateX(10px); z-index: 40000; pointer-events: none;
+            position: absolute; top: 50px; left: 0; background-color: #ffffff; color: #0f172a; padding: 8px 16px;
+            border-radius: 0 16px 16px 16px; font-weight: 900; font-size: 0.85rem; white-space: nowrap;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 2px solid #e0f2fe; opacity: 0; visibility: hidden;
+            transition: opacity 0.4s ease, transform 0.4s ease; transform: translateY(-10px); z-index: 40000; pointer-events: none;
         }
-        .top-chat-bubble-desktop::before { content: ''; position: absolute; bottom: -2px; left: -10px; width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 10px solid #e0f2fe; }
-        .top-chat-bubble-desktop::after { content: ''; position: absolute; bottom: 0px; left: -7px; width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-right: 8px solid #ffffff; }
-        .top-chat-bubble-desktop.show { opacity: 1; visibility: visible; transform: translateX(0); }
-
-        .neon-text-gradient { background-image: linear-gradient(90deg, #0ea5e9, #8b5cf6, #06b6d4, #0ea5e9); background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: gradientShift 3s ease infinite; }
+        .top-chat-bubble-desktop::before { content: ''; position: absolute; top: -10px; left: 10px; width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 10px solid #e0f2fe; }
+        .top-chat-bubble-desktop::after { content: ''; position: absolute; top: -7px; left: 11px; width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent; border-bottom: 9px solid #ffffff; }
+        .top-chat-bubble-desktop.show { opacity: 1; visibility: visible; transform: translateY(0); }
 
         main { padding-top: 250px; width: 100%; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; }
         
         .card-shield-hard { background-color: #ffffff; position: relative; z-index: 10; border-radius: 2rem; margin-bottom: 50px; box-shadow: 12px 12px 0px 0px rgba(15, 23, 42, 0.9) !important; transition: all 0.4s ease; overflow: visible !important; }
 
-        /* MASAÜSTÜ SINIF KARTLARI - YAN YANA İZOMETRİK ESKİ YAPI (Gölgesiz, Temiz) */
+        /* YENİ MASAÜSTÜ SINIF KARTLARI (Max-width ile Taşma Engellenmiş, Gölgeler Temizlenmiş) */
         .card-shield-clean-desktop {
             background-color: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; overflow: visible !important; display: flex !important; align-items: center !important; justify-content: space-between !important; width: 100% !important; margin-bottom: 80px !important; position: relative; z-index: 10;
         }
-        .text-side-desktop { flex: 1; text-align: left; padding: 0 40px 0 0; max-width: 45%; }
-        .text-side-desktop-rev { flex: 1; text-align: right; padding: 0 0 0 40px; max-width: 45%; }
+        
+        /* Karşı Tarafın Çizgisini İhlal Etmemesi İçin Max-Width 45% Atandı */
+        .text-side-desktop { flex: 1; text-align: left; padding: 0; max-width: 45%; }
+        .text-side-desktop-rev { flex: 1; text-align: right; padding: 0; max-width: 45%; }
+        
         .video-side-desktop { width: 320px; flex-shrink: 0; display: flex; justify-content: center; align-items: center; }
 
         /* --------------------------------------------------------------------------
@@ -262,7 +298,6 @@
             .mega-bar-wrapper { display: none !important; }
             .pill-side { display: none !important; }
             .branch-line { display: none !important; }
-            .desktop-chat-btn-wrapper { display: none !important; }
             
             .pill-nav { top: 15px; height: 52px; width: 92%; padding: 0 0.5rem; display: flex; align-items: center; justify-content: space-between; }
             .pill-nav.move-up { top: 10px; }
@@ -310,7 +345,7 @@
 
             .mobile-swipe-wrapper { position: relative; width: 100vw; margin-left: calc(-50vw + 50%); display: flex; flex-direction: column; align-items: center; margin-bottom: 30px !important; overflow-x: hidden; overflow-y: visible !important; }
             
-            /* 1 / 4 Badge */
+            /* Sınıflar İçin Yeniden 4'lü Sayaç (Badge) Eklendi */
             .carousel-badge { display: flex !important; position: absolute; top: 0px; right: 15vw; background-color: rgba(0, 0, 0, 0.6); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); color: #ffffff; font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 20px; z-index: 20; pointer-events: none; transition: opacity 0.3s ease; }
             
             .mobile-swipe-container { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; overflow-y: visible !important; scroll-snap-type: x mandatory !important; scroll-behavior: smooth !important; -webkit-overflow-scrolling: touch !important; width: 100% !important; padding: 2rem 15vw 3rem 15vw !important; gap: 15px !important; }
@@ -350,6 +385,7 @@
             .exam-btn { padding: 0.6rem !important; font-size: 0.85rem !important; border-radius: 0.8rem !important; }
             #iletisim { padding-bottom: 100px !important; }
             
+            /* Sınıflar İçin 4 Adet Pagination Noktası Yeniden Aktif */
             .pagination-dots { display: flex !important; justify-content: center; gap: 6px; margin-top: 5px; margin-bottom: 10px; width: 100%; z-index: 5; }
             .pagination-dots .dot { width: 8px; height: 8px; background-color: #e2e8f0; border-radius: 999px; transition: all 0.3s ease; }
             .pagination-dots .dot.active { background-color: #0ea5e9; width: 24px; }
@@ -497,27 +533,25 @@
     </div>
 
     <!-- ==========================================================================
-         KATMAN 2: YÜZEN HAP MENÜ (PILL NAV) - Masaüstü Yeni Tasarımı
+         KATMAN 2: YÜZEN HAP MENÜ (PILL NAV) - Düzeltilmiş Şablon (Altın Oran)
          ========================================================================== -->
     <nav class="pill-nav" id="pillMenu">
         
-        <!-- Masaüstü Sol: Canlı Destek + Hakkımızda + 360 Gezin -->
-        <div class="pill-side left hidden md:flex items-center" style="gap: 1.5rem; flex: 1; justify-content: flex-end; padding-right: 20px;">
-            <!-- Canlı Destek (Aşağı alınmış ve büyütülmüş, kapsayıcı dışına çıkarılarak serbest bırakıldı) -->
-            <div class="hidden md:flex absolute" style="top: 80px; left: 60px; flex-direction: column; align-items: center; z-index:40020;">
-                <button class="desktop-chat-btn-wrapper" id="desktopChatTrigger" onclick="triggerTopChat()" style="width: 50px; height: 50px; font-size: 1.4rem;">
-                    🦊
-                    <div class="top-chat-bubble-desktop" id="topChatBubbleDesktop">
-                        Sana Yardımcı Olabilirim 🦊
-                    </div>
-                </button>
-                <span class="neon-text-gradient mt-[60px] font-black text-[12px] tracking-widest whitespace-nowrap">Canlı Destek</span>
-            </div>
+        <!-- Masaüstü Sol: Canlı Destek + Hakkımızda + 360 Gezin (Logoya Doğru Kaydırıldı) -->
+        <div class="pill-side left hidden md:flex items-center">
             
-            <a href="#hakkimizda" class="pill-link" style="margin-left: auto;">
+            <a href="#" class="desktop-chat-btn-wrapper" id="desktopChatTrigger" onclick="triggerTopChat(); return false;" style="text-decoration: none;">
+                <div class="chat-icon-circle">🦊</div>
+                <span class="chat-text-bold">Canlı Destek</span>
+                <div class="top-chat-bubble-desktop" id="topChatBubbleDesktop">
+                    Sana Yardımcı Olabilirim 🦊
+                </div>
+            </a>
+            
+            <a href="#hakkimizda" class="pill-link">
                 HAKKIMIZDA
             </a>
-            <button onclick="openTour()" class="solid-blue-btn flex items-center gap-1">
+            <button onclick="openTour()" class="solid-blue-btn shift-right flex items-center gap-1">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1.25rem; height:1.25rem;">
                     <rect x="7" y="3" width="10" height="18" rx="2" ry="2"></rect>
                     <path d="M3 12c0-3.3 2.7-6 6-6"></path>
@@ -534,12 +568,12 @@
             <img src="assets/logo.png" alt="Referans Eğitim Kurumları Logosu">
         </a>
 
-        <!-- Masaüstü Sağ: Bize Ulaşın + Yol Tarifi İkonu + Randevu Al -->
-        <div class="pill-side right hidden md:flex items-center" style="gap: 1.5rem; flex: 1; justify-content: flex-start; padding-left: 20px;">
-            <a href="tel:+905000000000" class="solid-blue-btn items-center gap-2">
+        <!-- Masaüstü Sağ: Bize Ulaşın + Yol Tarifi İkonu + Randevu Al (Logoya Doğru Kaydırıldı) -->
+        <div class="pill-side right hidden md:flex items-center">
+            <a href="tel:+905000000000" class="solid-blue-btn shift-left items-center gap-2">
                 BİZE ULAŞIN
             </a>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="pill-link flex items-center gap-1" aria-label="Yol Tarifi" style="color: #0ea5e9; font-weight: 900; margin-right: auto;">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="pill-link flex items-center gap-1" aria-label="Yol Tarifi" style="color: #0ea5e9; font-weight: 900;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                     <circle cx="12" cy="10" r="3"></circle>
@@ -557,7 +591,6 @@
             <div class="mobile-pill-left">
                 <button class="mobile-top-chat-btn-wrapper relative" id="mobileChatTrigger" onclick="triggerTopChat()">
                     🦊
-                    <!-- Neon metin buton üstüne yerleştirildi -->
                     <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 neon-text-gradient text-[9px] font-black uppercase whitespace-nowrap">Canlı Destek</span>
                     <div class="top-chat-bubble" id="topChatBubbleMobile">
                         Sana Yardımcı Olabilirim 🦊
@@ -633,9 +666,9 @@
 
         <main class="w-full flex flex-col items-center relative z-10" id="main-content-area">
             
-            <!-- Hero Video: Hafif Gölge Eklendi ve Maarif Kurdelesi Sağ Üste Hizalandı, Sınırlar Temizlendi -->
+            <!-- Hero Video: Sınır (Border) Çizgileri Temizlendi (Max-Width ile Korundu) -->
             <section id="anasayfa" class="w-full max-w-5xl mx-auto px-6 mb-16 md:mb-32 text-center relative z-10">
-                <div class="w-full relative rounded-[3rem] overflow-hidden flex items-center justify-center bg-transparent" style="box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: none;">
+                <div class="w-full relative overflow-hidden flex items-center justify-center bg-transparent border-none">
                     
                     <div class="maarif-ribbon-wrapper">
                         <div class="maarif-ribbon">
@@ -650,7 +683,7 @@
                         loop 
                         muted 
                         autoplay 
-                        class="w-full h-auto max-h-[60vh] object-contain"
+                        class="w-full h-auto max-h-[60vh] object-contain border-none"
                     ></video>
                 </div>
             </section>
@@ -800,7 +833,7 @@
             </section>
 
             <!-- ======================================================================
-                 SINIF BÖLÜMLERİ (Masaüstü: İZOMETRİK ESKİ YAPI | Mobil: Çift Kart Sürgüsü)
+                 SINIF BÖLÜMLERİ (Masaüstü: İZOMETRİK ESKİ YAPI - Taşma Korumalı)
                  ====================================================================== -->
             <div class="w-full max-w-6xl mx-auto mobile-swipe-wrapper mb-20 relative">
                 
@@ -949,7 +982,7 @@
     </div> 
 
     <!-- ======================================================================
-         SOHBET PANELİ (FOX CHAT) - Yüzen Buton İptal Edildi, Sadece Modal Kaldı
+         SOHBET PANELİ (FOX CHAT)
          ====================================================================== -->
     <div class="chat-panel" id="chatPanel">
         <div class="chat-header">
@@ -1005,7 +1038,7 @@
         <img id="lightboxImg" src="" alt="Büyük Görsel">
     </div>
 
-    <!-- 360 Tur Sanal Gerçeklik Modalı -->
+    <!-- 360 Tur Sanal Gerçeklik Modalı (Başlık Güncellendi) -->
     <div id="tourOverlay" class="modal-overlay" onclick="if(event.target===this) closeTour()">
         <div class="modal-box p-0 overflow-x-hidden overflow-y-hidden !max-w-6xl pointer-events-auto border-none shadow-[0_40px_80px_rgba(0,0,0,0.8)] h-[85vh] flex flex-col">
             <div class="p-4 border-b border-slate-100 flex justify-between items-center bg-white relative z-10 shrink-0">
@@ -1215,7 +1248,7 @@
             if (!container) return;
 
             let items = Array.from(container.children).filter(c => 
-                c.classList.contains('mobile-swipe-item') || c.classList.contains('mobile-double-slide')
+                c.classList.contains('mobile-swipe-item')
             );
             
             if (items.length === 0) return;
@@ -1633,7 +1666,7 @@
                 btnMobile.innerHTML = `<img src="assets/tilki-avatar.png" alt="Tilki" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.outerHTML='<span style=\\'font-size:16px;\\'>🦊</span>'">`;
             }
             if (btnDesktop && !btnDesktop.innerHTML.includes('<img')) {
-                btnDesktop.innerHTML = `<img src="assets/tilki-avatar.png" alt="Tilki" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.outerHTML='<span style=\\'font-size:16px;\\'>🦊</span>'">`;
+                btnDesktop.innerHTML = `<img src="assets/tilki-avatar.png" alt="Tilki" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.outerHTML='<div class=\\'chat-icon-circle\\'>🦊</div><span class=\\'chat-text-bold\\'>Canlı Destek</span>'">`;
             }
         }
 
@@ -1650,7 +1683,6 @@
             if (bubbleDesktop) bubbleDesktop.style.display = 'none';
             
             if(!isChatOpen) {
-                // Anında panel açılır
                 panel.classList.add('show');
                 isChatOpen = true;
             } else {
