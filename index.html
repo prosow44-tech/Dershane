@@ -116,10 +116,6 @@
                         'safe-top': 'env(safe-area-inset-top)',
                         'safe-left': 'env(safe-area-inset-left)',
                         'safe-right': 'env(safe-area-inset-right)'
-                    },
-                    boxShadow: {
-                        'glass': '0 8px 32px 0 rgba(14, 165, 233, 0.1)',
-                        'glass-strong': '0 8px 32px 0 rgba(14, 165, 233, 0.25)'
                     }
                 }
             }
@@ -134,7 +130,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- ======================================================================
-         KAPSAMLI CSS MİMARİSİ (HACİM STANDARDI VE KUSURSUZ DETAYLAR)
+         KAPSAMLI CSS MİMARİSİ
          ====================================================================== -->
     <style>
         /* --------------------------------------------------------------------------
@@ -581,7 +577,7 @@
             transform: scale(1.4) translateY(12%) translateZ(0) !important;
         }
         
-        /* TAKVİM TİLKİSİ (SAYAÇ ÜSTÜ) ALT KISIM GİZLEME VE BÜYÜTME */
+        /* TAKVİM TİLKİSİ (SAYAÇ ÜSTÜ) BÜYÜTME VE KESME */
         .video-crop-calendar video {
             object-position: center top !important;
             
@@ -684,7 +680,7 @@
             border-bottom-color: #ffffff; 
             border-left-color: #ffffff; 
             
-            /* Sınıf Kartlarındaki MP4'lere Özel Tok Siyah Gölge EKLENDİ */
+            /* MP4 yuvarlaklara sert gölge KORUNDU */
             box-shadow: 12px 12px 0px 0px rgba(15, 23, 42, 0.9) !important; 
             background-color: #ffffff; 
         }
@@ -1151,70 +1147,7 @@
             transform: scale(0.94) !important; 
         }
 
-        /* YENİ: OUTLINE BUTON STİLİ (360 Gezin ve Bize Ulaşın için) */
-        .outline-btn {
-            background-color: transparent; 
-            color: #0ea5e9; 
-            font-weight: 900; 
-            font-size: 0.85rem; 
-            
-            padding-top: 0.5rem; 
-            padding-right: 1.5rem; 
-            padding-bottom: 0.5rem; 
-            padding-left: 0.5rem; 
-            
-            border-top-left-radius: 999px; 
-            border-top-right-radius: 999px; 
-            border-bottom-right-radius: 999px; 
-            border-bottom-left-radius: 999px;
-            
-            border-top-width: 2px;
-            border-right-width: 2px;
-            border-bottom-width: 2px;
-            border-left-width: 2px;
-            
-            border-top-style: solid;
-            border-right-style: solid;
-            border-bottom-style: solid;
-            border-left-style: solid;
-            
-            border-top-color: #0ea5e9;
-            border-right-color: #0ea5e9;
-            border-bottom-color: #0ea5e9;
-            border-left-color: #0ea5e9;
-            
-            display: inline-flex; 
-            align-items: center; 
-            cursor: pointer; 
-            pointer-events: auto; 
-            will-change: transform; 
-            
-            -webkit-transition-property: background-color, color, box-shadow, transform;
-            -webkit-transition-duration: 0.2s;
-            -webkit-transition-timing-function: ease;
-            
-            -moz-transition-property: background-color, color, box-shadow, transform;
-            -moz-transition-duration: 0.2s;
-            -moz-transition-timing-function: ease;
-            
-            transition-property: background-color, color, box-shadow, transform;
-            transition-duration: 0.2s;
-            transition-timing-function: ease;
-        }
-
-        .outline-btn:hover {
-            background-color: #0ea5e9;
-            color: #ffffff;
-            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
-        }
-
-        .outline-btn:active {
-            -webkit-transform: scale(0.94) !important; 
-            -moz-transform: scale(0.94) !important; 
-            transform: scale(0.94) !important; 
-        }
-
-        /* YUVARLAK MASAÜSTÜ CANLI DESTEK İKONU (Randevu Butonu Mantığında Mavi Dolgulu) */
+        /* YUVARLAK MASAÜSTÜ CANLI DESTEK İKONU (Tam Dolgulu Mavi) */
         .desktop-chat-btn-wrapper {
             background-color: #0ea5e9; color: #ffffff; 
             width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
@@ -1808,7 +1741,7 @@
                 flex-shrink: 0 !important;
                 width: 140px !important;
                 display: flex !important;
-                justify-content: flex-end !important;
+                justify-content: center !important;
                 z-index: 10 !important;
             }
             
@@ -2819,7 +2752,7 @@
             <a href="#hakkimizda" class="pill-link">
                 HAKKIMIZDA
             </a>
-            <button onclick="openTour()" class="outline-btn flex items-center gap-1">
+            <button onclick="openTour()" class="magnetic-btn flex items-center gap-1">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1.25rem; height:1.25rem;">
                     <rect x="7" y="3" width="10" height="18" rx="2" ry="2"></rect>
                     <path d="M3 12c0-3.3 2.7-6 6-6"></path>
@@ -2838,7 +2771,7 @@
 
         <!-- Masaüstü Sağ: Yol Tarifi İkonu + Randevu Al -->
         <div class="pill-side right hidden md:flex items-center gap-6">
-            <a href="tel:+905000000000" class="outline-btn items-center gap-2">
+            <a href="tel:+905000000000" class="magnetic-btn items-center gap-2">
                 BİZE ULAŞIN
             </a>
             <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="pill-link" aria-label="Yol Tarifi" style="color: #0ea5e9; font-weight: 900;">
@@ -2960,7 +2893,7 @@
             </section>
 
             <!-- ======================================================================
-                 3'LÜ ÖZELLİK KARTLARI
+                 3'LÜ ÖZELLİK KARTLARI (TAM OTOMATİK SONSUZ FİLM ŞERİDİ EFEKTİ)
                  ====================================================================== -->
             <section class="w-full max-w-6xl mx-auto px-0 md:px-6 mb-16 md:mb-40 relative z-10">
                 
@@ -3491,7 +3424,7 @@
                 initMobileInfiniteSwipes('education-swipe');
             }
             
-            // 3 Saniye Sonra Canlı Destek Baloncuğunu Göster (Mobil & Masaüstü)
+            // Başlangıç Balonu Delayı
             setTimeout(() => {
                 const bubbleMobile = document.getElementById('topChatBubbleMobile');
                 const bubbleDesktop = document.getElementById('topChatBubbleDesktop');
@@ -3904,7 +3837,6 @@
             }
         }
 
-        // Random delay üretici (1.5s ile 2.5s arası)
         function getRandomDelay() {
             return Math.floor(Math.random() * (2500 - 1500 + 1)) + 1500;
         }
@@ -3918,12 +3850,10 @@
             
             const panel = document.getElementById('chatPanel');
             
-            // Konuşma baloncuğunu kalıcı olarak gizle
             if (bubbleMobile) bubbleMobile.style.display = 'none';
             if (bubbleDesktop) bubbleDesktop.style.display = 'none';
             
             if(!isChatOpen) {
-                // Tıklama anında anında panel açılır
                 panel.classList.add('show');
                 isChatOpen = true;
             } else {
@@ -3965,7 +3895,6 @@
             scrollToBottom();
         }
 
-        // isJPG parametresi eklendi. True gelirse JPG basar, false gelirse 🦊 emojisi
         function addBotMessage(text, isJPG = false) {
             const chatBody = document.getElementById('chatBody');
             const msgDiv = document.createElement('div');
@@ -3999,13 +3928,15 @@
                 addUserMessage("💰 Dershane Ücreti Ne Kadar?");
                 
                 setTimeout(() => {
+                    // Düşünme sırasında Emoji yok (Boş beyaz kutu veya default ikon bırakılır. Ancak kuralda "emoji düşünürken kullanılmayacaktı" dendiği için JPG'ye alıyoruz.)
+                    setAvatarToJPG();
+                    typingIndicator.querySelector('.bot-avatar').innerHTML = `<img src="assets/tilki-avatar.png" alt="Bot" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">`;
                     typingIndicator.style.display = 'flex'; 
                     scrollToBottom();
                     
                     const dynamicDelay1 = getRandomDelay();
                     setTimeout(() => {
                         typingIndicator.style.display = 'none';
-                        setAvatarToJPG();
                         addBotMessage("Tabii, sizin için dershane fiyat ücreti için yardımcı olabilirim.", true);
                         
                         setTimeout(() => { 
@@ -4037,13 +3968,14 @@
                 addUserMessage("🏫 Sınıfların Görsellerini Görebilir miyiz?");
                 
                 setTimeout(() => {
+                    setAvatarToJPG();
+                    typingIndicator.querySelector('.bot-avatar').innerHTML = `<img src="assets/tilki-avatar.png" alt="Bot" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">`;
                     typingIndicator.style.display = 'flex'; 
                     scrollToBottom();
                     
                     const dynamicDelay1 = getRandomDelay();
                     setTimeout(() => {
                         typingIndicator.style.display = 'none';
-                        setAvatarToJPG();
                         addBotMessage("Tabii ki, kurumumuzu ve sınıflarımızı hemen inceleyebilirsiniz.", true);
                         
                         setTimeout(() => { 
@@ -4070,13 +4002,14 @@
                 addUserMessage("❓ Aklıma Takılan Başka Bir Soru Var");
                 
                 setTimeout(() => {
+                    setAvatarToJPG();
+                    typingIndicator.querySelector('.bot-avatar').innerHTML = `<img src="assets/tilki-avatar.png" alt="Bot" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">`;
                     typingIndicator.style.display = 'flex'; 
                     scrollToBottom(); 
                     
                     const dynamicDelay1 = getRandomDelay();
                     setTimeout(() => {
                         typingIndicator.style.display = 'none';
-                        setAvatarToJPG();
                         addBotMessage("Tabii ki, Hangi konu hakkında yardıma ihtiyacınız var yazarsanız yardımcı olabilirim.", true);
                         
                         const inputContainer = document.createElement('div');
