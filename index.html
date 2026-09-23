@@ -131,7 +131,7 @@
             .hanging-tab:hover .hanging-title { color: #0ea5e9; }
             .hanging-sub { display: block; font-size: 0.7rem; font-weight: 800; color: #0ea5e9; margin-top: 6px; text-transform: uppercase; }
 
-            /* PC ÜST MENÜ */
+            /* PC ÜST MENÜSÜ */
             .pill-nav { 
                 position: fixed; top: 110px; left: 50%; transform: translateX(-50%); width: 95%; max-width: 1050px; height: 72px; 
                 background-color: rgba(255,255,255,1); border-radius: 999px; border: 1px solid #e0f2fe; box-shadow: 0 15px 35px rgba(14,165,233,0.15); 
@@ -184,7 +184,6 @@
             .auto-date-btn::before { content: '✓'; background: #0ea5e9; color: #fff; border-radius: 50%; width: 14px; height: 14px; display: inline-flex; justify-content: center; align-items: center; font-size: 0.55rem; }
             .auto-date-btn:hover { background-color: #e2e8f0; transform: scale(1.05); color: #0f172a; border-color: #94a3b8; }
 
-            /* GENEL DİKEY FLEX KAPSAYICISI */
             main { padding-top: 180px; width: 100%; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; position: relative; }
 
             .card-shield-hard { 
@@ -196,16 +195,15 @@
             .mobile-bottom-nav { display: none; }
             .mobile-swipe-wrapper { display: block; width: 100%; z-index: 20; position: relative; } 
 
-            /* --- MOBİL SÜRÜM KONTROLLERİ --- */
             @media (max-width: 768px) {
-                main { padding-top: 130px !important; overflow-x: hidden; width: 100% !important; }
+                main { padding-top: 140px !important; overflow-x: hidden; width: 100% !important; }
 
                 .mega-bar-wrapper { display: none !important; }
                 .pill-side { display: none !important; }
                 .branch-line { display: none !important; }
                 .pill-nav { display: none !important; } 
                 
-                /* KUSURSUZ MOBİL ÜST MENÜ */
+                /* MOBİL ÜST MENÜ */
                 .mobile-pill-container {
                     display: flex; flex-direction: column; align-items: center;
                     width: 96%; max-width: 480px; pointer-events: none; z-index: 40010;
@@ -238,16 +236,16 @@
                 }
                 .mob-btn-text { font-size: 0.65rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0.2px; }
 
-                /* CHAT BALONU: Sola İzolasyon (Y Harfi Taşmasını Önler) */
+                /* CHAT BALONU: Sola İzolasyon (Y Harfi Kesilmesini Önler) */
                 #topChatBubbleMobile {
-                    left: 5px !important; 
+                    left: 20px !important; 
                     transform: none !important;
                 }
                 #topChatBubbleMobile::before {
-                    left: 15px !important; transform: none !important;
+                    left: 10px !important; transform: none !important;
                 }
                 #topChatBubbleMobile::after {
-                    left: 17px !important; transform: none !important;
+                    left: 12px !important; transform: none !important;
                 }
 
                 /* ORTA ALAN */
@@ -394,12 +392,10 @@
             .sub-row.open { opacity: 1; max-height: 100px; margin-top: 1.5rem; overflow: visible; }
             .sub-pill { background-color: #f8fafc; color: #475569; padding: 10px 24px; border-radius: 999px; font-size: 0.85rem; font-weight: 800; border: 1px solid #cbd5e1; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
 
-            /* ULTRA SIKIŞTIRILMIŞ VE AŞAĞI ÇEKİLMİŞ RANDEVU MODALI */
-            .modal-overlay { position: fixed; inset: 0; background-color: rgba(15,23,42,0.85); z-index: 60000; display: none; align-items: center; justify-content: center; padding: 0.5rem; opacity: 0; transition: opacity 0.59s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+            /* MODAL VE VİDEO DÜZELTME EKRANI */
+            .modal-overlay { position: fixed; inset: 0; background-color: rgba(15,23,42,0.85); z-index: 60000; display: none; align-items: center; justify-content: center; padding: 0.5rem; opacity: 0; transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
             .modal-overlay.show { display: flex; opacity: 1; }
-            .modal-box { background-color: #ffffff; border-radius: 1.5rem; padding: 1.5rem !important; width: 100%; max-width: 550px; max-height: 95vh; overflow-y: auto; overscroll-behavior: contain; position: relative; box-shadow: 0 30px 60px -12px rgba(0,0,0,0.6); border: 2px solid #cffafe; z-index: 60005; clip-path: circle(0% at 50% 50%); transition: clip-path 0.826s cubic-bezier(0.175, 0.885, 0.32, 1.275); pointer-events: auto; margin-top: 10vh; }
-            .modal-box::-webkit-scrollbar { width: 4px; }
-            .modal-box::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 10px; }
+            .modal-box { background-color: #ffffff; border-radius: 1.5rem; padding: 1.5rem !important; width: 100%; max-width: 550px; position: relative; box-shadow: 0 30px 60px -12px rgba(0,0,0,0.6); border: 2px solid #cffafe; z-index: 60005; clip-path: circle(0% at 50% 50%); transition: clip-path 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275); pointer-events: auto; margin-top: 10vh; overflow: visible !important; }
             .modal-overlay.show .modal-box { clip-path: circle(150% at 50% 50%); }
 
             @media (max-width: 768px) {
@@ -409,25 +405,25 @@
                 .auto-date-btn { font-size: 0.5rem; padding: 2px 6px; }
             }
 
-            #imageLightbox { position: fixed; inset: 0; background-color: rgba(0,0,0,0.85); z-index: 65000; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.472s ease; pointer-events: auto; cursor: zoom-out; }
+            #imageLightbox { position: fixed; inset: 0; background-color: rgba(0,0,0,0.85); z-index: 65000; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease; pointer-events: auto; cursor: zoom-out; }
             #imageLightbox.show { display: flex; opacity: 1; }
-            #lightboxImg { max-width: 95%; max-height: 90vh; border-radius: 1.5rem; transform: scale(0.5); transition: transform 0.472s cubic-bezier(0.175, 0.885, 0.32, 1.275); pointer-events: none; border: 4px solid #ffffff; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+            #lightboxImg { max-width: 95%; max-height: 90vh; border-radius: 1.5rem; transform: scale(0.5); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); pointer-events: none; border: 4px solid #ffffff; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
             #imageLightbox.show #lightboxImg { transform: scale(1); }
 
-            .err-banner { background-color: rgba(239,68,68,0.1); border: 2px solid #ef4444; color: #ef4444; padding: 10px 14px; border-radius: 10px; display: none; align-items: center; gap: 10px; font-weight: 800; font-size: 0.8rem; margin-bottom: 1rem; animation: shake 0.472s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; }
+            .err-banner { background-color: rgba(239,68,68,0.1); border: 2px solid #ef4444; color: #ef4444; padding: 10px 14px; border-radius: 10px; display: none; align-items: center; gap: 10px; font-weight: 800; font-size: 0.8rem; margin-bottom: 1rem; animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; }
             @keyframes shake { 10%, 90% { transform: translate3d(-2px, 0, 0); } 20%, 80% { transform: translate3d(3px, 0, 0); } 30%, 50%, 70% { transform: translate3d(-5px, 0, 0); } 40%, 60% { transform: translate3d(5px, 0, 0); } }
 
-            .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-150px); opacity: 0; visibility: hidden; background-color: #ffffff; padding: 20px 40px; border-radius: 50px; display: flex; align-items: center; gap: 20px; z-index: 99999; box-shadow: 0 15px 40px rgba(0,0,0,0.15); border: 3px solid #06b6d4; transition: all 0.826s cubic-bezier(0.68,-0.55,0.27,1.55); pointer-events: none; }
+            .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-150px); opacity: 0; visibility: hidden; background-color: #ffffff; padding: 20px 40px; border-radius: 50px; display: flex; align-items: center; gap: 20px; z-index: 99999; box-shadow: 0 15px 40px rgba(0,0,0,0.15); border: 3px solid #06b6d4; transition: all 0.6s cubic-bezier(0.68,-0.55,0.27,1.55); pointer-events: none; }
             .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; visibility: visible; }
 
-            .chat-panel { position: fixed; bottom: 110px; right: 30px; width: 360px; height: 500px; background-color: #ffffff; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); z-index: 54010; display: flex; flex-direction: column; overflow: hidden; opacity: 0; visibility: hidden; transform: translateY(20px) scale(0.95); transition: all 0.354s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-origin: bottom right; border: 1px solid #e2e8f0; }
+            .chat-panel { position: fixed; bottom: 110px; right: 30px; width: 360px; height: 500px; background-color: #ffffff; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); z-index: 54010; display: flex; flex-direction: column; overflow: hidden; opacity: 0; visibility: hidden; transform: translateY(20px) scale(0.95); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-origin: bottom right; border: 1px solid #e2e8f0; }
             .chat-panel.show { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
             @media (max-width: 768px) { .chat-panel { left: 50%; right: auto; transform: translateX(-50%) translateY(20px) scale(0.95); transform-origin: bottom center; } .chat-panel.show { transform: translateX(-50%) translateY(0) scale(1); } }
 
             .chat-header { background-color: #0ea5e9; color: #ffffff; padding: 1.5rem; position: relative; text-align: center; }
             .chat-header h3 { font-size: 1.25rem; font-weight: 900; margin: 0 0 8px 0; }
             .chat-header p { font-size: 0.85rem; font-weight: 600; margin: 0; opacity: 0.9; }
-            .chat-close-btn { position: absolute; top: 15px; right: 15px; background: transparent; border: none; color: #ffffff; font-size: 1.2rem; cursor: pointer; opacity: 0.7; transition: opacity 0.236s; }
+            .chat-close-btn { position: absolute; top: 15px; right: 15px; background: transparent; border: none; color: #ffffff; font-size: 1.2rem; cursor: pointer; opacity: 0.7; transition: opacity 0.2s; }
             .chat-close-btn:hover { opacity: 1; }
 
             .chat-body { flex: 1; padding: 1.5rem; overflow-y: auto; background-color: #f8fafc; display: flex; flex-direction: column; gap: 15px; }
@@ -446,18 +442,18 @@
             .user-options { display: flex; flex-direction: column; gap: 8px; margin-top: auto; padding-top: 10px; }
             .chat-action-buttons { display: flex; flex-direction: column; gap: 10px; width: 100%; margin-top: 10px; }
 
-            .chat-action-btn { background-color: #0ea5e9; color: #ffffff; border: 0; padding: 12px 16px; border-radius: 999px; font-size: 0.85rem; font-weight: 800; text-align: center; cursor: pointer; box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3); transition: all 0.236s ease; display: block; width: 100%; margin-bottom: 8px; }
+            .chat-action-btn { background-color: #0ea5e9; color: #ffffff; border: 0; padding: 12px 16px; border-radius: 999px; font-size: 0.85rem; font-weight: 800; text-align: center; cursor: pointer; box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3); transition: all 0.2s ease; display: block; width: 100%; margin-bottom: 8px; }
             .chat-action-btn:hover { background-color: #0284c7; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(14, 165, 233, 0.4); }
             .chat-action-btn:active { transform: scale(0.96); }
 
-            .chat-option-btn { background-color: #ffffff; color: #0284c7; border: 1px solid #bae6fd; padding: 12px 16px; border-radius: 12px; font-size: 0.85rem; font-weight: 800; text-align: left; cursor: pointer; transition: all 0.236s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.02); display: flex; align-items: center; gap: 8px; }
+            .chat-option-btn { background-color: #ffffff; color: #0284c7; border: 1px solid #bae6fd; padding: 12px 16px; border-radius: 12px; font-size: 0.85rem; font-weight: 800; text-align: left; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.02); display: flex; align-items: center; gap: 8px; }
             .chat-option-btn:hover { background-color: #f0f9ff; transform: translateY(-1px); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
             .chat-option-btn:active { transform: scale(0.98); }
 
             .typing-indicator { display: none; gap: 4px; padding: 12px 16px; background-color: #ffffff; border-radius: 16px 16px 16px 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); width: fit-content; border: 1px solid #f1f5f9; }
-            .typing-dot { width: 6px; height: 6px; background-color: #94a3b8; border-radius: 50%; animation: typingDot 1.652s ease-in-out infinite both; }
-            .typing-dot:nth-child(1) { animation-delay: -0.377s; }
-            .typing-dot:nth-child(2) { animation-delay: -0.188s; }
+            .typing-dot { width: 6px; height: 6px; background-color: #94a3b8; border-radius: 50%; animation: typingDot 1.4s ease-in-out infinite both; }
+            .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+            .typing-dot:nth-child(2) { animation-delay: -0.16s; }
 
             @keyframes typingDot { 0%, 80%, 100% { transform: scale(0); opacity: 0.5; } 40% { transform: scale(1); opacity: 1; } }
 
@@ -465,16 +461,17 @@
             .chat-input-container { display: none; gap: 8px; margin-top: 10px; width: 100%; }
             .chat-text-input { flex: 1; padding: 10px 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 0.85rem; color: #334155; background-color: #ffffff; font-family: 'Manrope', sans-serif; outline: none; }
             .chat-text-input:focus { border-color: #0ea5e9; }
-            .chat-send-btn { background-color: #0ea5e9; color: #ffffff; border: 0; padding: 10px 16px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; cursor: pointer; transition: background-color 0.236s; }
+            .chat-send-btn { background-color: #0ea5e9; color: #ffffff; border: 0; padding: 10px 16px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; cursor: pointer; transition: background-color 0.2s; }
             .chat-send-btn:hover { background-color: #0284c7; }
 
-            .backdrop-blur-active { filter: blur(15px); transition: filter 0.59s ease; }
+            .backdrop-blur-active { filter: blur(15px); transition: filter 0.5s ease; }
         </style>
     </head>
     <body class="selection:bg-cyan-500 selection:text-white" id="main-body">
 
         <div class="progress-bar" id="progressBar"></div>
 
+        <!-- ÜST MENÜ HANGING NAV (PC) -->
         <div class="mega-bar-wrapper" id="megaBar">
             <nav class="hanging-nav hidden md:grid">
                 <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-ust'">
@@ -496,7 +493,6 @@
             </nav>
         </div>
 
-        <!-- PC ÜST MENÜSÜ -->
         <nav class="pill-nav hidden md:flex" id="pillMenu">
             <div class="pill-side left items-center" style="gap: 1.5rem; flex: 1; padding-right: 20px;">
                 <div onclick="triggerTopChat()" class="flex items-center gap-2 cursor-pointer mr-auto relative group" style="text-decoration: none;">
@@ -828,69 +824,74 @@
 
         <div id="randevuModal" class="modal-overlay" onclick="if(event.target===this) closeModal()">
             <div class="webm-mask webm-modal-flank flank-left hidden lg:flex video-skeleton">
+                <!-- Ekrana Tıklama Videosu (WEBM) -->
                 <video data-src="assets/ekrana-tiklama.webm" preload="none" playsinline loop muted></video>
             </div>
+            
+            <!-- MODAL İÇERİĞİ -->
             <div class="modal-box pointer-events-auto" id="appointment-modal-box">
                 <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-red-100 text-slate-400 hover:text-red-500 font-black text-xl flex items-center justify-center transition-colors z-30">✕</button>
                 
-                <!-- YENİ VİDEO: Modal Üstüne Dışa Taşan Basamaklı Yapı -->
-                <div class="flex justify-center -mt-10 md:-mt-14 mb-4 relative z-20">
-                    <div class="w-32 md:w-40 aspect-video rounded-xl bg-white overflow-hidden flex items-center justify-center" 
-                         style="box-shadow: 0 0 0 5px rgba(255,255,255,0.8), 0 0 0 10px rgba(255,255,255,0.4), 0 0 0 15px rgba(255,255,255,0.15), 0 10px 20px rgba(0,0,0,0.3);">
+                <!-- YENİ VİDEO: Modal Üstüne Dışa Taşan Basamaklı Tam Kare (1:1) Yapı -->
+                <div class="flex justify-center -mt-20 md:-mt-24 mb-6 relative z-20">
+                    <div class="w-32 h-32 md:w-40 md:h-40 aspect-square rounded-2xl bg-white overflow-hidden flex items-center justify-center border-4 border-white" 
+                         style="box-shadow: 0 0 0 4px rgba(255,255,255,0.6), 0 0 0 8px rgba(255,255,255,0.3), 0 15px 30px rgba(0,0,0,0.4);">
                         <video data-src="assets/ekran.webm" preload="none" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
                     </div>
                 </div>
 
-                <h3 class="text-xl md:text-3xl font-black flex items-center justify-center gap-2 md:gap-4 text-slate-900 mt-2 md:mt-0">RANDEVU AL</h3>
-                <p class="text-[10px] md:text-sm text-slate-500 mb-2 md:mb-4 text-center font-bold">Kurum ziyareti için bilgilerinizi giriniz.</p>
-                
-                <div id="errBanner" class="err-banner">
-                    <span class="text-lg md:text-xl">❌</span><span id="errText">Hata</span>
-                </div>
-                
-                <form id="apptForm" onsubmit="return false;">
-                    <input type="text" id="botTrap" tabindex="-1" autocomplete="off" class="sr-only">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
-                        <input type="text" id="fIsim" placeholder="Örn: Muhammed" required class="w-full bg-slate-50 border-2 border-slate-200 py-2 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-900 focus:border-cyan-500 font-black pointer-events-auto transition-colors focus:bg-white placeholder:font-medium placeholder:text-slate-400">
-                        <input type="tel" id="fTelefon" placeholder="Örn: 053X XXX XX XX" required maxlength="11" oninput="this.value=this.value.replace(/[^0-9]/g,'')" class="w-full bg-slate-50 border-2 border-slate-200 py-2 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-900 focus:border-cyan-500 font-black pointer-events-auto transition-colors focus:bg-white placeholder:font-medium placeholder:text-slate-400">
+                <div class="max-h-[60vh] overflow-y-auto overflow-x-hidden pr-2">
+                    <h3 class="text-xl md:text-3xl font-black flex items-center justify-center gap-2 md:gap-4 text-slate-900 mt-1 md:mt-0">RANDEVU AL</h3>
+                    <p class="text-[10px] md:text-sm text-slate-500 mb-4 text-center font-bold">Kurum ziyareti için bilgilerinizi giriniz.</p>
+                    
+                    <div id="errBanner" class="err-banner">
+                        <span class="text-lg md:text-xl">❌</span><span id="errText">Hata</span>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
-                        <select id="fSinif" required class="w-full bg-slate-50 border-2 border-slate-200 py-2 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-600 focus:border-cyan-500 font-black cursor-pointer pointer-events-auto transition-colors focus:bg-white">
-                            <option value="" disabled selected>Sınıf Seçiniz</option>
-                            <option value="5-8. Sınıf">5-8. Sınıf</option>
-                            <option value="9-12. Sınıf">9-12. Sınıf</option>
-                            <option value="Mezun">Mezun</option>
-                            <option value="DGS / KPSS / ALES">DGS / KPSS / ALES</option>
-                        </select>
-                        <select id="fHizmet" required class="w-full bg-slate-50 border-2 border-slate-200 py-2 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-600 focus:border-cyan-500 font-black cursor-pointer pointer-events-auto transition-colors focus:bg-white">
-                            <option value="Kayıt Görüşmesi" selected>Kayıt Görüşmesi</option>
-                            <option value="Diğer">Diğer</option>
-                        </select>
-                    </div>
-                    <div class="border-t-2 border-slate-100 pt-2 md:pt-4 mt-2">
-                        <div class="flex justify-between items-end mb-1 md:mb-2">
-                            <label class="text-[9px] md:text-xs font-black text-slate-500 uppercase tracking-widest">
-                                Tarih Seçimi: <span id="dateRel" class="text-cyan-600 ml-1"></span>
-                            </label>
-                            <button type="button" id="autoDateBtn" onclick="findNearestDate()" class="auto-date-btn">En Yakın Tarihi Seç</button>
+                    
+                    <form id="apptForm" onsubmit="return false;">
+                        <input type="text" id="botTrap" tabindex="-1" autocomplete="off" class="sr-only">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 mb-2 md:mb-4">
+                            <input type="text" id="fIsim" placeholder="Örn: Muhammed" required class="w-full bg-slate-50 border-2 border-slate-200 py-3 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-900 focus:border-cyan-500 font-black pointer-events-auto transition-colors focus:bg-white placeholder:font-medium placeholder:text-slate-400">
+                            <input type="tel" id="fTelefon" placeholder="Örn: 053X XXX XX XX" required maxlength="11" oninput="this.value=this.value.replace(/[^0-9]/g,'')" class="w-full bg-slate-50 border-2 border-slate-200 py-3 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-900 focus:border-cyan-500 font-black pointer-events-auto transition-colors focus:bg-white placeholder:font-medium placeholder:text-slate-400">
                         </div>
-                        <input type="date" id="fTarih" required class="w-full bg-slate-50 border-2 border-slate-200 py-2 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-600 focus:border-cyan-500 font-black cursor-pointer mb-2 md:mb-4 pointer-events-auto transition-colors focus:bg-white">
-                        <div class="flex justify-between items-end mb-1 md:mb-2">
-                            <label class="text-[9px] md:text-xs font-black text-slate-500 uppercase tracking-widest">Saat Seçimi:</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
+                            <select id="fSinif" required class="w-full bg-slate-50 border-2 border-slate-200 py-3 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-600 focus:border-cyan-500 font-black cursor-pointer pointer-events-auto transition-colors focus:bg-white">
+                                <option value="" disabled selected>Sınıf Seçiniz</option>
+                                <option value="5-8. Sınıf">5-8. Sınıf</option>
+                                <option value="9-12. Sınıf">9-12. Sınıf</option>
+                                <option value="Mezun">Mezun</option>
+                                <option value="DGS / KPSS / ALES">DGS / KPSS / ALES</option>
+                            </select>
+                            <select id="fHizmet" required class="w-full bg-slate-50 border-2 border-slate-200 py-3 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-600 focus:border-cyan-500 font-black cursor-pointer pointer-events-auto transition-colors focus:bg-white">
+                                <option value="Kayıt Görüşmesi" selected>Kayıt Görüşmesi</option>
+                                <option value="Diğer">Diğer</option>
+                            </select>
                         </div>
-                        <select id="fSaat" required disabled class="w-full bg-slate-50 border-2 border-slate-200 py-2 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-600 text-center font-black cursor-pointer focus:border-cyan-500 pointer-events-auto transition-colors focus:bg-white">
-                            <option value="" disabled selected>Önce Tarih Seçiniz</option>
-                            <option value="09:00">09:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                        </select>
-                    </div>
+                        <div class="border-t-2 border-slate-100 pt-2 md:pt-4 mt-4">
+                            <div class="flex justify-between items-end mb-1 md:mb-2">
+                                <label class="text-[9px] md:text-xs font-black text-slate-500 uppercase tracking-widest">
+                                    Tarih Seçimi: <span id="dateRel" class="text-cyan-600 ml-1"></span>
+                                </label>
+                                <button type="button" id="autoDateBtn" onclick="findNearestDate()" class="auto-date-btn">En Yakın Tarihi Seç</button>
+                            </div>
+                            <input type="date" id="fTarih" required class="w-full bg-slate-50 border-2 border-slate-200 py-3 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-600 focus:border-cyan-500 font-black cursor-pointer mb-2 md:mb-4 pointer-events-auto transition-colors focus:bg-white">
+                            <div class="flex justify-between items-end mb-1 md:mb-2">
+                                <label class="text-[9px] md:text-xs font-black text-slate-500 uppercase tracking-widest">Saat Seçimi:</label>
+                            </div>
+                            <select id="fSaat" required disabled class="w-full bg-slate-50 border-2 border-slate-200 py-3 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-600 text-center font-black cursor-pointer focus:border-cyan-500 pointer-events-auto transition-colors focus:bg-white">
+                                <option value="" disabled selected>Önce Tarih Seçiniz</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                            </select>
+                        </div>
 
-                    <button type="button" id="btn-submit" onclick="submitAppt()" class="magnetic-btn w-full justify-center font-black py-3 md:py-4 mt-4 rounded-xl text-xs md:text-base shadow-[0_15px_30px_rgba(6,182,212,0.35)] bg-cyan-500 text-white hover:bg-cyan-600 tracking-widest border-none">GÖNDER</button>
-                </form>
+                        <button type="button" id="btn-submit" onclick="submitAppt()" class="magnetic-btn w-full justify-center font-black py-3 md:py-4 mt-4 rounded-xl text-xs md:text-base shadow-[0_15px_30px_rgba(6,182,212,0.35)] bg-cyan-500 text-white hover:bg-cyan-600 tracking-widest border-none">GÖNDER</button>
+                    </form>
+                </div>
             </div>
             <div class="webm-mask webm-modal-flank flank-right hidden lg:flex video-skeleton">
                 <video data-src="assets/takvim.mp4" preload="none" playsinline loop muted></video>
@@ -927,7 +928,7 @@
                             video.pause();
                         }
                     });
-                }, { rootMargin: '150px 0px' }); // Ekrana 150px yaklaşınca başlat
+                }, { rootMargin: '200px 0px' });
 
                 document.querySelectorAll('video[data-src]').forEach(video => {
                     videoObserver.observe(video);
