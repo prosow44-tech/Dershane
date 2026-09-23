@@ -131,6 +131,7 @@
             .hanging-tab:hover .hanging-title { color: #0ea5e9; }
             .hanging-sub { display: block; font-size: 0.7rem; font-weight: 800; color: #0ea5e9; margin-top: 6px; text-transform: uppercase; }
 
+            /* MASAÜSTÜ ÜST MENÜ (PC SÜRÜMÜ ORİJİNAL TASARIM) */
             .pill-nav { 
                 position: fixed; top: 110px; left: 50%; transform: translateX(-50%); width: 95%; max-width: 1050px; height: 72px; 
                 background-color: rgba(255,255,255,1); border-radius: 999px; border: 1px solid #e0f2fe; box-shadow: 0 15px 35px rgba(14,165,233,0.15); 
@@ -149,20 +150,12 @@
             .pill-logo-link:active { transform: translate(-50%, -50%) scale(0.95); }
             .pill-logo-link img { width: 100%; height: 100%; object-fit: contain; border-radius: 50% !important; }
 
-            .pill-side { flex: 1; display: flex; align-items: center; gap: 1.5rem; justify-content: center; }
+            .pill-side { flex: 1; display: flex; align-items: center; gap: 2rem; justify-content: center; }
             .pill-side.left { padding-right: 50px; justify-content: flex-end; }
             .pill-side.right { padding-left: 50px; justify-content: flex-start; }
 
-            /* PC ÜST MENÜ ÇERÇEVELİ BUTON YAPISI - İKON RENGİ KOYU LACİVERT (#0284c7) */
-            .pc-framed-link {
-                font-size: 0.85rem; font-weight: 900; color: #0ea5e9; text-transform: uppercase;
-                border: 2px solid #e0f2fe; padding: 8px 16px; border-radius: 12px;
-                text-decoration: none; transition: all 0.236s ease; background: transparent; letter-spacing: 0.5px;
-                display: flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer; pointer-events: auto;
-            }
-            .pc-framed-link:active, .pc-framed-link:hover { background-color: #0ea5e9; color: #ffffff; }
-            .pc-framed-link svg { stroke: #0284c7; transition: stroke 0.236s ease; }
-            .pc-framed-link:hover svg { stroke: #ffffff; }
+            .pill-link { font-weight: 800; font-size: 0.85rem; color: #475569; cursor: pointer; text-decoration: none; text-transform: uppercase; display: flex; align-items: center; gap: 8px; transition: color 0.236s; padding: 10px; }
+            .pill-link:hover { color: #0ea5e9; }
 
             .magnetic-btn { background-color: #06b6d4; color: #ffffff; font-weight: 900; font-size: 0.85rem; padding: 0.6rem 2rem; border-radius: 999px; display: inline-flex; align-items: center; cursor: pointer; border: 0; pointer-events: auto; will-change: transform; transition: background-color 0.236s ease, box-shadow 0.236s ease, transform 0.236s ease; }
             .magnetic-btn:hover { background-color: #0ea5e9; box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3); }
@@ -184,7 +177,6 @@
             .auto-date-btn::before { content: '✓'; background: #0ea5e9; color: #fff; border-radius: 50%; width: 14px; height: 14px; display: inline-flex; justify-content: center; align-items: center; font-size: 0.55rem; }
             .auto-date-btn:hover { background-color: #e2e8f0; transform: scale(1.05); color: #0f172a; border-color: #94a3b8; }
 
-            /* GENEL DİKEY FLEX KAPSAYICISI VE PC ÜST BOŞLUK AZALTMA */
             main { padding-top: 140px; width: 100%; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; position: relative; }
 
             .card-shield-hard { 
@@ -204,7 +196,7 @@
                 
                 .mobile-pill-container {
                     display: flex; flex-direction: column; align-items: center;
-                    width: 96%; max-width: 450px; pointer-events: none; z-index: 40010;
+                    width: 98%; max-width: 450px; pointer-events: none; z-index: 40010;
                 }
                 
                 .mobile-pill-main {
@@ -223,25 +215,24 @@
                     animation: bluePulse 2.95s infinite alternate;
                 }
                 .mob-btn-capsule:active { transform: scale(0.96); }
-                .mob-btn-capsule.left { padding: 4px 14px 4px 4px; gap: 6px; }
-                .mob-btn-capsule.right { padding: 4px 4px 4px 14px; gap: 6px; }
+                .mob-btn-capsule.left { padding: 4px 10px 4px 4px; gap: 4px; flex-shrink: 0; }
+                .mob-btn-capsule.right { padding: 4px 4px 4px 10px; gap: 4px; flex-shrink: 0; }
                 
                 .mob-btn-icon-circle {
-                    width: 44px; height: 44px; border-radius: 50%;
+                    width: 38px; height: 38px; border-radius: 50%;
                     background-color: white; color: #0ea5e9;
                     display: flex; align-items: center; justify-content: center;
-                    font-size: 1.6rem; flex-shrink: 0;
+                    font-size: 1.4rem; flex-shrink: 0;
                 }
-                .mob-btn-text { font-size: 0.85rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0.5px; }
+                .mob-btn-text { font-size: 0.75rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0.5px; }
 
-                .mob-center-area { display: flex; align-items: center; justify-content: center; gap: 4px; flex-shrink: 0; flex: 1; }
+                .mob-center-area { display: flex; align-items: center; justify-content: center; gap: 4px; flex-shrink: 1; flex: 1; overflow: hidden; }
                 
-                /* MOBİL ÜST MENÜ ÇERÇEVELİ BUTON YAPISI - İKON RENGİ KOYU LACİVERT (#0284c7) */
                 .mob-framed-link {
                     font-size: 0.65rem; font-weight: 900; color: #0ea5e9; text-transform: uppercase;
-                    border: 2px solid #e0f2fe; padding: 6px 8px; border-radius: 8px;
-                    text-decoration: none; transition: all 0.236s ease; background: transparent; white-space: nowrap; 
-                    display: flex; align-items: center; gap: 4px; cursor: pointer; pointer-events: auto;
+                    border: 1.5px solid #e0f2fe; padding: 4px 6px; border-radius: 8px;
+                    text-decoration: none; transition: all 0.236s ease; background: transparent; 
+                    display: flex; align-items: center; gap: 3px; cursor: pointer; pointer-events: auto;
                 }
                 .mob-framed-link:active, .mob-framed-link:hover { background-color: #0ea5e9; color: #ffffff; }
                 .mob-framed-link svg { stroke: #0284c7; transition: stroke 0.236s ease; }
@@ -255,9 +246,31 @@
                 .mob-center-logo:active { transform: scale(0.92); }
                 .mob-center-logo img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
 
+                .mobile-classes-row {
+                    display: flex; justify-content: center; align-items: center; gap: 12px;
+                    width: 100%; margin-top: 8px; pointer-events: auto;
+                }
+                .mob-class-btn {
+                    text-align: center; font-size: 0.7rem; font-weight: 900; color: #0ea5e9;
+                    padding: 8px 24px; text-decoration: none;
+                    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+                    border: 2px solid #e0f2fe; border-radius: 999px;
+                    box-shadow: 0 4px 10px rgba(0,0,0,0.03); transition: background-color 0.236s, transform 0.236s;
+                }
+                .mob-class-btn:active { background-color: #f0f9ff; transform: scale(0.97); }
+                
+                @media (max-width: 400px) {
+                    .mob-btn-icon-circle { width: 34px; height: 34px; font-size: 1.2rem; }
+                    .mob-btn-text { font-size: 0.65rem; }
+                    .mob-center-logo { width: 40px; height: 40px; }
+                    .mob-framed-link { padding: 3px 4px; gap: 2px; }
+                    .mob-framed-link span { font-size: 0.5rem; }
+                    .mob-framed-link svg { width: 14px; height: 14px; }
+                    .mob-class-btn { font-size: 0.65rem; padding: 6px 16px; }
+                }
+
                 main { padding-top: 130px !important; overflow-x: hidden; width: 100% !important; }
 
-                /* MOBİL ALT YÜZEN BUTONLAR (AYRIK KAPSÜLLER) */
                 .mobile-bottom-nav { 
                     display: block !important; position: fixed; left: 0; width: 100%; bottom: env(safe-area-inset-bottom, 15px); z-index: 45000; 
                     background: transparent; border: none; box-shadow: none; pointer-events: none;
@@ -469,14 +482,20 @@
                     <div class="mob-center-area">
                         <a href="#hakkimizda" class="mob-framed-link">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-[#0284c7]"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                            HAKKIMIZDA
+                            <div class="flex flex-col items-center justify-center leading-[1.1]">
+                                <span>KURUM</span>
+                                <span>HAKKINDA</span>
+                            </div>
                         </a>
-                        <a href="#sabit-siniflar-ust" class="mob-center-logo shadow-sm" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
+                        <a href="#sabit-siniflar-ust" class="mob-center-logo shadow-sm shrink-0" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
                             <img src="assets/logo.png" alt="Logo">
                         </a>
                         <button onclick="openTour()" class="mob-framed-link cursor-pointer">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-[#0284c7]"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-                            SINIFLARIMIZ
+                            <div class="flex flex-col items-center justify-center leading-[1.1]">
+                                <span>SINIF</span>
+                                <span>GÖRSELLERİ</span>
+                            </div>
                         </button>
                     </div>
 
@@ -491,6 +510,7 @@
             
             <div class="mobile-classes-row">
                 <a href="#sabit-siniflar-alt" class="mob-class-btn">5-8. SINIF</a>
+                <div class="mob-class-divider"></div>
                 <a href="#sabit-siniflar-alt" class="mob-class-btn">9-12. SINIF</a>
             </div>
         </div>
@@ -518,7 +538,7 @@
 
             <main class="w-full flex flex-col items-center relative z-10" id="main-content-area">
 
-                <section class="w-full max-w-6xl mx-auto px-0 md:px-6 mb-16 md:mb-32 relative z-[20] order-2 md:order-1 mt-6 md:mt-24">
+                <section id="features" class="w-full max-w-6xl mx-auto px-0 md:px-6 mb-16 md:mb-32 relative z-[20] order-2 md:order-1 mt-6 md:mt-0">
                     <div class="mobile-swipe-wrapper">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 relative mobile-swipe-container" id="features-swipe">
                             <div class="mobile-swipe-item card-shield-hard glass-card p-8 text-center flex flex-col items-center relative">
@@ -558,7 +578,7 @@
                     </div>
                 </section>
 
-                <section id="sabit-siniflar-ust" class="w-full max-w-4xl mx-auto px-6 relative z-[20] pb-16 order-1 md:order-2 pt-2 -mt-4">
+                <section id="sabit-siniflar-ust" class="w-full max-w-4xl mx-auto px-6 relative z-[20] pb-16 order-1 md:order-2 pt-2 md:pt-0 -mt-4 md:mt-0">
                     <div class="flex items-center w-full mb-16 relative">
                         <div class="w-1/2 pr-6 md:pr-8 text-right">
                             <h2 class="text-2xl md:text-5xl font-black text-slate-900 tracking-tighter mb-2">5-8. SINIF</h2>
@@ -616,7 +636,7 @@
                     </div>
                 </section>
 
-                <section class="w-full max-w-4xl px-4 md:px-6 mb-24 md:mb-40 relative z-[20] text-center order-3">
+                <section id="sayac" class="w-full max-w-4xl px-4 md:px-6 mb-24 md:mb-40 relative z-[20] text-center order-3">
                     <div class="flex justify-center mb-8">
                         <div class="webm-mask video-skeleton video-crop-calendar" style="width: 110px; height: 110px; border: 6px solid #ffffff; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
                             <video data-src="assets/takvim.mp4" preload="none" playsinline loop muted></video>
@@ -667,7 +687,7 @@
                                     <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">5-8. SINIF</h2>
                                     <h3 class="text-cyan-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">LGS Hazırlık</h3>
                                     <p class="text-slate-500 font-bold text-xs md:text-base leading-relaxed mb-6 md:mb-8 md:block">Akademik temellerin atıldığı bu dönemde, okuduğunu anlama ve sınav stresi yönetimi üzerine kusursuz rehberlik sunuyoruz.</p>
-                                    <button onclick="openModal('5-8. Sınıf')" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 rounded-xl hover:bg-cyan-500 transition-colors text-base border-none md:flex">Randevu Al</button>
+                                    <button onclick="openModal('5-8. Sınıf')" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 rounded-xl hover:bg-cyan-500 transition-colors text-base border-none md:flex hidden">Randevu Al</button>
                                 </div>
                                 <div class="video-side-desktop w-full md:w-1/2 flex justify-center md:justify-start mt-6 md:mt-0">
                                     <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
@@ -682,7 +702,7 @@
                                     <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">9-12. SINIF</h2>
                                     <h3 class="text-blue-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">TYT - AYT Maratonu</h3>
                                     <p class="text-slate-500 font-bold text-xs md:text-base leading-relaxed mb-6 md:mb-8 md:block">Zaman yönetiminden stres kontrolüne kadar tüm süreçleri profesyonel kadromuzla yönetiyoruz.</p>
-                                    <button onclick="openModal('9-12. Sınıf')" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 rounded-xl hover:bg-slate-900 transition-colors text-base border-none md:flex">Randevu Al</button>
+                                    <button onclick="openModal('9-12. Sınıf')" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 rounded-xl hover:bg-slate-900 transition-colors text-base border-none md:flex hidden">Randevu Al</button>
                                 </div>
                                 <div class="video-side-desktop w-full md:w-1/2 flex justify-center md:justify-end mt-6 md:mt-0">
                                     <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
@@ -697,7 +717,7 @@
                                     <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">MEZUN</h2>
                                     <h3 class="text-cyan-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">YKS Hedef Büyütme</h3>
                                     <p class="text-slate-500 font-bold text-xs md:text-base leading-relaxed mb-6 md:mb-8 md:block">Hedefine ulaşmak için eksik odaklı, yoğunlaştırılmış VIP eğitim sunuyoruz.</p>
-                                    <button onclick="openModal('Mezun')" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 rounded-xl hover:bg-cyan-500 transition-colors text-base border-none md:flex">Randevu Al</button>
+                                    <button onclick="openModal('Mezun')" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 rounded-xl hover:bg-cyan-500 transition-colors text-base border-none md:flex hidden">Randevu Al</button>
                                 </div>
                                 <div class="video-side-desktop w-full md:w-1/2 flex justify-center md:justify-start mt-6 md:mt-0">
                                     <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
@@ -712,7 +732,7 @@
                                     <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">AKADEMİK</h2>
                                     <h3 class="text-blue-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase leading-tight">DGS / KPSS / ALES</h3>
                                     <p class="text-slate-500 font-bold text-xs md:text-base leading-relaxed mb-6 md:mb-8 md:block">Memurluk veya akademik kariyer hedeflerinize yönelik nokta atışı taktikler.</p>
-                                    <button onclick="openModal('DGS / KPSS / ALES')" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 rounded-xl hover:bg-slate-900 transition-colors text-base border-none md:flex">Randevu Al</button>
+                                    <button onclick="openModal('DGS / KPSS / ALES')" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 rounded-xl hover:bg-slate-900 transition-colors text-base border-none md:flex hidden">Randevu Al</button>
                                 </div>
                                 <div class="video-side-desktop w-full md:w-1/2 flex justify-center md:justify-end mt-6 md:mt-0">
                                     <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
@@ -867,6 +887,7 @@
                         </select>
                     </div>
                     
+                    <!-- YENİ EKLENEN YUVARLAK VİDEO (BUTONUN HEMEN ÜSTÜ) -->
                     <div class="flex justify-center mt-3 mb-2">
                         <div class="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-4 border-[#0ea5e9] shadow-md flex items-center justify-center relative z-10 bg-white">
                             <video data-src="assets/ekran.webm" preload="none" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
