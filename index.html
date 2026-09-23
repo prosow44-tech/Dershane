@@ -131,7 +131,7 @@
             .hanging-tab:hover .hanging-title { color: #0ea5e9; }
             .hanging-sub { display: block; font-size: 0.7rem; font-weight: 800; color: #0ea5e9; margin-top: 6px; text-transform: uppercase; }
 
-            /* PC ÜST MENÜSÜ - ORİJİNAL ÇALIŞAN HALİ */
+            /* PC ÜST MENÜ */
             .pill-nav { 
                 position: fixed; top: 110px; left: 50%; transform: translateX(-50%); width: 95%; max-width: 1050px; height: 72px; 
                 background-color: rgba(255,255,255,1); border-radius: 999px; border: 1px solid #e0f2fe; box-shadow: 0 15px 35px rgba(14,165,233,0.15); 
@@ -198,7 +198,7 @@
 
             /* --- MOBİL SÜRÜM KONTROLLERİ --- */
             @media (max-width: 768px) {
-                main { padding-top: 140px !important; overflow-x: hidden; width: 100% !important; }
+                main { padding-top: 130px !important; overflow-x: hidden; width: 100% !important; }
 
                 .mega-bar-wrapper { display: none !important; }
                 .pill-side { display: none !important; }
@@ -238,6 +238,18 @@
                 }
                 .mob-btn-text { font-size: 0.65rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0.2px; }
 
+                /* CHAT BALONU: Sola İzolasyon (Y Harfi Taşmasını Önler) */
+                #topChatBubbleMobile {
+                    left: 5px !important; 
+                    transform: none !important;
+                }
+                #topChatBubbleMobile::before {
+                    left: 15px !important; transform: none !important;
+                }
+                #topChatBubbleMobile::after {
+                    left: 17px !important; transform: none !important;
+                }
+
                 /* ORTA ALAN */
                 .mob-center-area { display: flex; align-items: center; justify-content: center; gap: 6px; flex-shrink: 1; flex: 1; overflow: hidden; }
                 
@@ -265,31 +277,36 @@
                 .mob-center-logo:active { transform: scale(0.92); }
                 .mob-center-logo img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
 
-                /* MOBİLDE YENİDEN EKLENEN SINIFLAR ROW */
-                .mobile-classes-row {
-                    display: flex; justify-content: center; align-items: center; gap: 12px;
-                    width: 100%; margin-top: 8px; pointer-events: auto;
-                }
-                .mob-class-btn {
-                    text-align: center; font-size: 0.65rem; font-weight: 900; color: #0ea5e9;
-                    padding: 6px 18px; text-decoration: none;
-                    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
-                    border: 2px solid #e0f2fe; border-radius: 999px;
-                    box-shadow: 0 4px 10px rgba(0,0,0,0.03); transition: background-color 0.236s, transform 0.236s;
-                }
-                .mob-class-btn:active { background-color: #f0f9ff; transform: scale(0.97); }
-                
                 @media (max-width: 380px) {
-                    .mob-btn-icon-circle { width: 32px; height: 32px; font-size: 1.1rem; }
+                    .mob-btn-icon-circle { width: 34px; height: 34px; font-size: 1.2rem; }
                     .mob-btn-text { font-size: 0.55rem; }
                     .mob-center-logo { width: 44px; height: 44px; }
                     .mob-framed-link { padding: 3px 4px; min-width: 50px;}
                     .mob-framed-link .icon { font-size: 0.85rem; }
                     .mob-framed-link span.title { font-size: 0.45rem; }
                     .mob-framed-link svg { width: 14px; height: 14px; }
-                    .mob-btn-capsule.left { padding: 0 6px 0 3px; gap: 3px; }
-                    .mob-btn-capsule.right { padding: 0 3px 0 6px; gap: 3px; }
+                    .mob-btn-capsule.left { padding: 0 6px 0 3px; gap: 4px; }
+                    .mob-btn-capsule.right { padding: 0 3px 0 6px; gap: 4px; }
                 }
+
+                /* KAYBOLAN ALT BUTONLAR (ABSOLUTE) */
+                .mobile-classes-wrapper {
+                    position: absolute; top: 75px; left: 0; width: 100%; z-index: 40005;
+                    display: flex; justify-content: center; pointer-events: none;
+                }
+                .mobile-classes-row {
+                    display: flex; justify-content: center; align-items: center; gap: 12px;
+                    width: 100%; pointer-events: auto; padding: 0 10px;
+                }
+                .mob-class-btn {
+                    display: flex; flex-direction: column; align-items: center; justify-content: center;
+                    text-align: center; font-size: 0.65rem; font-weight: 900; color: #0ea5e9;
+                    padding: 6px 16px; text-decoration: none; line-height: 1.1;
+                    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+                    border: 2px solid #e0f2fe; border-radius: 999px;
+                    box-shadow: 0 4px 10px rgba(0,0,0,0.03); transition: background-color 0.236s, transform 0.236s;
+                }
+                .mob-class-btn:active { background-color: #f0f9ff; transform: scale(0.97); }
 
                 /* MOBİL ALT YÜZEN BUTONLAR (AYRIK KAPSÜLLER) */
                 .mobile-bottom-nav { 
@@ -479,6 +496,7 @@
             </nav>
         </div>
 
+        <!-- PC ÜST MENÜSÜ -->
         <nav class="pill-nav hidden md:flex" id="pillMenu">
             <div class="pill-side left items-center" style="gap: 1.5rem; flex: 1; padding-right: 20px;">
                 <div onclick="triggerTopChat()" class="flex items-center gap-2 cursor-pointer mr-auto relative group" style="text-decoration: none;">
@@ -512,7 +530,7 @@
             </div>
         </nav>
 
-        <!-- KUSURSUZ MOBİL ÜST MENÜ KATI -->
+        <!-- KUSURSUZ MOBİL ÜST MENÜ KATI (SABİT KALAN KISIM) -->
         <div class="md:hidden w-full fixed top-[10px] left-0 z-[40010] flex flex-col items-center pointer-events-none">
             <div class="mobile-pill-container">
                 <div class="mobile-pill-main">
@@ -545,10 +563,19 @@
                     </button>
                 </div>
             </div>
-            
-            <div class="mobile-classes-row">
-                <a href="#sabit-siniflar-alt" class="mob-class-btn">5-8. SINIF</a>
-                <a href="#sabit-siniflar-alt" class="mob-class-btn">9-12. SINIF</a>
+        </div>
+
+        <!-- KAYDIRINCA YOK OLAN (SABİT OLMAYAN) ALT BUTONLAR -->
+        <div class="md:hidden w-full absolute top-[75px] left-0 z-[40005] flex justify-center pointer-events-none">
+            <div class="mobile-classes-row flex justify-center gap-3 w-full pointer-events-auto px-2">
+                <a href="#ekstra-bilgiler" class="mob-class-btn flex flex-col items-center justify-center" style="padding: 6px 16px; line-height: 1.1;">
+                    <span>DERS</span>
+                    <span>PROGRAMI</span>
+                </a>
+                <a href="#ekstra-bilgiler" class="mob-class-btn flex flex-col items-center justify-center" style="padding: 6px 16px; line-height: 1.1;">
+                    <span>ÖĞRETMEN</span>
+                    <span>KADROMUZ</span>
+                </a>
             </div>
         </div>
 
