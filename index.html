@@ -184,7 +184,8 @@
             .auto-date-btn::before { content: '✓'; background: #0ea5e9; color: #fff; border-radius: 50%; width: 14px; height: 14px; display: inline-flex; justify-content: center; align-items: center; font-size: 0.55rem; }
             .auto-date-btn:hover { background-color: #e2e8f0; transform: scale(1.05); color: #0f172a; border-color: #94a3b8; }
 
-            main { padding-top: 250px; width: 100%; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; position: relative; }
+            /* GENEL DİKEY FLEX KAPSAYICISI VE PC ÜST BOŞLUK AZALTMA */
+            main { padding-top: 140px; width: 100%; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; position: relative; }
 
             .card-shield-hard { 
                 background-color: #ffffff !important; position: relative; z-index: 20; border-radius: 2rem; margin-bottom: 50px; 
@@ -254,32 +255,9 @@
                 .mob-center-logo:active { transform: scale(0.92); }
                 .mob-center-logo img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
 
-                .mobile-classes-row {
-                    display: flex; justify-content: center; align-items: center; gap: 12px;
-                    width: 100%; margin-top: 8px; pointer-events: auto;
-                }
-                .mob-class-btn {
-                    text-align: center; font-size: 0.7rem; font-weight: 900; color: #0ea5e9;
-                    padding: 8px 24px; text-decoration: none;
-                    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
-                    border: 2px solid #e0f2fe; border-radius: 999px;
-                    box-shadow: 0 4px 10px rgba(0,0,0,0.03); transition: background-color 0.236s, transform 0.236s;
-                }
-                .mob-class-btn:active { background-color: #f0f9ff; transform: scale(0.97); }
-                
-                @media (max-width: 380px) {
-                    .mob-btn-icon-circle { width: 32px; height: 32px; font-size: 1.1rem; }
-                    .mob-btn-text { font-size: 0.65rem; }
-                    .mob-center-logo { width: 38px; height: 38px; }
-                    .mob-framed-link { font-size: 0.55rem; padding: 4px; gap: 2px;}
-                    .mob-framed-link svg { width: 14px; height: 14px; }
-                    .mob-btn-capsule.left { padding: 4px 8px 4px 4px; gap: 4px; }
-                    .mob-btn-capsule.right { padding: 4px 4px 4px 8px; gap: 4px; }
-                    .mob-class-btn { font-size: 0.65rem; padding: 6px 16px; }
-                }
+                main { padding-top: 130px !important; overflow-x: hidden; width: 100% !important; }
 
-                main { padding-top: 150px !important; overflow-x: hidden; width: 100% !important; }
-
+                /* MOBİL ALT YÜZEN BUTONLAR (AYRIK KAPSÜLLER) */
                 .mobile-bottom-nav { 
                     display: block !important; position: fixed; left: 0; width: 100%; bottom: env(safe-area-inset-bottom, 15px); z-index: 45000; 
                     background: transparent; border: none; box-shadow: none; pointer-events: none;
@@ -512,8 +490,8 @@
             </div>
             
             <div class="mobile-classes-row">
-                <a href="#sabit-siniflar-ust" class="mob-class-btn">5-8. SINIF</a>
-                <a href="#sabit-siniflar-ust" class="mob-class-btn">9-12. SINIF</a>
+                <a href="#sabit-siniflar-alt" class="mob-class-btn">5-8. SINIF</a>
+                <a href="#sabit-siniflar-alt" class="mob-class-btn">9-12. SINIF</a>
             </div>
         </div>
 
@@ -679,7 +657,78 @@
                     </div>
                 </section>
 
-                <section id="iletisim" class="px-6 pb-10 max-w-5xl mx-auto relative z-[20] w-full order-5">
+                <section id="sabit-siniflar-alt" class="w-full max-w-6xl mx-auto px-0 md:px-6 relative z-[20] pb-32 order-5 mt-10">
+                    <div class="mobile-swipe-wrapper">
+                        <div class="mobile-swipe-container flex md:flex-col w-full px-0 md:px-0" id="education-swipe-alt">
+                            
+                            <div class="mobile-swipe-item card-shield-clean-desktop mx-auto md:mb-16 md:flex-row md:h-auto pt-20 -mt-20 relative w-[85vw] flex-shrink-0 snap-center md:w-full md:flex-shrink" style="flex: 0 0 85vw;">
+                                <div class="branch-line right hidden md:block"></div>
+                                <div class="text-side-desktop text-center md:text-right w-full md:w-1/2 px-4 md:px-0">
+                                    <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">5-8. SINIF</h2>
+                                    <h3 class="text-cyan-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">LGS Hazırlık</h3>
+                                    <p class="text-slate-500 font-bold text-xs md:text-base leading-relaxed mb-6 md:mb-8 md:block">Akademik temellerin atıldığı bu dönemde, okuduğunu anlama ve sınav stresi yönetimi üzerine kusursuz rehberlik sunuyoruz.</p>
+                                    <button onclick="openModal('5-8. Sınıf')" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 rounded-xl hover:bg-cyan-500 transition-colors text-base border-none md:flex">Randevu Al</button>
+                                </div>
+                                <div class="video-side-desktop w-full md:w-1/2 flex justify-center md:justify-start mt-6 md:mt-0">
+                                    <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
+                                        <video data-src="assets/kalem-yazma.mp4" preload="none" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mobile-swipe-item card-shield-clean-desktop mx-auto md:mb-16 md:flex-row-reverse md:h-auto pt-20 -mt-20 relative w-[85vw] flex-shrink-0 snap-center md:w-full md:flex-shrink" style="flex: 0 0 85vw;">
+                                <div class="branch-line left hidden md:block"></div>
+                                <div class="text-side-desktop-rev text-center md:text-left w-full md:w-1/2 px-4 md:px-0">
+                                    <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">9-12. SINIF</h2>
+                                    <h3 class="text-blue-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">TYT - AYT Maratonu</h3>
+                                    <p class="text-slate-500 font-bold text-xs md:text-base leading-relaxed mb-6 md:mb-8 md:block">Zaman yönetiminden stres kontrolüne kadar tüm süreçleri profesyonel kadromuzla yönetiyoruz.</p>
+                                    <button onclick="openModal('9-12. Sınıf')" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 rounded-xl hover:bg-slate-900 transition-colors text-base border-none md:flex">Randevu Al</button>
+                                </div>
+                                <div class="video-side-desktop w-full md:w-1/2 flex justify-center md:justify-end mt-6 md:mt-0">
+                                    <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
+                                        <video data-src="assets/bu-taraftan-gidiyoruz.mp4" preload="none" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mobile-swipe-item card-shield-clean-desktop mx-auto md:mb-16 md:flex-row md:h-auto pt-20 -mt-20 relative w-[85vw] flex-shrink-0 snap-center md:w-full md:flex-shrink" style="flex: 0 0 85vw;">
+                                <div class="branch-line right hidden md:block"></div>
+                                <div class="text-side-desktop text-center md:text-right w-full md:w-1/2 px-4 md:px-0">
+                                    <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">MEZUN</h2>
+                                    <h3 class="text-cyan-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">YKS Hedef Büyütme</h3>
+                                    <p class="text-slate-500 font-bold text-xs md:text-base leading-relaxed mb-6 md:mb-8 md:block">Hedefine ulaşmak için eksik odaklı, yoğunlaştırılmış VIP eğitim sunuyoruz.</p>
+                                    <button onclick="openModal('Mezun')" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 rounded-xl hover:bg-cyan-500 transition-colors text-base border-none md:flex">Randevu Al</button>
+                                </div>
+                                <div class="video-side-desktop w-full md:w-1/2 flex justify-center md:justify-start mt-6 md:mt-0">
+                                    <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
+                                        <video data-src="assets/sevinme.mp4" preload="none" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mobile-swipe-item card-shield-clean-desktop mx-auto md:mb-16 md:flex-row-reverse md:h-auto pt-20 -mt-20 relative w-[85vw] flex-shrink-0 snap-center md:w-full md:flex-shrink" style="flex: 0 0 85vw;">
+                                <div class="branch-line left hidden md:block"></div>
+                                <div class="text-side-desktop-rev text-center md:text-left w-full md:w-1/2 px-4 md:px-0">
+                                    <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">AKADEMİK</h2>
+                                    <h3 class="text-blue-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase leading-tight">DGS / KPSS / ALES</h3>
+                                    <p class="text-slate-500 font-bold text-xs md:text-base leading-relaxed mb-6 md:mb-8 md:block">Memurluk veya akademik kariyer hedeflerinize yönelik nokta atışı taktikler.</p>
+                                    <button onclick="openModal('DGS / KPSS / ALES')" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 rounded-xl hover:bg-slate-900 transition-colors text-base border-none md:flex">Randevu Al</button>
+                                </div>
+                                <div class="video-side-desktop w-full md:w-1/2 flex justify-center md:justify-end mt-6 md:mt-0">
+                                    <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
+                                        <video data-src="assets/soru-cozme.mp4" preload="none" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="pagination-dots md:hidden" id="education-dots-alt">
+                            <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="iletisim" class="px-6 pb-10 max-w-5xl mx-auto relative z-[20] w-full order-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 w-full">
                         <div class="glass-card p-8 md:p-12 text-center shadow-2xl pointer-events-auto flex flex-col items-center rounded-3xl">
                             <h3 class="text-xl md:text-2xl font-black text-slate-900 mb-2">Telefon Hattımız</h3>
@@ -694,17 +743,17 @@
                     </div>
                 </section>
 
-                <!-- 7. YENİ EKLENEN EN ALT BÖLÜM (DERS PROGRAMI VE KADRO - YAN YANA IZGARA) -->
-                <section id="ekstra-bilgiler" class="px-4 md:px-6 pb-20 max-w-5xl mx-auto relative z-[20] w-full order-6 mt-4 md:mt-8">
+                <!-- 7. EKLENEN EN ALT BÖLÜM (DERS PROGRAMI VE KADRO - YAN YANA IZGARA) -->
+                <section id="ekstra-bilgiler" class="px-4 md:px-6 pb-20 max-w-5xl mx-auto relative z-[20] w-full order-7 mt-4 md:mt-8">
                     <div class="grid grid-cols-2 gap-3 md:gap-10 w-full">
-                        <div class="glass-card p-4 md:p-12 text-center shadow-2xl pointer-events-auto flex flex-col items-center justify-between rounded-2xl md:rounded-3xl">
+                        <div class="card-shield-hard p-4 md:p-12 text-center flex flex-col items-center justify-between rounded-2xl md:rounded-3xl" style="margin-bottom:0;">
                             <div>
                                 <h3 class="text-[13px] md:text-2xl font-black text-slate-900 mb-1 md:mb-2 leading-tight">Ders Programı & Saatleri</h3>
                                 <p class="text-slate-500 text-[9px] md:text-base mb-3 md:mb-6 font-bold leading-snug">Hangi gün ve saatte geleceğinize dair veli bilgilendirmeleri.</p>
                             </div>
                             <button class="magnetic-btn bg-slate-900 text-white font-black px-4 md:px-10 py-2.5 md:py-5 rounded-xl w-full text-xs md:text-base hover:bg-cyan-500 border-none justify-center">???</button>
                         </div>
-                        <div class="glass-card p-4 md:p-12 text-center shadow-2xl pointer-events-auto flex flex-col items-center justify-between rounded-2xl md:rounded-3xl">
+                        <div class="card-shield-hard p-4 md:p-12 text-center flex flex-col items-center justify-between rounded-2xl md:rounded-3xl" style="margin-bottom:0;">
                             <div>
                                 <h3 class="text-[13px] md:text-2xl font-black text-slate-900 mb-1 md:mb-2 leading-tight">Öğretmen Kadromuz</h3>
                                 <p class="text-slate-500 text-[9px] md:text-base mb-3 md:mb-6 font-bold leading-snug">Alanında uzman, tecrübeli ve dinamik eğitim kadromuz.</p>
@@ -766,7 +815,6 @@
 
         <div id="randevuModal" class="modal-overlay" onclick="if(event.target===this) closeModal()">
             <div class="webm-mask webm-modal-flank flank-left hidden lg:flex video-skeleton">
-                <!-- Ekrana Tıklama Videosu (WEBM Yapıldı) -->
                 <video data-src="assets/ekrana-tiklama.webm" preload="none" playsinline loop muted></video>
             </div>
             <div class="modal-box pointer-events-auto" id="appointment-modal-box">
@@ -819,14 +867,13 @@
                         </select>
                     </div>
                     
-                    <!-- YENİ EKLENEN YUVARLAK VİDEO (BUTONUN HEMEN ÜSTÜ) -->
                     <div class="flex justify-center mt-3 mb-2">
                         <div class="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-4 border-[#0ea5e9] shadow-md flex items-center justify-center relative z-10 bg-white">
                             <video data-src="assets/ekran.webm" preload="none" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
                         </div>
                     </div>
 
-                    <button type="button" id="btn-submit" onclick="submitAppt()" class="magnetic-btn w-full justify-center font-black py-3 md:py-4 rounded-xl text-xs md:text-base shadow-[0_15px_30px_rgba(6,182,212,0.35)] bg-cyan-500 text-white hover:bg-cyan-600 tracking-widest border-none">GÖNDER</button>
+                    <button type="button" id="btn-submit" onclick="submitAppt()" class="magnetic-btn w-full justify-center font-black py-3 md:py-4 mt-2 rounded-xl text-xs md:text-base shadow-[0_15px_30px_rgba(6,182,212,0.35)] bg-cyan-500 text-white hover:bg-cyan-600 tracking-widest border-none">GÖNDER</button>
                 </form>
             </div>
             <div class="webm-mask webm-modal-flank flank-right hidden lg:flex video-skeleton">
@@ -866,6 +913,7 @@
 
                 if (window.innerWidth <= 768) {
                     initMobileInfiniteSwipes('features-swipe', 'features-dots');
+                    initMobileInfiniteSwipes('education-swipe-alt', 'education-dots-alt');
                 }
 
                 setTimeout(() => {
