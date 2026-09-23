@@ -131,7 +131,7 @@
             .hanging-tab:hover .hanging-title { color: #0ea5e9; }
             .hanging-sub { display: block; font-size: 0.7rem; font-weight: 800; color: #0ea5e9; margin-top: 6px; text-transform: uppercase; }
 
-            /* --- ORİJİNAL PC ÜST MENÜ MİMARİSİ (HİÇ DOKUNULMADI) --- */
+            /* PC ÜST MENÜ */
             .pill-nav { 
                 position: fixed; top: 110px; left: 50%; transform: translateX(-50%); width: 95%; max-width: 1050px; height: 72px; 
                 background-color: rgba(255,255,255,1); border-radius: 999px; border: 1px solid #e0f2fe; box-shadow: 0 15px 35px rgba(14,165,233,0.15); 
@@ -154,8 +154,15 @@
             .pill-side.left { padding-right: 50px; justify-content: flex-end; }
             .pill-side.right { padding-left: 50px; justify-content: flex-start; }
 
-            .pill-link { font-weight: 800; font-size: 0.85rem; color: #475569; cursor: pointer; text-decoration: none; text-transform: uppercase; display: flex; align-items: center; gap: 8px; transition: color 0.236s; padding: 10px; }
-            .pill-link:hover { color: #0ea5e9; }
+            .pc-framed-link {
+                font-size: 0.85rem; font-weight: 900; color: #0ea5e9; text-transform: uppercase;
+                border: 2px solid #e0f2fe; padding: 8px 16px; border-radius: 12px;
+                text-decoration: none; transition: all 0.236s ease; background: transparent; letter-spacing: 0.5px;
+                display: flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer; pointer-events: auto;
+            }
+            .pc-framed-link:active, .pc-framed-link:hover { background-color: #0ea5e9; color: #ffffff; }
+            .pc-framed-link svg { stroke: #0284c7; transition: stroke 0.236s ease; }
+            .pc-framed-link:hover svg { stroke: #ffffff; }
 
             .magnetic-btn { background-color: #06b6d4; color: #ffffff; font-weight: 900; font-size: 0.85rem; padding: 0.6rem 2rem; border-radius: 999px; display: inline-flex; align-items: center; cursor: pointer; border: 0; pointer-events: auto; will-change: transform; transition: background-color 0.236s ease, box-shadow 0.236s ease, transform 0.236s ease; }
             .magnetic-btn:hover { background-color: #0ea5e9; box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3); }
@@ -177,8 +184,7 @@
             .auto-date-btn::before { content: '✓'; background: #0ea5e9; color: #fff; border-radius: 50%; width: 14px; height: 14px; display: inline-flex; justify-content: center; align-items: center; font-size: 0.55rem; }
             .auto-date-btn:hover { background-color: #e2e8f0; transform: scale(1.05); color: #0f172a; border-color: #94a3b8; }
 
-            /* ANA HİYERARŞİ: PADDING-TOP DEĞERİ MENÜYE ÇARPMAMASI İÇİN OPTİMİZE EDİLDİ */
-            main { padding-top: 220px; width: 100%; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; position: relative; }
+            main { padding-top: 140px; width: 100%; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; position: relative; }
 
             .card-shield-hard { 
                 background-color: #ffffff !important; position: relative; z-index: 20; border-radius: 2rem; margin-bottom: 50px; 
@@ -190,80 +196,83 @@
             .mobile-swipe-wrapper { display: block; width: 100%; z-index: 20; position: relative; } 
 
             @media (max-width: 768px) {
-                main { padding-top: 130px !important; overflow-x: hidden; width: 100% !important; }
-
                 .mega-bar-wrapper { display: none !important; }
                 .pill-side { display: none !important; }
                 .branch-line { display: none !important; }
                 .pill-nav { display: none !important; } 
                 
+                /* MOBİL ÜST MENÜ - KUSURSUZ YAPIŞIK SİMETRİ */
                 .mobile-pill-container {
                     display: flex; flex-direction: column; align-items: center;
-                    width: 96%; max-width: 450px; pointer-events: none; z-index: 40010;
+                    width: 96%; max-width: 480px; pointer-events: none; z-index: 40010;
                 }
                 
                 .mobile-pill-main {
                     display: flex; justify-content: space-between; align-items: center;
                     background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
                     border: 2px solid #e0f2fe; border-radius: 999px;
-                    padding: 6px; width: 100%; box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+                    padding: 5px; width: 100%; box-shadow: 0 8px 25px rgba(0,0,0,0.06);
                     pointer-events: auto; position: relative; z-index: 10;
                 }
 
                 .mob-btn-capsule {
-                    display: flex; align-items: center;
+                    display: flex; align-items: center; justify-content: center;
                     background-color: #0ea5e9; border-radius: 999px; color: white;
                     text-decoration: none; box-shadow: 0 4px 10px rgba(14,165,233,0.3);
                     cursor: pointer; transition: transform 0.236s ease;
-                    animation: bluePulse 2.95s infinite alternate;
+                    animation: bluePulse 2.95s infinite alternate; height: 46px;
                 }
                 .mob-btn-capsule:active { transform: scale(0.96); }
-                .mob-btn-capsule.left { padding: 4px 14px 4px 4px; gap: 6px; }
-                .mob-btn-capsule.right { padding: 4px 4px 4px 14px; gap: 6px; }
+                .mob-btn-capsule.left { padding: 0 10px 0 4px; gap: 6px; flex-shrink: 0; }
+                .mob-btn-capsule.right { padding: 0 4px 0 10px; gap: 6px; flex-shrink: 0; }
                 
                 .mob-btn-icon-circle {
-                    width: 40px; height: 40px; border-radius: 50%;
+                    width: 38px; height: 38px; border-radius: 50%;
                     background-color: white; color: #0ea5e9;
                     display: flex; align-items: center; justify-content: center;
-                    font-size: 1.5rem; flex-shrink: 0;
+                    font-size: 1.4rem; flex-shrink: 0;
                 }
-                .mob-btn-text { font-size: 0.75rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0.5px; }
+                .mob-btn-text { font-size: 0.65rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0.5px; }
 
-                .mob-center-area { display: flex; align-items: center; justify-content: center; gap: 4px; flex-shrink: 0; flex: 1; }
+                /* ORTA ALAN: İKONLU BAŞLIKLAR (ALT ALTA YAPIŞIK) */
+                .mob-center-area { display: flex; align-items: center; justify-content: center; gap: 6px; flex-shrink: 1; flex: 1; }
                 
                 .mob-framed-link {
-                    font-size: 0.55rem; font-weight: 900; color: #0ea5e9; text-transform: uppercase;
-                    border: 2px solid #e0f2fe; padding: 4px; border-radius: 8px;
-                    text-decoration: none; transition: all 0.236s ease; background: rgba(255,255,255,0.85); 
-                    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
-                    cursor: pointer; pointer-events: auto;
+                    display: flex; flex-direction: column; align-items: center; justify-content: center;
+                    border: 1.5px solid #e0f2fe; padding: 4px; border-radius: 10px;
+                    text-decoration: none; transition: all 0.236s ease; background: transparent; 
+                    cursor: pointer; pointer-events: auto; height: 46px; min-width: 65px;
                 }
                 .mob-framed-link .icon {
-                    font-size: 1rem; font-weight: 900; color: #0284c7; font-family: sans-serif; line-height: 1;
+                    font-size: 1.1rem; font-weight: 900; color: #0284c7; font-family: serif; font-style: italic; line-height: 1;
                 }
                 .mob-framed-link:active, .mob-framed-link:hover { background-color: #0ea5e9; color: #ffffff; }
                 .mob-framed-link:active .icon, .mob-framed-link:hover .icon { color: #ffffff; }
+                .mob-framed-link svg { stroke: #0284c7; transition: stroke 0.236s ease; }
+                .mob-framed-link:hover svg { stroke: #ffffff; }
                 
                 .mob-center-logo {
-                    width: 44px; height: 44px; border-radius: 50%; border: 2px solid #0ea5e9; background: white;
+                    width: 50px; height: 50px; border-radius: 50%; border: 2.5px solid #0ea5e9; background: white;
                     display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 2px;
                     transition: transform 0.236s ease; z-index: 25; box-shadow: 0 4px 10px rgba(14,165,233,0.2);
                 }
                 .mob-center-logo:active { transform: scale(0.92); }
                 .mob-center-logo img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
 
-                .mobile-classes-row { display: none; } /* Üstteki sınıf row silindi, içerik swipe'a bağlandı */
-                
                 @media (max-width: 380px) {
                     .mob-btn-icon-circle { width: 34px; height: 34px; font-size: 1.2rem; }
-                    .mob-btn-text { font-size: 0.65rem; }
-                    .mob-center-logo { width: 40px; height: 40px; }
-                    .mob-framed-link { font-size: 0.5rem; padding: 3px; gap: 1px;}
+                    .mob-btn-text { font-size: 0.55rem; }
+                    .mob-center-logo { width: 44px; height: 44px; }
+                    .mob-framed-link { padding: 3px; min-width: 55px;}
                     .mob-framed-link .icon { font-size: 0.9rem; }
-                    .mob-btn-capsule.left { padding: 4px 8px 4px 4px; gap: 4px; }
-                    .mob-btn-capsule.right { padding: 4px 4px 4px 8px; gap: 4px; }
+                    .mob-framed-link svg { width: 14px; height: 14px; }
+                    .mob-btn-capsule.left { padding: 0 8px 0 3px; gap: 4px; }
+                    .mob-btn-capsule.right { padding: 0 3px 0 8px; gap: 4px; }
                 }
 
+                main { padding-top: 120px !important; overflow-x: hidden; width: 100% !important; }
+
+                /* MOBİL ALT YÜZEN BUTONLAR (AYRIK KAPSÜLLER) */
                 .mobile-bottom-nav { 
                     display: block !important; position: fixed; left: 0; width: 100%; bottom: env(safe-area-inset-bottom, 15px); z-index: 45000; 
                     background: transparent; border: none; box-shadow: none; pointer-events: none;
@@ -322,6 +331,7 @@
                 .pagination-dots .dot.active { background-color: #0ea5e9; width: 30px; box-shadow: 0 4px 10px rgba(14, 165, 233, 0.4); }
             }
 
+            /* SAYAÇ ANİMASYONLARI */
             .counter-card { transition: transform 0.708s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.708s ease; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important; border-bottom: 2px solid #f1f5f9; }
             .counter-card.grown { transform: scale(1.04); box-shadow: 0 40px 80px rgba(6,182,212,0.18) !important; }
 
@@ -430,7 +440,6 @@
 
         <div class="progress-bar" id="progressBar"></div>
 
-        <!-- ÜST MENÜ HANGING NAV (PC) -->
         <div class="mega-bar-wrapper" id="megaBar">
             <nav class="hanging-nav hidden md:grid">
                 <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-alt'">
@@ -461,10 +470,15 @@
                     </div>
                     <span style="color: #0ea5e9; font-weight: 900; font-size: 0.85rem; text-transform: uppercase;">Canlı Destek</span>
                 </div>
-                <a href="#hakkimizda" class="pill-link">HAKKIMIZDA</a>
-                <button onclick="openTour()" class="solid-blue-btn flex items-center gap-1">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1.25rem; height:1.25rem;"><rect x="7" y="3" width="10" height="18" rx="2" ry="2"></rect><path d="M3 12c0-3.3 2.7-6 6-6"></path><path d="M21 12c0 3.3-2.7 6-6 6"></path><polygon points="9 3 9 9 3 6"></polygon><polygon points="15 21 15 15 21 18"></polygon></svg>
-                    360 GEZİN
+                
+                <a href="#hakkimizda" class="pc-framed-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#0284c7]"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    HAKKIMIZDA
+                </a>
+                
+                <button onclick="openTour()" class="pc-framed-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#0284c7]"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                    SINIFLARIMIZ
                 </button>
             </div>
             <a href="#features" class="pill-logo-link" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
@@ -491,15 +505,21 @@
 
                     <div class="mob-center-area">
                         <a href="#hakkimizda" class="mob-framed-link">
-                            <span style="font-family: serif; font-weight: 900; font-style: italic; font-size: 1.1rem; color: #0284c7; line-height: 1;">i</span>
-                            <span style="font-size: 0.5rem; line-height: 1; margin-top: 2px;">HAKKIMIZDA</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-[#0284c7]"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                            <div class="flex flex-col items-center justify-center leading-[1.1]">
+                                <span style="font-size: 0.5rem;">KURUM</span>
+                                <span style="font-size: 0.5rem;">HAKKINDA</span>
+                            </div>
                         </a>
-                        <a href="#sabit-siniflar-ust" class="mob-center-logo shadow-sm" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
+                        <a href="#sabit-siniflar-ust" class="mob-center-logo shadow-sm shrink-0" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
                             <img src="assets/logo.png" alt="Logo">
                         </a>
                         <button onclick="openTour()" class="mob-framed-link cursor-pointer">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-[#0284c7]"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-                            <span style="font-size: 0.5rem; line-height: 1; margin-top: 2px;">SINIFLARIMIZ</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-[#0284c7]"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                            <div class="flex flex-col items-center justify-center leading-[1.1]">
+                                <span style="font-size: 0.5rem;">SINIF</span>
+                                <span style="font-size: 0.5rem;">GÖRSELLERİ</span>
+                            </div>
                         </button>
                     </div>
 
@@ -536,7 +556,6 @@
 
             <main class="w-full flex flex-col items-center relative z-10" id="main-content-area">
 
-                <!-- 1. BÖLÜM: 3'LÜ DEĞİŞEN ÖZELLİK KARTLARI (PC'DE EN ÜSTTE) -->
                 <section id="features" class="w-full max-w-6xl mx-auto px-0 md:px-6 mb-16 md:mb-32 relative z-[20] order-2 md:order-1 mt-6 md:mt-0">
                     <div class="mobile-swipe-wrapper">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 relative mobile-swipe-container" id="features-swipe">
@@ -577,7 +596,6 @@
                     </div>
                 </section>
 
-                <!-- 2. BÖLÜM: SABİT SINIFLAR (MOBİLDE 1., PC'DE 2. SIRADA) -->
                 <section id="sabit-siniflar-ust" class="w-full max-w-4xl mx-auto px-6 relative z-[20] pb-16 order-1 md:order-2 pt-2 md:pt-0 -mt-4 md:mt-0">
                     <div class="flex items-center w-full mb-16 relative">
                         <div class="w-1/2 pr-6 md:pr-8 text-right">
@@ -636,7 +654,6 @@
                     </div>
                 </section>
 
-                <!-- 3. BÖLÜM: SAYAÇ MODÜLÜ -->
                 <section id="sayac" class="w-full max-w-4xl px-4 md:px-6 mb-24 md:mb-40 relative z-[20] text-center order-3">
                     <div class="flex justify-center mb-8">
                         <div class="webm-mask video-skeleton video-crop-calendar" style="width: 110px; height: 110px; border: 6px solid #ffffff; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
@@ -663,7 +680,6 @@
                     </div>
                 </section>
 
-                <!-- 4. BÖLÜM: HAKKIMIZDA & SEO BÖLÜMÜ -->
                 <section id="hakkimizda" class="w-full max-w-6xl px-6 mb-32 relative z-[20] mx-auto order-4">
                     <div class="glass-card p-8 md:p-16 shadow-[0_30px_60px_rgba(0,0,0,0.08)] flex flex-col md:flex-row items-center gap-14 text-left relative z-10 rounded-[3rem]">
                         <div class="flex-1">
@@ -679,10 +695,9 @@
                     </div>
                 </section>
 
-                <!-- 5. ALT BÖLÜM (SAYFA SONUNA YÖNLENDİRİLECEK 4'LÜ KAYDIRMALI SINIFLAR) -->
                 <section id="sabit-siniflar-alt" class="w-full max-w-6xl mx-auto px-0 md:px-6 relative z-[20] pb-32 order-5 mt-10">
                     <div class="mobile-swipe-wrapper">
-                        <div class="flex flex-row md:flex-col w-full relative mobile-swipe-container" id="education-swipe-alt">
+                        <div class="mobile-swipe-container flex md:flex-col w-full px-0 md:px-0" id="education-swipe-alt">
                             
                             <div class="mobile-swipe-item card-shield-clean-desktop mx-auto md:mb-16 md:flex-row md:h-auto pt-20 -mt-20 relative w-[85vw] flex-shrink-0 snap-center md:w-full md:flex-shrink" style="flex: 0 0 85vw;">
                                 <div class="branch-line right hidden md:block"></div>
@@ -751,7 +766,6 @@
                     </div>
                 </section>
 
-                <!-- 6. İLETİŞİM -->
                 <section id="iletisim" class="px-6 pb-10 max-w-5xl mx-auto relative z-[20] w-full order-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 w-full">
                         <div class="glass-card p-8 md:p-12 text-center shadow-2xl pointer-events-auto flex flex-col items-center rounded-3xl">
@@ -767,7 +781,6 @@
                     </div>
                 </section>
 
-                <!-- 7. YENİ EKLENEN EN ALT BÖLÜM (DERS PROGRAMI VE KADRO - YAN YANA IZGARA) -->
                 <section id="ekstra-bilgiler" class="px-4 md:px-6 pb-20 max-w-5xl mx-auto relative z-[20] w-full order-7 mt-4 md:mt-8">
                     <div class="grid grid-cols-2 gap-3 md:gap-10 w-full">
                         <div class="card-shield-hard p-4 md:p-12 text-center flex flex-col items-center justify-between rounded-2xl md:rounded-3xl" style="margin-bottom:0;">
