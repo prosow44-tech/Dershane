@@ -106,14 +106,10 @@
             .icon-box { width: 34px !important; height: 34px !important; min-width: 34px !important; min-height: 34px !important; max-width: 34px !important; max-height: 34px !important; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin: 0 auto 1rem auto; position: relative; z-index: 10; }
             .icon-box svg { width: 100% !important; height: 100% !important; max-width: 34px !important; max-height: 34px !important; object-fit: contain; display: block; }
 
-            .video-skeleton { background-image: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%); background-size: 200% 100%; animation: skeletonLoading 1.77s linear infinite; position: relative; }
-            @keyframes skeletonLoading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-
             .webm-mask { border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; transform: translateZ(0); will-change: transform; position: relative; background-color: transparent; aspect-ratio: 1/1; }
-            .webm-mask video { width: 100%; height: 100%; object-fit: cover; transform: translateZ(0); opacity: 0; transition: opacity 0.59s ease-in-out; background-color: transparent; }
+            .webm-mask video { width: 100%; height: 100%; object-fit: cover; transform: translateZ(0); background-color: transparent; }
             .video-crop-9-12 video { object-position: center top !important; transform: scale(1.4) translateY(12%) translateZ(0) !important; }
             .video-crop-calendar video { object-position: center top !important; transform: scale(1.4) translateY(12%) translateZ(0) !important; }
-            .webm-mask video.loaded { opacity: 1; }
 
             .webm-card-bottom { position: absolute; bottom: -35px; left: 50%; transform: translateX(-50%) translateZ(0); width: 70px; height: 70px; border: 4px solid #ffffff; box-shadow: 12px 12px 0px 0px rgba(15, 23, 42, 0.9) !important; background-color: #f8fafc; z-index: 20; }
             .webm-modal-flank { position: absolute; top: 50%; transform: translateY(-50%) translateZ(0); width: 160px; height: 160px; border: 6px solid rgba(255,255,255,0.2); box-shadow: 0 20px 50px rgba(0,0,0,0.3); z-index: 60010; }
@@ -184,7 +180,8 @@
             .auto-date-btn::before { content: '✓'; background: #0ea5e9; color: #fff; border-radius: 50%; width: 14px; height: 14px; display: inline-flex; justify-content: center; align-items: center; font-size: 0.55rem; }
             .auto-date-btn:hover { background-color: #e2e8f0; transform: scale(1.05); color: #0f172a; border-color: #94a3b8; }
 
-            main { padding-top: 180px; width: 100%; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; position: relative; }
+            /* GENEL DİKEY FLEX KAPSAYICISI (PC OVERLAPPING DÜZELTİLDİ) */
+            main { padding-top: 250px; width: 100%; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; position: relative; }
 
             .card-shield-hard { 
                 background-color: #ffffff !important; position: relative; z-index: 20; border-radius: 2rem; margin-bottom: 50px; 
@@ -236,7 +233,7 @@
                 }
                 .mob-btn-text { font-size: 0.65rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0.2px; }
 
-                /* CHAT BALONU: Sola İzolasyon (Y Harfi Kesilmesini Önler) */
+                /* CHAT BALONU SOLA ÇEKİLDİ ('Y' Harfi Düzeltmesi) */
                 #topChatBubbleMobile {
                     left: 20px !important; 
                     transform: none !important;
@@ -248,7 +245,7 @@
                     left: 12px !important; transform: none !important;
                 }
 
-                /* ORTA ALAN */
+                /* ORTA ALAN: İKONLU KISA BAŞLIKLAR (DİKEY) */
                 .mob-center-area { display: flex; align-items: center; justify-content: center; gap: 6px; flex-shrink: 1; flex: 1; overflow: hidden; }
                 
                 .mob-framed-link {
@@ -260,7 +257,7 @@
                 .mob-framed-link .icon {
                     font-size: 1rem; font-weight: 900; color: #0284c7; font-family: serif; font-style: italic; line-height: 1; margin-bottom: 2px;
                 }
-                .mob-framed-link span.title { font-size: 0.5rem; line-height: 1; font-weight: 900; color: #0ea5e9; }
+                .mob-framed-link span.title { font-size: 0.5rem; line-height: 1; font-weight: 900; color: #0ea5e9; text-align: center; }
                 
                 .mob-framed-link:active, .mob-framed-link:hover { background-color: #0ea5e9; }
                 .mob-framed-link:active .icon, .mob-framed-link:hover .icon, .mob-framed-link:active span.title, .mob-framed-link:hover span.title { color: #ffffff; }
@@ -392,14 +389,24 @@
             .sub-row.open { opacity: 1; max-height: 100px; margin-top: 1.5rem; overflow: visible; }
             .sub-pill { background-color: #f8fafc; color: #475569; padding: 10px 24px; border-radius: 999px; font-size: 0.85rem; font-weight: 800; border: 1px solid #cbd5e1; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
 
-            /* MODAL VE VİDEO DÜZELTME EKRANI */
-            .modal-overlay { position: fixed; inset: 0; background-color: rgba(15,23,42,0.85); z-index: 60000; display: none; align-items: center; justify-content: center; padding: 0.5rem; opacity: 0; transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+            /* MODAL VE KAYDIRMA (Sığdırma Problemi Çözüldü) */
+            .modal-overlay { 
+                position: fixed; inset: 0; background-color: rgba(15,23,42,0.85); z-index: 60000; display: none; 
+                align-items: flex-start; justify-content: center; padding: 2rem 1rem; opacity: 0; 
+                transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); overflow-y: auto; 
+            }
             .modal-overlay.show { display: flex; opacity: 1; }
-            .modal-box { background-color: #ffffff; border-radius: 1.5rem; padding: 1.5rem !important; width: 100%; max-width: 550px; position: relative; box-shadow: 0 30px 60px -12px rgba(0,0,0,0.6); border: 2px solid #cffafe; z-index: 60005; clip-path: circle(0% at 50% 50%); transition: clip-path 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275); pointer-events: auto; margin-top: 10vh; overflow: visible !important; }
+            .modal-box { 
+                background-color: #ffffff; border-radius: 1.5rem; padding: 1.5rem !important; 
+                width: 100%; max-width: 550px; margin: auto; position: relative; 
+                box-shadow: 0 30px 60px -12px rgba(0,0,0,0.6); border: 2px solid #cffafe; 
+                pointer-events: auto; overflow: visible !important; 
+                clip-path: circle(0% at 50% 50%); transition: clip-path 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
             .modal-overlay.show .modal-box { clip-path: circle(150% at 50% 50%); }
 
             @media (max-width: 768px) {
-                .modal-box { padding: 1rem !important; margin-top: 15vh; }
+                .modal-box { padding: 1rem !important; }
                 #apptForm { gap: 0.5rem; display: flex; flex-direction: column; }
                 .err-banner { padding: 4px 8px; margin-bottom: 0.25rem; font-size: 0.7rem; }
                 .auto-date-btn { font-size: 0.5rem; padding: 2px 6px; }
@@ -493,10 +500,11 @@
             </nav>
         </div>
 
+        <!-- PC ÜST MENÜSÜ -->
         <nav class="pill-nav hidden md:flex" id="pillMenu">
             <div class="pill-side left items-center" style="gap: 1.5rem; flex: 1; padding-right: 20px;">
                 <div onclick="triggerTopChat()" class="flex items-center gap-2 cursor-pointer mr-auto relative group" style="text-decoration: none;">
-                    <div class="relative flex-shrink-0" style="width: 42px; height: 42px; transition: transform 0.354s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <div class="relative flex-shrink-0" style="width: 42px; height: 42px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                         <div id="desktopChatTrigger" class="w-full h-full flex items-center justify-center rounded-full text-white" style="background-color: #06b6d4; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(6,182,212,0.3);">🦊</div>
                         <div class="smart-chat-bubble" id="topChatBubbleDesktop">Yardımcı Olabilirim 🦊</div>
                     </div>
@@ -526,7 +534,7 @@
             </div>
         </nav>
 
-        <!-- KUSURSUZ MOBİL ÜST MENÜ KATI (SABİT KALAN KISIM) -->
+        <!-- KUSURSUZ MOBİL ÜST MENÜ KATI -->
         <div class="md:hidden w-full fixed top-[10px] left-0 z-[40010] flex flex-col items-center pointer-events-none">
             <div class="mobile-pill-container">
                 <div class="mobile-pill-main">
@@ -608,7 +616,7 @@
                                 <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Alanında Uzman Kadro</h3>
                                 <p class="text-slate-500 font-bold leading-relaxed text-xs md:text-sm">Sınav sisteminin tüm şifrelerine hakim, dereceler çıkartan profesyonel eğitmen kadrosu.</p>
                                 <div class="webm-mask webm-card-bottom video-skeleton">
-                                    <video data-src="assets/rahatlama.mp4" preload="none" playsinline loop muted></video>
+                                    <video src="assets/rahatlama.mp4" playsinline loop muted autoplay></video>
                                 </div>
                             </div>
                             <div class="mobile-swipe-item card-shield-hard glass-card p-8 text-center flex flex-col items-center relative">
@@ -618,7 +626,7 @@
                                 <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Birebir Takip</h3>
                                 <p class="text-slate-500 font-bold leading-relaxed text-xs md:text-sm">Eksikleri nokta atışı tespit edip anında sıfırlayan, kişiye özel kusursuz eğitim koçluğu sistemi.</p>
                                 <div class="webm-mask webm-card-bottom video-skeleton">
-                                    <video data-src="assets/ekran.mp4" preload="none" playsinline loop muted></video>
+                                    <video src="assets/ekran.mp4" playsinline loop muted autoplay></video>
                                 </div>
                             </div>
                             <div class="mobile-swipe-item card-shield-hard glass-card p-8 text-center flex flex-col items-center relative">
@@ -628,7 +636,7 @@
                                 <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Deneme & Analiz</h3>
                                 <p class="text-slate-500 font-bold leading-relaxed text-xs md:text-sm">Gerçek sınav zorluğundaki Türkiye geneli denemeler ve detaylı ölçülebilir gelişim raporları.</p>
                                 <div class="webm-mask webm-card-bottom video-skeleton">
-                                    <video data-src="assets/net-artirma.mp4" preload="none" playsinline loop muted></video>
+                                    <video src="assets/net-artirma.mp4" playsinline loop muted autoplay></video>
                                 </div>
                             </div>
                         </div>
@@ -648,7 +656,7 @@
                         </div>
                         <div class="w-1/2 pl-6 md:pl-8 flex justify-start relative">
                             <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                                <video data-src="assets/kalem-yazma.mp4" preload="none" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
+                                <video src="assets/kalem-yazma.mp4" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
                             </div>
                         </div>
                     </div>
@@ -662,7 +670,7 @@
                         </div>
                         <div class="w-1/2 pr-6 md:pr-8 flex justify-end relative">
                             <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                                <video data-src="assets/bu-taraftan-gidiyoruz.mp4" preload="none" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
+                                <video src="assets/bu-taraftan-gidiyoruz.mp4" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
                             </div>
                         </div>
                     </div>
@@ -676,7 +684,7 @@
                         </div>
                         <div class="w-1/2 pl-6 md:pl-8 flex justify-start relative">
                             <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                                <video data-src="assets/sevinme.mp4" preload="none" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
+                                <video src="assets/sevinme.mp4" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
                             </div>
                         </div>
                     </div>
@@ -690,7 +698,7 @@
                         </div>
                         <div class="w-1/2 pr-6 md:pr-8 flex justify-end relative">
                             <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                                <video data-src="assets/soru-cozme.mp4" preload="none" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
+                                <video src="assets/soru-cozme.mp4" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
                             </div>
                         </div>
                     </div>
@@ -699,7 +707,7 @@
                 <section id="sayac" class="w-full max-w-4xl px-4 md:px-6 mb-24 md:mb-40 relative z-[20] text-center order-3">
                     <div class="flex justify-center mb-8">
                         <div class="webm-mask video-skeleton video-crop-calendar" style="width: 110px; height: 110px; border: 6px solid #ffffff; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
-                            <video data-src="assets/takvim.mp4" preload="none" playsinline loop muted></video>
+                            <video src="assets/takvim.mp4" playsinline loop muted autoplay></video>
                         </div>
                     </div>
                     <div id="counterCard" class="counter-card glass-card p-8 md:p-16 w-full inline-block relative">
@@ -825,7 +833,7 @@
         <div id="randevuModal" class="modal-overlay" onclick="if(event.target===this) closeModal()">
             <div class="webm-mask webm-modal-flank flank-left hidden lg:flex video-skeleton">
                 <!-- Ekrana Tıklama Videosu (WEBM) -->
-                <video data-src="assets/ekrana-tiklama.webm" preload="none" playsinline loop muted></video>
+                <video src="assets/ekrana-tiklama.webm" playsinline loop muted autoplay></video>
             </div>
             
             <!-- MODAL İÇERİĞİ -->
@@ -836,11 +844,11 @@
                 <div class="flex justify-center -mt-20 md:-mt-24 mb-6 relative z-20">
                     <div class="w-32 h-32 md:w-40 md:h-40 aspect-square rounded-2xl bg-white overflow-hidden flex items-center justify-center border-4 border-white" 
                          style="box-shadow: 0 0 0 4px rgba(255,255,255,0.6), 0 0 0 8px rgba(255,255,255,0.3), 0 15px 30px rgba(0,0,0,0.4);">
-                        <video data-src="assets/ekran.webm" preload="none" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
+                        <video src="assets/ekran.webm" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
                     </div>
                 </div>
 
-                <div class="max-h-[60vh] overflow-y-auto overflow-x-hidden pr-2">
+                <div class="w-full">
                     <h3 class="text-xl md:text-3xl font-black flex items-center justify-center gap-2 md:gap-4 text-slate-900 mt-1 md:mt-0">RANDEVU AL</h3>
                     <p class="text-[10px] md:text-sm text-slate-500 mb-4 text-center font-bold">Kurum ziyareti için bilgilerinizi giriniz.</p>
                     
@@ -894,44 +902,32 @@
                 </div>
             </div>
             <div class="webm-mask webm-modal-flank flank-right hidden lg:flex video-skeleton">
-                <video data-src="assets/takvim.mp4" preload="none" playsinline loop muted></video>
+                <video src="assets/takvim.mp4" playsinline loop muted autoplay></video>
             </div>
         </div>
 
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                // KASMA SORUNUNUN (FPS DÜŞÜŞÜ) ÇÖZÜLDÜĞÜ ALGORİTMA
+                // KESİN VİDEO ÇÖZÜMÜ: SADECE EKRANDA OLMAYANLARI DURDUR
                 let videoObserver = new IntersectionObserver((entries, observer) => {
                     entries.forEach(entry => {
                         const video = entry.target;
-                        
-                        // Video ekrandayken (Görünürken)
                         if (entry.isIntersecting) {
-                            if(video.hasAttribute('data-src')) {
-                                video.src = video.getAttribute('data-src');
-                                video.removeAttribute('data-src');
-                                video.load();
-                                video.addEventListener('loadeddata', () => {
-                                    video.classList.add('loaded');
-                                    if(video.parentElement.classList.contains('video-skeleton')) {
-                                        video.parentElement.classList.remove('video-skeleton');
-                                    }
-                                });
-                            }
-                            let playPromise = video.play();
-                            if (playPromise !== undefined) {
-                                playPromise.catch(e => {}); // Oynatma kısıtlamalarını yoksay
-                            }
-                        } 
-                        // Video ekrandan çıktığında (Kasmayı engelleyen kritik kod)
-                        else {
+                            video.play().catch(e => {}); // Autoplay izin sorunlarını yoksay
+                        } else {
                             video.pause();
                         }
                     });
                 }, { rootMargin: '200px 0px' });
 
-                document.querySelectorAll('video[data-src]').forEach(video => {
+                document.querySelectorAll('video').forEach(video => {
                     videoObserver.observe(video);
+                    video.addEventListener('loadeddata', () => {
+                        video.classList.add('loaded');
+                        if(video.parentElement.classList.contains('video-skeleton')) {
+                            video.parentElement.classList.remove('video-skeleton');
+                        }
+                    });
                 });
 
                 if (window.innerWidth <= 768) {
@@ -1450,13 +1446,7 @@
                 if(overlay) {
                     overlay.style.display = 'flex'; document.body.style.overflow = 'hidden';
                     requestAnimationFrame(() => { overlay.classList.add('show'); });
-                    overlay.querySelectorAll('video[data-src]').forEach(video => {
-                        video.src = video.getAttribute('data-src');
-                        video.removeAttribute('data-src'); video.load();
-                        video.addEventListener('loadeddata', () => {
-                            video.classList.add('loaded');
-                            if(video.parentElement.classList.contains('video-skeleton')) { video.parentElement.classList.remove('video-skeleton'); }
-                        });
+                    overlay.querySelectorAll('video[src]').forEach(video => {
                         video.play().catch(e => console.warn("Video Modal Kısıtlaması"));
                     });
                 }
