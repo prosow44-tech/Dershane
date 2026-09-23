@@ -115,7 +115,7 @@
             background-color: #ffffff; 
             color: #0f172a; 
             font-family: 'Manrope', sans-serif; 
-            margin: 0; padding: 0; width: 100vw; max-width: 100%;
+            margin: 0 auto; padding: 0; width: 100%; max-width: 100%;
             overflow-x: hidden; overflow-y: auto; overscroll-behavior-y: none;
             -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent;
             user-select: none;
@@ -141,7 +141,7 @@
             50% { transform: translateY(-6px); }
         }
 
-        .spine-wrapper { position: relative; width: 100%; min-height: 100vh; }
+        .spine-wrapper { position: relative; width: 100%; max-width: 100%; min-height: 100vh; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
         .neon-spine { position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 1px; z-index: -10; background-color: rgba(14, 165, 233, 0.15); pointer-events: none; }
         .spine-glow {
             position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 3px; height: 250px; 
@@ -218,18 +218,46 @@
         .solid-blue-btn:hover { background-color: #0284c7; box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3); }
         .solid-blue-btn:active { transform: scale(0.94) !important; }
 
-        /* Masaüstü Canlı Destek Butonu ve Balonu */
-        .desktop-chat-btn-wrapper {
-            background-color: #06b6d4; color: #ffffff; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; transition: all 0.3s ease; position: relative; box-shadow: 0 4px 10px rgba(6,182,212,0.3); border: none; flex-shrink: 0; z-index: 40015;
+        /* YENİ NESİL BALON (SMART BUBBLE) SİSTEMİ - Transform ve Konum Çakışmalarını Önler */
+        .smart-chat-bubble {
+            position: absolute;
+            top: 100%; 
+            left: 50%;
+            transform: translateX(-50%); 
+            background-color: #ffffff;
+            color: #0f172a;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border: 2px solid #e0f2fe;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            z-index: 40050;
+            margin-top: 12px; 
+            transition: opacity 0.4s ease, visibility 0.4s ease;
         }
-        .desktop-chat-btn-wrapper:hover { background-color: #0ea5e9; transform: scale(1.05); box-shadow: 0 6px 15px rgba(6,182,212,0.4); }
-        
-        .top-chat-bubble-desktop {
-            position: absolute; top: 55px; left: -5px; background-color: #ffffff; color: #0f172a; padding: 6px 12px; border-radius: 0 12px 12px 12px; font-weight: 900; font-size: 0.75rem; white-space: nowrap; box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 2px solid #e0f2fe; opacity: 0; visibility: hidden; transition: opacity 0.4s ease; z-index: 40000; pointer-events: none;
+        .smart-chat-bubble.show {
+            opacity: 1;
+            visibility: visible;
+            animation: floatBubbleVertical 2.5s ease-in-out infinite;
         }
-        .top-chat-bubble-desktop::before { content: ''; position: absolute; top: -8px; left: 15px; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid #e0f2fe; }
-        .top-chat-bubble-desktop::after { content: ''; position: absolute; top: -5px; left: 16px; width: 0; height: 0; border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid #ffffff; }
-        .top-chat-bubble-desktop.show { opacity: 1; visibility: visible; animation: floatBubble 2.5s ease-in-out infinite; }
+        @keyframes floatBubbleVertical {
+            0%, 100% { margin-top: 12px; }
+            50% { margin-top: 6px; }
+        }
+        /* YUKARI YÖNLÜ OK */
+        .smart-chat-bubble::before {
+            content: ''; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
+            border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid #e0f2fe;
+        }
+        .smart-chat-bubble::after {
+            content: ''; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
+            border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid #ffffff; margin-bottom: -2px; 
+        }
 
         .neon-text-gradient { background-image: linear-gradient(90deg, #0ea5e9, #8b5cf6, #06b6d4, #0ea5e9); background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: gradientShift 3s ease infinite; }
 
@@ -267,23 +295,9 @@
             .mobile-pill-left { display: flex !important; align-items: center !important; gap: 10px !important; flex: 1 !important; justify-content: flex-start !important; }
             .mobile-pill-right { display: flex !important; align-items: center !important; justify-content: flex-end !important; gap: 10px !important; flex: 1 !important; }
 
-            .mobile-canli-destek-text, .mobile-randevu-text-btn {
-                font-size: 0.70rem; font-weight: 900; color: #0ea5e9; text-transform: uppercase; border: none; background: transparent; padding: 0; white-space: nowrap; cursor: pointer;
-            }
-
-            /* MOBİL YUVARLAK CANLI DESTEK İKONU VE KONUM İKONU EŞİTLEME */
-            .mobile-top-chat-btn-wrapper, .mobile-route-icon { 
+            .mobile-route-icon { 
                 width: 42px !important; height: 42px !important; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(6,182,212,0.3); flex-shrink: 0; color: #ffffff; background-color: #06b6d4; text-decoration: none; border: none; font-size: 1.2rem; cursor: pointer; margin: 0 !important;
             }
-            .mobile-top-chat-btn-wrapper.fading { opacity: 0.3; pointer-events: none; }
-
-            /* Mobilde Çıkan Canlı Destek Balonu */
-            .top-chat-bubble {
-                position: absolute; top: 55px; left: -5px; background-color: #ffffff; color: #0f172a; padding: 6px 12px; border-radius: 0 12px 12px 12px; font-weight: 900; font-size: 0.75rem; white-space: nowrap; box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 2px solid #e0f2fe; opacity: 0; visibility: hidden; transition: opacity 0.4s ease; z-index: 40018; pointer-events: none;
-            }
-            .top-chat-bubble::before { content: ''; position: absolute; top: -8px; left: 15px; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid #e0f2fe; }
-            .top-chat-bubble::after { content: ''; position: absolute; top: -5px; left: 16px; width: 0; height: 0; border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid #ffffff; }
-            .top-chat-bubble.show { opacity: 1; visibility: visible; animation: floatBubble 2.5s ease-in-out infinite; }
 
             .pill-logo-link { position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; width: 48px !important; height: 48px !important; border: 2px solid #0ea5e9 !important; box-shadow: 0 4px 10px rgba(14,165,233,0.3) !important; margin: 0 !important; aspect-ratio: 1/1 !important; flex-shrink: 0 !important; z-index: 40020 !important; }
             .pill-logo-link:hover { transform: translate(-50%, -50%) scale(1.05) !important; }
@@ -344,6 +358,9 @@
             .pagination-dots { display: flex !important; justify-content: center; gap: 6px; margin-top: 5px; margin-bottom: 10px; width: 100%; z-index: 5; }
             .pagination-dots .dot { width: 8px; height: 8px; background-color: #e2e8f0; border-radius: 999px; transition: all 0.3s ease; }
             .pagination-dots .dot.active { background-color: #0ea5e9; width: 24px; }
+            
+            /* Randevu Modalı Alan Daraltması (Mobil) */
+            .modal-box { padding: 1.5rem 1.25rem !important; }
         }
 
         /* --------------------------------------------------------------------------
@@ -494,15 +511,19 @@
 
         <!-- Masaüstü Sol: Canlı Destek + Hakkımızda + 360 Gezin -->
         <div class="pill-side left hidden md:flex items-center" style="gap: 1.5rem; flex: 1; padding-right: 20px;">
-            <button onclick="triggerTopChat()" class="pill-link flex items-center gap-2" style="color: #0ea5e9; font-weight: 900; border: none; background: transparent; padding: 0; margin-right: auto; text-transform: uppercase;">
-                <div class="desktop-chat-btn-wrapper" id="desktopChatTrigger">
-                    🦊
-                    <div class="top-chat-bubble-desktop" id="topChatBubbleDesktop">
+            
+            <!-- YENİ KUSURSUZ CANLI DESTEK YAPISI -->
+            <div onclick="triggerTopChat()" class="flex items-center gap-2 cursor-pointer mr-auto relative group" style="text-decoration: none;">
+                <div class="relative flex-shrink-0" style="width: 42px; height: 42px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <div id="desktopChatTrigger" class="w-full h-full flex items-center justify-center rounded-full text-white" style="background-color: #06b6d4; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(6,182,212,0.3);">
+                        🦊
+                    </div>
+                    <div class="smart-chat-bubble" id="topChatBubbleDesktop">
                         Sana Yardımcı Olabilirim 🦊
                     </div>
                 </div>
-                CANLI DESTEK
-            </button>
+                <span style="color: #0ea5e9; font-weight: 900; font-size: 0.85rem; text-transform: uppercase;">Canlı Destek</span>
+            </div>
 
             <a href="#hakkimizda" class="pill-link">
                 HAKKIMIZDA
@@ -545,19 +566,22 @@
         <div class="mobile-pill-container md:hidden">
 
             <div class="mobile-pill-left">
-                <button class="mobile-top-chat-btn-wrapper relative" id="mobileChatTrigger" onclick="triggerTopChat()">
-                    🦊
-                    <div class="top-chat-bubble" id="topChatBubbleMobile">
-                        Sana Yardımcı Olabilirim 🦊
+                <!-- YENİ KUSURSUZ CANLI DESTEK YAPISI (MOBİL) -->
+                <div onclick="triggerTopChat()" class="flex items-center gap-2 cursor-pointer relative" style="text-decoration: none;">
+                    <div class="relative flex-shrink-0" style="width: 42px; height: 42px;">
+                        <div id="mobileChatTrigger" class="w-full h-full flex items-center justify-center rounded-full text-white" style="background-color: #06b6d4; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(6,182,212,0.3);">
+                            🦊
+                        </div>
+                        <div class="smart-chat-bubble" id="topChatBubbleMobile">
+                            Sana Yardımcı Olabilirim 🦊
+                        </div>
                     </div>
-                </button>
-                <button onclick="triggerTopChat()" class="mobile-canli-destek-text">
-                    CANLI DESTEK
-                </button>
+                    <span style="color: #0ea5e9; font-weight: 900; font-size: 0.75rem; text-transform: uppercase;">Canlı Destek</span>
+                </div>
             </div>
 
             <div class="mobile-pill-right">
-                <button onclick="openModal('')" class="mobile-randevu-text-btn">
+                <button onclick="openModal('')" class="mobile-randevu-text-btn" style="font-size: 0.75rem;">
                     RANDEVU AL
                 </button>
                 <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="mobile-route-icon" aria-label="Yol Tarifi">
@@ -627,7 +651,7 @@
                         loop 
                         muted 
                         autoplay 
-                        class="w-full h-auto max-h-[80vh] object-cover scale-105"
+                        class="w-full h-auto max-h-[80vh] object-cover scale-[1.10] md:scale-105 mx-auto transform origin-center"
                     ></video>
                 </div>
             </section>
@@ -974,17 +998,17 @@
             <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-red-100 text-slate-400 hover:text-red-500 font-black text-xl flex items-center justify-center transition-colors z-20">
                 ✕
             </button>
-            <h3 class="text-2xl md:text-3xl font-black mb-2 flex items-center justify-center gap-4 text-slate-900">
+            <h3 class="text-2xl md:text-3xl font-black mb-1 md:mb-2 flex items-center justify-center gap-4 text-slate-900 mt-2 md:mt-0">
                 RANDEVU AL
             </h3>
-            <p class="text-xs md:text-sm text-slate-500 mb-8 text-center font-bold">
+            <p class="text-xs md:text-sm text-slate-500 mb-4 md:mb-8 text-center font-bold">
                 Kurum ziyareti için bilgilerinizi giriniz.
             </p>
             <div id="errBanner" class="err-banner">
                 <span class="text-xl">❌</span>
                 <span id="errText">Hata</span>
             </div>
-            <form id="apptForm" class="space-y-4 md:space-y-6" onsubmit="return false;">
+            <form id="apptForm" class="space-y-3 md:space-y-6" onsubmit="return false;">
                 <input type="text" id="botTrap" tabindex="-1" autocomplete="off" class="sr-only">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
                     <input type="text" id="fIsim" placeholder="Ad Soyad" required class="w-full bg-slate-50 border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #e2e8f0; border-right-color: #e2e8f0; border-bottom-color: #e2e8f0; border-left-color: #e2e8f0; p-4 md:p-5 rounded-2xl text-sm md:text-base text-slate-900 focus:border-cyan-500 font-black pointer-events-auto transition-colors focus:bg-white">
@@ -1543,6 +1567,7 @@
         let isChatOpen = false;
 
         function setAvatarToJPG() {
+            // YALNIZCA ikon alanının içeriğini değiştirir, yanındaki balonu silmez!
             const btnMobile = document.getElementById('mobileChatTrigger');
             const btnDesktop = document.getElementById('desktopChatTrigger');
 
