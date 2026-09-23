@@ -25,26 +25,6 @@
         <link rel="canonical" href="https://www.referansegitim.com/">
         <link rel="icon" href="assets/logo.png" type="image/png">
 
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "EducationalOrganization",
-            "name": "Referans Eğitim Kurumları",
-            "image": "https://www.referansegitim.com/assets/logo.png",
-            "@id": "https://www.referansegitim.com/",
-            "url": "https://www.referansegitim.com/",
-            "telephone": "+905000000000",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Büyük Hüseyinbey, Turfanda Sk.",
-                "addressLocality": "Battalgazi",
-                "addressRegion": "Malatya",
-                "postalCode": "44050",
-                "addressCountry": "TR"
-            }
-        }
-        </script>
-
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
             tailwind.config = {
@@ -100,7 +80,6 @@
             }
 
             @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-            @keyframes floatBubble { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
             
             /* Nefes Alma Efekti (Mavi Ton Geçişi) */
             @keyframes bluePulse {
@@ -110,7 +89,7 @@
 
             .spine-wrapper { position: relative; width: 100%; max-width: 100%; min-height: 100vh; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
             
-            /* ANA ÇİZGİ KATMAN AYARLARI (Z-INDEX 5 ile Hero Üstüne Çıkarılır) */
+            /* ANA ÇİZGİ KATMAN AYARLARI */
             .neon-spine { position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 2px; z-index: 5; background-color: rgba(14, 165, 233, 0.3); pointer-events: none; }
             .spine-glow {
                 position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 4px; height: 250px; 
@@ -224,8 +203,6 @@
                 border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid #ffffff; margin-bottom: -2px; 
             }
 
-            .neon-text-gradient { background-image: linear-gradient(90deg, #0ea5e9, #8b5cf6, #06b6d4, #0ea5e9); background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: gradientShift 3.6s ease infinite; }
-
             .auto-date-btn {
                 background-color: #f1f5f9; border: 1px solid #cbd5e1; color: #475569; padding: 4px 10px; border-radius: 50px; font-size: 0.60rem; font-weight: 800; cursor: pointer; transition: all 0.25s; display: inline-flex; align-items: center; gap: 4px; outline: none; font-family: 'Manrope', sans-serif; text-transform: uppercase;
             }
@@ -246,107 +223,102 @@
             .video-side-desktop { width: 320px; flex-shrink: 0; display: flex; justify-content: center; align-items: center; }
 
             .mobile-bottom-nav { display: none; }
-            .pagination-dots { display: none; }
             .mobile-swipe-wrapper { display: block; width: 100%; z-index: 20; position: relative; } 
-            .carousel-badge { display: none; }
-            .mobile-pill-container { display: none; }
 
             @media (max-width: 768px) {
                 .mega-bar-wrapper { display: none !important; }
                 .pill-side { display: none !important; }
                 .branch-line { display: none !important; }
-
-                /* MOBİL ÜST MENÜ GİZLENMİŞ ANA KASA (İçerikler İçin) */
-                .pill-nav { top: 15px; height: auto !important; width: 100%; padding: 0 !important; border: none; box-shadow: none; background: transparent !important; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 40010; }
-                .pill-nav.move-up { top: 10px; }
+                .pill-nav { display: none !important; } /* Desktop nav iptal */
                 
-                /* YENİ KUSURSUZ MOBİL MENÜ YAPISI */
-                .mobile-pill-container { 
-                    display: flex !important; 
-                }
-
-                /* HAP BUTONLAR */
+                /* MOBİL ÜST MENÜ DEĞİŞKENLERİ */
                 .mob-btn-capsule {
                     display: flex;
                     align-items: center;
-                    background-color: #06b6d4;
+                    background-color: #0ea5e9;
                     border-radius: 999px;
                     color: white;
                     text-decoration: none;
-                    animation: bluePulse 3s infinite alternate;
-                    box-shadow: 0 4px 10px rgba(6,182,212,0.3);
+                    box-shadow: 0 4px 10px rgba(14,165,233,0.3);
                     cursor: pointer;
                     transition: transform 0.25s ease;
+                    animation: bluePulse 3s infinite alternate;
                 }
                 .mob-btn-capsule:active { transform: scale(0.96); }
-                .mob-btn-capsule.left { padding: 4px 12px 4px 4px; gap: 6px; }
-                .mob-btn-capsule.right { padding: 4px 4px 4px 12px; gap: 6px; }
+                .mob-btn-capsule.left { padding: 4px 14px 4px 4px; gap: 6px; }
+                .mob-btn-capsule.right { padding: 4px 4px 4px 14px; gap: 6px; }
                 
                 .mob-btn-icon-circle {
-                    width: 32px; height: 32px; border-radius: 50%;
-                    background-color: white; color: #06b6d4;
+                    width: 42px; height: 42px; border-radius: 50%;
+                    background-color: white; color: #0ea5e9;
                     display: flex; align-items: center; justify-content: center;
-                    font-size: 1.1rem; flex-shrink: 0;
+                    font-size: 1.5rem; flex-shrink: 0;
                 }
-                .mob-btn-text { font-size: 0.65rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; }
+                .mob-btn-text { font-size: 0.8rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0.5px; }
 
-                /* ORTA ALAN (MEZUN - LOGO - KPSS) */
-                .mob-center-area { display: flex; align-items: center; justify-content: center; gap: 6px; flex: 1; }
+                .mob-center-area { display: flex; align-items: center; justify-content: center; gap: 8px; flex-shrink: 0; }
                 
                 .mob-framed-link {
-                    font-size: 0.6rem;
+                    font-size: 0.75rem;
                     font-weight: 900;
                     color: #0ea5e9;
                     text-transform: uppercase;
-                    border: 1px solid #e0f2fe;
-                    padding: 4px 6px;
-                    border-radius: 6px;
+                    border: 2px solid #e0f2fe;
+                    padding: 6px 8px;
+                    border-radius: 8px;
                     text-decoration: none;
                     transition: all 0.25s ease;
                     background: transparent;
+                    letter-spacing: 0.5px;
                 }
-                .mob-framed-link:active, .mob-framed-link:hover {
-                    background-color: #0ea5e9;
-                    color: #ffffff;
-                }
+                .mob-framed-link:active, .mob-framed-link:hover { background-color: #0ea5e9; color: #ffffff; }
                 
                 .mob-center-logo {
-                    width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid #0ea5e9; background: white;
+                    width: 46px; height: 46px; border-radius: 50%; border: 2.5px solid #0ea5e9; background: white;
                     display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 2px;
-                    transition: transform 0.25s ease;
+                    transition: transform 0.25s ease; position: relative; z-index: 25;
                 }
                 .mob-center-logo:active { transform: scale(0.92); }
                 .mob-center-logo img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
 
-                /* ALT SABİT SINIF MENÜSÜ */
+                /* YENİ ALT SINIF BUTONLARI (AYRIK VE BOŞLUKLU YAPI) */
                 .mobile-classes-row {
                     display: flex;
-                    width: 70%;
-                    margin-top: -10px;
+                    width: 90%;
+                    max-width: 450px;
+                    justify-content: center;
+                    gap: 12px; /* Ortadaki boşluk */
+                    margin-top: -18px; /* Üst menünün arkasına geçme payı */
                     z-index: 10;
-                    background: white;
-                    border: 1px solid #e0f2fe;
-                    border-top: none;
-                    border-radius: 0 0 16px 16px;
-                    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-                    overflow: hidden;
                 }
                 .mob-class-btn {
                     flex: 1;
                     text-align: center;
-                    font-size: 0.65rem;
+                    font-size: 0.85rem;
                     font-weight: 900;
                     color: #0ea5e9;
-                    padding: 14px 4px 6px 4px;
+                    padding: 26px 10px 10px 10px; /* Üstten ekstra boşluk */
                     text-decoration: none;
-                    transition: background-color 0.25s;
+                    background: rgba(255, 255, 255, 0.95);
+                    backdrop-filter: blur(10px);
+                    border: 2px solid #e0f2fe;
+                    border-top: none; /* Üst kısımdaki sınır çizgisi kaldırıldı */
+                    border-radius: 0 0 16px 16px; /* Sadece alt köşeler oval */
+                    box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+                    transition: background-color 0.25s, transform 0.25s;
                 }
-                .mob-class-btn:active { background-color: #f0f9ff; }
-                .mob-class-divider { width: 1px; background-color: #e0f2fe; margin-top: 10px; }
+                .mob-class-btn:active { background-color: #f0f9ff; transform: scale(0.97); }
 
-                .pill-logo-link { display: none !important; }
-                .webm-btn-icon { display: none !important; } 
-                main { padding-top: 130px !important; overflow-x: hidden; width: 100% !important; }
+                @media (max-width: 380px) {
+                    .mob-btn-icon-circle { width: 36px; height: 36px; font-size: 1.2rem; }
+                    .mob-btn-text { font-size: 0.7rem; }
+                    .mob-center-logo { width: 40px; height: 40px; }
+                    .mob-framed-link { font-size: 0.65rem; padding: 4px 6px; }
+                    .mob-btn-capsule.left { padding: 4px 10px 4px 4px; gap: 4px; }
+                    .mob-btn-capsule.right { padding: 4px 4px 4px 10px; gap: 4px; }
+                }
+
+                main { padding-top: 140px !important; overflow-x: hidden; width: 100% !important; }
 
                 .mobile-bottom-nav { display: block !important; position: fixed; left: 5%; width: 90%; bottom: env(safe-area-inset-bottom, 15px); margin-bottom: 15px; height: 52px; background-color: rgba(255, 255, 255, 0.65); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); z-index: 45000; border: 1px solid rgba(255,255,255,0.4); border-radius: 999px; }
                 .mobile-nav-grid { display: grid; grid-template-columns: repeat(3, 1fr); height: 100%; padding: 0 10px; align-items: center; }
@@ -372,7 +344,7 @@
                 .text-side-desktop, .text-side-desktop-rev { flex: 1 !important; text-align: center !important; background: transparent !important; padding: 10px !important; z-index: 10 !important; width: 100% !important; max-width: 100% !important; }
                 .video-side-desktop { width: 100px !important; height: 100px !important; display: flex !important; justify-content: center !important; align-items: center !important; margin: 0 auto 1rem auto !important; z-index: 10 !important; }
 
-                /* MOBİL %30 Küçültme Ek Ayarları */
+                /* MOBİL %30 Küçültme Ek Ayarları - İkonlar */
                 .icon-box { width: 28px !important; height: 28px !important; min-width: 28px !important; min-height: 28px !important; max-width: 28px !important; max-height: 28px !important; margin-bottom: 0.8rem !important; }
                 
                 /* YAZI ÜSTÜNE ÇIKMAYI ENGELLEYEN YENİ VİDEO ÇERÇEVESİ YAPISI */
@@ -406,12 +378,6 @@
                 #counterTitle { font-size: 1.25rem !important; margin-top: 1.5rem !important; margin-bottom: 1.5rem !important; }
                 .exam-btn { padding: 0.6rem !important; font-size: 0.85rem !important; border-radius: 0.8rem !important; }
                 #iletisim { padding-bottom: 100px !important; z-index: 20; }
-
-                .pagination-dots { display: flex !important; justify-content: center; gap: 6px; margin-top: 5px; margin-bottom: 10px; width: 100%; z-index: 5; }
-                .pagination-dots .dot { width: 8px; height: 8px; background-color: #e2e8f0; border-radius: 999px; transition: all 0.35s ease; }
-                .pagination-dots .dot.active { background-color: #0ea5e9; width: 24px; }
-
-                .modal-box { padding: 1.5rem 1.25rem !important; }
             }
 
             /* --------------------------------------------------------------------------
@@ -559,7 +525,6 @@
             KATMAN 2: YÜZEN HAP MENÜ (PILL NAV) - MASAÜSTÜ
             ========================================================================== -->
         <nav class="pill-nav hidden md:flex" id="pillMenu">
-            <!-- Masaüstü Sol: Canlı Destek + Hakkımızda + 360 Gezin -->
             <div class="pill-side left items-center" style="gap: 1.5rem; flex: 1; padding-right: 20px;">
                 <div onclick="triggerTopChat()" class="flex items-center gap-2 cursor-pointer mr-auto relative group" style="text-decoration: none;">
                     <div class="relative flex-shrink-0" style="width: 42px; height: 42px; transition: transform 0.35s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
@@ -586,11 +551,9 @@
                     360 GEZİN
                 </button>
             </div>
-            <!-- Merkez Logo -->
             <a href="#anasayfa" class="pill-logo-link" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
                 <img src="assets/logo.png" alt="Referans Eğitim Kurumları Logosu">
             </a>
-            <!-- Masaüstü Sağ: Bize Ulaşın + Yol Tarifi İkonu + Randevu Al -->
             <div class="pill-side right items-center" style="gap: 1.5rem; flex: 1; padding-left: 20px;">
                 <a href="tel:+905000000000" class="solid-blue-btn items-center gap-2">
                     BİZE ULAŞIN
@@ -608,20 +571,16 @@
             </div>
         </nav>
 
-        <!-- YENİ KUSURSUZ MOBİL ÜST MENÜ (Görsele Sadık Kalınmıştır) -->
+        <!-- YENİ KUSURSUZ MOBİL ÜST MENÜ (Görseldeki Gibi Bağımsız, Ayrık Butonlu ve Maksimum Boyutta) -->
         <div class="md:hidden w-full fixed top-[10px] left-0 z-[40010] flex flex-col items-center pointer-events-none">
 
             <!-- Ana Hap Menü (Pill Nav) -->
-            <div class="mobile-pill-top-row flex justify-between items-center bg-white/95 backdrop-blur-md rounded-full shadow-[0_4px_15px_rgba(0,0,0,0.05)] border border-sky-100 w-[96%] max-w-[420px] p-1 relative z-20 pointer-events-auto">
-
+            <div class="mobile-pill-top-row flex justify-between items-center bg-white/95 backdrop-blur-md rounded-[2rem] shadow-[0_8px_20px_rgba(0,0,0,0.08)] border border-sky-100 w-[96%] max-w-[450px] p-1.5 relative z-20 pointer-events-auto">
+                
                 <!-- Sol: Canlı Destek -->
-                <div onclick="triggerTopChat()" class="mob-btn-capsule left relative group cursor-pointer">
-                    <div class="mob-btn-icon-circle shadow-sm" id="mobileChatTrigger">
-                        🦊
-                    </div>
-                    <div class="mob-btn-text text-left mr-2">
-                        CANLI<br>DESTEK
-                    </div>
+                <div onclick="triggerTopChat()" class="mob-btn-capsule left relative group cursor-pointer flex-shrink-0">
+                    <div class="mob-btn-icon-circle shadow-sm" id="mobileChatTrigger">🦊</div>
+                    <div class="mob-btn-text text-left mr-1">CANLI<br>DESTEK</div>
                     <!-- Bildirim Balonu -->
                     <div class="smart-chat-bubble" id="topChatBubbleMobile">
                         Sana Yardımcı Olabilirim 🦊
@@ -629,21 +588,19 @@
                 </div>
 
                 <!-- Orta: Mezun - Logo - KPSS -->
-                <div class="mob-center-area flex items-center justify-center gap-1.5 flex-1">
+                <div class="mob-center-area flex items-center justify-center gap-1.5 md:gap-2 flex-shrink-0">
                     <a href="#mezun" class="mob-framed-link">MEZUN</a>
-                    <a href="#anasayfa" class="mob-center-logo shadow-sm" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
+                    <a href="#anasayfa" class="mob-center-logo shadow-md" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
                         <img src="assets/logo.png" alt="Logo">
                     </a>
                     <a href="#akademik" class="mob-framed-link">KPSS</a>
                 </div>
 
                 <!-- Sağ: Randevu Al -->
-                <button onclick="openModal('')" class="mob-btn-capsule right cursor-pointer">
-                    <div class="mob-btn-text text-right ml-2">
-                        RANDEVU<br>AL
-                    </div>
+                <button onclick="openModal('')" class="mob-btn-capsule right cursor-pointer flex-shrink-0">
+                    <div class="mob-btn-text text-right ml-1">RANDEVU<br>AL</div>
                     <div class="mob-btn-icon-circle shadow-sm">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                             <circle cx="12" cy="10" r="3"></circle>
                         </svg>
@@ -651,11 +608,10 @@
                 </button>
             </div>
 
-            <!-- Alt: Sabit Sınıf Seçenekleri (Butona basmadan sürekli görünür) -->
+            <!-- Alt: Sabit Sınıf Seçenekleri (Ortası Boşluklu İki Ayrı Kutu) -->
             <div class="mobile-classes-row pointer-events-auto">
-                <a href="#sinif-5-8" class="mob-class-btn rounded-bl-xl">5-8. SINIF</a>
-                <div class="mob-class-divider"></div>
-                <a href="#sinif-9-12" class="mob-class-btn rounded-br-xl">9-12. SINIF</a>
+                <a href="#sinif-5-8" class="mob-class-btn">5-8. SINIF</a>
+                <a href="#sinif-9-12" class="mob-class-btn">9-12. SINIF</a>
             </div>
         </div>
 
@@ -696,7 +652,7 @@
 
             <main class="w-full flex flex-col items-center relative z-0" id="main-content-area">
 
-                <!-- 1. BÖLÜM: Hero Video (Z-INDEX 1, Çizgi üzerinden geçer) -->
+                <!-- 1. BÖLÜM: Hero Video (Z-INDEX 1) -->
                 <section id="anasayfa" class="w-full max-w-[1400px] mx-auto px-4 md:px-8 mb-16 md:mb-32 text-center relative z-[1] order-1">
                     <div class="w-full relative rounded-[3rem] overflow-hidden flex items-center justify-center bg-transparent" style="border: none;">
                         <video 
@@ -711,7 +667,7 @@
                     </div>
                 </section>
 
-                <!-- 2. BÖLÜM: 3'LÜ ÖZELLİK KARTLARI (Z-INDEX 20, Çizgiyi kapatır) -->
+                <!-- 2. BÖLÜM: 3'LÜ ÖZELLİK KARTLARI -->
                 <section class="w-full max-w-6xl mx-auto px-0 md:px-6 mb-16 md:mb-40 relative z-[20] order-3 md:order-2">
                     <div class="mobile-swipe-wrapper">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 relative mobile-swipe-container" id="features-swipe">
@@ -761,7 +717,7 @@
                     </div>
                 </section>
 
-                <!-- 3. BÖLÜM: SINIF BÖLÜMLERİ (Z-INDEX 20, Çizgiyi kapatır) -->
+                <!-- 3. BÖLÜM: SINIF BÖLÜMLERİ -->
                 <div class="w-full max-w-6xl mx-auto mobile-swipe-wrapper mb-20 relative order-2 md:order-3 z-[20]">
                     <div class="mobile-swipe-container w-full px-0 md:px-6" id="education-swipe">
                         <div id="sinif-5-8" class="mobile-swipe-item card-shield-clean-desktop mx-auto">
@@ -826,7 +782,7 @@
                     </div>
                 </div>
 
-                <!-- 4. BÖLÜM: SAYAÇ MODÜLÜ (Z-INDEX 20, Çizgiyi kapatır) -->
+                <!-- 4. BÖLÜM: SAYAÇ MODÜLÜ -->
                 <section class="w-full max-w-4xl px-4 md:px-6 mb-24 md:mb-40 relative z-[20] text-center order-4 md:order-4">
                     <div class="flex justify-center mb-8">
                         <div class="webm-mask video-skeleton video-crop-calendar" style="width: 110px; height: 110px; border: 6px solid #ffffff; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
@@ -868,7 +824,7 @@
                     </div>
                 </section>
 
-                <!-- 5. BÖLÜM: HAKKIMIZDA & SEO BÖLÜMÜ (EN ALTTA, Z-INDEX 20) -->
+                <!-- 5. BÖLÜM: HAKKIMIZDA & SEO BÖLÜMÜ -->
                 <section id="hakkimizda" class="w-full max-w-6xl px-6 mb-32 relative z-[20] mx-auto order-5">
                     <div class="bg-white border border-slate-100 p-8 md:p-16 shadow-[0_30px_60px_rgba(0,0,0,0.08)] flex flex-col md:flex-row items-center gap-14 text-left relative z-10 rounded-[3rem]">
                         <div class="flex-1">
