@@ -184,7 +184,8 @@
             .auto-date-btn::before { content: '✓'; background: #0ea5e9; color: #fff; border-radius: 50%; width: 14px; height: 14px; display: inline-flex; justify-content: center; align-items: center; font-size: 0.55rem; }
             .auto-date-btn:hover { background-color: #e2e8f0; transform: scale(1.05); color: #0f172a; border-color: #94a3b8; }
 
-            main { padding-top: 140px; width: 100%; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; position: relative; }
+            /* GENEL DİKEY FLEX KAPSAYICISI */
+            main { padding-top: 180px; width: 100%; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; position: relative; }
 
             .card-shield-hard { 
                 background-color: #ffffff !important; position: relative; z-index: 20; border-radius: 2rem; margin-bottom: 50px; 
@@ -201,7 +202,7 @@
                 .branch-line { display: none !important; }
                 .pill-nav { display: none !important; } 
                 
-                /* MOBİL ÜST MENÜ - KUSURSUZ YAPIŞIK SİMETRİ */
+                /* MOBİL ÜST MENÜ - KUSURSUZ YAPIŞIK SİMETRİ VE KISA METİNLER */
                 .mobile-pill-container {
                     display: flex; flex-direction: column; align-items: center;
                     width: 96%; max-width: 480px; pointer-events: none; z-index: 40010;
@@ -234,8 +235,8 @@
                 }
                 .mob-btn-text { font-size: 0.65rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0.5px; }
 
-                /* ORTA ALAN: İKONLU BAŞLIKLAR (ALT ALTA YAPIŞIK) */
-                .mob-center-area { display: flex; align-items: center; justify-content: center; gap: 6px; flex-shrink: 1; flex: 1; }
+                /* ORTA ALAN: İKONLU BAŞLIKLAR */
+                .mob-center-area { display: flex; align-items: center; justify-content: center; gap: 8px; flex-shrink: 1; flex: 1; overflow: hidden; }
                 
                 .mob-framed-link {
                     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -259,6 +260,8 @@
                 .mob-center-logo:active { transform: scale(0.92); }
                 .mob-center-logo img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
 
+                .mobile-classes-row { display: none; }
+                
                 @media (max-width: 380px) {
                     .mob-btn-icon-circle { width: 34px; height: 34px; font-size: 1.2rem; }
                     .mob-btn-text { font-size: 0.55rem; }
@@ -331,7 +334,6 @@
                 .pagination-dots .dot.active { background-color: #0ea5e9; width: 30px; box-shadow: 0 4px 10px rgba(14, 165, 233, 0.4); }
             }
 
-            /* SAYAÇ ANİMASYONLARI */
             .counter-card { transition: transform 0.708s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.708s ease; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important; border-bottom: 2px solid #f1f5f9; }
             .counter-card.grown { transform: scale(1.04); box-shadow: 0 40px 80px rgba(6,182,212,0.18) !important; }
 
@@ -440,21 +442,22 @@
 
         <div class="progress-bar" id="progressBar"></div>
 
+        <!-- ÜST MENÜ HANGING NAV (PC) -->
         <div class="mega-bar-wrapper" id="megaBar">
             <nav class="hanging-nav hidden md:grid">
-                <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-alt'">
+                <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-ust'">
                     <span class="hanging-title">5-8. SINIF</span>
                     <span class="hanging-sub">LGS HAZIRLIK</span>
                 </div>
-                <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-alt'">
+                <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-ust'">
                     <span class="hanging-title">9-12. SINIF</span>
                     <span class="hanging-sub">TYT - AYT</span>
                 </div>
-                <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-alt'">
+                <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-ust'">
                     <span class="hanging-title">MEZUN</span>
                     <span class="hanging-sub">YKS HEDEF BÜYÜTME</span>
                 </div>
-                <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-alt'">
+                <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-ust'">
                     <span class="hanging-title">AKADEMİK</span>
                     <span class="hanging-sub">DGS / KPSS / ALES</span>
                 </div>
@@ -473,12 +476,12 @@
                 
                 <a href="#hakkimizda" class="pc-framed-link">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#0284c7]"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                    HAKKIMIZDA
+                    <span style="margin-top: 1px;">HAKKIMIZDA</span>
                 </a>
                 
                 <button onclick="openTour()" class="pc-framed-link">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#0284c7]"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-                    SINIFLARIMIZ
+                    <span style="margin-top: 1px;">SINIFLARIMIZ</span>
                 </button>
             </div>
             <a href="#features" class="pill-logo-link" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
@@ -505,21 +508,15 @@
 
                     <div class="mob-center-area">
                         <a href="#hakkimizda" class="mob-framed-link">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-[#0284c7]"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                            <div class="flex flex-col items-center justify-center leading-[1.1]">
-                                <span style="font-size: 0.5rem;">KURUM</span>
-                                <span style="font-size: 0.5rem;">HAKKINDA</span>
-                            </div>
+                            <span class="icon">i</span>
+                            <span style="font-size: 0.55rem; line-height: 1; margin-top: 1px;">HAKKIMIZDA</span>
                         </a>
-                        <a href="#sabit-siniflar-ust" class="mob-center-logo shadow-sm shrink-0" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
+                        <a href="#features" class="mob-center-logo shadow-sm shrink-0" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
                             <img src="assets/logo.png" alt="Logo">
                         </a>
                         <button onclick="openTour()" class="mob-framed-link cursor-pointer">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-[#0284c7]"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-                            <div class="flex flex-col items-center justify-center leading-[1.1]">
-                                <span style="font-size: 0.5rem;">SINIF</span>
-                                <span style="font-size: 0.5rem;">GÖRSELLERİ</span>
-                            </div>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-[#0284c7]"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                            <span style="font-size: 0.55rem; line-height: 1; margin-top: 1px;">SINIFLARIMIZ</span>
                         </button>
                     </div>
 
@@ -695,77 +692,6 @@
                     </div>
                 </section>
 
-                <section id="sabit-siniflar-alt" class="w-full max-w-6xl mx-auto px-0 md:px-6 relative z-[20] pb-32 order-5 mt-10">
-                    <div class="mobile-swipe-wrapper">
-                        <div class="mobile-swipe-container flex md:flex-col w-full px-0 md:px-0" id="education-swipe-alt">
-                            
-                            <div class="mobile-swipe-item card-shield-clean-desktop mx-auto md:mb-16 md:flex-row md:h-auto pt-20 -mt-20 relative w-[85vw] flex-shrink-0 snap-center md:w-full md:flex-shrink" style="flex: 0 0 85vw;">
-                                <div class="branch-line right hidden md:block"></div>
-                                <div class="text-side-desktop text-center md:text-right w-full md:w-1/2 px-4 md:px-0">
-                                    <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">5-8. SINIF</h2>
-                                    <h3 class="text-cyan-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">LGS Hazırlık</h3>
-                                    <p class="text-slate-500 font-bold text-xs md:text-base leading-relaxed mb-6 md:mb-8 md:block">Akademik temellerin atıldığı bu dönemde, okuduğunu anlama ve sınav stresi yönetimi üzerine kusursuz rehberlik sunuyoruz.</p>
-                                    <button onclick="openModal('5-8. Sınıf')" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 rounded-xl hover:bg-cyan-500 transition-colors text-base border-none md:flex hidden">Randevu Al</button>
-                                </div>
-                                <div class="video-side-desktop w-full md:w-1/2 flex justify-center md:justify-start mt-6 md:mt-0">
-                                    <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                                        <video data-src="assets/kalem-yazma.mp4" preload="none" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mobile-swipe-item card-shield-clean-desktop mx-auto md:mb-16 md:flex-row-reverse md:h-auto pt-20 -mt-20 relative w-[85vw] flex-shrink-0 snap-center md:w-full md:flex-shrink" style="flex: 0 0 85vw;">
-                                <div class="branch-line left hidden md:block"></div>
-                                <div class="text-side-desktop-rev text-center md:text-left w-full md:w-1/2 px-4 md:px-0">
-                                    <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">9-12. SINIF</h2>
-                                    <h3 class="text-blue-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">TYT - AYT Maratonu</h3>
-                                    <p class="text-slate-500 font-bold text-xs md:text-base leading-relaxed mb-6 md:mb-8 md:block">Zaman yönetiminden stres kontrolüne kadar tüm süreçleri profesyonel kadromuzla yönetiyoruz.</p>
-                                    <button onclick="openModal('9-12. Sınıf')" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 rounded-xl hover:bg-slate-900 transition-colors text-base border-none md:flex hidden">Randevu Al</button>
-                                </div>
-                                <div class="video-side-desktop w-full md:w-1/2 flex justify-center md:justify-end mt-6 md:mt-0">
-                                    <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                                        <video data-src="assets/bu-taraftan-gidiyoruz.mp4" preload="none" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mobile-swipe-item card-shield-clean-desktop mx-auto md:mb-16 md:flex-row md:h-auto pt-20 -mt-20 relative w-[85vw] flex-shrink-0 snap-center md:w-full md:flex-shrink" style="flex: 0 0 85vw;">
-                                <div class="branch-line right hidden md:block"></div>
-                                <div class="text-side-desktop text-center md:text-right w-full md:w-1/2 px-4 md:px-0">
-                                    <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">MEZUN</h2>
-                                    <h3 class="text-cyan-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase">YKS Hedef Büyütme</h3>
-                                    <p class="text-slate-500 font-bold text-xs md:text-base leading-relaxed mb-6 md:mb-8 md:block">Hedefine ulaşmak için eksik odaklı, yoğunlaştırılmış VIP eğitim sunuyoruz.</p>
-                                    <button onclick="openModal('Mezun')" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 rounded-xl hover:bg-cyan-500 transition-colors text-base border-none md:flex hidden">Randevu Al</button>
-                                </div>
-                                <div class="video-side-desktop w-full md:w-1/2 flex justify-center md:justify-start mt-6 md:mt-0">
-                                    <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                                        <video data-src="assets/sevinme.mp4" preload="none" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mobile-swipe-item card-shield-clean-desktop mx-auto md:mb-16 md:flex-row-reverse md:h-auto pt-20 -mt-20 relative w-[85vw] flex-shrink-0 snap-center md:w-full md:flex-shrink" style="flex: 0 0 85vw;">
-                                <div class="branch-line left hidden md:block"></div>
-                                <div class="text-side-desktop-rev text-center md:text-left w-full md:w-1/2 px-4 md:px-0">
-                                    <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-2 md:mb-4 tracking-tighter">AKADEMİK</h2>
-                                    <h3 class="text-blue-500 font-black text-base md:text-2xl tracking-widest mb-4 md:mb-6 uppercase leading-tight">DGS / KPSS / ALES</h3>
-                                    <p class="text-slate-500 font-bold text-xs md:text-base leading-relaxed mb-6 md:mb-8 md:block">Memurluk veya akademik kariyer hedeflerinize yönelik nokta atışı taktikler.</p>
-                                    <button onclick="openModal('DGS / KPSS / ALES')" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 rounded-xl hover:bg-slate-900 transition-colors text-base border-none md:flex hidden">Randevu Al</button>
-                                </div>
-                                <div class="video-side-desktop w-full md:w-1/2 flex justify-center md:justify-end mt-6 md:mt-0">
-                                    <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                                        <video data-src="assets/soru-cozme.mp4" preload="none" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="pagination-dots md:hidden" id="education-dots-alt">
-                            <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-                        </div>
-                    </div>
-                </section>
-
                 <section id="iletisim" class="px-6 pb-10 max-w-5xl mx-auto relative z-[20] w-full order-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 w-full">
                         <div class="glass-card p-8 md:p-12 text-center shadow-2xl pointer-events-auto flex flex-col items-center rounded-3xl">
@@ -855,8 +781,17 @@
                 <video data-src="assets/ekrana-tiklama.webm" preload="none" playsinline loop muted></video>
             </div>
             <div class="modal-box pointer-events-auto" id="appointment-modal-box">
-                <button onclick="closeModal()" class="absolute top-2 right-2 md:top-4 md:right-4 w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-100 hover:bg-red-100 text-slate-400 hover:text-red-500 font-black text-lg md:text-xl flex items-center justify-center transition-colors z-20">✕</button>
-                <h3 class="text-xl md:text-3xl font-black flex items-center justify-center gap-2 md:gap-4 text-slate-900 mt-1 md:mt-0">RANDEVU AL</h3>
+                <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-red-100 text-slate-400 hover:text-red-500 font-black text-xl flex items-center justify-center transition-colors z-30">✕</button>
+                
+                <!-- YENİ VİDEO: Modal Üstüne Dışa Taşan Basamaklı Yapı -->
+                <div class="flex justify-center -mt-10 md:-mt-14 mb-4 relative z-20">
+                    <div class="w-32 md:w-40 aspect-video rounded-xl bg-white overflow-hidden flex items-center justify-center" 
+                         style="box-shadow: 0 0 0 5px rgba(255,255,255,0.8), 0 0 0 10px rgba(255,255,255,0.4), 0 0 0 15px rgba(255,255,255,0.15), 0 10px 20px rgba(0,0,0,0.3);">
+                        <video data-src="assets/ekran.webm" preload="none" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
+                    </div>
+                </div>
+
+                <h3 class="text-xl md:text-3xl font-black flex items-center justify-center gap-2 md:gap-4 text-slate-900 mt-2 md:mt-0">RANDEVU AL</h3>
                 <p class="text-[10px] md:text-sm text-slate-500 mb-2 md:mb-4 text-center font-bold">Kurum ziyareti için bilgilerinizi giriniz.</p>
                 
                 <div id="errBanner" class="err-banner">
@@ -903,14 +838,8 @@
                             <option value="14:00">14:00</option>
                         </select>
                     </div>
-                    
-                    <div class="flex justify-center mt-3 mb-2">
-                        <div class="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-4 border-[#0ea5e9] shadow-md flex items-center justify-center relative z-10 bg-white">
-                            <video data-src="assets/ekran.webm" preload="none" playsinline loop muted autoplay class="w-full h-full object-cover"></video>
-                        </div>
-                    </div>
 
-                    <button type="button" id="btn-submit" onclick="submitAppt()" class="magnetic-btn w-full justify-center font-black py-3 md:py-4 mt-2 rounded-xl text-xs md:text-base shadow-[0_15px_30px_rgba(6,182,212,0.35)] bg-cyan-500 text-white hover:bg-cyan-600 tracking-widest border-none">GÖNDER</button>
+                    <button type="button" id="btn-submit" onclick="submitAppt()" class="magnetic-btn w-full justify-center font-black py-3 md:py-4 mt-4 rounded-xl text-xs md:text-base shadow-[0_15px_30px_rgba(6,182,212,0.35)] bg-cyan-500 text-white hover:bg-cyan-600 tracking-widest border-none">GÖNDER</button>
                 </form>
             </div>
             <div class="webm-mask webm-modal-flank flank-right hidden lg:flex video-skeleton">
@@ -920,10 +849,13 @@
 
         <script>
             document.addEventListener("DOMContentLoaded", function() {
+                // KASMA SORUNUNUN (FPS DÜŞÜŞÜ) ÇÖZÜLDÜĞÜ ALGORİTMA
                 let videoObserver = new IntersectionObserver((entries, observer) => {
                     entries.forEach(entry => {
+                        const video = entry.target;
+                        
+                        // Video ekrandayken (Görünürken)
                         if (entry.isIntersecting) {
-                            const video = entry.target;
                             if(video.hasAttribute('data-src')) {
                                 video.src = video.getAttribute('data-src');
                                 video.removeAttribute('data-src');
@@ -934,15 +866,18 @@
                                         video.parentElement.classList.remove('video-skeleton');
                                     }
                                 });
-                                let playPromise = video.play();
-                                if (playPromise !== undefined) {
-                                    playPromise.catch(e => console.log("Oto oynatma cihaz politikası kısıtlaması"));
-                                }
-                                observer.unobserve(video);
                             }
+                            let playPromise = video.play();
+                            if (playPromise !== undefined) {
+                                playPromise.catch(e => {}); // Oynatma kısıtlamalarını yoksay
+                            }
+                        } 
+                        // Video ekrandan çıktığında (Kasmayı engelleyen kritik kod)
+                        else {
+                            video.pause();
                         }
                     });
-                }, { rootMargin: '0px 0px 400px 0px' });
+                }, { rootMargin: '150px 0px' }); // Ekrana 150px yaklaşınca başlat
 
                 document.querySelectorAll('video[data-src]').forEach(video => {
                     videoObserver.observe(video);
@@ -950,7 +885,6 @@
 
                 if (window.innerWidth <= 768) {
                     initMobileInfiniteSwipes('features-swipe', 'features-dots');
-                    initMobileInfiniteSwipes('education-swipe-alt', 'education-dots-alt');
                 }
 
                 setTimeout(() => {
