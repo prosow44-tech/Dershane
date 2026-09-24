@@ -71,8 +71,8 @@
             video, img { pointer-events: none; outline: none; user-select: none; -webkit-user-drag: none; }
             .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
-            section, #sinif-5-8, #sinif-9-12, #mezun, #akademik, #sinif-5-8-alt, #sinif-9-12-alt, #mezun-alt, #akademik-alt { scroll-margin-top: 150px; }
-            @media (max-width: 768px) { section, #sinif-5-8, #sinif-9-12, #mezun, #akademik, #sinif-5-8-alt, #sinif-9-12-alt, #mezun-alt, #akademik-alt { scroll-margin-top: 100px; } }
+            section, #sinif-5-8, #sinif-9-12, #mezun, #akademik, #ekstra-bilgiler { scroll-margin-top: 150px; }
+            @media (max-width: 768px) { section, #sinif-5-8, #sinif-9-12, #mezun, #akademik, #ekstra-bilgiler { scroll-margin-top: 100px; } }
 
             .progress-bar { 
                 position: fixed; top: 0; left: 0; height: 3px; background-image: linear-gradient(90deg, #0ea5e9, #8b5cf6, #06b6d4); 
@@ -110,9 +110,10 @@
             @keyframes skeletonLoading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
             .webm-mask { border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; transform: translateZ(0); will-change: transform; position: relative; background-color: transparent; aspect-ratio: 1/1; }
-            .webm-mask video { width: 100%; height: 100%; object-fit: cover; transform: translateZ(0); background-color: transparent; }
+            .webm-mask video { width: 100%; height: 100%; object-fit: cover; transform: translateZ(0); opacity: 0; transition: opacity 0.3s ease-in-out; background-color: transparent; }
             .video-crop-9-12 video { object-position: center top !important; transform: scale(1.4) translateY(12%) translateZ(0) !important; }
             .video-crop-calendar video { object-position: center top !important; transform: scale(1.4) translateY(12%) translateZ(0) !important; }
+            .webm-mask video.loaded { opacity: 1; }
 
             .webm-card-bottom { position: absolute; bottom: -35px; left: 50%; transform: translateX(-50%) translateZ(0); width: 70px; height: 70px; border: 4px solid #ffffff; box-shadow: 12px 12px 0px 0px rgba(15, 23, 42, 0.9) !important; background-color: #f8fafc; z-index: 20; }
             .webm-egitim { width: 320px; height: 320px; border: 8px solid #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important; background-color: #ffffff; }
@@ -126,28 +127,16 @@
             .hanging-tab:hover .hanging-title { color: #0ea5e9; }
             .hanging-sub { display: block; font-size: 0.7rem; font-weight: 800; color: #0ea5e9; margin-top: 6px; text-transform: uppercase; }
 
-            /* --- PC SÜRÜMÜ ÜST MENÜ (ORİJİNAL) --- */
+            /* =========================================================
+               PC ÜST MENÜSÜ (KUSURSUZ SİMETRİ VE HİZALAMA) 
+               ========================================================= */
             .pill-nav { 
                 position: fixed; top: 110px; left: 50%; transform: translateX(-50%); width: 95%; max-width: 1050px; height: 72px; 
                 background-color: rgba(255,255,255,1); border-radius: 999px; border: 1px solid #e0f2fe; box-shadow: 0 15px 35px rgba(14,165,233,0.15); 
-                display: flex; align-items: center; justify-content: space-between; padding: 0 1.5rem; z-index: 40010; 
+                display: flex; align-items: center; justify-content: space-between; z-index: 40010; 
                 transition: top 0.472s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.472s ease, background-color 0.472s ease; 
             }
             .pill-nav.move-up { top: 20px; box-shadow: 0 20px 50px rgba(14,165,233,0.25); background-color: rgba(255,255,255,0.75); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); } 
-
-            .pill-logo-link { 
-                position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 96px; height: 96px; 
-                aspect-ratio: 1/1; flex-shrink: 0; overflow: hidden; border-radius: 50% !important; background-color: #ffffff; 
-                border: 4px solid #0ea5e9; box-shadow: 0 10px 25px rgba(14,165,233,0.3); display: flex; align-items: center; justify-content: center; 
-                cursor: pointer; padding: 6px; pointer-events: auto; z-index: 40012; transition: transform 0.354s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            }
-            .pill-logo-link:hover { transform: translate(-50%, -50%) scale(1.08); }
-            .pill-logo-link:active { transform: translate(-50%, -50%) scale(0.95); }
-            .pill-logo-link img { width: 100%; height: 100%; object-fit: contain; border-radius: 50% !important; }
-
-            .pill-side { flex: 1; display: flex; align-items: center; gap: 2rem; justify-content: center; }
-            .pill-side.left { padding-right: 50px; justify-content: flex-end; }
-            .pill-side.right { padding-left: 50px; justify-content: flex-start; }
 
             .pc-text-link {
                 font-size: 0.85rem; font-weight: 900; color: #64748b; text-transform: uppercase;
@@ -160,6 +149,7 @@
                 background-color: #0ea5e9; color: #ffffff; font-weight: 900; font-size: 0.85rem; padding: 0.7rem 2rem; border-radius: 999px; display: inline-flex; align-items: center; cursor: pointer; border: 0; pointer-events: auto; transition: all 0.236s ease; gap: 8px;
             }
             .pc-solid-cyan-btn:hover { background-color: #0284c7; box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3); }
+            .pc-solid-cyan-btn:active { transform: scale(0.96) !important; }
 
             .smart-chat-bubble {
                 position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background-color: #ffffff; color: #0f172a; padding: 6px 12px; border-radius: 12px; font-weight: 900; font-size: 0.75rem; white-space: nowrap; box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 2px solid #e0f2fe; opacity: 0; visibility: hidden; pointer-events: none; z-index: 40050; margin-top: 12px; transition: opacity 0.472s ease, visibility 0.472s ease;
@@ -173,7 +163,7 @@
             .auto-date-btn::before { content: '✓'; background: #0ea5e9; color: #fff; border-radius: 50%; width: 14px; height: 14px; display: inline-flex; justify-content: center; align-items: center; font-size: 0.55rem; }
             .auto-date-btn:hover { background-color: #e2e8f0; transform: scale(1.05); color: #0f172a; border-color: #94a3b8; }
 
-            /* GENEL DİKEY FLEX KAPSAYICISI (PC OVERLAPPING KESİN ÇÖZÜMÜ PADDING-TOP: 250px) */
+            /* GENEL DİKEY FLEX KAPSAYICISI (PC ÇAKIŞMASI PADDING-TOP: 250px İLE KESİN ÇÖZÜLDÜ) */
             main { padding-top: 250px; width: 100%; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; position: relative; }
 
             .card-shield-hard { 
@@ -190,8 +180,6 @@
                 main { padding-top: 140px !important; overflow-x: hidden; width: 100% !important; }
 
                 .mega-bar-wrapper { display: none !important; }
-                .pill-side { display: none !important; }
-                .branch-line { display: none !important; }
                 .pill-nav { display: none !important; } 
                 
                 /* MOBİL ÜST MENÜ İZOLASYONLU */
@@ -227,9 +215,9 @@
                 }
                 .mob-btn-text { font-size: 0.65rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0.2px; }
 
-                /* CHAT BALONU: Sola İzolasyon */
+                /* CHAT BALONU: Sola İzolasyon (Y Harfi Kesilmesini Önler) ve Sağa Temas Engellendi */
                 #topChatBubbleMobile {
-                    left: 20px !important; 
+                    left: 25px !important; 
                     transform: none !important;
                 }
                 #topChatBubbleMobile::before {
@@ -338,8 +326,6 @@
                 .text-side-desktop h2, .text-side-desktop-rev h2 { font-size: 1.8rem !important; margin-bottom: 0.25rem !important; text-align: center !important; }
                 .text-side-desktop h3, .text-side-desktop-rev h3 { font-size: 0.8rem !important; margin-bottom: 0.5rem !important; text-align: center !important; }
 
-                .text-side-desktop .magnetic-btn, .text-side-desktop-rev .magnetic-btn { background-image: linear-gradient(135deg, #0ea5e9, #0284c7) !important; color: #ffffff !important; padding: 0.8rem 2rem !important; font-size: 1rem !important; border-radius: 999px !important; box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3) !important; width: 100% !important; justify-content: center !important; margin-top: auto !important; display: inline-flex !important; }
-
                 .video-side-desktop .webm-egitim { width: 100px !important; height: 100px !important; margin: 0 !important; border: 4px solid #ffffff !important; box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important; }
 
                 .counter-card { padding: 1.5rem 1rem !important; border-radius: 1.5rem !important; z-index: 20; }
@@ -400,9 +386,8 @@
             .modal-overlay.show .modal-box { clip-path: circle(150% at 50% 50%); }
 
             @media (max-width: 768px) {
-                /* Modal ana kutu boyutu esnek bırakıldı */
-                .modal-box { padding: 1.5rem !important; margin-top: 10vh; max-width: 100%; min-height: 500px; }
-                #apptForm { gap: 0.5rem; display: flex; flex-direction: column; }
+                .modal-box { padding: 1.2rem !important; margin-top: 10vh; max-width: 100%; min-height: 500px; }
+                #apptForm { gap: 0.4rem; display: flex; flex-direction: column; }
                 .err-banner { padding: 4px 8px; margin-bottom: 0.25rem; font-size: 0.7rem; }
                 .auto-date-btn { font-size: 0.5rem; padding: 2px 6px; }
             }
@@ -499,13 +484,14 @@
         <nav class="pill-nav hidden md:flex" id="pillMenu">
             <!-- Sol Grup -->
             <div class="flex items-center gap-6 pl-2 z-10 w-1/3">
-                <div onclick="triggerTopChat()" class="flex items-center gap-2 cursor-pointer relative group">
-                    <div class="relative flex-shrink-0 w-10 h-10 transition-transform duration-300 hover:scale-105">
-                        <div id="desktopChatTrigger" class="w-full h-full flex items-center justify-center rounded-full text-white bg-cyan-500 text-lg shadow-md">🦊</div>
+                <div onclick="triggerTopChat()" class="flex items-center gap-2 cursor-pointer mr-auto relative group" style="text-decoration: none;">
+                    <div class="relative flex-shrink-0" style="width: 42px; height: 42px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <div id="desktopChatTrigger" class="w-full h-full flex items-center justify-center rounded-full text-white" style="background-color: #06b6d4; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(6,182,212,0.3);">🦊</div>
                         <div class="smart-chat-bubble" id="topChatBubbleDesktop">Yardımcı Olabilirim 🦊</div>
                     </div>
-                    <span class="text-cyan-500 font-black text-sm uppercase leading-tight">CANLI<br>DESTEK</span>
+                    <span style="color: #0ea5e9; font-weight: 900; font-size: 0.85rem; text-transform: uppercase;">Canlı Destek</span>
                 </div>
+                
                 <a href="#hakkimizda" class="pc-text-link">
                     <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
                     HAKKIMIZDA
@@ -514,14 +500,14 @@
 
             <!-- Merkez Kesik (Cluster) Grup (360 Gezin - Logo - Bize Ulaşın) -->
             <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center z-20">
-                <button onclick="openTour()" class="bg-[#0ea5e9] text-white font-black text-sm px-6 py-3.5 rounded-l-full flex items-center gap-2 pr-10 hover:bg-[#0284c7] transition-colors relative z-0 shadow-sm">
+                <button onclick="openTour()" class="bg-[#0ea5e9] text-white font-black text-sm px-6 py-3.5 rounded-l-full flex items-center justify-center gap-2 hover:bg-[#0284c7] transition-colors shadow-sm -mr-6 z-0 w-[150px]">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><rect x="7" y="3" width="10" height="18" rx="2" ry="2"></rect><path d="M3 12c0-3.3 2.7-6 6-6"></path><path d="M21 12c0 3.3-2.7 6-6 6"></path><polygon points="9 3 9 9 3 6"></polygon><polygon points="15 21 15 15 21 18"></polygon></svg>
                     360 GEZİN
                 </button>
-                <a href="#features" class="w-[88px] h-[88px] rounded-full border-[5px] border-[#0ea5e9] bg-white flex items-center justify-center z-10 shadow-lg -mx-6 relative cursor-pointer hover:scale-105 transition-transform" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
+                <a href="#features" class="w-[88px] h-[88px] rounded-full border-[5px] border-[#0ea5e9] bg-white flex items-center justify-center z-10 shadow-lg cursor-pointer hover:scale-105 transition-transform flex-shrink-0" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
                     <img src="assets/logo.png" alt="Logo" class="w-full h-full object-contain rounded-full">
                 </a>
-                <a href="tel:+905000000000" class="bg-[#0ea5e9] text-white font-black text-sm px-6 py-3.5 rounded-r-full flex items-center justify-center pl-10 hover:bg-[#0284c7] transition-colors relative z-0 shadow-sm">
+                <a href="tel:+905000000000" class="bg-[#0ea5e9] text-white font-black text-sm px-6 py-3.5 rounded-r-full flex items-center justify-center hover:bg-[#0284c7] transition-colors shadow-sm -ml-6 z-0 w-[150px]">
                     BİZE ULAŞIN
                 </a>
             </div>
@@ -837,16 +823,14 @@
 
         <div id="randevuModal" class="modal-overlay" onclick="if(event.target===this) closeModal()">
             
-            <!-- MODAL İÇERİĞİ: Çerçeveler İptal, Video Yukarıya Alındı ve Büyütüldü -->
             <div class="modal-box pointer-events-auto" id="appointment-modal-box">
                 <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-red-100 text-slate-400 hover:text-red-500 font-black text-xl flex items-center justify-center transition-colors z-30">✕</button>
                 
-                <!-- YENİ VİDEO: Modal Üstüne Dışa Taşan Basamaklı Tam Kare (1:1) Yapı. Boyutu artırıldı (w-36/w-44), Zoom uygulandı (scale-[1.4]) -->
+                <!-- TİLKİ AYAKLARININ GİZLENDİĞİ BASAMAKLI KARE (SQUARE) VİDEO YAPI -->
                 <div class="flex justify-center -mt-24 md:-mt-28 mb-4 relative z-20">
                     <div class="w-36 h-36 md:w-44 md:h-44 aspect-square rounded-2xl bg-white overflow-hidden flex items-center justify-center border-4 border-white" 
                          style="box-shadow: 0 0 0 4px rgba(255,255,255,0.6), 0 0 0 8px rgba(255,255,255,0.3), 0 15px 30px rgba(0,0,0,0.4);">
-                        <!-- VİDEO YAKINLAŞTIRILDI (scale-[1.4]) ve YUKARI KAYDIRILDI (-translate-y-4) tilki bacakları gizlendi -->
-                        <video src="assets/ekrana-tiklama.webm" playsinline loop muted autoplay class="w-full h-full object-cover scale-[1.4] -translate-y-4 origin-top"></video>
+                        <video src="assets/ekrana-tiklama.webm" playsinline loop muted autoplay class="w-full h-full object-cover scale-[1.3] -translate-y-4 origin-top"></video>
                     </div>
                 </div>
 
@@ -907,16 +891,14 @@
 
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                // KESİN VİDEO ÇÖZÜMÜ: SADECE EKRANDA OLMAYANLARI DURDUR
+                // DOM HATALARI ENGELLENMİŞ SENKRONİZE VİDEO OYNATICI
                 let videoObserver = new IntersectionObserver((entries, observer) => {
                     entries.forEach(entry => {
                         const video = entry.target;
                         if (entry.isIntersecting) {
                             let playPromise = video.play();
                             if (playPromise !== undefined) {
-                                playPromise.catch(error => {
-                                    // Tarayıcı autoplay engellerse sessizce düş
-                                });
+                                playPromise.catch(error => {});
                             }
                         } else {
                             video.pause();
@@ -925,7 +907,6 @@
                 }, { rootMargin: '200px 0px' });
 
                 document.querySelectorAll('video').forEach(video => {
-                    // Videoların kesin sessiz olmasını sağlama (Tarayıcı politikası)
                     video.muted = true;
                     videoObserver.observe(video);
                     
