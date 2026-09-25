@@ -161,14 +161,23 @@
 
             /* BELİRGİN EN YAKIN TARİH SEÇ BUTONU TASARIMI */
             .auto-date-btn { 
-                background-color: #0ea5e9; border: 1px solid #0284c7; color: #ffffff; padding: 6px 12px; 
-                border-radius: 50px; font-size: 0.70rem; font-weight: 900; cursor: pointer; transition: all 0.236s; 
+                background-color: #0ea5e9; border: 1px solid #0284c7; color: #ffffff; padding: 8px 16px; 
+                border-radius: 50px; font-size: 0.75rem; font-weight: 900; cursor: pointer; transition: all 0.236s; 
                 display: inline-flex; align-items: center; gap: 6px; outline: none; font-family: 'Manrope', sans-serif; 
-                text-transform: uppercase; box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3); pointer-events: auto;
+                text-transform: uppercase; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4); pointer-events: auto;
             }
-            .auto-date-btn::before { content: '📅'; font-size: 0.85rem; }
-            .auto-date-btn:hover { background-color: #0284c7; transform: scale(1.05); box-shadow: 0 6px 15px rgba(14, 165, 233, 0.4); color: #fff; }
+            .auto-date-btn::before { content: '📅'; font-size: 0.9rem; }
+            .auto-date-btn:hover { background-color: #0284c7; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(14, 165, 233, 0.5); color: #fff; border-color: #0ea5e9; }
             .auto-date-btn:active { transform: scale(0.95); }
+
+            /* GÖLGE DESTEK SINIFLARI */
+            .shadow-left { box-shadow: -10px 10px 0px 0px #1e293b !important; }
+            .shadow-center { box-shadow: 0px 10px 0px 0px #1e293b !important; }
+            .shadow-right { box-shadow: 10px 10px 0px 0px #1e293b !important; }
+            
+            .webm-shadow-left { box-shadow: -10px 10px 0px 0px rgba(15, 23, 42, 0.9) !important; }
+            .webm-shadow-center { box-shadow: 0px 10px 0px 0px rgba(15, 23, 42, 0.9) !important; }
+            .webm-shadow-right { box-shadow: 10px 10px 0px 0px rgba(15, 23, 42, 0.9) !important; }
 
             /* GENEL DİKEY FLEX KAPSAYICISI */
             main { padding-top: 250px; width: 100%; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; position: relative; }
@@ -328,7 +337,7 @@
                 .mobile-swipe-item { flex: 0 0 85vw !important; scroll-snap-align: center !important; transition: all 0.472s cubic-bezier(0.25, 0.46, 0.45, 0.94); opacity: 0.4 !important; filter: blur(4px) !important; transform: scale(0.85) !important; margin: 0 !important; position: relative; will-change: transform, opacity, filter; }
                 .mobile-swipe-item.is-centered { opacity: 1 !important; filter: blur(0px) !important; transform: scale(1) !important; z-index: 10; }
 
-                .card-shield-hard { padding: 1.5rem !important; padding-bottom: 4.5rem !important; border-radius: 1.5rem !important; overflow: visible !important; z-index: 20; box-shadow: 10px 10px 0px 0px #1e293b !important; }
+                .card-shield-hard { padding: 1.5rem !important; padding-bottom: 4.5rem !important; border-radius: 1.5rem !important; overflow: visible !important; z-index: 20; }
                 .card-shield-clean-desktop { background-color: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; overflow: visible !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: space-between !important; gap: 15px !important; height: 300px !important; margin-bottom: 0 !important; width: 100% !important; border-radius: 1.5rem !important; z-index: 20; }
 
                 .text-side-desktop, .text-side-desktop-rev { flex: 1 !important; text-align: center !important; background: transparent !important; padding: 10px !important; z-index: 10 !important; width: 100% !important; max-width: 100% !important; }
@@ -346,7 +355,7 @@
 
                 .video-side-desktop .webm-egitim { width: 100px !important; height: 100px !important; margin: 0 !important; border: 4px solid #ffffff !important; box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important; }
 
-                .counter-card { padding: 1.5rem 1rem !important; border-radius: 1.5rem !important; z-index: 20; }
+                .counter-card { padding: 1.5rem 1rem !important; border-radius: 1.5rem !important; z-index: 20; box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;}
                 .counter-ring { width: 60px !important; height: 60px !important; border: 3px solid #f1f5f9 !important; margin: 0 2px !important; flex-shrink: 0 !important; aspect-ratio: 1/1 !important; }
                 .ring-gun::after, .ring-saat::after, .ring-dak::after, .ring-san::after { inset: -3px !important; border: 3px solid transparent !important; }
                 .c-val { font-size: 1.15rem !important; }
@@ -360,7 +369,7 @@
                 .pagination-dots .dot.active { background-color: #0ea5e9; width: 30px; box-shadow: 0 4px 10px rgba(14, 165, 233, 0.4); }
             }
 
-            .counter-card { transition: transform 0.708s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.708s ease; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important; border-bottom: 2px solid #f1f5f9; }
+            .counter-card { transition: transform 0.708s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.708s ease; position: relative; border-bottom: 2px solid #f1f5f9; }
             .counter-card.grown { transform: scale(1.04); box-shadow: 0 40px 80px rgba(6,182,212,0.18) !important; }
 
             .counter-ring { width: 120px; height: 120px; border-radius: 50%; border: 4px solid #f1f5f9; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #ffffff; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.04); transition: border-color 0.472s ease; }
@@ -407,7 +416,6 @@
                 .modal-box { padding: 1.2rem !important; margin-top: 10vh; max-width: 100%; min-height: 500px; }
                 #apptForm { gap: 0.4rem; display: flex; flex-direction: column; }
                 .err-banner { padding: 4px 8px; margin-bottom: 0.25rem; font-size: 0.7rem; }
-                .auto-date-btn { font-size: 0.55rem; padding: 4px 10px; }
             }
 
             #imageLightbox { position: fixed; inset: 0; background-color: rgba(0,0,0,0.85); z-index: 65000; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease; pointer-events: auto; cursor: zoom-out; }
@@ -625,33 +633,33 @@
                 <section id="features" class="w-full max-w-6xl mx-auto px-0 md:px-6 mb-16 md:mb-32 relative z-[20] order-2 md:order-1 mt-6 md:mt-0">
                     <div class="mobile-swipe-wrapper">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 relative mobile-swipe-container" id="features-swipe">
-                            <div class="mobile-swipe-item card-shield-hard glass-card p-8 text-center flex flex-col items-center relative">
+                            <div class="mobile-swipe-item card-shield-hard shadow-left glass-card p-8 text-center flex flex-col items-center relative">
                                 <div class="icon-box text-cyan-500">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"></path><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"></path></svg>
                                 </div>
                                 <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Alanında Uzman Kadro</h3>
                                 <p class="text-slate-500 font-bold leading-relaxed text-xs md:text-sm">Sınav sisteminin tüm şifrelerine hakim, dereceler çıkartan profesyonel eğitmen kadrosu.</p>
-                                <div class="webm-mask webm-card-bottom video-skeleton">
+                                <div class="webm-mask webm-card-bottom webm-shadow-left video-skeleton">
                                     <video src="assets/rahatlama.mp4" playsinline loop muted autoplay></video>
                                 </div>
                             </div>
-                            <div class="mobile-swipe-item card-shield-hard glass-card p-8 text-center flex flex-col items-center relative">
+                            <div class="mobile-swipe-item card-shield-hard shadow-center glass-card p-8 text-center flex flex-col items-center relative">
                                 <div class="icon-box text-blue-500">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
                                 </div>
                                 <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Birebir Takip</h3>
                                 <p class="text-slate-500 font-bold leading-relaxed text-xs md:text-sm">Eksikleri nokta atışı tespit edip anında sıfırlayan, kişiye özel kusursuz eğitim koçluğu sistemi.</p>
-                                <div class="webm-mask webm-card-bottom video-skeleton">
+                                <div class="webm-mask webm-card-bottom webm-shadow-center video-skeleton">
                                     <video src="assets/ekran.mp4" playsinline loop muted autoplay></video>
                                 </div>
                             </div>
-                            <div class="mobile-swipe-item card-shield-hard glass-card p-8 text-center flex flex-col items-center relative">
+                            <div class="mobile-swipe-item card-shield-hard shadow-right glass-card p-8 text-center flex flex-col items-center relative">
                                 <div class="icon-box text-cyan-500">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
                                 </div>
                                 <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Deneme & Analiz</h3>
                                 <p class="text-slate-500 font-bold leading-relaxed text-xs md:text-sm">Gerçek sınav zorluğundaki Türkiye geneli denemeler ve detaylı ölçülebilir gelişim raporları.</p>
-                                <div class="webm-mask webm-card-bottom video-skeleton">
+                                <div class="webm-mask webm-card-bottom webm-shadow-right video-skeleton">
                                     <video src="assets/net-artırma.mp4" playsinline loop muted autoplay></video>
                                 </div>
                             </div>
@@ -904,7 +912,7 @@
                                 <label class="text-[9px] md:text-xs font-black text-slate-500 uppercase tracking-widest">Saat Seçimi:</label>
                             </div>
                             <select id="fSaat" required disabled class="w-full bg-slate-50 border-2 border-slate-200 py-3 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-600 text-center font-black cursor-pointer focus:border-cyan-500 pointer-events-auto transition-colors focus:bg-white">
-                                <option value="" disabled selected id="fSaatDefault">Örn: 09:00</option>
+                                <option value="" disabled selected>Önce Tarih Seçiniz</option>
                                 <option value="09:00">09:00</option>
                                 <option value="10:00">10:00</option>
                                 <option value="11:00">11:00</option>
@@ -972,16 +980,6 @@
                     if(fIsim && fIsim.value === '') {
                         isimIndex = (isimIndex + 1) % isimler.length;
                         fIsim.placeholder = "Örn: " + isimler[isimIndex];
-                    }
-                }, 1500);
-
-                const saatler = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
-                let saatIndex = 0;
-                setInterval(() => {
-                    const fSaatDefault = document.getElementById('fSaatDefault');
-                    if(fSaatDefault) {
-                        saatIndex = (saatIndex + 1) % saatler.length;
-                        fSaatDefault.text = "Örn: " + saatler[saatIndex];
                     }
                 }, 1500);
             });
@@ -1530,12 +1528,12 @@
                 }
             };
 
+            const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzz9QHBLdMfWKM5ACysjVHE-9-I7nHEHxLaqJPpKJW0lgOUHPw7rsCcV8QMXbo4l_t1/exec";
+
             window.findNearestDate = function() {
                 const btn = document.getElementById('autoDateBtn');
                 const originalText = "En Yakın Tarihi Seç";
                 btn.innerHTML = "Aranıyor..."; btn.style.pointerEvents = "none";
-
-                const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyn-lmaykfmnxcgPvt9efc88BKDGnTgLXEjYhpyUfVfdEW_KdnsrZwmhatOaj-Ul6Ul/exec";
 
                 fetch(WEB_APP_URL + "?islem=enYakinTarih")
                 .then(response => response.json())
@@ -1567,10 +1565,15 @@
 
                 fTarih.addEventListener('change', function() {
                     const val = this.value; 
-                    const saat = document.getElementById('fSaat'); 
+                    const saatSelect = document.getElementById('fSaat'); 
                     const rel = document.getElementById('dateRel');
 
-                    if(!val) { if(rel) rel.textContent = ''; return; }
+                    if(!val) { 
+                        if(rel) rel.textContent = ''; 
+                        saatSelect.options[0].text = "Önce Tarih Seçiniz";
+                        saatSelect.disabled = true;
+                        return; 
+                    }
 
                     const chosen = new Date(val); chosen.setHours(0,0,0,0); 
                     const now0 = new Date(); now0.setHours(0,0,0,0);
@@ -1580,19 +1583,62 @@
                         rel.textContent = diffDays === 0 ? '(Bugün)' : diffDays === 1 ? '(Yarın)' : diffDays > 1 ? '('+diffDays+' gün sonra)' : '';
                     }
 
-                    const nowStr = String(new Date().getHours()).padStart(2,'0') + ':' + String(new Date().getMinutes()).padStart(2,'0');
+                    const anlikZaman = new Date();
+                    const suAnkiSaatStr = String(anlikZaman.getHours()).padStart(2, '0') + ":" + String(anlikZaman.getMinutes()).padStart(2, '0');
 
-                    if(saat) {
-                        for(let i = 1; i < saat.options.length; i++){
-                            const optVal = saat.options[i].value;
-                            saat.options[i].disabled = false; saat.options[i].text = optVal;
+                    for(let i = 1; i < saatSelect.options.length; i++){
+                        const optVal = saatSelect.options[i].value;
+                        saatSelect.options[i].disabled = false; 
+                        saatSelect.options[i].text = optVal;
 
-                            if(val === todayStr && optVal <= nowStr) { 
-                                saat.options[i].disabled = true; saat.options[i].text = optVal + ' (geçti)'; 
-                            }
+                        if(val === todayStr && optVal <= suAnkiSaatStr) { 
+                            saatSelect.options[i].disabled = true; 
+                            saatSelect.options[i].text = optVal + ' (GEÇTİ)'; 
                         }
-                        saat.disabled = false;
                     }
+
+                    saatSelect.disabled = false;
+                    saatSelect.options[0].text = "Dolu saatler kontrol ediliyor...";
+
+                    const url = WEB_APP_URL + "?islem=saatSorgula&tarih=" + val;
+
+                    fetch(url)
+                    .then(response => response.json())
+                    .then(doluSaatler => {
+                        saatSelect.options[0].text = "Saat Seçiniz";
+                        if(doluSaatler && doluSaatler.length > 0) {
+                            doluSaatler.forEach(item => {
+                                let parts = (typeof item === 'string') ? item.split('|') : [];
+                                let rSaat = parts[0] || item.saat || item;
+                                let rIsim = parts[1] || item.isim || "";
+
+                                for (let i = 1; i < saatSelect.options.length; i++) {
+                                    if (saatSelect.options[i].value === rSaat) {
+                                        saatSelect.options[i].disabled = true;
+                                        let maskText = "";
+                                        if (rIsim) {
+                                            let ad = rIsim.trim().split(' ')[0];
+                                            if(ad.length > 2) {
+                                                let ilk = ad.charAt(0);
+                                                let son = ad.charAt(ad.length - 1);
+                                                let yildiz = "*".repeat(ad.length - 2);
+                                                maskText = ` - ${ilk}${yildiz}${son}`;
+                                            } else if (ad.length === 2) {
+                                                maskText = ` - ${ad.charAt(0)}*`;
+                                            } else {
+                                                maskText = ` - ${ad}`;
+                                            }
+                                        }
+                                        saatSelect.options[i].text = `${rSaat} (DOLU${maskText.toUpperCase()})`;
+                                    }
+                                }
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Saat kontrolü yapılamadı:", error);
+                        saatSelect.options[0].text = "Saat Seçiniz";
+                    });
                 });
             }
 
@@ -1644,8 +1690,6 @@
 
                 if(btn) { original = btn.innerHTML; btn.innerHTML = 'GÖNDERİLİYOR...'; btn.disabled = true; }
 
-                const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyn-lmaykfmnxcgPvt9efc88BKDGnTgLXEjYhpyUfVfdEW_KdnsrZwmhatOaj-Ul6Ul/exec";
-
                 fetch(WEB_APP_URL, {
                     method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                     body: JSON.stringify({ isim, telefon, hizmet: sinif + ' - ' + hizmet, tarih, saat })
@@ -1663,6 +1707,8 @@
 
                     const form = document.getElementById('apptForm');
                     if(form) form.reset();
+                    
+                    document.getElementById('fTarih').dispatchEvent(new Event('change'));
 
                 }).catch(() => {
                     if(btn) { btn.innerHTML = original; btn.disabled = false; }
