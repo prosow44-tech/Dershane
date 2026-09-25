@@ -159,9 +159,16 @@
             .smart-chat-bubble::before { content: ''; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid #e0f2fe; }
             .smart-chat-bubble::after { content: ''; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid #ffffff; margin-bottom: -2px; }
 
-            .auto-date-btn { background-color: #f1f5f9; border: 1px solid #cbd5e1; color: #475569; padding: 4px 10px; border-radius: 50px; font-size: 0.60rem; font-weight: 800; cursor: pointer; transition: all 0.236s; display: inline-flex; align-items: center; gap: 4px; outline: none; font-family: 'Manrope', sans-serif; text-transform: uppercase; }
-            .auto-date-btn::before { content: '✓'; background: #0ea5e9; color: #fff; border-radius: 50%; width: 14px; height: 14px; display: inline-flex; justify-content: center; align-items: center; font-size: 0.55rem; }
-            .auto-date-btn:hover { background-color: #e2e8f0; transform: scale(1.05); color: #0f172a; border-color: #94a3b8; }
+            /* BELİRGİN EN YAKIN TARİH SEÇ BUTONU TASARIMI */
+            .auto-date-btn { 
+                background-color: #0ea5e9; border: 1px solid #0284c7; color: #ffffff; padding: 6px 12px; 
+                border-radius: 50px; font-size: 0.70rem; font-weight: 900; cursor: pointer; transition: all 0.236s; 
+                display: inline-flex; align-items: center; gap: 6px; outline: none; font-family: 'Manrope', sans-serif; 
+                text-transform: uppercase; box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3); pointer-events: auto;
+            }
+            .auto-date-btn::before { content: '📅'; font-size: 0.85rem; }
+            .auto-date-btn:hover { background-color: #0284c7; transform: scale(1.05); box-shadow: 0 6px 15px rgba(14, 165, 233, 0.4); color: #fff; }
+            .auto-date-btn:active { transform: scale(0.95); }
 
             /* GENEL DİKEY FLEX KAPSAYICISI */
             main { padding-top: 250px; width: 100%; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; position: relative; }
@@ -400,7 +407,7 @@
                 .modal-box { padding: 1.2rem !important; margin-top: 10vh; max-width: 100%; min-height: 500px; }
                 #apptForm { gap: 0.4rem; display: flex; flex-direction: column; }
                 .err-banner { padding: 4px 8px; margin-bottom: 0.25rem; font-size: 0.7rem; }
-                .auto-date-btn { font-size: 0.5rem; padding: 2px 6px; }
+                .auto-date-btn { font-size: 0.55rem; padding: 4px 10px; }
             }
 
             #imageLightbox { position: fixed; inset: 0; background-color: rgba(0,0,0,0.85); z-index: 65000; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease; pointer-events: auto; cursor: zoom-out; }
@@ -890,6 +897,7 @@
                                 <label class="text-[9px] md:text-xs font-black text-slate-500 uppercase tracking-widest">
                                     Tarih Seçimi: <span id="dateRel" class="text-cyan-600 ml-1"></span>
                                 </label>
+                                <button type="button" id="autoDateBtn" onclick="findNearestDate()" class="auto-date-btn">En Yakın Tarihi Seç</button>
                             </div>
                             <input type="date" id="fTarih" required class="w-full bg-slate-50 border-2 border-slate-200 py-3 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-600 focus:border-cyan-500 font-black cursor-pointer mb-2 md:mb-4 pointer-events-auto transition-colors focus:bg-white">
                             <div class="flex justify-between items-end mb-1 md:mb-2">
@@ -903,6 +911,10 @@
                                 <option value="12:00">12:00</option>
                                 <option value="13:00">13:00</option>
                                 <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
                             </select>
                         </div>
 
@@ -953,7 +965,6 @@
                     if (bubbleDesktop && !isChatOpen) bubbleDesktop.classList.add('show');
                 }, 3000);
 
-                // İsim placeholder animasyonu
                 const isimler = ["Muhammed", "Hamza", "Ebubekir", "Hüseyin", "Ali", "Ömer", "Osman", "Ayşe", "Fatma", "Sümeyye", "Nurgül"];
                 let isimIndex = 0;
                 setInterval(() => {
@@ -964,8 +975,7 @@
                     }
                 }, 1500);
 
-                // Saat option animasyonu
-                const saatler = ["09:00", "10:00", "11:00", "12:00"];
+                const saatler = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
                 let saatIndex = 0;
                 setInterval(() => {
                     const fSaatDefault = document.getElementById('fSaatDefault');
@@ -1307,7 +1317,6 @@
                 const chatBody = document.getElementById('chatBody');
                 const msgDiv = document.createElement('div');
                 msgDiv.className = 'bot-message';
-                // JavaScript ile üretilen mesajlara da aynı sınıfı dahil ettik
                 const avatarContent = `<img src="assets/tilki-avatar.png" alt="Bot" class="avatar-img-fit">`;
                 msgDiv.innerHTML = `<div class="bot-avatar">${avatarContent}</div><div class="bot-bubble">${text}</div>`;
                 chatBody.appendChild(msgDiv);
@@ -1519,6 +1528,34 @@
                     lb.classList.remove('show'); document.body.style.overflow = '';
                     setTimeout(() => { lb.style.display = 'none'; }, 500);
                 }
+            };
+
+            window.findNearestDate = function() {
+                const btn = document.getElementById('autoDateBtn');
+                const originalText = "En Yakın Tarihi Seç";
+                btn.innerHTML = "Aranıyor..."; btn.style.pointerEvents = "none";
+
+                const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyn-lmaykfmnxcgPvt9efc88BKDGnTgLXEjYhpyUfVfdEW_KdnsrZwmhatOaj-Ul6Ul/exec";
+
+                fetch(WEB_APP_URL + "?islem=enYakinTarih")
+                .then(response => response.json())
+                .then(data => {
+                    if(data && data.tarih) {
+                        const tarihInput = document.getElementById('fTarih');
+                        tarihInput.value = data.tarih;
+                        tarihInput.dispatchEvent(new Event('change'));
+
+                        btn.innerHTML = "Bulundu";
+                        setTimeout(() => { btn.innerHTML = originalText; btn.style.pointerEvents = "auto"; }, 2500);
+                    } else {
+                        alert("Uygun tarih bulunamadı.");
+                        btn.innerHTML = originalText; btn.style.pointerEvents = "auto";
+                    }
+                })
+                .catch(error => {
+                    console.error("Otomatik tarih hatası:", error);
+                    btn.innerHTML = originalText; btn.style.pointerEvents = "auto";
+                });
             };
 
             const fTarih = document.getElementById('fTarih');
