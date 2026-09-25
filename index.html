@@ -182,7 +182,7 @@
                 .mega-bar-wrapper { display: none !important; }
                 .pill-nav { display: none !important; } 
                 
-                /* MOBİL ÜST MENÜ İZOLASYONLU */
+                /* MOBİL ÜST MENÜ İZOLASYONLU VE KUSURSUZ ORTALANMIŞ */
                 .mobile-pill-container {
                     display: flex; flex-direction: column; align-items: center;
                     width: 96%; max-width: 480px; pointer-events: none; z-index: 40010;
@@ -204,13 +204,14 @@
                     animation: bluePulse 2.95s infinite alternate; height: 42px;
                 }
                 .mob-btn-capsule:active { transform: scale(0.96); }
-                .mob-btn-capsule.left { padding: 0 10px 0 4px; gap: 4px; flex-shrink: 0; }
-                .mob-btn-capsule.right { padding: 0 4px 0 10px; gap: 4px; flex-shrink: 0; }
+                /* Butonlara sabit genişlik (width: 105px) verilerek ortadaki logonun %100 merkezde kalması sağlandı */
+                .mob-btn-capsule.left { padding: 0 10px 0 4px; gap: 4px; flex-shrink: 0; width: 105px; justify-content: flex-start; }
+                .mob-btn-capsule.right { padding: 0 4px 0 10px; gap: 4px; flex-shrink: 0; width: 105px; justify-content: flex-end; }
                 
                 .mob-btn-icon-circle {
                     width: 36px; height: 36px; border-radius: 50%;
                     background-color: white; color: #0ea5e9;
-                    display: flex; align-items: center; justify-content: center;
+                    display: flex; align-items: center; justify-content: center; overflow: hidden;
                     font-size: 1.3rem; flex-shrink: 0;
                 }
                 .mob-btn-text { font-size: 0.65rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0.2px; }
@@ -262,8 +263,8 @@
                     .mob-framed-link .icon { font-size: 0.85rem; }
                     .mob-framed-link span.title { font-size: 0.45rem; }
                     .mob-framed-link svg { width: 14px; height: 14px; }
-                    .mob-btn-capsule.left { padding: 0 6px 0 3px; gap: 4px; }
-                    .mob-btn-capsule.right { padding: 0 3px 0 6px; gap: 4px; }
+                    .mob-btn-capsule.left { padding: 0 6px 0 3px; gap: 4px; width: 95px; }
+                    .mob-btn-capsule.right { padding: 0 3px 0 6px; gap: 4px; width: 95px; }
                 }
 
                 /* KAYBOLAN ALT BUTONLAR (ABSOLUTE YAPILANDIRMASI) */
@@ -403,9 +404,10 @@
             .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-150px); opacity: 0; visibility: hidden; background-color: #ffffff; padding: 20px 40px; border-radius: 50px; display: flex; align-items: center; gap: 20px; z-index: 99999; box-shadow: 0 15px 40px rgba(0,0,0,0.15); border: 3px solid #06b6d4; transition: all 0.6s cubic-bezier(0.68,-0.55,0.27,1.55); pointer-events: none; }
             .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; visibility: visible; }
 
-            .chat-panel { position: fixed; bottom: 110px; right: 30px; width: 360px; height: 500px; background-color: #ffffff; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); z-index: 54010; display: flex; flex-direction: column; overflow: hidden; opacity: 0; visibility: hidden; transform: translateY(20px) scale(0.95); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-origin: bottom right; border: 1px solid #e2e8f0; }
+            /* PC'DE BÜYÜTÜLEN, MOBİLDE KORUNAN CHAT PANELİ */
+            .chat-panel { position: fixed; bottom: 110px; right: 30px; width: 420px; height: 620px; background-color: #ffffff; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); z-index: 54010; display: flex; flex-direction: column; overflow: hidden; opacity: 0; visibility: hidden; transform: translateY(20px) scale(0.95); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-origin: bottom right; border: 1px solid #e2e8f0; }
             .chat-panel.show { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
-            @media (max-width: 768px) { .chat-panel { left: 50%; right: auto; transform: translateX(-50%) translateY(20px) scale(0.95); transform-origin: bottom center; } .chat-panel.show { transform: translateX(-50%) translateY(0) scale(1); } }
+            @media (max-width: 768px) { .chat-panel { width: 360px; height: 500px; left: 50%; right: auto; transform: translateX(-50%) translateY(20px) scale(0.95); transform-origin: bottom center; } .chat-panel.show { transform: translateX(-50%) translateY(0) scale(1); } }
 
             .chat-header { background-color: #0ea5e9; color: #ffffff; padding: 1.5rem; position: relative; text-align: center; }
             .chat-header h3 { font-size: 1.25rem; font-weight: 900; margin: 0 0 8px 0; }
@@ -486,7 +488,9 @@
             <div class="flex items-center gap-6 pl-2 z-10 w-1/3">
                 <div onclick="triggerTopChat()" class="flex items-center gap-2 cursor-pointer mr-auto relative group" style="text-decoration: none;">
                     <div class="relative flex-shrink-0" style="width: 42px; height: 42px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                        <div id="desktopChatTrigger" class="w-full h-full flex items-center justify-center rounded-full text-white" style="background-color: #06b6d4; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(6,182,212,0.3);">🦊</div>
+                        <div id="desktopChatTrigger" class="w-full h-full flex items-center justify-center rounded-full text-white overflow-hidden" style="background-color: #06b6d4; box-shadow: 0 4px 10px rgba(6,182,212,0.3);">
+                            <img src="assets/tilki-avatar2.png" alt="Canlı Destek" class="w-full h-full object-cover">
+                        </div>
                         <div class="smart-chat-bubble" id="topChatBubbleDesktop">Yardımcı Olabilirim 🦊</div>
                     </div>
                     <span style="color: #0ea5e9; font-weight: 900; font-size: 0.85rem; text-transform: uppercase;">Canlı Destek</span>
@@ -531,7 +535,9 @@
                 <div class="mobile-pill-main">
                     
                     <div onclick="triggerTopChat()" class="mob-btn-capsule left relative group cursor-pointer">
-                        <div class="mob-btn-icon-circle shadow-sm" id="mobileChatTrigger">🦊</div>
+                        <div class="mob-btn-icon-circle shadow-sm overflow-hidden" id="mobileChatTrigger">
+                            <img src="assets/tilki-avatar2.png" alt="Canlı Destek" class="w-full h-full object-cover">
+                        </div>
                         <div class="mob-btn-text text-left mr-1">CANLI<br>DESTEK</div>
                         <div class="smart-chat-bubble" id="topChatBubbleMobile">Yardımcı Olabilirim 🦊</div>
                     </div>
@@ -786,12 +792,12 @@
             </div>
             <div class="chat-body" id="chatBody">
                 <div class="bot-message">
-                    <div class="bot-avatar"><span style="font-size:16px;">🦊</span></div>
+                    <div class="bot-avatar"><img src="assets/tilki-avatar2.png" alt="Bot" class="w-full h-full object-cover"></div>
                     <div class="bot-bubble">Merhaba! Ben Referans Tilki 🦊</div>
                 </div>
 
                 <div class="typing-indicator" id="typingIndicator">
-                    <div class="bot-avatar"><span style="font-size:16px;">🦊</span></div>
+                    <div class="bot-avatar"><img src="assets/tilki-avatar2.png" alt="Bot" class="w-full h-full object-cover"></div>
                     <div style="display: flex; gap: 4px; padding: 12px 16px; background-color: #ffffff; border-radius: 16px 16px 16px 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); align-items: center;">
                         <div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>
                     </div>
@@ -842,7 +848,7 @@
                         <span class="text-lg md:text-xl">❌</span><span id="errText">Hata</span>
                     </div>
                     
-                    <form id="apptForm" onsubmit="return false;">
+                    <form id="apptForm" onsubmit="submitAppt(event); return false;">
                         <input type="text" id="botTrap" tabindex="-1" autocomplete="off" class="sr-only">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 mb-2 md:mb-4">
                             <input type="text" id="fIsim" placeholder="Örn: Muhammed" required class="w-full bg-slate-50 border-2 border-slate-200 py-3 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-900 focus:border-cyan-500 font-black pointer-events-auto transition-colors focus:bg-white placeholder:font-medium placeholder:text-slate-400">
@@ -883,13 +889,15 @@
                             </select>
                         </div>
 
-                        <button type="button" id="btn-submit" onclick="submitAppt()" class="magnetic-btn w-full justify-center font-black py-3 md:py-4 mt-4 rounded-xl text-xs md:text-base shadow-[0_15px_30px_rgba(6,182,212,0.35)] bg-cyan-500 text-white hover:bg-cyan-600 tracking-widest border-none">GÖNDER</button>
+                        <button type="submit" id="btn-submit" class="magnetic-btn w-full justify-center font-black py-3 md:py-4 mt-4 rounded-xl text-xs md:text-base shadow-[0_15px_30px_rgba(6,182,212,0.35)] bg-cyan-500 text-white hover:bg-cyan-600 tracking-widest border-none">GÖNDER</button>
                     </form>
                 </div>
             </div>
         </div>
 
         <script>
+            let randevuAcilisZamani = 0; // Hız testi için eklendi
+
             document.addEventListener("DOMContentLoaded", function() {
                 // DOM HATALARI ENGELLENMİŞ SENKRONİZE VİDEO OYNATICI
                 let videoObserver = new IntersectionObserver((entries, observer) => {
@@ -1221,17 +1229,6 @@
 
             let isChatOpen = false;
 
-            function setAvatarToJPG() {
-                const btnMobile = document.getElementById('mobileChatTrigger');
-                const btnDesktop = document.getElementById('desktopChatTrigger');
-                if (btnMobile && !btnMobile.innerHTML.includes('<img')) {
-                    btnMobile.innerHTML = `<img src="assets/tilki-avatar.png" alt="Tilki" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.outerHTML='<span style=\\'font-size:16px;\\'>🦊</span>'">`;
-                }
-                if (btnDesktop && !btnDesktop.innerHTML.includes('<img')) {
-                    btnDesktop.innerHTML = `<img src="assets/tilki-avatar.png" alt="Tilki" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.outerHTML='<span style=\\'font-size:16px;\\'>🦊</span>'">`;
-                }
-            }
-
             function getRandomDelay() { return Math.floor(Math.random() * (2500 - 1500 + 1)) + 1500; }
 
             window.triggerTopChat = function() {
@@ -1272,9 +1269,7 @@
                 const chatBody = document.getElementById('chatBody');
                 const msgDiv = document.createElement('div');
                 msgDiv.className = 'bot-message';
-                const avatarContent = isJPG 
-                    ? `<img src="assets/tilki-avatar.png" alt="Bot" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" onerror="this.outerHTML='<span style=\\'font-size:16px;\\'>🦊</span>'">`
-                    : `<span style="font-size:16px;">🦊</span>`;
+                const avatarContent = `<img src="assets/tilki-avatar2.png" alt="Bot" class="w-full h-full object-cover">`;
                 msgDiv.innerHTML = `<div class="bot-avatar">${avatarContent}</div><div class="bot-bubble">${text}</div>`;
                 chatBody.appendChild(msgDiv);
                 scrollToBottom();
@@ -1300,8 +1295,6 @@
                 if (optionType === 'fiyat') {
                     addUserMessage("💰 Dershane Ücreti Ne Kadar?");
                     setTimeout(() => {
-                        setAvatarToJPG();
-                        typingIndicator.querySelector('.bot-avatar').innerHTML = `<img src="assets/tilki-avatar.png" alt="Bot" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">`;
                         typingIndicator.style.display = 'flex'; scrollToBottom();
 
                         const dynamicDelay1 = getRandomDelay();
@@ -1331,8 +1324,6 @@
                 else if (optionType === '360tur') {
                     addUserMessage("🏫 Sınıfların Görsellerini Görebilir miyiz?");
                     setTimeout(() => {
-                        setAvatarToJPG();
-                        typingIndicator.querySelector('.bot-avatar').innerHTML = `<img src="assets/tilki-avatar.png" alt="Bot" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">`;
                         typingIndicator.style.display = 'flex'; scrollToBottom();
 
                         const dynamicDelay1 = getRandomDelay();
@@ -1356,8 +1347,6 @@
                 else if (optionType === 'baska') {
                     addUserMessage("❓ Aklıma Takılan Başka Bir Soru Var");
                     setTimeout(() => {
-                        setAvatarToJPG();
-                        typingIndicator.querySelector('.bot-avatar').innerHTML = `<img src="assets/tilki-avatar.png" alt="Bot" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">`;
                         typingIndicator.style.display = 'flex'; scrollToBottom(); 
 
                         const dynamicDelay1 = getRandomDelay();
@@ -1420,6 +1409,9 @@
             };
 
             window.openModal = function(preset) {
+                // Güvenlik Kalkanı: Randevu açılış zamanını kaydet
+                randevuAcilisZamani = Date.now();
+                
                 const errBanner = document.getElementById('errBanner');
                 if(errBanner) errBanner.style.display = 'none';
 
@@ -1575,9 +1567,25 @@
                 });
             }
 
-            window.submitAppt = function() {
+            window.submitAppt = function(event) {
+                // Güvenlik Kalkanı 1: isTrusted (Fiziksel Tıklama Analizi)
+                if (event && !event.isTrusted) {
+                    console.warn("Otomatik bot tıklaması engellendi.");
+                    return;
+                }
+                
+                // Güvenlik Kalkanı 2: Honeypot (Sessiz Tuzak)
                 const botTrap = document.getElementById('botTrap');
                 if(botTrap && botTrap.value !== '') return; 
+
+                // Güvenlik Kalkanı 3: Time-to-fill (Zaman Damgası)
+                if (Date.now() - randevuAcilisZamani < 3000) {
+                    const err = document.getElementById('errBanner');
+                    const errText = document.getElementById('errText');
+                    if (errText) errText.innerHTML = "İşleminiz şüpheli şekilde hızlı gerçekleşti. Lütfen insan hızıyla doldurunuz.";
+                    if (err) err.style.display = 'flex';
+                    return;
+                }
 
                 const isim = document.getElementById('fIsim') ? document.getElementById('fIsim').value.trim() : '';
                 const telefon = document.getElementById('fTelefon') ? document.getElementById('fTelefon').value.trim() : '';
@@ -1644,12 +1652,16 @@
                 });
             };
 
+            /* Gelişmiş Kopyalama ve Tersine Mühendislik Engeli */
             document.addEventListener('contextmenu', e => { if(!['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)) e.preventDefault(); });
             document.addEventListener('keydown', e => { 
                 const k = e.key ? e.key.toUpperCase() : ''; 
                 if(k === 'F12' || (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(k)) || (e.ctrlKey && k === 'U')) e.preventDefault(); 
             });
             document.addEventListener('copy', e => { if(!['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)) e.preventDefault(); });
+
+            /* Clickjacking (Iframe Korsanlığı) Koruması */
+            if (window.top !== window.self) { window.top.location = window.self.location; }
         </script>
     </body>
     </html>
