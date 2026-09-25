@@ -115,7 +115,7 @@
             .video-crop-calendar video { object-position: center top !important; transform: scale(1.4) translateY(12%) translateZ(0) !important; }
             .webm-mask video.loaded { opacity: 1; }
 
-            .webm-card-bottom { position: absolute; bottom: -35px; left: 50%; transform: translateX(-50%) translateZ(0); width: 70px; height: 70px; border: 4px solid #ffffff; box-shadow: 12px 12px 0px 0px rgba(15, 23, 42, 0.9) !important; background-color: #f8fafc; z-index: 20; }
+            .webm-card-bottom { position: absolute; bottom: -35px; left: 50%; transform: translateX(-50%) translateZ(0); width: 70px; height: 70px; border: 4px solid #ffffff; background-color: #f8fafc; z-index: 20; }
             .webm-egitim { width: 320px; height: 320px; border: 8px solid #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important; background-color: #ffffff; }
 
             .mega-bar-wrapper { position: absolute; top: 0; left: 0; width: 100%; z-index: 40005; display: flex; justify-content: center; pointer-events: none; transition: opacity 0.472s ease; }
@@ -161,13 +161,13 @@
 
             /* BELİRGİN EN YAKIN TARİH SEÇ BUTONU TASARIMI */
             .auto-date-btn { 
-                background-color: #0ea5e9; border: 1px solid #0284c7; color: #ffffff; padding: 8px 16px; 
-                border-radius: 50px; font-size: 0.75rem; font-weight: 900; cursor: pointer; transition: all 0.236s; 
-                display: inline-flex; align-items: center; gap: 6px; outline: none; font-family: 'Manrope', sans-serif; 
-                text-transform: uppercase; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4); pointer-events: auto;
+                background-color: #0ea5e9; color: #ffffff; padding: 6px 12px; 
+                border-radius: 8px; font-size: 0.70rem; font-weight: 900; cursor: pointer; transition: all 0.236s; 
+                display: inline-flex; align-items: center; gap: 4px; outline: none; font-family: 'Manrope', sans-serif; 
+                text-transform: uppercase; border: none; box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3);
             }
-            .auto-date-btn::before { content: '📅'; font-size: 0.9rem; }
-            .auto-date-btn:hover { background-color: #0284c7; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(14, 165, 233, 0.5); color: #fff; border-color: #0ea5e9; }
+            .auto-date-btn::before { content: '📅'; font-size: 0.85rem; }
+            .auto-date-btn:hover { background-color: #0284c7; transform: translateY(-1px); box-shadow: 0 6px 15px rgba(14, 165, 233, 0.4); }
             .auto-date-btn:active { transform: scale(0.95); }
 
             /* GÖLGE DESTEK SINIFLARI */
@@ -175,17 +175,16 @@
             .shadow-center { box-shadow: 0px 10px 0px 0px #1e293b !important; }
             .shadow-right { box-shadow: 10px 10px 0px 0px #1e293b !important; }
             
-            .webm-shadow-left { box-shadow: -10px 10px 0px 0px rgba(15, 23, 42, 0.9) !important; }
-            .webm-shadow-center { box-shadow: 0px 10px 0px 0px rgba(15, 23, 42, 0.9) !important; }
-            .webm-shadow-right { box-shadow: 10px 10px 0px 0px rgba(15, 23, 42, 0.9) !important; }
+            .webm-shadow-left { box-shadow: -8px 8px 0px 0px #1e293b !important; }
+            .webm-shadow-center { box-shadow: 0px 8px 0px 0px #1e293b !important; }
+            .webm-shadow-right { box-shadow: 8px 8px 0px 0px #1e293b !important; }
 
             /* GENEL DİKEY FLEX KAPSAYICISI */
             main { padding-top: 250px; width: 100%; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; position: relative; }
 
             .card-shield-hard { 
                 background-color: #ffffff !important; position: relative; z-index: 20; border-radius: 2rem; margin-bottom: 50px; 
-                border: 2px solid #f8fafc; box-shadow: 10px 10px 0px 0px #1e293b !important; 
-                transition: all 0.472s ease; overflow: visible !important; 
+                border: 2px solid #f8fafc; transition: all 0.472s ease; overflow: visible !important; 
             }
 
             .mobile-bottom-nav { display: none; }
@@ -423,8 +422,7 @@
             #lightboxImg { max-width: 95%; max-height: 90vh; border-radius: 1.5rem; transform: scale(0.5); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); pointer-events: none; border: 4px solid #ffffff; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
             #imageLightbox.show #lightboxImg { transform: scale(1); }
 
-            .err-banner { background-color: rgba(239,68,68,0.1); border: 2px solid #ef4444; color: #ef4444; padding: 10px 14px; border-radius: 10px; display: none; align-items: center; gap: 10px; font-weight: 800; font-size: 0.8rem; margin-bottom: 1rem; animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; }
-            @keyframes shake { 10%, 90% { transform: translate3d(-2px, 0, 0); } 20%, 80% { transform: translate3d(3px, 0, 0); } 30%, 50%, 70% { transform: translate3d(-5px, 0, 0); } 40%, 60% { transform: translate3d(5px, 0, 0); } }
+            .err-banner { background-color: rgba(239,68,68,0.1); border: 2px solid #ef4444; color: #ef4444; padding: 10px 14px; border-radius: 10px; display: none; align-items: center; gap: 10px; font-weight: 800; font-size: 0.8rem; margin-bottom: 1rem; }
 
             .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-150px); opacity: 0; visibility: hidden; background-color: #ffffff; padding: 20px 40px; border-radius: 50px; display: flex; align-items: center; gap: 20px; z-index: 99999; box-shadow: 0 15px 40px rgba(0,0,0,0.15); border: 3px solid #06b6d4; transition: all 0.6s cubic-bezier(0.68,-0.55,0.27,1.55); pointer-events: none; }
             .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; visibility: visible; }
@@ -633,6 +631,7 @@
                 <section id="features" class="w-full max-w-6xl mx-auto px-0 md:px-6 mb-16 md:mb-32 relative z-[20] order-2 md:order-1 mt-6 md:mt-0">
                     <div class="mobile-swipe-wrapper">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 relative mobile-swipe-container" id="features-swipe">
+                            <!-- SOL KART VE GÖLGE -->
                             <div class="mobile-swipe-item card-shield-hard shadow-left glass-card p-8 text-center flex flex-col items-center relative">
                                 <div class="icon-box text-cyan-500">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"></path><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"></path></svg>
@@ -643,6 +642,7 @@
                                     <video src="assets/rahatlama.mp4" playsinline loop muted autoplay></video>
                                 </div>
                             </div>
+                            <!-- ORTA KART VE GÖLGE -->
                             <div class="mobile-swipe-item card-shield-hard shadow-center glass-card p-8 text-center flex flex-col items-center relative">
                                 <div class="icon-box text-blue-500">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
@@ -653,6 +653,7 @@
                                     <video src="assets/ekran.mp4" playsinline loop muted autoplay></video>
                                 </div>
                             </div>
+                            <!-- SAĞ KART VE GÖLGE -->
                             <div class="mobile-swipe-item card-shield-hard shadow-right glass-card p-8 text-center flex flex-col items-center relative">
                                 <div class="icon-box text-cyan-500">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
@@ -784,7 +785,6 @@
                     </div>
                 </section>
 
-                <!-- 7. EN ALT BÖLÜM (DERS PROGRAMI VE KADRO - YAN YANA IZGARA) -->
                 <section id="ekstra-bilgiler" class="px-4 md:px-6 pb-20 max-w-5xl mx-auto relative z-[20] w-full order-7 mt-4 md:mt-8">
                     <div class="grid grid-cols-2 gap-3 md:gap-10 w-full">
                         <div class="card-shield-hard p-4 md:p-12 text-center flex flex-col items-center justify-between rounded-2xl md:rounded-3xl" style="margin-bottom:0;">
@@ -862,7 +862,6 @@
         </div>
 
         <div id="randevuModal" class="modal-overlay" onclick="if(event.target===this) closeModal()">
-
             <div class="modal-box pointer-events-auto" id="appointment-modal-box">
                 <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-red-100 text-slate-400 hover:text-red-500 font-black text-xl flex items-center justify-center transition-colors z-30">✕</button>
 
@@ -901,18 +900,18 @@
                             </select>
                         </div>
                         <div class="border-t-2 border-slate-100 pt-2 md:pt-4 mt-4">
-                            <div class="flex justify-between items-end mb-1 md:mb-2">
+                            <div class="flex justify-between items-center mb-1 md:mb-2">
                                 <label class="text-[9px] md:text-xs font-black text-slate-500 uppercase tracking-widest">
                                     Tarih Seçimi: <span id="dateRel" class="text-cyan-600 ml-1"></span>
                                 </label>
-                                <button type="button" id="autoDateBtn" onclick="findNearestDate()" class="auto-date-btn">En Yakın Tarihi Seç</button>
+                                <button type="button" id="autoDateBtn" onclick="findNearestDate()" class="auto-date-btn">EN YAKIN TARİHİ SEÇ</button>
                             </div>
                             <input type="date" id="fTarih" required class="w-full bg-slate-50 border-2 border-slate-200 py-3 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-600 focus:border-cyan-500 font-black cursor-pointer mb-2 md:mb-4 pointer-events-auto transition-colors focus:bg-white">
                             <div class="flex justify-between items-end mb-1 md:mb-2">
                                 <label class="text-[9px] md:text-xs font-black text-slate-500 uppercase tracking-widest">Saat Seçimi:</label>
                             </div>
                             <select id="fSaat" required disabled class="w-full bg-slate-50 border-2 border-slate-200 py-3 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-600 text-center font-black cursor-pointer focus:border-cyan-500 pointer-events-auto transition-colors focus:bg-white">
-                                <option value="" disabled selected>Önce Tarih Seçiniz</option>
+                                <option value="" disabled selected id="fSaatDefault">Önce Tarih Seçiniz</option>
                                 <option value="09:00">09:00</option>
                                 <option value="10:00">10:00</option>
                                 <option value="11:00">11:00</option>
@@ -980,6 +979,17 @@
                     if(fIsim && fIsim.value === '') {
                         isimIndex = (isimIndex + 1) % isimler.length;
                         fIsim.placeholder = "Örn: " + isimler[isimIndex];
+                    }
+                }, 1500);
+
+                const saatler = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
+                let saatIndex = 0;
+                setInterval(() => {
+                    const fSaatDefault = document.getElementById('fSaatDefault');
+                    const fSaat = document.getElementById('fSaat');
+                    if(fSaatDefault && fSaat && fSaat.disabled) {
+                        saatIndex = (saatIndex + 1) % saatler.length;
+                        fSaatDefault.text = "Önce Tarih Seçiniz (Örn: " + saatler[saatIndex] + ")";
                     }
                 }, 1500);
             });
@@ -1532,7 +1542,7 @@
 
             window.findNearestDate = function() {
                 const btn = document.getElementById('autoDateBtn');
-                const originalText = "En Yakın Tarihi Seç";
+                const originalText = "EN YAKIN TARİHİ SEÇ";
                 btn.innerHTML = "Aranıyor..."; btn.style.pointerEvents = "none";
 
                 fetch(WEB_APP_URL + "?islem=enYakinTarih")
@@ -1674,8 +1684,6 @@
                 function showErr(msg){ 
                     if(errText) errText.innerHTML = msg; 
                     if(err) err.style.display = 'flex'; 
-                    const modalBox = document.getElementById('appointment-modal-box');
-                    if (modalBox) modalBox.scrollTo({ top: 0, behavior: 'smooth' });
                 }
 
                 const nameRegex = /^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]{3,50}$/;
