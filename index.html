@@ -163,7 +163,7 @@
             .auto-date-btn::before { content: '✓'; background: #0ea5e9; color: #fff; border-radius: 50%; width: 14px; height: 14px; display: inline-flex; justify-content: center; align-items: center; font-size: 0.55rem; }
             .auto-date-btn:hover { background-color: #e2e8f0; transform: scale(1.05); color: #0f172a; border-color: #94a3b8; }
 
-            /* GENEL DİKEY FLEX KAPSAYICISI (PC ÇAKIŞMASI PADDING-TOP: 250px İLE KESİN ÇÖZÜLDÜ) */
+            /* GENEL DİKEY FLEX KAPSAYICISI */
             main { padding-top: 250px; width: 100%; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; position: relative; }
 
             .card-shield-hard { 
@@ -174,6 +174,17 @@
             
             .mobile-bottom-nav { display: none; }
             .mobile-swipe-wrapper { display: block; width: 100%; z-index: 20; position: relative; } 
+
+            /* --- GÖRSEL KUSURSUZ SIĞDIRMA (AVATAR FİX) --- */
+            .avatar-img-fit {
+                width: 100% !important;
+                height: 100% !important;
+                min-width: 100% !important;
+                min-height: 100% !important;
+                object-fit: cover !important;
+                border-radius: 50% !important;
+                display: block !important;
+            }
 
             /* --- MOBİL SÜRÜM KONTROLLERİ --- */
             @media (max-width: 768px) {
@@ -209,10 +220,9 @@
                 .mob-btn-capsule.right { padding: 0 4px 0 10px; gap: 4px; flex-shrink: 0; width: 105px; justify-content: flex-end; }
                 
                 .mob-btn-icon-circle {
-                    width: 36px; height: 36px; border-radius: 50%;
-                    background-color: white; color: #0ea5e9;
-                    display: flex; align-items: center; justify-content: center; overflow: hidden;
-                    font-size: 1.3rem; flex-shrink: 0;
+                    width: 36px; height: 36px; border-radius: 50%; border: 2px solid #0ea5e9;
+                    background-color: white; display: flex; align-items: center; justify-content: center;
+                    flex-shrink: 0; padding: 2px;
                 }
                 .mob-btn-text { font-size: 0.65rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0.2px; }
 
@@ -422,9 +432,9 @@
             .bot-message { display: flex; gap: 10px; align-items: flex-end; margin-bottom: 5px; }
             .user-message { display: flex; justify-content: flex-end; margin-bottom: 5px; margin-top: 5px; }
 
-            .bot-avatar { width: 32px; height: 32px; border-radius: 50%; border: 2px solid #0ea5e9; background-color: #ffffff; padding: 2px; flex-shrink: 0; overflow: hidden; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; }
-            .bot-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-
+            /* TİLKİ AVATARI KAPSAYICISI VE GÖRSELİ */
+            .bot-avatar { width: 34px; height: 34px; border-radius: 50%; border: 2px solid #0ea5e9; background-color: #ffffff; padding: 2px; flex-shrink: 0; display: flex; justify-content: center; align-items: center; }
+            
             .bot-bubble { background-color: #ffffff; color: #334155; padding: 12px 16px; border-radius: 16px 16px 16px 4px; font-size: 0.85rem; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 85%; line-height: 1.4; border: 1px solid #f1f5f9; }
             .user-bubble { background-color: #0ea5e9; color: #ffffff; padding: 10px 14px; border-radius: 16px 16px 4px 16px; font-size: 0.85rem; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.1); max-width: 85%; line-height: 1.4; }
 
@@ -487,10 +497,9 @@
             <!-- Sol Grup -->
             <div class="flex items-center gap-6 pl-2 z-10 w-1/3">
                 <div onclick="triggerTopChat()" class="flex items-center gap-2 cursor-pointer mr-auto relative group" style="text-decoration: none;">
-                    <div class="relative flex-shrink-0" style="width: 42px; height: 42px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                        <div id="desktopChatTrigger" class="w-full h-full flex items-center justify-center rounded-full text-white overflow-hidden" style="background-color: #06b6d4; box-shadow: 0 4px 10px rgba(6,182,212,0.3);">
-                            <img src="assets/tilki-avatar2.png" alt="Canlı Destek" class="w-full h-full object-cover">
-                        </div>
+                    <div class="relative flex-shrink-0 bg-white" style="width: 44px; height: 44px; border-radius: 50%; border: 2.5px solid #0ea5e9; padding: 2px; transition: transform 0.3s ease; box-shadow: 0 4px 10px rgba(6,182,212,0.3);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <!-- TİLKİ AVATARI -->
+                        <img src="assets/tilki-avatar2.png" alt="Canlı Destek" class="avatar-img-fit">
                         <div class="smart-chat-bubble" id="topChatBubbleDesktop">Yardımcı Olabilirim 🦊</div>
                     </div>
                     <span style="color: #0ea5e9; font-weight: 900; font-size: 0.85rem; text-transform: uppercase;">Canlı Destek</span>
@@ -535,8 +544,9 @@
                 <div class="mobile-pill-main">
                     
                     <div onclick="triggerTopChat()" class="mob-btn-capsule left relative group cursor-pointer">
-                        <div class="mob-btn-icon-circle shadow-sm overflow-hidden" id="mobileChatTrigger">
-                            <img src="assets/tilki-avatar2.png" alt="Canlı Destek" class="w-full h-full object-cover">
+                        <div class="mob-btn-icon-circle shadow-sm" id="mobileChatTrigger">
+                            <!-- TİLKİ AVATARI MOBİL -->
+                            <img src="assets/tilki-avatar2.png" alt="Canlı Destek" class="avatar-img-fit">
                         </div>
                         <div class="mob-btn-text text-left mr-1">CANLI<br>DESTEK</div>
                         <div class="smart-chat-bubble" id="topChatBubbleMobile">Yardımcı Olabilirim 🦊</div>
@@ -784,6 +794,7 @@
             <p>© 2026 Referans Eğitim Kurumları. Tüm hakları saklıdır.</p>
         </footer>
 
+        <!-- SOHBET PANELİ -->
         <div class="chat-panel" id="chatPanel">
             <div class="chat-header">
                 <h3>Canlı Destek</h3>
@@ -792,12 +803,18 @@
             </div>
             <div class="chat-body" id="chatBody">
                 <div class="bot-message">
-                    <div class="bot-avatar"><img src="assets/tilki-avatar2.png" alt="Bot" class="w-full h-full object-cover"></div>
+                    <div class="bot-avatar">
+                        <!-- TİLKİ AVATARI SOHBET İÇİ -->
+                        <img src="assets/tilki-avatar2.png" alt="Bot" class="avatar-img-fit">
+                    </div>
                     <div class="bot-bubble">Merhaba! Ben Referans Tilki 🦊</div>
                 </div>
 
                 <div class="typing-indicator" id="typingIndicator">
-                    <div class="bot-avatar"><img src="assets/tilki-avatar2.png" alt="Bot" class="w-full h-full object-cover"></div>
+                    <div class="bot-avatar">
+                        <!-- TİLKİ AVATARI SOHBET İÇİ (YAZIYOR) -->
+                        <img src="assets/tilki-avatar2.png" alt="Bot" class="avatar-img-fit">
+                    </div>
                     <div style="display: flex; gap: 4px; padding: 12px 16px; background-color: #ffffff; border-radius: 16px 16px 16px 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); align-items: center;">
                         <div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>
                     </div>
@@ -832,7 +849,6 @@
             <div class="modal-box pointer-events-auto" id="appointment-modal-box">
                 <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-red-100 text-slate-400 hover:text-red-500 font-black text-xl flex items-center justify-center transition-colors z-30">✕</button>
                 
-                <!-- TİLKİ AYAKLARININ GİZLENDİĞİ BASAMAKLI KARE (SQUARE) VİDEO YAPI -->
                 <div class="flex justify-center -mt-24 md:-mt-28 mb-4 relative z-20">
                     <div class="w-36 h-36 md:w-44 md:h-44 aspect-square rounded-2xl bg-white overflow-hidden flex items-center justify-center border-4 border-white" 
                          style="box-shadow: 0 0 0 4px rgba(255,255,255,0.6), 0 0 0 8px rgba(255,255,255,0.3), 0 15px 30px rgba(0,0,0,0.4);">
@@ -896,10 +912,9 @@
         </div>
 
         <script>
-            let randevuAcilisZamani = 0; // Hız testi için eklendi
+            let randevuAcilisZamani = 0; 
 
             document.addEventListener("DOMContentLoaded", function() {
-                // DOM HATALARI ENGELLENMİŞ SENKRONİZE VİDEO OYNATICI
                 let videoObserver = new IntersectionObserver((entries, observer) => {
                     entries.forEach(entry => {
                         const video = entry.target;
@@ -1265,11 +1280,12 @@
                 scrollToBottom();
             }
 
-            function addBotMessage(text, isJPG = false) {
+            function addBotMessage(text) {
                 const chatBody = document.getElementById('chatBody');
                 const msgDiv = document.createElement('div');
                 msgDiv.className = 'bot-message';
-                const avatarContent = `<img src="assets/tilki-avatar2.png" alt="Bot" class="w-full h-full object-cover">`;
+                // JavaScript ile üretilen mesajlara da aynı sınıfı dahil ettik
+                const avatarContent = `<img src="assets/tilki-avatar2.png" alt="Bot" class="avatar-img-fit">`;
                 msgDiv.innerHTML = `<div class="bot-avatar">${avatarContent}</div><div class="bot-bubble">${text}</div>`;
                 chatBody.appendChild(msgDiv);
                 scrollToBottom();
@@ -1300,13 +1316,13 @@
                         const dynamicDelay1 = getRandomDelay();
                         setTimeout(() => {
                             typingIndicator.style.display = 'none';
-                            addBotMessage("Tabii, sizin için dershane fiyat ücreti için yardımcı olabilirim.", true);
+                            addBotMessage("Tabii, sizin için dershane fiyat ücreti için yardımcı olabilirim.");
                             setTimeout(() => { typingIndicator.style.display = 'flex'; scrollToBottom(); }, 300);
 
                             const dynamicDelay2 = getRandomDelay();
                             setTimeout(() => {
                                 typingIndicator.style.display = 'none';
-                                addBotMessage("Öğrenci hangi sınıfta öğrenim görmekte? 👇", true);
+                                addBotMessage("Öğrenci hangi sınıfta öğrenim görmekte? 👇");
                                 const actionDiv = document.createElement('div');
                                 actionDiv.className = 'chat-action-buttons';
                                 actionDiv.innerHTML = `
@@ -1329,13 +1345,13 @@
                         const dynamicDelay1 = getRandomDelay();
                         setTimeout(() => {
                             typingIndicator.style.display = 'none';
-                            addBotMessage("Tabii ki, kurumumuzu ve sınıflarımızı hemen inceleyebilirsiniz.", true);
+                            addBotMessage("Tabii ki, kurumumuzu ve sınıflarımızı hemen inceleyebilirsiniz.");
                             setTimeout(() => { typingIndicator.style.display = 'flex'; scrollToBottom(); }, 300);
 
                             const dynamicDelay2 = getRandomDelay();
                             setTimeout(() => {
                                 typingIndicator.style.display = 'none';
-                                addBotMessage("Sanal turu başlatıyorum, iyi gezintiler! 🚀", true);
+                                addBotMessage("Sanal turu başlatıyorum, iyi gezintiler! 🚀");
                                 setTimeout(() => {
                                     document.getElementById('main-body').classList.add('backdrop-blur-active');
                                     openTour(); resetChat(); 
@@ -1352,7 +1368,7 @@
                         const dynamicDelay1 = getRandomDelay();
                         setTimeout(() => {
                             typingIndicator.style.display = 'none';
-                            addBotMessage("Tabii ki, Hangi konu hakkında yardıma ihtiyacınız var yazarsanız yardımcı olabilirim.", true);
+                            addBotMessage("Tabii ki, Hangi konu hakkında yardıma ihtiyacınız var yazarsanız yardımcı olabilirim.");
 
                             const inputContainer = document.createElement('div');
                             inputContainer.className = 'chat-input-container';
@@ -1374,7 +1390,7 @@
                                 const dynamicDelay3 = getRandomDelay();
                                 setTimeout(() => {
                                     typingIndicator.style.display = 'none';
-                                    addBotMessage("Bu sorunuzu yetkili hocalarımıza iletmek ve size en doğru cevabı sunabilmek için sizi doğrudan çağrı merkezimize aktarıyorum... 📞", true);
+                                    addBotMessage("Bu sorunuzu yetkili hocalarımıza iletmek ve size en doğru cevabı sunabilmek için sizi doğrudan çağrı merkezimize aktarıyorum... 📞");
                                     setTimeout(() => {
                                         window.location.href = "tel:+905000000000";
                                         setTimeout(() => { resetChat(); }, 1500); 
@@ -1402,14 +1418,13 @@
                 setTimeout(() => {
                     typingIndicator.style.display = 'none';
                     if (type === 'tel') {
-                        addBotMessage("Sizin için hemen müşteri temsilcimizin numarasını paylaşıyorum... 📞", true);
+                        addBotMessage("Sizin için hemen müşteri temsilcimizin numarasını paylaşıyorum... 📞");
                         setTimeout(() => { window.location.href = "tel:+905000000000"; setTimeout(() => { resetChat(); }, 1500); }, 2000); 
                     }
                 }, dynamicDelayFinal);
             };
 
             window.openModal = function(preset) {
-                // Güvenlik Kalkanı: Randevu açılış zamanını kaydet
                 randevuAcilisZamani = Date.now();
                 
                 const errBanner = document.getElementById('errBanner');
@@ -1568,17 +1583,14 @@
             }
 
             window.submitAppt = function(event) {
-                // Güvenlik Kalkanı 1: isTrusted (Fiziksel Tıklama Analizi)
                 if (event && !event.isTrusted) {
                     console.warn("Otomatik bot tıklaması engellendi.");
                     return;
                 }
                 
-                // Güvenlik Kalkanı 2: Honeypot (Sessiz Tuzak)
                 const botTrap = document.getElementById('botTrap');
                 if(botTrap && botTrap.value !== '') return; 
 
-                // Güvenlik Kalkanı 3: Time-to-fill (Zaman Damgası)
                 if (Date.now() - randevuAcilisZamani < 3000) {
                     const err = document.getElementById('errBanner');
                     const errText = document.getElementById('errText');
@@ -1652,7 +1664,6 @@
                 });
             };
 
-            /* Gelişmiş Kopyalama ve Tersine Mühendislik Engeli */
             document.addEventListener('contextmenu', e => { if(!['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)) e.preventDefault(); });
             document.addEventListener('keydown', e => { 
                 const k = e.key ? e.key.toUpperCase() : ''; 
@@ -1660,7 +1671,6 @@
             });
             document.addEventListener('copy', e => { if(!['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)) e.preventDefault(); });
 
-            /* Clickjacking (Iframe Korsanlığı) Koruması */
             if (window.top !== window.self) { window.top.location = window.self.location; }
         </script>
     </body>
