@@ -13,7 +13,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="default">
         <link rel="apple-touch-icon" href="assets/logo.png">
-        
+
         <meta property="og:title" content="Referans Eğitim Kurumları | Malatya">
         <meta property="og:description" content="VIP Eğitim modeliyle LGS, YKS ve KPSS sınavlarına hazırlanın. Alanında uzman kadro ile geleceğinize yön verin.">
         <meta property="og:type" content="website">
@@ -83,7 +83,7 @@
             @keyframes bluePulse { 0% { background-color: #0ea5e9; box-shadow: 0 0 5px rgba(14, 165, 233, 0.4); transform: scale(1); } 100% { background-color: #0284c7; box-shadow: 0 0 15px rgba(2, 132, 199, 0.6); transform: scale(1.03); } }
 
             .spine-wrapper { position: relative; width: 100%; max-width: 100%; min-height: 100vh; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
-            
+
             .neon-spine { position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 2px; z-index: 0; background-color: rgba(14, 165, 233, 0.4); pointer-events: none; }
             .spine-glow {
                 position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 6px; height: 350px; 
@@ -159,6 +159,10 @@
             .smart-chat-bubble::before { content: ''; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid #e0f2fe; }
             .smart-chat-bubble::after { content: ''; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid #ffffff; margin-bottom: -2px; }
 
+            .auto-date-btn { background-color: #f1f5f9; border: 1px solid #cbd5e1; color: #475569; padding: 4px 10px; border-radius: 50px; font-size: 0.60rem; font-weight: 800; cursor: pointer; transition: all 0.236s; display: inline-flex; align-items: center; gap: 4px; outline: none; font-family: 'Manrope', sans-serif; text-transform: uppercase; }
+            .auto-date-btn::before { content: '✓'; background: #0ea5e9; color: #fff; border-radius: 50%; width: 14px; height: 14px; display: inline-flex; justify-content: center; align-items: center; font-size: 0.55rem; }
+            .auto-date-btn:hover { background-color: #e2e8f0; transform: scale(1.05); color: #0f172a; border-color: #94a3b8; }
+
             /* GENEL DİKEY FLEX KAPSAYICISI */
             main { padding-top: 250px; width: 100%; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; position: relative; }
 
@@ -167,7 +171,7 @@
                 border: 2px solid #f8fafc; box-shadow: 10px 10px 0px 0px #1e293b !important; 
                 transition: all 0.472s ease; overflow: visible !important; 
             }
-            
+
             .mobile-bottom-nav { display: none; }
             .mobile-swipe-wrapper { display: block; width: 100%; z-index: 20; position: relative; } 
 
@@ -188,13 +192,13 @@
 
                 .mega-bar-wrapper { display: none !important; }
                 .pill-nav { display: none !important; } 
-                
+
                 /* MOBİL ÜST MENÜ İZOLASYONLU VE KUSURSUZ ORTALANMIŞ */
                 .mobile-pill-container {
                     display: flex; flex-direction: column; align-items: center;
                     width: 96%; max-width: 480px; pointer-events: none; z-index: 40010;
                 }
-                
+
                 .mobile-pill-main {
                     display: flex; justify-content: space-between; align-items: center;
                     background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
@@ -214,7 +218,7 @@
                 /* Butonlara sabit genişlik (width: 105px) verilerek ortadaki logonun %100 merkezde kalması sağlandı */
                 .mob-btn-capsule.left { padding: 0 10px 0 4px; gap: 4px; flex-shrink: 0; width: 105px; justify-content: flex-start; }
                 .mob-btn-capsule.right { padding: 0 4px 0 10px; gap: 4px; flex-shrink: 0; width: 105px; justify-content: flex-end; }
-                
+
                 .mob-btn-icon-circle {
                     width: 36px; height: 36px; border-radius: 50%; border: 2px solid #0ea5e9;
                     background-color: white; display: flex; align-items: center; justify-content: center;
@@ -236,7 +240,7 @@
 
                 /* ORTA ALAN: İKONLU KISA BAŞLIKLAR (DİKEY) */
                 .mob-center-area { display: flex; align-items: center; justify-content: center; gap: 6px; flex-shrink: 1; flex: 1; overflow: hidden; }
-                
+
                 .mob-framed-link {
                     display: flex; flex-direction: column; align-items: center; justify-content: center;
                     border: 1.5px solid #e0f2fe; padding: 4px 6px; border-radius: 10px;
@@ -247,12 +251,12 @@
                     font-size: 1rem; font-weight: 900; color: #0284c7; font-family: serif; font-style: italic; line-height: 1; margin-bottom: 2px;
                 }
                 .mob-framed-link span.title { font-size: 0.5rem; line-height: 1; font-weight: 900; color: #0ea5e9; text-align: center; }
-                
+
                 .mob-framed-link:active, .mob-framed-link:hover { background-color: #0ea5e9; }
                 .mob-framed-link:active .icon, .mob-framed-link:hover .icon, .mob-framed-link:active span.title, .mob-framed-link:hover span.title { color: #ffffff; }
                 .mob-framed-link svg { stroke: #0284c7; transition: stroke 0.236s ease; margin-bottom: 2px; }
                 .mob-framed-link:hover svg { stroke: #ffffff; }
-                
+
                 .mob-center-logo {
                     width: 48px; height: 48px; border-radius: 50%; border: 2.5px solid #0ea5e9; background: white;
                     display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 2px;
@@ -325,7 +329,7 @@
 
                 .icon-box { width: 28px !important; height: 28px !important; min-width: 28px !important; min-height: 28px !important; max-width: 28px !important; max-height: 28px !important; margin-bottom: 0.8rem !important; }
                 .webm-card-bottom { width: 60px !important; height: 60px !important; bottom: -30px !important; border: 3px solid #ffffff !important; }
-                
+
                 .mobile-swipe-item h3 { font-size: 1rem !important; margin-bottom: 0.4rem !important; }
                 .mobile-swipe-item p { font-size: 0.75rem !important; line-height: 1.3 !important; }
 
@@ -343,7 +347,7 @@
                 #counterTitle { font-size: 1.25rem !important; margin-top: 1.5rem !important; margin-bottom: 1.5rem !important; }
                 .exam-btn { padding: 0.6rem !important; font-size: 0.85rem !important; border-radius: 0.8rem !important; }
                 #iletisim, #ekstra-bilgiler { padding-bottom: 40px !important; z-index: 20; }
-                
+
                 .pagination-dots { display: flex !important; justify-content: center; align-items: center; gap: 8px; margin-top: 15px; margin-bottom: 25px; width: 100%; z-index: 5; }
                 .pagination-dots .dot { width: 10px; height: 10px; background-color: rgba(14, 165, 233, 0.2); border-radius: 999px; transition: all 0.354s ease; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); cursor: pointer; }
                 .pagination-dots .dot.active { background-color: #0ea5e9; width: 30px; box-shadow: 0 4px 10px rgba(14, 165, 233, 0.4); }
@@ -396,6 +400,7 @@
                 .modal-box { padding: 1.2rem !important; margin-top: 10vh; max-width: 100%; min-height: 500px; }
                 #apptForm { gap: 0.4rem; display: flex; flex-direction: column; }
                 .err-banner { padding: 4px 8px; margin-bottom: 0.25rem; font-size: 0.7rem; }
+                .auto-date-btn { font-size: 0.5rem; padding: 2px 6px; }
             }
 
             #imageLightbox { position: fixed; inset: 0; background-color: rgba(0,0,0,0.85); z-index: 65000; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease; pointer-events: auto; cursor: zoom-out; }
@@ -429,7 +434,7 @@
 
             /* TİLKİ AVATARI KAPSAYICISI VE GÖRSELİ */
             .bot-avatar { width: 34px; height: 34px; border-radius: 50%; border: 2px solid #0ea5e9; background-color: #ffffff; padding: 2px; flex-shrink: 0; display: flex; justify-content: center; align-items: center; }
-            
+
             .bot-bubble { background-color: #ffffff; color: #334155; padding: 12px 16px; border-radius: 16px 16px 16px 4px; font-size: 0.85rem; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.05); max-width: 85%; line-height: 1.4; border: 1px solid #f1f5f9; }
             .user-bubble { background-color: #0ea5e9; color: #ffffff; padding: 10px 14px; border-radius: 16px 16px 4px 16px; font-size: 0.85rem; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.1); max-width: 85%; line-height: 1.4; }
 
@@ -499,7 +504,7 @@
                     </div>
                     <span style="color: #0ea5e9; font-weight: 900; font-size: 0.85rem; text-transform: uppercase;">Canlı Destek</span>
                 </div>
-                
+
                 <a href="#hakkimizda" class="pc-text-link">
                     <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
                     HAKKIMIZDA
@@ -522,7 +527,7 @@
 
             <!-- Sağ Grup -->
             <div class="flex items-center justify-end gap-6 pr-2 z-10 w-1/3">
-                <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="pc-text-link !text-cyan-500 mr-2 md:mr-6">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="pc-text-link !text-cyan-500 mr-3">
                     YOL TARİFİ
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 </a>
@@ -537,7 +542,7 @@
         <div class="md:hidden w-full fixed top-[10px] left-0 z-[40010] flex flex-col items-center pointer-events-none">
             <div class="mobile-pill-container">
                 <div class="mobile-pill-main">
-                    
+
                     <div onclick="triggerTopChat()" class="mob-btn-capsule left relative group cursor-pointer">
                         <div class="mob-btn-icon-circle shadow-sm" id="mobileChatTrigger">
                             <!-- TİLKİ AVATARI MOBİL -->
@@ -640,7 +645,7 @@
                                 <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Deneme & Analiz</h3>
                                 <p class="text-slate-500 font-bold leading-relaxed text-xs md:text-sm">Gerçek sınav zorluğundaki Türkiye geneli denemeler ve detaylı ölçülebilir gelişim raporları.</p>
                                 <div class="webm-mask webm-card-bottom video-skeleton">
-                                    <video src="assets/net-artirma.mp4" playsinline loop muted autoplay></video>
+                                    <video src="assets/net-artırma.mp4" playsinline loop muted autoplay></video>
                                 </div>
                             </div>
                         </div>
@@ -842,10 +847,10 @@
         </div>
 
         <div id="randevuModal" class="modal-overlay" onclick="if(event.target===this) closeModal()">
-            
+
             <div class="modal-box pointer-events-auto" id="appointment-modal-box">
                 <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-red-100 text-slate-400 hover:text-red-500 font-black text-xl flex items-center justify-center transition-colors z-30">✕</button>
-                
+
                 <div class="flex justify-center -mt-24 md:-mt-28 mb-4 relative z-20">
                     <div class="w-36 h-36 md:w-44 md:h-44 aspect-square rounded-2xl bg-white overflow-hidden flex items-center justify-center border-4 border-white" 
                          style="box-shadow: 0 0 0 4px rgba(255,255,255,0.6), 0 0 0 8px rgba(255,255,255,0.3), 0 15px 30px rgba(0,0,0,0.4);">
@@ -856,11 +861,11 @@
                 <div class="w-full">
                     <h3 class="text-xl md:text-3xl font-black flex items-center justify-center gap-2 md:gap-4 text-slate-900 mt-1 md:mt-0">RANDEVU AL</h3>
                     <p class="text-[10px] md:text-sm text-slate-500 mb-4 text-center font-bold">Kurum ziyareti için bilgilerinizi giriniz.</p>
-                    
+
                     <div id="errBanner" class="err-banner">
                         <span class="text-lg md:text-xl">❌</span><span id="errText">Hata</span>
                     </div>
-                    
+
                     <form id="apptForm" onsubmit="submitAppt(event); return false;">
                         <input type="text" id="botTrap" tabindex="-1" autocomplete="off" class="sr-only">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 mb-2 md:mb-4">
@@ -887,22 +892,17 @@
                                 </label>
                             </div>
                             <input type="date" id="fTarih" required class="w-full bg-slate-50 border-2 border-slate-200 py-3 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-600 focus:border-cyan-500 font-black cursor-pointer mb-2 md:mb-4 pointer-events-auto transition-colors focus:bg-white">
-                            
                             <div class="flex justify-between items-end mb-1 md:mb-2">
                                 <label class="text-[9px] md:text-xs font-black text-slate-500 uppercase tracking-widest">Saat Seçimi:</label>
                             </div>
-                            <select id="fSaat" required class="w-full bg-slate-50 border-2 border-slate-200 py-3 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-600 text-center font-black cursor-pointer focus:border-cyan-500 pointer-events-auto transition-colors focus:bg-white">
-                                <option value="" disabled selected id="saatPlaceholder">Saat Seçiniz (Örn: 09:00)</option>
+                            <select id="fSaat" required disabled class="w-full bg-slate-50 border-2 border-slate-200 py-3 px-3 md:p-4 rounded-xl text-xs md:text-base text-slate-600 text-center font-black cursor-pointer focus:border-cyan-500 pointer-events-auto transition-colors focus:bg-white">
+                                <option value="" disabled selected id="fSaatDefault">Örn: 09:00</option>
                                 <option value="09:00">09:00</option>
                                 <option value="10:00">10:00</option>
                                 <option value="11:00">11:00</option>
                                 <option value="12:00">12:00</option>
                                 <option value="13:00">13:00</option>
                                 <option value="14:00">14:00</option>
-                                <option value="15:00">15:00</option>
-                                <option value="16:00">16:00</option>
-                                <option value="17:00">17:00</option>
-                                <option value="18:00">18:00</option>
                             </select>
                         </div>
 
@@ -933,7 +933,7 @@
                 document.querySelectorAll('video').forEach(video => {
                     video.muted = true;
                     videoObserver.observe(video);
-                    
+
                     video.addEventListener('loadeddata', () => {
                         video.classList.add('loaded');
                         if(video.parentElement.classList.contains('video-skeleton')) {
@@ -953,24 +953,25 @@
                     if (bubbleDesktop && !isChatOpen) bubbleDesktop.classList.add('show');
                 }, 3000);
 
+                // İsim placeholder animasyonu
                 const isimler = ["Muhammed", "Hamza", "Ebubekir", "Hüseyin", "Ali", "Ömer", "Osman", "Ayşe", "Fatma", "Sümeyye", "Nurgül"];
                 let isimIndex = 0;
                 setInterval(() => {
-                    const isimInput = document.getElementById('fIsim');
-                    if (isimInput && document.activeElement !== isimInput && !isimInput.value) {
-                        isimInput.placeholder = "Örn: " + isimler[isimIndex];
+                    const fIsim = document.getElementById('fIsim');
+                    if(fIsim && fIsim.value === '') {
                         isimIndex = (isimIndex + 1) % isimler.length;
+                        fIsim.placeholder = "Örn: " + isimler[isimIndex];
                     }
                 }, 1500);
 
-                const saatlerOrnek = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
+                // Saat option animasyonu
+                const saatler = ["09:00", "10:00", "11:00", "12:00"];
                 let saatIndex = 0;
                 setInterval(() => {
-                    const saatPlaceholder = document.getElementById('saatPlaceholder');
-                    const saatSelect = document.getElementById('fSaat');
-                    if (saatPlaceholder && !saatSelect.value) {
-                        saatPlaceholder.text = "Saat Seçiniz (Örn: " + saatlerOrnek[saatIndex] + ")";
-                        saatIndex = (saatIndex + 1) % saatlerOrnek.length;
+                    const fSaatDefault = document.getElementById('fSaatDefault');
+                    if(fSaatDefault) {
+                        saatIndex = (saatIndex + 1) % saatler.length;
+                        fSaatDefault.text = "Örn: " + saatler[saatIndex];
                     }
                 }, 1500);
             });
@@ -983,7 +984,7 @@
                 let items = Array.from(container.children).filter(c => 
                     c.classList.contains('mobile-swipe-item') || c.classList.contains('mobile-double-slide')
                 );
-                
+
                 let dots = dotsContainer ? Array.from(dotsContainer.children) : [];
 
                 if (items.length === 0) return;
@@ -1074,7 +1075,7 @@
                 container.addEventListener('mousedown', handleInteractionStart, { passive: true });
                 container.addEventListener('mouseup', handleInteractionEnd, { passive: true });
                 container.addEventListener('mouseleave', handleInteractionEnd, { passive: true });
-                
+
                 dots.forEach((dot, index) => {
                     dot.addEventListener('click', () => {
                         handleInteractionStart();
@@ -1306,6 +1307,7 @@
                 const chatBody = document.getElementById('chatBody');
                 const msgDiv = document.createElement('div');
                 msgDiv.className = 'bot-message';
+                // JavaScript ile üretilen mesajlara da aynı sınıfı dahil ettik
                 const avatarContent = `<img src="assets/tilki-avatar.png" alt="Bot" class="avatar-img-fit">`;
                 msgDiv.innerHTML = `<div class="bot-avatar">${avatarContent}</div><div class="bot-bubble">${text}</div>`;
                 chatBody.appendChild(msgDiv);
@@ -1447,7 +1449,7 @@
 
             window.openModal = function(preset) {
                 randevuAcilisZamani = Date.now();
-                
+
                 const errBanner = document.getElementById('errBanner');
                 if(errBanner) errBanner.style.display = 'none';
 
@@ -1552,6 +1554,7 @@
                                 saat.options[i].disabled = true; saat.options[i].text = optVal + ' (geçti)'; 
                             }
                         }
+                        saat.disabled = false;
                     }
                 });
             }
@@ -1561,7 +1564,7 @@
                     console.warn("Otomatik bot tıklaması engellendi.");
                     return;
                 }
-                
+
                 const botTrap = document.getElementById('botTrap');
                 if(botTrap && botTrap.value !== '') return; 
 
