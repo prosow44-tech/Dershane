@@ -813,7 +813,7 @@
                 <div class="typing-indicator" id="typingIndicator">
                     <div class="bot-avatar">
                         <!-- TİLKİ AVATARI SOHBET İÇİ (YAZIYOR) -->
-                        <img src="assets/tilki-avatar2.png" alt="Bot" class="avatar-img-fit">
+                        <img src="assets/tilki-avatar.png" alt="Bot" class="avatar-img-fit">
                     </div>
                     <div style="display: flex; gap: 4px; padding: 12px 16px; background-color: #ffffff; border-radius: 16px 16px 16px 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); align-items: center;">
                         <div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>
@@ -1285,7 +1285,7 @@
                 const msgDiv = document.createElement('div');
                 msgDiv.className = 'bot-message';
                 // JavaScript ile üretilen mesajlara da aynı sınıfı dahil ettik
-                const avatarContent = `<img src="assets/tilki-avatar2.png" alt="Bot" class="avatar-img-fit">`;
+                const avatarContent = `<img src="assets/tilki-avatar.png" alt="Bot" class="avatar-img-fit">`;
                 msgDiv.innerHTML = `<div class="bot-avatar">${avatarContent}</div><div class="bot-bubble">${text}</div>`;
                 chatBody.appendChild(msgDiv);
                 scrollToBottom();
