@@ -427,8 +427,29 @@
             /* SAKİN HATA MESAJI (TİTREME İPTAL EDİLDİ) */
             .err-banner { background-color: rgba(239,68,68,0.1); border: 2px solid #ef4444; color: #ef4444; padding: 10px 14px; border-radius: 10px; display: none; align-items: center; gap: 10px; font-weight: 800; font-size: 0.8rem; margin-bottom: 1rem; }
 
-            .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-150px); opacity: 0; visibility: hidden; background-color: #ffffff; padding: 20px 40px; border-radius: 50px; display: flex; align-items: center; gap: 20px; z-index: 99999; box-shadow: 0 15px 40px rgba(0,0,0,0.15); border: 3px solid #06b6d4; transition: all 0.6s cubic-bezier(0.68,-0.55,0.27,1.55); pointer-events: none; }
-            .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; visibility: visible; }
+            /* VIP KONSEPTLİ BAŞARI BİLDİRİMİ (TOAST) YENİ! */
+            .success-toast {
+                position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-150px);
+                background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+                padding: 15px 30px; border-radius: 50px; display: flex; align-items: center; gap: 15px;
+                color: #0f172a; font-weight: 800; font-size: 0.95rem; z-index: 99999; opacity: 0;
+                transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+                border: 2px solid #0ea5e9; box-shadow: 0 15px 40px rgba(14, 165, 233, 0.2);
+                animation: cyan-glow 3s infinite alternate;
+            }
+            @keyframes cyan-glow {
+                0% { box-shadow: 0 0 10px rgba(14, 165, 233, 0.3); }
+                100% { box-shadow: 0 0 25px rgba(14, 165, 233, 0.6); }
+            }
+            .success-toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+            .success-toast .icon {
+                background: #10b981; color: #ffffff; border-radius: 50%; min-width: 35px; height: 35px;
+                display: flex; justify-content: center; align-items: center; font-size: 1.3rem; font-weight: bold;
+            }
+            @media (max-width: 768px) {
+                .success-toast { width: 90%; flex-direction: column; text-align: center; border-radius: 20px; font-size: 0.85rem; padding: 20px; }
+                .success-toast .icon { margin-bottom: 5px; }
+            }
 
             /* PC'DE BÜYÜTÜLEN, MOBİLDE KORUNAN CHAT PANELİ */
             .chat-panel { position: fixed; bottom: 110px; right: 30px; width: 420px; height: 620px; background-color: #ffffff; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); z-index: 54010; display: flex; flex-direction: column; overflow: hidden; opacity: 0; visibility: hidden; transform: translateY(20px) scale(0.95); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-origin: bottom right; border: 1px solid #e2e8f0; }
@@ -483,6 +504,15 @@
         </style>
     </head>
     <body class="selection:bg-cyan-500 selection:text-white" id="main-body">
+
+        <!-- BAŞARI BİLDİRİMİ (TOAST) HTML EKLENTİSİ -->
+        <div id="success-notification" class="success-toast">
+            <div class="icon">✓</div> 
+            <div>
+                <div style="font-size: 1.1rem; margin-bottom: 5px; color: #10b981;">Randevunuz Oluşturulmuştur!</div>
+                <div style="color: #64748b; font-weight: 600;">Lütfen Randevu Saati Kurumumuzda Olunuz.</div>
+            </div>
+        </div>
 
         <div class="progress-bar" id="progressBar"></div>
 
@@ -1667,7 +1697,7 @@
                 const botTrap = document.getElementById('botTrap');
                 if(botTrap && botTrap.value !== '') return; 
 
-                if (Date.now() - randevuAcilisZamani < 3000) {
+                if (Date.now() - randevuAcilisZamani < 1500) {
                     const err = document.getElementById('errBanner');
                     const errText = document.getElementById('errText');
                     if (errText) errText.innerHTML = "İşleminiz şüpheli şekilde hızlı gerçekleşti. Lütfen insan hızıyla doldurunuz.";
@@ -1702,7 +1732,7 @@
                 const btn = document.getElementById('btn-submit');
                 let original = 'GÖNDER';
 
-                if(btn) { original = btn.innerHTML; btn.innerHTML = 'GÖNDERİLİYOR...'; btn.disabled = true; }
+                if(btn) { original = btn.innerHTML; btn.innerHTML = 'Takvim Kontrol Ediliyor...'; btn.disabled = true; }
 
                 fetch(WEB_APP_URL, {
                     method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -1713,10 +1743,10 @@
 
                     closeModal();
 
-                    const toast = document.getElementById('toast'); 
+                    const toast = document.getElementById('success-notification'); 
                     if(toast) {
                         toast.classList.add('show');
-                        setTimeout(() => { toast.classList.remove('show'); }, 5000);
+                        setTimeout(() => { toast.classList.remove('show'); }, 6000);
                     }
 
                     const form = document.getElementById('apptForm');
