@@ -427,7 +427,7 @@
         /* SAKİN HATA MESAJI (TİTREME İPTAL EDİLDİ) */
         .err-banner { background-color: rgba(239,68,68,0.1); border: 2px solid #ef4444; color: #ef4444; padding: 10px 14px; border-radius: 10px; display: none; align-items: center; gap: 10px; font-weight: 800; font-size: 0.8rem; margin-bottom: 1rem; }
 
-        /* VIP KONSEPTLİ BAŞARI BİLDİRİMİ (TOAST) YENİ! */
+        /* VIP KONSEPTLİ BAŞARI BİLDİRİMİ (TOAST) */
         .success-toast {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-150px);
             background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
@@ -899,10 +899,11 @@
         <div class="modal-box pointer-events-auto" id="appointment-modal-box">
             <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-red-100 text-slate-400 hover:text-red-500 font-black text-xl flex items-center justify-center transition-colors z-30">✕</button>
 
-            <!-- VİDEO YERİNE TİLKİ AVATARI KUSURSUZ TASARIM -->
-            <div class="flex justify-center -mt-20 md:-mt-24 mb-6 relative z-20">
-                <div class="w-32 h-32 md:w-36 md:h-36 rounded-[2rem] bg-slate-50 flex items-center justify-center border-4 border-white shadow-[0_15px_30px_rgba(0,0,0,0.15)] relative">
-                    <img src="assets/tilki-avatar2.png" alt="Randevu" class="w-full h-full object-cover rounded-[1.8rem]">
+            <!-- VİDEO YENİDEN EKLENDİ (EKRANA-TIKLAMA.MP4 KUSURSUZ TASARIMLA) -->
+            <div class="flex justify-center -mt-24 md:-mt-28 mb-4 relative z-20">
+                <div class="w-36 h-36 md:w-44 md:h-44 aspect-square rounded-2xl bg-white overflow-hidden flex items-center justify-center border-4 border-white" 
+                     style="box-shadow: 0 0 0 4px rgba(255,255,255,0.6), 0 0 0 8px rgba(255,255,255,0.3), 0 15px 30px rgba(0,0,0,0.4);">
+                    <video src="assets/ekrana-tiklama.mp4" playsinline loop muted autoplay class="w-full h-full object-cover scale-[1.3] -translate-y-4 origin-top"></video>
                 </div>
             </div>
 
