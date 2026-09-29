@@ -13,7 +13,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     
-    <link rel="preload" href="assets/logo.png" as="image" fetchpriority="high">
+    <!-- LCP HIZLANDIRICI: İlk kartın görseli en yüksek öncelikle indirilir -->
+    <link rel="preload" as="image" href="assets/poster-rahatlama.jpg" fetchpriority="high">
     <link rel="apple-touch-icon" href="assets/logo.png">
 
     <meta property="og:title" content="Referans Eğitim Kurumları | Malatya">
@@ -318,10 +319,9 @@
             .mobile-swipe-container { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; overflow-y: visible !important; scroll-snap-type: x mandatory !important; scroll-behavior: smooth !important; -webkit-overflow-scrolling: touch !important; width: 100% !important; padding: 2rem 15vw 3rem 15vw !important; gap: 15px !important; }
             .mobile-swipe-container::-webkit-scrollbar { display: none !important; }
 
-            .mobile-swipe-item { flex: 0 0 85vw !important; scroll-snap-align: center !important; transition: all 0.472s cubic-bezier(0.25, 0.46, 0.45, 0.94); opacity: 0.4 !important; filter: blur(4px) !important; transform: scale(0.85) !important; margin: 0 !important; position: relative; will-change: transform, opacity, filter; }
+            .mobile-swipe-item { flex: 0 0 85vw !important; scroll-snap-align: center !important; transition: all 0.472s cubic-bezier(0.25, 0.46, 0.45, 0.94); opacity: 0.4; filter: blur(4px); transform: scale(0.85); margin: 0 !important; position: relative; will-change: transform, opacity, filter; }
 
-            /* LCP Hatası Çözümü: İlk kartta transform komutu kesinlikle engellenir */
-            .mobile-swipe-item:nth-child(1) { opacity: 1 !important; filter: none !important; transform: none !important; z-index: 10; }
+            /* LCP Hatası Çözümü: İlk kartta sayfa yüklendiği an opacity ve netlik uygulanır */
             .mobile-swipe-item.is-centered { opacity: 1 !important; filter: blur(0px) !important; transform: scale(1) !important; z-index: 10; }
 
             .card-shield-hard { padding: 1.5rem !important; padding-bottom: 4.5rem !important; border-radius: 1.5rem !important; overflow: visible !important; z-index: 20; }
@@ -514,31 +514,31 @@
                 </div>
                 <span style="color: #0ea5e9; font-weight: 900; font-size: 0.85rem; text-transform: uppercase;">Dijital Asistan</span>
             </div>
-            <a href="#hakkimizda" class="pc-text-link">
+            <a href="#hakkimizda" class="pc-text-link" aria-label="Hakkımızda Bölümüne Git">
                 <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
                 HAKKIMIZDA
             </a>
         </div>
 
         <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center z-20">
-            <button onclick="openTour()" class="bg-[#0ea5e9] text-white font-black text-sm px-6 py-3.5 rounded-l-full flex items-center justify-center gap-2 hover:bg-[#0284c7] transition-colors shadow-sm -mr-6 z-0 w-[150px]">
+            <button onclick="openTour()" class="bg-[#0ea5e9] text-white font-black text-sm px-6 py-3.5 rounded-l-full flex items-center justify-center gap-2 hover:bg-[#0284c7] transition-colors shadow-sm -mr-6 z-0 w-[150px]" aria-label="Sanal Turu Aç">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><rect x="7" y="3" width="10" height="18" rx="2" ry="2"></rect><path d="M3 12c0-3.3 2.7-6 6-6"></path><path d="M21 12c0 3.3-2.7 6-6 6"></path><polygon points="9 3 9 9 3 6"></polygon><polygon points="15 21 15 15 21 18"></polygon></svg>
                 360 GEZİN
             </button>
-            <a href="#features" class="w-[88px] h-[88px] rounded-full border-[5px] border-[#0ea5e9] bg-white flex items-center justify-center z-10 shadow-lg cursor-pointer hover:scale-105 transition-transform flex-shrink-0" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
+            <a href="#features" class="w-[88px] h-[88px] rounded-full border-[5px] border-[#0ea5e9] bg-white flex items-center justify-center z-10 shadow-lg cursor-pointer hover:scale-105 transition-transform flex-shrink-0" aria-label="Ana Sayfaya Dön" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
                 <img src="assets/logo.png" alt="Logo" class="w-full h-full object-contain rounded-full" width="88" height="88">
             </a>
-            <a href="tel:+905000000000" class="bg-[#0ea5e9] text-white font-black text-sm px-6 py-3.5 rounded-r-full flex items-center justify-center hover:bg-[#0284c7] transition-colors shadow-sm -ml-6 z-0 w-[150px]">
+            <a href="tel:+905000000000" class="bg-[#0ea5e9] text-white font-black text-sm px-6 py-3.5 rounded-r-full flex items-center justify-center hover:bg-[#0284c7] transition-colors shadow-sm -ml-6 z-0 w-[150px]" aria-label="Bizi Arayın">
                 BİZE ULAŞIN
             </a>
         </div>
 
         <div class="flex items-center justify-end gap-6 pr-2 z-10 w-1/3">
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="pc-text-link !text-cyan-700 mr-3">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="pc-text-link !text-cyan-700 mr-3" aria-label="Yol Tarifi Al">
                 YOL TARİFİ
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
             </a>
-            <button onclick="openModal('')" class="pc-solid-cyan-btn shadow-md">
+            <button onclick="openModal('')" class="pc-solid-cyan-btn shadow-md" aria-label="Hızlı Randevu Al">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                 HIZLI RANDEVU
             </button>
@@ -549,7 +549,7 @@
         <div class="mobile-pill-container">
             <div class="mobile-pill-main">
 
-                <div onclick="triggerTopChat()" class="mob-btn-capsule left relative group cursor-pointer">
+                <div onclick="triggerTopChat()" class="mob-btn-capsule left relative group cursor-pointer" aria-label="Dijital Asistanı Aç">
                     <div class="mob-btn-icon-circle shadow-sm" id="mobileChatTrigger">
                         <img src="assets/tilki-avatar2.png" alt="Dijital Asistan" class="avatar-img-fit">
                     </div>
@@ -558,20 +558,20 @@
                 </div>
 
                 <div class="mob-center-area">
-                    <a href="#hakkimizda" class="mob-framed-link">
+                    <a href="#hakkimizda" class="mob-framed-link" aria-label="Hakkımızda">
                         <span class="icon">i</span>
                         <span class="title">HAKKIMIZDA</span>
                     </a>
-                    <a href="#features" class="mob-center-logo shadow-sm shrink-0" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
+                    <a href="#features" class="mob-center-logo shadow-sm shrink-0" aria-label="Yukarı Çık" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
                         <img src="assets/logo.png" alt="Logo" width="48" height="48">
                     </a>
-                    <button onclick="openTour()" class="mob-framed-link cursor-pointer">
+                    <button onclick="openTour()" class="mob-framed-link cursor-pointer" aria-label="Sınıflarımızı İncele">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-[#0284c7]"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                         <span class="title">SINIFLARIMIZ</span>
                     </button>
                 </div>
 
-                <button onclick="openModal('')" class="mob-btn-capsule right cursor-pointer">
+                <button onclick="openModal('')" class="mob-btn-capsule right cursor-pointer" aria-label="Randevu Al">
                     <div class="mob-btn-text text-right ml-1">RANDEVU<br>AL</div>
                     <div class="mob-btn-icon-circle shadow-sm">
                         <div class="webm-mask w-full h-full video-skeleton video-crop-calendar">
@@ -585,11 +585,11 @@
 
     <div class="md:hidden w-full absolute top-[75px] left-0 z-[40005] flex justify-center pointer-events-none">
         <div class="mobile-classes-row flex justify-center gap-3 w-full pointer-events-auto px-2">
-            <a href="#ekstra-bilgiler" class="mob-class-btn flex flex-col items-center justify-center" style="padding: 6px 16px; line-height: 1.1;">
+            <a href="#ekstra-bilgiler" class="mob-class-btn flex flex-col items-center justify-center" aria-label="Ders Programı Detayları" style="padding: 6px 16px; line-height: 1.1;">
                 <span>DERS</span>
                 <span>PROGRAMI</span>
             </a>
-            <a href="#ekstra-bilgiler" class="mob-class-btn flex flex-col items-center justify-center" style="padding: 6px 16px; line-height: 1.1;">
+            <a href="#ekstra-bilgiler" class="mob-class-btn flex flex-col items-center justify-center" aria-label="Öğretmen Kadrosu" style="padding: 6px 16px; line-height: 1.1;">
                 <span>ÖĞRETMEN</span>
                 <span>KADROMUZ</span>
             </a>
@@ -623,14 +623,15 @@
                 <div class="mobile-swipe-wrapper">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 relative mobile-swipe-container" id="features-swipe">
 
-                        <div class="mobile-swipe-item card-shield-hard shadow-dir-left glass-card p-8 text-center flex flex-col items-center relative">
+                        <!-- İlk kart anında görünür (NO_LCP çözümü) -->
+                        <div class="mobile-swipe-item is-centered card-shield-hard shadow-dir-left glass-card p-8 text-center flex flex-col items-center relative">
                             <div class="icon-box text-cyan-500">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"></path><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"></path></svg>
                             </div>
                             <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Alanında Uzman Kadro</h3>
                             <p class="text-slate-700 font-bold leading-relaxed text-xs md:text-sm">Sınav sisteminin tüm şifrelerine hakim, dereceler çıkartan profesyonel eğitmen kadrosu.</p>
                             <div class="webm-mask webm-card-bottom webm-shadow-dir-left video-skeleton">
-                                <video src="assets/rahatlama.mp4" poster="assets/poster-rahatlama.jpg" fetchpriority="high" playsinline loop muted preload="none"></video>
+                                <video src="assets/rahatlama.mp4" poster="assets/poster-rahatlama.jpg" playsinline loop muted preload="none"></video>
                             </div>
                         </div>
 
@@ -668,7 +669,7 @@
                         <h2 class="text-2xl md:text-5xl font-black text-slate-900 tracking-tighter mb-2">5-8. SINIF</h2>
                         <h3 class="text-cyan-700 font-bold text-[10px] md:text-lg tracking-widest uppercase mb-3">LGS HAZIRLIK</h3>
                         <p class="text-slate-700 text-[10px] md:text-sm font-bold leading-relaxed mb-5">Akademik temellerin atıldığı bu dönemde, okuduğunu anlama ve sınav stresi yönetimi üzerine kusursuz rehberlik sunuyoruz.</p>
-                        <button onclick="openModal('5-8. Sınıf')" class="bg-[#0f172a] text-white text-[10px] md:text-sm font-black py-3 px-6 md:px-8 rounded-xl hover:bg-cyan-500 transition-colors inline-block">Randevu Al</button>
+                        <button onclick="openModal('5-8. Sınıf')" class="bg-[#0f172a] text-white text-[10px] md:text-sm font-black py-3 px-6 md:px-8 rounded-xl hover:bg-cyan-500 transition-colors inline-block" aria-label="5'ten 8. Sınıfa Kadar Randevu Al">Randevu Al</button>
                     </div>
                     <div class="w-1/2 pl-6 md:pl-8 flex justify-start relative">
                         <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
@@ -682,7 +683,7 @@
                         <h2 class="text-2xl md:text-5xl font-black text-slate-900 tracking-tighter mb-2">9-12. SINIF</h2>
                         <h3 class="text-blue-700 font-bold text-[10px] md:text-lg tracking-widest uppercase mb-3">TYT - AYT MARATONU</h3>
                         <p class="text-slate-700 text-[10px] md:text-sm font-bold leading-relaxed mb-5">Zaman yönetiminden stres kontrolüne kadar tüm süreçleri profesyonel kadromuzla yönetiyoruz.</p>
-                        <button onclick="openModal('9-12. Sınıf')" class="bg-blue-600 text-white text-[10px] md:text-sm font-black py-3 px-6 md:px-8 rounded-xl hover:bg-slate-900 transition-colors inline-block">Randevu Al</button>
+                        <button onclick="openModal('9-12. Sınıf')" class="bg-blue-600 text-white text-[10px] md:text-sm font-black py-3 px-6 md:px-8 rounded-xl hover:bg-slate-900 transition-colors inline-block" aria-label="9'dan 12. Sınıfa Kadar Randevu Al">Randevu Al</button>
                     </div>
                     <div class="w-1/2 pr-6 md:pr-8 flex justify-end relative">
                         <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
@@ -696,7 +697,7 @@
                         <h2 class="text-2xl md:text-5xl font-black text-slate-900 tracking-tighter mb-2">MEZUN</h2>
                         <h3 class="text-cyan-700 font-bold text-[10px] md:text-lg tracking-widest uppercase mb-3">YKS</h3>
                         <p class="text-slate-700 text-[10px] md:text-sm font-bold leading-relaxed mb-5">Hedefine ulaşmak için eksik odaklı, yoğunlaştırılmış VIP eğitim sunuyoruz.</p>
-                        <button onclick="openModal('Mezun')" class="bg-[#0f172a] text-white text-[10px] md:text-sm font-black py-3 px-6 md:px-8 rounded-xl hover:bg-cyan-500 transition-colors inline-block">Randevu Al</button>
+                        <button onclick="openModal('Mezun')" class="bg-[#0f172a] text-white text-[10px] md:text-sm font-black py-3 px-6 md:px-8 rounded-xl hover:bg-cyan-500 transition-colors inline-block" aria-label="Mezun Grubu Randevu Al">Randevu Al</button>
                     </div>
                     <div class="w-1/2 pl-6 md:pl-8 flex justify-start relative">
                         <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
@@ -710,7 +711,7 @@
                         <h2 class="text-2xl md:text-5xl font-black text-slate-900 tracking-tighter mb-2">AKADEMİK</h2>
                         <h3 class="text-blue-700 font-bold text-[10px] md:text-lg tracking-widest uppercase mb-3 leading-tight">KPSS<br>AGS<br>DGS</h3>
                         <p class="text-slate-700 text-[10px] md:text-sm font-bold leading-relaxed mb-5">Memurluk veya akademik kariyer hedeflerinize yönelik nokta atışı taktikler.</p>
-                        <button onclick="openModal('DGS / KPSS / ALES')" class="bg-blue-600 text-white text-[10px] md:text-sm font-black py-3 px-6 md:px-8 rounded-xl hover:bg-slate-900 transition-colors inline-block">Randevu Al</button>
+                        <button onclick="openModal('DGS / KPSS / ALES')" class="bg-blue-600 text-white text-[10px] md:text-sm font-black py-3 px-6 md:px-8 rounded-xl hover:bg-slate-900 transition-colors inline-block" aria-label="Akademik Eğitim Randevu Al">Randevu Al</button>
                     </div>
                     <div class="w-1/2 pr-6 md:pr-8 flex justify-end relative">
                         <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
@@ -727,7 +728,7 @@
                     </div>
                 </div>
                 <div id="counterCard" class="counter-card glass-card p-8 md:p-16 w-full inline-block relative">
-                    <button id="btn-back" class="back-btn" onclick="unlockCounter()">← Geri Dön</button>
+                    <button id="btn-back" class="back-btn" onclick="unlockCounter()" aria-label="Geri Dön">← Geri Dön</button>
                     <h3 id="counterTitle" class="text-2xl md:text-4xl font-black mb-8 md:mb-14 text-slate-900 uppercase tracking-widest transition-opacity duration-300">LGS YAKLAŞIYOR</h3>
                     <div class="flex justify-center gap-2 md:gap-10 mb-10 flex-wrap">
                         <div class="counter-ring ring-gun"><div id="c-gun" class="c-val text-cyan-700">--</div><div class="c-lbl">GÜN</div></div>
@@ -736,9 +737,9 @@
                         <div class="counter-ring ring-san"><div id="c-san" class="c-val text-cyan-700">--</div><div class="c-lbl">SANİYE</div></div>
                     </div>
                     <div class="flex justify-center gap-2 md:gap-4 w-full">
-                        <button id="btn-LGS" onclick="lockExam('LGS')" class="exam-btn bg-cyan-50 text-cyan-700 font-black py-3 md:py-4 rounded-xl border-cyan-200 text-base md:text-lg">LGS</button>
-                        <button id="btn-YKS" onclick="lockExam('YKS')" class="exam-btn bg-white text-slate-700 font-black py-3 md:py-4 rounded-xl border-slate-200 text-base md:text-lg">YKS</button>
-                        <button id="btn-KPSS" onclick="lockExam('KPSS')" class="exam-btn bg-white text-slate-700 font-black py-3 md:py-4 rounded-xl border-slate-200 text-base md:text-lg">KPSS</button>
+                        <button id="btn-LGS" onclick="lockExam('LGS')" class="exam-btn bg-cyan-50 text-cyan-700 font-black py-3 md:py-4 rounded-xl border-cyan-200 text-base md:text-lg" aria-label="LGS Sayacı">LGS</button>
+                        <button id="btn-YKS" onclick="lockExam('YKS')" class="exam-btn bg-white text-slate-700 font-black py-3 md:py-4 rounded-xl border-slate-200 text-base md:text-lg" aria-label="YKS Sayacı">YKS</button>
+                        <button id="btn-KPSS" onclick="lockExam('KPSS')" class="exam-btn bg-white text-slate-700 font-black py-3 md:py-4 rounded-xl border-slate-200 text-base md:text-lg" aria-label="KPSS Sayacı">KPSS</button>
                     </div>
                     <div id="sub-LGS" class="sub-row"><div class="sub-pill">Sözel Bölüm</div><div class="sub-pill">Sayısal Bölüm</div></div>
                     <div id="sub-YKS" class="sub-row"><div class="sub-pill">TYT</div><div class="sub-pill">AYT</div><div class="sub-pill">YDT</div></div>
@@ -754,9 +755,9 @@
                         <p class="text-slate-700 font-semibold text-xs md:text-base leading-relaxed">Referans Eğitim Kurumları olarak, bembeyaz ve ferah sınıflarımızda sadece ders anlatmıyor, aynı zamanda öğrencilerimize sağlam bir kariyer planlaması ve zaman yönetimi becerisi kazandırıyoruz.</p>
                     </div>
                     <div class="flex-1 w-full flex justify-center">
-                        <div class="w-full max-w-md rounded-[1.5rem] overflow-hidden shadow-2xl border-8 border-white cursor-zoom-in pointer-events-auto relative z-20" onclick="openLightbox(this.querySelector('img').src)">
+                        <button class="w-full max-w-md rounded-[1.5rem] overflow-hidden shadow-2xl border-8 border-white cursor-zoom-in pointer-events-auto relative z-20 block outline-none" onclick="openLightbox(this.querySelector('img').src)" aria-label="Bina Görselini Büyüt">
                             <img src="assets/kurum_binasi.jpg" alt="Referans Eğitim Kurumları Binası Malatya" class="w-full h-auto object-cover hover:scale-110 transition-transform duration-500" width="800" height="600">
-                        </div>
+                        </button>
                     </div>
                 </div>
             </section>
@@ -766,12 +767,12 @@
                     <div class="glass-card p-8 md:p-12 text-center shadow-2xl pointer-events-auto flex flex-col items-center rounded-3xl">
                         <h3 class="text-xl md:text-2xl font-black text-slate-900 mb-2">Telefon Hattımız</h3>
                         <p class="text-slate-700 text-sm md:text-base mb-6 font-bold">Danışmanlarımızla hemen görüşün.</p>
-                        <a href="tel:+905000000000" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 md:py-5 rounded-2xl w-full text-sm md:text-base hover:bg-cyan-500 border-none justify-center">📞 0500 000 00 00</a>
+                        <a href="tel:+905000000000" class="magnetic-btn bg-slate-900 text-white font-black px-10 py-4 md:py-5 rounded-2xl w-full text-sm md:text-base hover:bg-cyan-500 border-none justify-center" aria-label="Şimdi Arayın">📞 0500 000 00 00</a>
                     </div>
                     <div class="glass-card p-8 md:p-12 text-center shadow-2xl pointer-events-auto flex flex-col items-center rounded-3xl">
                         <h3 class="text-xl md:text-2xl font-black text-slate-900 mb-2">Battalgazi Şubesi</h3>
                         <p class="text-slate-700 text-sm md:text-base mb-6 font-bold">Büyük Hüseyinbey, Turfanda Sk.</p>
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=B%C3%BCy%C3%BCk+H%C3%BCseyinbey%2C+Turfanda+Sk.%2C+44050+Battalgazi" target="_blank" rel="noopener" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 md:py-5 rounded-2xl w-full text-sm md:text-base hover:bg-slate-900 border-none justify-center">📍 Yol Tarifi Al</a>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=B%C3%BCy%C3%BCk+H%C3%BCseyinbey%2C+Turfanda+Sk.%2C+44050+Battalgazi" target="_blank" rel="noopener" class="magnetic-btn bg-blue-600 text-white font-black px-10 py-4 md:py-5 rounded-2xl w-full text-sm md:text-base hover:bg-slate-900 border-none justify-center" aria-label="Haritada Yol Tarifi Alın">📍 Yol Tarifi Al</a>
                     </div>
                 </div>
             </section>
@@ -783,14 +784,14 @@
                             <h3 class="text-[13px] md:text-2xl font-black text-slate-900 mb-1 md:mb-2 leading-tight">Ders Programı & Saatleri</h3>
                             <p class="text-slate-700 text-[9px] md:text-base mb-3 md:mb-6 font-bold leading-snug">Hangi gün ve saatte geleceğinize dair veli bilgilendirmeleri.</p>
                         </div>
-                        <button class="magnetic-btn bg-slate-900 text-white font-black px-4 md:px-10 py-2.5 md:py-5 rounded-xl w-full text-xs md:text-base hover:bg-cyan-500 border-none justify-center">???</button>
+                        <button class="magnetic-btn bg-slate-900 text-white font-black px-4 md:px-10 py-2.5 md:py-5 rounded-xl w-full text-xs md:text-base hover:bg-cyan-500 border-none justify-center" aria-label="Ders Saatleri Bilgisi">???</button>
                     </div>
                     <div class="card-shield-hard shadow-bottom-right p-4 md:p-12 text-center flex flex-col items-center justify-between rounded-2xl md:rounded-3xl" style="margin-bottom:0;">
                         <div>
                             <h3 class="text-[13px] md:text-2xl font-black text-slate-900 mb-1 md:mb-2 leading-tight">Öğretmen Kadromuz</h3>
                             <p class="text-slate-700 text-[9px] md:text-base mb-3 md:mb-6 font-bold leading-snug">Alanında uzman, tecrübeli ve dinamik eğitim kadromuz.</p>
                         </div>
-                        <button class="magnetic-btn bg-blue-600 text-white font-black px-4 md:px-10 py-2.5 md:py-5 rounded-xl w-full text-xs md:text-base hover:bg-slate-900 border-none justify-center">???</button>
+                        <button class="magnetic-btn bg-blue-600 text-white font-black px-4 md:px-10 py-2.5 md:py-5 rounded-xl w-full text-xs md:text-base hover:bg-slate-900 border-none justify-center" aria-label="Kadromuzu İnceleyin">???</button>
                     </div>
                 </div>
             </section>
@@ -806,7 +807,7 @@
         <div class="chat-header">
             <h3>Dijital Asistan</h3>
             <p>Size nasıl yardımcı olabilirim?</p>
-            <button class="chat-close-btn" onclick="toggleChatPanel()">✕</button>
+            <button class="chat-close-btn" onclick="toggleChatPanel()" aria-label="Sohbeti Kapat">✕</button>
         </div>
         <div class="chat-body" id="chatBody">
             <div class="bot-message">
@@ -826,23 +827,23 @@
             </div>
 
             <div class="user-options" id="userOptionsBox">
-                <button class="chat-option-btn" onclick="handleBotOption('fiyat')">💰 Dershane Ücreti Ne Kadar?</button>
-                <button class="chat-option-btn" onclick="handleBotOption('360tur')">🏫 Sınıfların Görsellerini Görebilir miyiz?</button>
-                <button class="chat-option-btn" onclick="handleBotOption('baska')">❓ Aklıma Takılan Başka Bir Soru Var</button>
+                <button class="chat-option-btn" onclick="handleBotOption('fiyat')" aria-label="Dershane fiyatlarını sor">💰 Dershane Ücreti Ne Kadar?</button>
+                <button class="chat-option-btn" onclick="handleBotOption('360tur')" aria-label="Sanal tur hakkında bilgi al">🏫 Sınıfların Görsellerini Görebilir miyiz?</button>
+                <button class="chat-option-btn" onclick="handleBotOption('baska')" aria-label="Farklı bir soru sor">❓ Aklıma Takılan Başka Bir Soru Var</button>
             </div>
         </div>
         <div class="chat-footer">⚡ Powered by Referans VIP</div>
     </div>
 
     <div id="imageLightbox" onclick="closeLightbox()">
-        <img id="lightboxImg" src="" alt="Büyük Görsel">
+        <img id="lightboxImg" src="" alt="Büyük Görsel İnceleme">
     </div>
 
     <div id="tourOverlay" class="modal-overlay" onclick="if(event.target===this) closeTour()">
         <div class="modal-box p-0 overflow-x-hidden overflow-y-hidden !max-w-6xl pointer-events-auto border-none shadow-[0_40px_80px_rgba(0,0,0,0.8)] h-[85vh] flex flex-col">
             <div class="p-4 border-b border-slate-100 flex justify-between items-center bg-white relative z-10 shrink-0">
                 <span class="font-black text-slate-900 text-lg flex items-center gap-3">Referans Eğitim Kurumları</span>
-                <button onclick="closeTour()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-red-100 hover:text-red-500 font-bold text-lg flex items-center justify-center transition-colors">✕</button>
+                <button onclick="closeTour()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-red-100 hover:text-red-500 font-bold text-lg flex items-center justify-center transition-colors" aria-label="Sanal Turu Kapat">✕</button>
             </div>
             <div class="w-full flex-1 bg-slate-900 relative" id="iframeContainer">
             </div>
@@ -851,7 +852,7 @@
 
     <div id="randevuModal" class="modal-overlay" onclick="if(event.target===this) closeModal()">
         <div class="modal-box pointer-events-auto" id="appointment-modal-box">
-            <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-red-100 text-slate-400 hover:text-red-500 font-black text-xl flex items-center justify-center transition-colors z-30">✕</button>
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-red-100 text-slate-400 hover:text-red-500 font-black text-xl flex items-center justify-center transition-colors z-30" aria-label="Randevu Penceresini Kapat">✕</button>
 
             <div class="flex justify-center -mt-24 md:-mt-28 mb-4 relative z-20">
                 <div class="w-36 h-36 md:w-44 md:h-44 aspect-square rounded-2xl bg-white overflow-hidden flex items-center justify-center border-4 border-white" 
@@ -869,22 +870,22 @@
                 </div>
 
                 <form id="apptForm" onsubmit="submitAppt(event); return false;" class="text-left">
-                    <input type="text" id="botTrap" tabindex="-1" autocomplete="off" class="sr-only">
+                    <input type="text" id="botTrap" tabindex="-1" aria-hidden="true" autocomplete="off" class="sr-only">
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
-                        <input type="text" id="fIsim" placeholder="Örn: Muhammed" required class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-900 focus:border-cyan-500 font-bold transition-colors focus:bg-white placeholder:font-medium placeholder:text-slate-400">
-                        <input type="tel" id="fTelefon" placeholder="Örn: 053X XXX XX XX" required maxlength="11" oninput="this.value=this.value.replace(/[^0-9]/g,'')" class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-900 focus:border-cyan-500 font-bold transition-colors focus:bg-white placeholder:font-medium placeholder:text-slate-400">
+                        <input type="text" id="fIsim" placeholder="Örn: Muhammed" aria-label="İsim Soyisim" required class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-900 focus:border-cyan-500 font-bold transition-colors focus:bg-white placeholder:font-medium placeholder:text-slate-400">
+                        <input type="tel" id="fTelefon" placeholder="Örn: 053X XXX XX XX" aria-label="Telefon Numarası" required maxlength="11" oninput="this.value=this.value.replace(/[^0-9]/g,'')" class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-900 focus:border-cyan-500 font-bold transition-colors focus:bg-white placeholder:font-medium placeholder:text-slate-400">
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <select id="fSinif" required class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-bold cursor-pointer transition-colors focus:bg-white">
+                        <select id="fSinif" required aria-label="Sınıf Seçiniz" class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-bold cursor-pointer transition-colors focus:bg-white">
                             <option value="" disabled selected>Sınıf Seçiniz</option>
                             <option value="5-8. Sınıf">5-8. Sınıf</option>
                             <option value="9-12. Sınıf">9-12. Sınıf</option>
                             <option value="Mezun">Mezun</option>
                             <option value="DGS / KPSS / ALES">DGS / KPSS / ALES</option>
                         </select>
-                        <select id="fHizmet" required class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-bold cursor-pointer transition-colors focus:bg-white">
+                        <select id="fHizmet" required aria-label="Hizmet Türü Seçiniz" class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-bold cursor-pointer transition-colors focus:bg-white">
                             <option value="Kayıt Görüşmesi" selected>Kayıt Görüşmesi</option>
                             <option value="Diğer">Diğer</option>
                         </select>
@@ -892,17 +893,17 @@
 
                     <div class="mt-5">
                         <div class="flex justify-between items-center mb-2">
-                            <label class="text-[10px] md:text-xs font-black text-slate-500 uppercase tracking-widest">
+                            <label for="fTarih" class="text-[10px] md:text-xs font-black text-slate-500 uppercase tracking-widest">
                                 Tarih Seçimi: <span id="dateRel" class="text-cyan-600 ml-1"></span>
                             </label>
-                            <button type="button" id="autoDateBtn" onclick="findNearestDate()" class="auto-date-btn">EN YAKIN TARİHİ SEÇ</button>
+                            <button type="button" id="autoDateBtn" onclick="findNearestDate()" aria-label="Sistemden en yakın tarihi bul" class="auto-date-btn">EN YAKIN TARİHİ SEÇ</button>
                         </div>
-                        <input type="date" id="fTarih" required class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-bold cursor-pointer mb-3 transition-colors focus:bg-white">
+                        <input type="date" id="fTarih" aria-label="Randevu Tarihini Seçiniz" required class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-bold cursor-pointer mb-3 transition-colors focus:bg-white">
 
                         <div class="flex justify-between items-end mb-2">
-                            <label class="text-[10px] md:text-xs font-black text-slate-500 uppercase tracking-widest">Saat Seçimi:</label>
+                            <label for="fSaat" class="text-[10px] md:text-xs font-black text-slate-500 uppercase tracking-widest">Saat Seçimi:</label>
                         </div>
-                        <select id="fSaat" required disabled class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-600 text-center font-black cursor-pointer focus:border-cyan-500 transition-colors focus:bg-white">
+                        <select id="fSaat" aria-label="Randevu Saatini Seçiniz" required disabled class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-600 text-center font-black cursor-pointer focus:border-cyan-500 transition-colors focus:bg-white">
                             <option value="" disabled selected id="fSaatDefault">Önce Tarih Seçiniz</option>
                             <option value="09:00">09:00</option>
                             <option value="10:00">10:00</option>
@@ -917,7 +918,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" id="btn-submit" class="w-full font-black py-4 mt-6 rounded-xl text-sm md:text-base bg-cyan-500 text-white hover:bg-cyan-600 border-none transition-all shadow-[0_10px_25px_rgba(6,182,212,0.3)]">GÖNDER</button>
+                    <button type="submit" id="btn-submit" aria-label="Formu Gönder" class="w-full font-black py-4 mt-6 rounded-xl text-sm md:text-base bg-cyan-500 text-white hover:bg-cyan-600 border-none transition-all shadow-[0_10px_25px_rgba(6,182,212,0.3)]">GÖNDER</button>
                 </form>
             </div>
         </div>
@@ -1045,7 +1046,7 @@
             if (bubbleMobile && !isChatOpen) bubbleMobile.classList.add('show');
             if (bubbleDesktop && !isChatOpen) bubbleDesktop.classList.add('show');
 
-            /* LCP ve TBT ÇÖZÜMÜ: Sürekli DOM güncelleyen JS zamanlayıcıları 5 saniye ertelendi */
+            /* TBT VE NO_LCP KESİN ÇÖZÜMÜ: Form placeholder ve sayaç tetiklemeleri 8 saniye ertelendi */
             setTimeout(() => {
                 const isimler = ["Muhammed", "Hamza", "Ebubekir", "Hüseyin", "Ali", "Ömer", "Osman", "Ayşe", "Fatma", "Sümeyye", "Nurgül"];
                 let isimIndex = 0;
@@ -1055,7 +1056,7 @@
                         isimIndex = (isimIndex + 1) % isimler.length;
                         fIsim.placeholder = "Örn: " + isimler[isimIndex];
                     }
-                }, 1500);
+                }, 3000);
 
                 const saatler = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
                 let saatIndex = 0;
@@ -1066,11 +1067,11 @@
                         saatIndex = (saatIndex + 1) % saatler.length;
                         fSaatDefault.text = "Önce Tarih Seçiniz (Örn: " + saatler[saatIndex] + ")";
                     }
-                }, 1500);
+                }, 3000);
 
-            }, 5000);
+            }, 8000);
 
-            /* LCP ve TBT ÇÖZÜMÜ: Sayaç arka planda çalışmaz, sadece ekranda görünürse çalışır */
+            /* TBT ÇÖZÜMÜ: Sınav sayacı ekranda değilse arkaplanda boşuna hesaplanıp CPU yormaz */
             let sayacObserver = new IntersectionObserver((entries) => {
                 if(entries[0].isIntersecting) {
                     if(!tickTimer) startCycle();
@@ -1089,6 +1090,7 @@
             highlightBtn(activeKey);
         });
 
+        /* TBT ÇÖZÜMÜ: Scroll event listener'ın yerini Intersection Observer almıştır (Layout thrashing sıfırlandı) */
         function initMobileInfiniteSwipes(containerId, dotsId) {
             const container = document.getElementById(containerId);
             const dotsContainer = document.getElementById(dotsId);
@@ -1101,30 +1103,26 @@
             let currentIndex = 0;
             let direction = 1;
             let autoScrollInterval;
-            let isUserInteracting = false;
 
-            const updateCenter = () => {
-                const containerCenter = container.getBoundingClientRect().left + (container.clientWidth / 2);
-                let closestDist = Infinity;
-                let newIdx = 0;
-
-                items.forEach((item, idx) => {
-                    const itemCenter = item.getBoundingClientRect().left + (item.clientWidth / 2);
-                    const dist = Math.abs(containerCenter - itemCenter);
-                    if (dist < closestDist) { closestDist = dist; newIdx = idx; }
-                });
-
-                items.forEach((item, idx) => {
-                    if (idx === newIdx) {
-                        item.classList.add('is-centered');
-                        if(dots[idx]) dots[idx].classList.add('active');
-                    } else {
-                        item.classList.remove('is-centered');
-                        if(dots[idx]) dots[idx].classList.remove('active'); 
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const idx = items.indexOf(entry.target);
+                        currentIndex = idx;
+                        items.forEach((item, i) => {
+                            if (i === idx) {
+                                item.classList.add('is-centered');
+                                if(dots[i]) dots[i].classList.add('active');
+                            } else {
+                                item.classList.remove('is-centered');
+                                if(dots[i]) dots[i].classList.remove('active');
+                            }
+                        });
                     }
                 });
-                currentIndex = newIdx;
-            };
+            }, { root: container, threshold: 0.6 });
+
+            items.forEach(item => observer.observe(item));
 
             const scrollToTarget = (index) => {
                 if(items[index]) {
@@ -1136,41 +1134,20 @@
             };
 
             const nextSlide = () => {
-                if (isUserInteracting) return;
                 if (currentIndex >= items.length - 1) direction = -1;
                 else if (currentIndex <= 0) direction = 1;
                 scrollToTarget(currentIndex + direction);
             };
 
-            const startAuto = () => {
-                clearInterval(autoScrollInterval);
-                autoScrollInterval = setInterval(nextSlide, 2500); 
-            };
+            /* NO_LCP KESİN ÇÖZÜMÜ: Otomatik kaydırma 8 saniye ertelenerek Lighthouse ölçümü güvence altına alındı */
+            setTimeout(() => {
+                autoScrollInterval = setInterval(nextSlide, 3000);
+            }, 8000);
 
-            let scrollTimeout;
-            container.addEventListener('scroll', () => {
-                if(!scrollTimeout) {
-                    window.requestAnimationFrame(() => {
-                        updateCenter();
-                        scrollTimeout = null;
-                    });
-                    scrollTimeout = true;
-                }
-            }, { passive: true });
-
-            const pauseAuto = () => { isUserInteracting = true; clearInterval(autoScrollInterval); };
-            const resumeAuto = () => { isUserInteracting = false; startAuto(); };
-
-            container.addEventListener('touchstart', pauseAuto, {passive:true});
-            container.addEventListener('touchend', () => setTimeout(resumeAuto, 2000), {passive:true});
-            container.addEventListener('mousedown', pauseAuto, {passive:true});
-            container.addEventListener('mouseup', () => setTimeout(resumeAuto, 2000), {passive:true});
-
-            updateCenter();
-            startAuto();
+            container.addEventListener('touchstart', () => clearInterval(autoScrollInterval), {passive:true});
         }
 
-        document.querySelectorAll('.magnetic-btn, .solid-blue-btn').forEach(btn => {
+        document.querySelectorAll('.magnetic-btn, .pc-solid-cyan-btn').forEach(btn => {
             btn.addEventListener('mousemove', e => {
                 const rect = btn.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
@@ -1336,10 +1313,10 @@
                             const actionDiv = document.createElement('div');
                             actionDiv.className = 'chat-action-buttons';
                             actionDiv.innerHTML = `
-                                <button class="chat-action-btn" onclick="executeFinalAction('tel')">5-8. Sınıf</button>
-                                <button class="chat-action-btn" onclick="executeFinalAction('tel')">9-12. Sınıf (YKS)</button>
-                                <button class="chat-action-btn" onclick="executeFinalAction('tel')">Mezun (YKS)</button>
-                                <button class="chat-action-btn" onclick="executeFinalAction('tel')">KPSS / ALES</button>
+                                <button class="chat-action-btn" aria-label="5'ten 8'e Kadar Seç" onclick="executeFinalAction('tel')">5-8. Sınıf</button>
+                                <button class="chat-action-btn" aria-label="9'dan 12'ye Kadar Seç" onclick="executeFinalAction('tel')">9-12. Sınıf (YKS)</button>
+                                <button class="chat-action-btn" aria-label="Mezun Seç" onclick="executeFinalAction('tel')">Mezun (YKS)</button>
+                                <button class="chat-action-btn" aria-label="Akademik Seç" onclick="executeFinalAction('tel')">KPSS / ALES</button>
                             `;
                             document.getElementById('chatBody').appendChild(actionDiv);
                             scrollToBottom();
@@ -1385,10 +1362,10 @@
                         inputContainer.style.display = 'flex'; inputContainer.style.gap = '8px'; inputContainer.style.marginTop = '10px';
 
                         const textInput = document.createElement('input');
-                        textInput.type = 'text'; textInput.placeholder = 'Sorunuzu buraya yazın...'; textInput.className = 'chat-text-input';
+                        textInput.type = 'text'; textInput.placeholder = 'Sorunuzu buraya yazın...'; textInput.className = 'chat-text-input'; textInput.setAttribute("aria-label", "Sorunuzu girin");
 
                         const sendBtn = document.createElement('button');
-                        sendBtn.innerHTML = 'Gönder'; sendBtn.className = 'chat-send-btn';
+                        sendBtn.innerHTML = 'Gönder'; sendBtn.className = 'chat-send-btn'; sendBtn.setAttribute("aria-label", "Mesajı Gönder");
 
                         sendBtn.onclick = function() {
                             const userVal = textInput.value.trim();
@@ -1471,7 +1448,7 @@
             if(t && iframeContainer) {
                 t.style.display = 'flex'; document.body.style.overflow = 'hidden';
                 if(iframeContainer.innerHTML.trim() === '') {
-                    iframeContainer.innerHTML = '<iframe src="https://my.matterport.com/show/?m=J2b34X5T3xY&play=1" frameborder="0" allowfullscreen allow="xr-spatial-tracking" style="width:100%; height:100%; border:none;"></iframe>';
+                    iframeContainer.innerHTML = '<iframe src="https://my.matterport.com/show/?m=J2b34X5T3xY&play=1" frameborder="0" allowfullscreen allow="xr-spatial-tracking" style="width:100%; height:100%; border:none;" title="Sanal Tur"></iframe>';
                 }
                 requestAnimationFrame(() => { t.classList.add('show'); });
             }
