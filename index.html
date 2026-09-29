@@ -2,7 +2,6 @@
 <html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <!-- Yakınlaştırma (pinch-to-zoom) engeli kaldırıldı -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Referans Eğitim Kurumları | Malatya VIP Dershane</title>
     <meta name="description" content="Malatya'nın en iyi dershanesi. 5-8. Sınıf LGS, 9-12. Sınıf YKS ve Akademik (KPSS/DGS) hazırlığında VIP eğitim ve birebir uzman takip sistemi.">
@@ -26,11 +25,9 @@
     <link rel="canonical" href="https://www.referansegitim.com/">
     <link rel="icon" href="assets/logo.png" type="image/png">
 
-    <!-- CSS Kritik İstek Zinciri Optimizasyonu (Preload) -->
     <link rel="preload" href="assets/style.css" as="style">
     <link rel="stylesheet" href="assets/style.css">
 
-    <!-- Google Fonts Kritik İstek Optimizasyonu -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" as="style">
@@ -232,15 +229,17 @@
                 animation: bluePulse 2.95s infinite alternate; height: 42px;
             }
             .mob-btn-capsule:active { transform: scale(0.96); }
-            .mob-btn-capsule.left { padding: 0 10px 0 4px; gap: 4px; flex-shrink: 0; width: 105px; justify-content: flex-start; }
-            .mob-btn-capsule.right { padding: 0 4px 0 10px; gap: 4px; flex-shrink: 0; width: 105px; justify-content: flex-end; }
+            /* İsim Değişikliği İçin Genişlik Artırıldı */
+            .mob-btn-capsule.left { padding: 0 10px 0 4px; gap: 4px; flex-shrink: 0; width: 115px; justify-content: flex-start; }
+            .mob-btn-capsule.right { padding: 0 4px 0 10px; gap: 4px; flex-shrink: 0; width: 115px; justify-content: flex-end; }
 
             .mob-btn-icon-circle {
                 width: 36px; height: 36px; border-radius: 50%; border: 2px solid #0ea5e9;
                 background-color: white; display: flex; align-items: center; justify-content: center;
                 flex-shrink: 0; padding: 2px;
             }
-            .mob-btn-text { font-size: 0.65rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0.2px; color: #0f172a; }
+            /* Mavi Arka Planda Saf Beyaz (Parlayan Renk) */
+            .mob-btn-text { font-size: 0.65rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0.2px; color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.25); }
 
             #topChatBubbleMobile {
                 left: 25px !important; 
@@ -287,8 +286,8 @@
                 .mob-framed-link .icon { font-size: 0.85rem; }
                 .mob-framed-link span.title { font-size: 0.45rem; }
                 .mob-framed-link svg { width: 14px; height: 14px; }
-                .mob-btn-capsule.left { padding: 0 6px 0 3px; gap: 4px; width: 95px; }
-                .mob-btn-capsule.right { padding: 0 3px 0 6px; gap: 4px; width: 95px; }
+                .mob-btn-capsule.left { padding: 0 6px 0 3px; gap: 4px; width: 105px; }
+                .mob-btn-capsule.right { padding: 0 3px 0 6px; gap: 4px; width: 105px; }
             }
 
             .mobile-classes-wrapper {
@@ -527,11 +526,10 @@
         <div class="flex items-center gap-6 pl-2 z-10 w-1/3">
             <div onclick="triggerTopChat()" class="flex items-center gap-2 cursor-pointer mr-auto relative group" style="text-decoration: none;">
                 <div class="relative flex-shrink-0 bg-white" style="width: 44px; height: 44px; border-radius: 50%; border: 2.5px solid #0ea5e9; padding: 2px; transition: transform 0.3s ease; box-shadow: 0 4px 10px rgba(6,182,212,0.3);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    <!-- TİLKİ AVATARI -->
-                    <img src="assets/tilki-avatar2.png" alt="Canlı Destek" class="avatar-img-fit">
+                    <img src="assets/tilki-avatar2.png" alt="Dijital Asistan" class="avatar-img-fit">
                     <div class="smart-chat-bubble" id="topChatBubbleDesktop">Yardımcı Olabilirim 🦊</div>
                 </div>
-                <span style="color: #0ea5e9; font-weight: 900; font-size: 0.85rem; text-transform: uppercase;">Canlı Destek</span>
+                <span style="color: #0ea5e9; font-weight: 900; font-size: 0.85rem; text-transform: uppercase;">Dijital Asistan</span>
             </div>
             <a href="#hakkimizda" class="pc-text-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
@@ -573,10 +571,9 @@
 
                 <div onclick="triggerTopChat()" class="mob-btn-capsule left relative group cursor-pointer">
                     <div class="mob-btn-icon-circle shadow-sm" id="mobileChatTrigger">
-                        <!-- TİLKİ AVATARI MOBİL -->
-                        <img src="assets/tilki-avatar2.png" alt="Canlı Destek" class="avatar-img-fit">
+                        <img src="assets/tilki-avatar2.png" alt="Dijital Asistan" class="avatar-img-fit">
                     </div>
-                    <div class="mob-btn-text text-left mr-1">CANLI<br>DESTEK</div>
+                    <div class="mob-btn-text text-left mr-1">DİJİTAL<br>ASİSTAN</div>
                     <div class="smart-chat-bubble" id="topChatBubbleMobile">Yardımcı Olabilirim 🦊</div>
                 </div>
 
@@ -651,7 +648,7 @@
                         
                         <!-- SOL KART VE GÖLGE -->
                         <div class="mobile-swipe-item card-shield-hard shadow-dir-left glass-card p-8 text-center flex flex-col items-center relative">
-                            <div class="icon-box text-cyan-700">
+                            <div class="icon-box text-cyan-500">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"></path><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"></path></svg>
                             </div>
                             <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Alanında Uzman Kadro</h3>
@@ -663,7 +660,7 @@
                         
                         <!-- ORTA KART VE GÖLGE -->
                         <div class="mobile-swipe-item card-shield-hard shadow-dir-center glass-card p-8 text-center flex flex-col items-center relative">
-                            <div class="icon-box text-blue-700">
+                            <div class="icon-box text-blue-500">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
                             </div>
                             <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Birebir Takip</h3>
@@ -675,7 +672,7 @@
                         
                         <!-- SAĞ KART VE GÖLGE -->
                         <div class="mobile-swipe-item card-shield-hard shadow-dir-right glass-card p-8 text-center flex flex-col items-center relative">
-                            <div class="icon-box text-cyan-700">
+                            <div class="icon-box text-cyan-500">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
                             </div>
                             <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Deneme & Analiz</h3>
@@ -827,27 +824,27 @@
         </main>
     </div> 
 
-    <footer class="text-center py-8 md:py-12 border-t-2 border-slate-100 text-slate-600 text-xs md:text-base bg-white relative z-10 font-bold w-full">
+    <footer class="text-center py-8 md:py-12 pb-28 md:pb-12 border-t-2 border-slate-100 text-slate-600 text-xs md:text-base bg-white relative z-10 font-bold w-full">
         <p>© 2026 Referans Eğitim Kurumları. Tüm hakları saklıdır.</p>
     </footer>
 
     <div class="chat-panel" id="chatPanel">
         <div class="chat-header">
-            <h3>Canlı Destek</h3>
+            <h3>Dijital Asistan</h3>
             <p>Size nasıl yardımcı olabilirim?</p>
             <button class="chat-close-btn" onclick="toggleChatPanel()">✕</button>
         </div>
         <div class="chat-body" id="chatBody">
             <div class="bot-message">
                 <div class="bot-avatar">
-                    <img src="assets/tilki-avatar2.png" alt="Bot" class="avatar-img-fit">
+                    <img src="assets/tilki-avatar2.png" alt="Dijital Asistan">
                 </div>
                 <div class="bot-bubble">Merhaba! Ben Referans Tilki 🦊</div>
             </div>
 
             <div class="typing-indicator" id="typingIndicator">
                 <div class="bot-avatar">
-                    <img src="assets/tilki-avatar.png" alt="Bot" class="avatar-img-fit">
+                    <img src="assets/tilki-avatar.png" alt="Dijital Asistan">
                 </div>
                 <div style="display: flex; gap: 4px; padding: 12px 16px; background-color: #ffffff; border-radius: 16px 16px 16px 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); align-items: center;">
                     <div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>
