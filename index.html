@@ -109,9 +109,10 @@
         @keyframes skeletonLoading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
         .webm-mask { border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; transform: translateZ(0); will-change: transform; position: relative; background-color: transparent; aspect-ratio: 1/1; }
-        .webm-mask video { width: 100%; height: 100%; object-fit: cover; transform: translateZ(0); background-color: transparent; }
+        .webm-mask video { width: 100%; height: 100%; object-fit: cover; transform: translateZ(0); opacity: 0; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1); background-color: transparent; }
         .video-crop-9-12 video { object-position: center top !important; transform: scale(1.4) translateY(12%) translateZ(0) !important; }
         .video-crop-calendar video { object-position: center top !important; transform: scale(1.4) translateY(12%) translateZ(0) !important; }
+        .webm-mask video.loaded { opacity: 1; }
 
         .webm-card-bottom { position: absolute; bottom: -35px; left: 50%; transform: translateX(-50%) translateZ(0); width: 70px; height: 70px; border: 4px solid #ffffff; background-color: #f8fafc; z-index: 20; }
         .webm-egitim { width: 320px; height: 320px; border: 8px solid #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important; background-color: #ffffff; }
@@ -167,7 +168,7 @@
         .shadow-dir-left { box-shadow: -12px 12px 0px 0px #1e293b !important; border: 2px solid #f8fafc !important; }
         .shadow-dir-center { box-shadow: 0px 12px 0px 0px #1e293b !important; border: 2px solid #f8fafc !important; }
         .shadow-dir-right { box-shadow: 12px 12px 0px 0px #1e293b !important; border: 2px solid #f8fafc !important; }
-
+        
         .webm-shadow-dir-left { box-shadow: -10px 10px 0px 0px rgba(15, 23, 42, 0.9) !important; }
         .webm-shadow-dir-center { box-shadow: 0px 10px 0px 0px rgba(15, 23, 42, 0.9) !important; }
         .webm-shadow-dir-right { box-shadow: 10px 10px 0px 0px rgba(15, 23, 42, 0.9) !important; }
@@ -326,11 +327,14 @@
             .mobile-swipe-container { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; overflow-y: visible !important; scroll-snap-type: x mandatory !important; scroll-behavior: smooth !important; -webkit-overflow-scrolling: touch !important; width: 100% !important; padding: 2rem 15vw 3rem 15vw !important; gap: 15px !important; }
             .mobile-swipe-container::-webkit-scrollbar { display: none !important; }
 
-            .mobile-swipe-item { flex: 0 0 85vw !important; scroll-snap-align: center !important; transition: all 0.472s cubic-bezier(0.25, 0.46, 0.45, 0.94); transform: scale(0.85) !important; margin: 0 !important; position: relative; will-change: transform, opacity, filter; opacity: 0.4; filter: blur(4px); }
+            .mobile-swipe-item { flex: 0 0 85vw !important; scroll-snap-align: center !important; transition: all 0.472s cubic-bezier(0.25, 0.46, 0.45, 0.94); opacity: 0.4 !important; filter: blur(4px) !important; transform: scale(0.85) !important; margin: 0 !important; position: relative; will-change: transform, opacity, filter; }
+            
+            /* LCP Hatasını Çözen Netleşme: Kart anında %100 net görünür */
+            .mobile-swipe-item:nth-child(1) { opacity: 1 !important; filter: blur(0px) !important; transform: scale(1) !important; z-index: 10; }
             .mobile-swipe-item.is-centered { opacity: 1 !important; filter: blur(0px) !important; transform: scale(1) !important; z-index: 10; }
 
             .card-shield-hard { padding: 1.5rem !important; padding-bottom: 4.5rem !important; border-radius: 1.5rem !important; overflow: visible !important; z-index: 20; }
-
+            
             .icon-box { width: 28px !important; height: 28px !important; min-width: 28px !important; min-height: 28px !important; max-width: 28px !important; max-height: 28px !important; margin-bottom: 0.8rem !important; }
             .webm-card-bottom { width: 60px !important; height: 60px !important; bottom: -30px !important; border: 3px solid #ffffff !important; }
 
@@ -479,6 +483,7 @@
 </head>
 <body class="selection:bg-cyan-500 selection:text-white" id="main-body">
 
+    <!-- BAŞARI BİLDİRİMİ (TOAST) GÖRSELDEKİ VIP TASARIM -->
     <div id="success-notification" class="success-toast">
         <div class="icon">✓</div> 
         <div>
@@ -489,6 +494,7 @@
 
     <div class="progress-bar" id="progressBar"></div>
 
+    <!-- ÜST MENÜ HANGING NAV (PC) -->
     <div class="mega-bar-wrapper" id="megaBar">
         <nav class="hanging-nav hidden md:grid">
             <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-ust'">
@@ -510,11 +516,13 @@
         </nav>
     </div>
 
+    <!-- PC ÜST MENÜSÜ (GÖRSELDEKİ BİREBİR ORİJİNAL TASARIM) -->
     <nav class="pill-nav hidden md:flex" id="pillMenu">
+        <!-- Sol Grup -->
         <div class="flex items-center gap-6 pl-2 z-10 w-1/3">
             <div onclick="triggerTopChat()" class="flex items-center gap-2 cursor-pointer mr-auto relative group" style="text-decoration: none;">
                 <div class="relative flex-shrink-0 bg-white" style="width: 44px; height: 44px; border-radius: 50%; border: 2.5px solid #0ea5e9; padding: 2px; transition: transform 0.3s ease; box-shadow: 0 4px 10px rgba(6,182,212,0.3);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    <img src="assets/tilki-avatar2.png" alt="Dijital Asistan" class="avatar-img-fit" fetchpriority="high">
+                    <img src="assets/tilki-avatar2.png" alt="Dijital Asistan" class="avatar-img-fit">
                     <div class="smart-chat-bubble" id="topChatBubbleDesktop">Yardımcı Olabilirim 🦊</div>
                 </div>
                 <span style="color: #0ea5e9; font-weight: 900; font-size: 0.85rem; text-transform: uppercase;">Dijital Asistan</span>
@@ -525,19 +533,21 @@
             </a>
         </div>
 
+        <!-- Merkez Kesik (Cluster) Grup (360 Gezin - Logo - Bize Ulaşın) -->
         <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center z-20">
             <button onclick="openTour()" class="bg-[#0ea5e9] text-white font-black text-sm px-6 py-3.5 rounded-l-full flex items-center justify-center gap-2 hover:bg-[#0284c7] transition-colors shadow-sm -mr-6 z-0 w-[150px]">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><rect x="7" y="3" width="10" height="18" rx="2" ry="2"></rect><path d="M3 12c0-3.3 2.7-6 6-6"></path><path d="M21 12c0 3.3-2.7 6-6 6"></path><polygon points="9 3 9 9 3 6"></polygon><polygon points="15 21 15 15 21 18"></polygon></svg>
                 360 GEZİN
             </button>
             <a href="#features" class="w-[88px] h-[88px] rounded-full border-[5px] border-[#0ea5e9] bg-white flex items-center justify-center z-10 shadow-lg cursor-pointer hover:scale-105 transition-transform flex-shrink-0" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
-                <img src="assets/logo.png" alt="Logo" class="w-full h-full object-contain rounded-full" width="88" height="88" fetchpriority="high">
+                <img src="assets/logo.png" alt="Logo" class="w-full h-full object-contain rounded-full" width="88" height="88">
             </a>
             <a href="tel:+905000000000" class="bg-[#0ea5e9] text-white font-black text-sm px-6 py-3.5 rounded-r-full flex items-center justify-center hover:bg-[#0284c7] transition-colors shadow-sm -ml-6 z-0 w-[150px]">
                 BİZE ULAŞIN
             </a>
         </div>
 
+        <!-- Sağ Grup -->
         <div class="flex items-center justify-end gap-6 pr-2 z-10 w-1/3">
             <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="pc-text-link !text-cyan-700 mr-3">
                 YOL TARİFİ
@@ -550,24 +560,27 @@
         </div>
     </nav>
 
+    <!-- KUSURSUZ MOBİL ÜST MENÜ KATI -->
     <div class="md:hidden w-full fixed top-[10px] left-0 z-[40010] flex flex-col items-center pointer-events-none">
         <div class="mobile-pill-container">
             <div class="mobile-pill-main">
+
                 <div onclick="triggerTopChat()" class="mob-btn-capsule left relative group cursor-pointer">
                     <div class="mob-btn-icon-circle shadow-sm" id="mobileChatTrigger">
-                        <img src="assets/tilki-avatar2.png" alt="Dijital Asistan" class="avatar-img-fit" fetchpriority="high">
+                        <img src="assets/tilki-avatar2.png" alt="Dijital Asistan" class="avatar-img-fit">
                     </div>
                     <div class="mob-btn-text text-left mr-1">DİJİTAL<br>ASİSTAN</div>
                     <div class="smart-chat-bubble" id="topChatBubbleMobile">Yardımcı Olabilirim 🦊</div>
                 </div>
 
+                <!-- ORTA ALAN: İKONLU KISA BAŞLIKLAR (DİKEY) -->
                 <div class="mob-center-area">
                     <a href="#hakkimizda" class="mob-framed-link">
                         <span class="icon">i</span>
                         <span class="title">HAKKIMIZDA</span>
                     </a>
                     <a href="#features" class="mob-center-logo shadow-sm shrink-0" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
-                        <img src="assets/logo.png" alt="Logo" width="48" height="48" fetchpriority="high">
+                        <img src="assets/logo.png" alt="Logo" width="48" height="48">
                     </a>
                     <button onclick="openTour()" class="mob-framed-link cursor-pointer">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-[#0284c7]"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
@@ -587,6 +600,7 @@
         </div>
     </div>
 
+    <!-- KAYBOLAN ALT BUTONLAR (ABSOLUTE YAPILANDIRMASI) -->
     <div class="md:hidden w-full absolute top-[75px] left-0 z-[40005] flex justify-center pointer-events-none">
         <div class="mobile-classes-row flex justify-center gap-3 w-full pointer-events-auto px-2">
             <a href="#ekstra-bilgiler" class="mob-class-btn flex flex-col items-center justify-center" style="padding: 6px 16px; line-height: 1.1;">
@@ -600,6 +614,7 @@
         </div>
     </div>
 
+    <!-- MOBİL ALT YÜZEN BUTONLAR -->
     <nav class="mobile-bottom-nav">
         <div class="mobile-nav-grid">
             <button onclick="openTour()" class="mob-link" aria-label="360 Tur">
@@ -626,8 +641,9 @@
             <section id="features" class="w-full max-w-6xl mx-auto px-0 md:px-6 mb-16 md:mb-32 relative z-[20] order-2 md:order-1 mt-6 md:mt-0">
                 <div class="mobile-swipe-wrapper">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 relative mobile-swipe-container" id="features-swipe">
-
-                        <div class="mobile-swipe-item card-shield-hard shadow-dir-left glass-card p-8 text-center flex flex-col items-center relative is-centered">
+                        
+                        <!-- SOL KART VE GÖLGE -->
+                        <div class="mobile-swipe-item card-shield-hard shadow-dir-left glass-card p-8 text-center flex flex-col items-center relative">
                             <div class="icon-box text-cyan-500">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"></path><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"></path></svg>
                             </div>
@@ -637,7 +653,8 @@
                                 <video src="assets/rahatlama.mp4" playsinline loop muted preload="none"></video>
                             </div>
                         </div>
-
+                        
+                        <!-- ORTA KART VE GÖLGE -->
                         <div class="mobile-swipe-item card-shield-hard shadow-dir-center glass-card p-8 text-center flex flex-col items-center relative">
                             <div class="icon-box text-blue-500">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
@@ -648,7 +665,8 @@
                                 <video src="assets/ekran.mp4" playsinline loop muted preload="none"></video>
                             </div>
                         </div>
-
+                        
+                        <!-- SAĞ KART VE GÖLGE -->
                         <div class="mobile-swipe-item card-shield-hard shadow-dir-right glass-card p-8 text-center flex flex-col items-center relative">
                             <div class="icon-box text-cyan-500">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
@@ -759,7 +777,7 @@
                     </div>
                     <div class="flex-1 w-full flex justify-center">
                         <div class="w-full max-w-md rounded-[1.5rem] overflow-hidden shadow-2xl border-8 border-white cursor-zoom-in pointer-events-auto relative z-20" onclick="openLightbox(this.querySelector('img').src)">
-                            <img src="assets/kurum_binasi.jpg" alt="Referans Eğitim Kurumları Binası Malatya" class="w-full h-auto object-cover hover:scale-110 transition-transform duration-500" width="800" height="600" loading="lazy">
+                            <img src="assets/kurum_binasi.jpg" alt="Referans Eğitim Kurumları Binası Malatya" class="w-full h-auto object-cover hover:scale-110 transition-transform duration-500" width="800" height="600">
                         </div>
                     </div>
                 </div>
@@ -874,12 +892,12 @@
 
                 <form id="apptForm" onsubmit="submitAppt(event); return false;" class="text-left">
                     <input type="text" id="botTrap" tabindex="-1" autocomplete="off" class="sr-only">
-
+                    
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
                         <input type="text" id="fIsim" placeholder="Örn: Muhammed" required class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-900 focus:border-cyan-500 font-bold transition-colors focus:bg-white placeholder:font-medium placeholder:text-slate-400">
                         <input type="tel" id="fTelefon" placeholder="Örn: 053X XXX XX XX" required maxlength="11" oninput="this.value=this.value.replace(/[^0-9]/g,'')" class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-900 focus:border-cyan-500 font-bold transition-colors focus:bg-white placeholder:font-medium placeholder:text-slate-400">
                     </div>
-
+                    
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                         <select id="fSinif" required class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-bold cursor-pointer transition-colors focus:bg-white">
                             <option value="" disabled selected>Sınıf Seçiniz</option>
@@ -902,7 +920,7 @@
                             <button type="button" id="autoDateBtn" onclick="findNearestDate()" class="auto-date-btn">EN YAKIN TARİHİ SEÇ</button>
                         </div>
                         <input type="date" id="fTarih" required class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-bold cursor-pointer mb-3 transition-colors focus:bg-white">
-
+                        
                         <div class="flex justify-between items-end mb-2">
                             <label class="text-[10px] md:text-xs font-black text-slate-500 uppercase tracking-widest">Saat Seçimi:</label>
                         </div>
@@ -1042,42 +1060,39 @@
                 });
             });
 
-            setTimeout(() => {
-                if (window.innerWidth <= 768) {
-                    initMobileInfiniteSwipes('features-swipe', 'features-dots');
+            if (window.innerWidth <= 768) {
+                initMobileInfiniteSwipes('features-swipe', 'features-dots');
+            }
+
+            const bubbleMobile = document.getElementById('topChatBubbleMobile');
+            const bubbleDesktop = document.getElementById('topChatBubbleDesktop');
+            if (bubbleMobile && !isChatOpen) bubbleMobile.classList.add('show');
+            if (bubbleDesktop && !isChatOpen) bubbleDesktop.classList.add('show');
+
+            const isimler = ["Muhammed", "Hamza", "Ebubekir", "Hüseyin", "Ali", "Ömer", "Osman", "Ayşe", "Fatma", "Sümeyye", "Nurgül"];
+            let isimIndex = 0;
+            setInterval(() => {
+                const fIsim = document.getElementById('fIsim');
+                if(fIsim && fIsim.value === '') {
+                    isimIndex = (isimIndex + 1) % isimler.length;
+                    fIsim.placeholder = "Örn: " + isimler[isimIndex];
                 }
+            }, 1500);
 
-                const bubbleMobile = document.getElementById('topChatBubbleMobile');
-                const bubbleDesktop = document.getElementById('topChatBubbleDesktop');
-                if (bubbleMobile && !isChatOpen) bubbleMobile.classList.add('show');
-                if (bubbleDesktop && !isChatOpen) bubbleDesktop.classList.add('show');
+            const saatler = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
+            let saatIndex = 0;
+            setInterval(() => {
+                const fSaatDefault = document.getElementById('fSaatDefault');
+                const fSaat = document.getElementById('fSaat');
+                if(fSaatDefault && fSaat && fSaat.disabled) {
+                    saatIndex = (saatIndex + 1) % saatler.length;
+                    fSaatDefault.text = "Önce Tarih Seçiniz (Örn: " + saatler[saatIndex] + ")";
+                }
+            }, 1500);
 
-                const isimler = ["Muhammed", "Hamza", "Ebubekir", "Hüseyin", "Ali", "Ömer", "Osman", "Ayşe", "Fatma", "Sümeyye", "Nurgül"];
-                let isimIndex = 0;
-                setInterval(() => {
-                    const fIsim = document.getElementById('fIsim');
-                    if(fIsim && fIsim.value === '') {
-                        isimIndex = (isimIndex + 1) % isimler.length;
-                        fIsim.placeholder = "Örn: " + isimler[isimIndex];
-                    }
-                }, 1500);
-
-                const saatler = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
-                let saatIndex = 0;
-                setInterval(() => {
-                    const fSaatDefault = document.getElementById('fSaatDefault');
-                    const fSaat = document.getElementById('fSaat');
-                    if(fSaatDefault && fSaat && fSaat.disabled) {
-                        saatIndex = (saatIndex + 1) % saatler.length;
-                        fSaatDefault.text = "Önce Tarih Seçiniz (Örn: " + saatler[saatIndex] + ")";
-                    }
-                }, 1500);
-
-                startCycle();
-                updateNumbers(activeKey); 
-                applyColors(activeKey); 
-            }, 3500);
-
+            startCycle();
+            updateNumbers(activeKey); 
+            applyColors(activeKey); 
             highlightBtn(activeKey);
         });
 
@@ -1086,53 +1101,80 @@
             const dotsContainer = document.getElementById(dotsId);
             if (!container) return;
 
-            let items = Array.from(container.children).filter(c => 
-                c.classList.contains('mobile-swipe-item') || c.classList.contains('mobile-double-slide')
-            );
-
-            let dots = dotsContainer ? Array.from(dotsContainer.children) : [];
-
+            const items = Array.from(container.children).filter(c => c.classList.contains('mobile-swipe-item'));
+            const dots = dotsContainer ? Array.from(dotsContainer.children) : [];
             if (items.length === 0) return;
 
+            let currentIndex = 0;
+            let direction = 1;
+            let autoScrollInterval;
+            let isUserInteracting = false;
+
             const updateCenter = () => {
-                const containerRect = container.getBoundingClientRect();
-                const containerCenter = containerRect.left + (containerRect.width / 2);
-
-                let closestDistance = Infinity;
-                let newIndex = 0;
-
-                items.forEach((item, index) => {
-                    const rect = item.getBoundingClientRect();
-                    const itemCenter = rect.left + (rect.width / 2);
-                    const distance = Math.abs(containerCenter - itemCenter);
-
-                    if (distance < closestDistance) {
-                        closestDistance = distance;
-                        newIndex = index;
-                    }
+                const containerCenter = container.getBoundingClientRect().left + (container.clientWidth / 2);
+                let closestDist = Infinity;
+                let newIdx = 0;
+                
+                items.forEach((item, idx) => {
+                    const itemCenter = item.getBoundingClientRect().left + (item.clientWidth / 2);
+                    const dist = Math.abs(containerCenter - itemCenter);
+                    if (dist < closestDist) { closestDist = dist; newIdx = idx; }
                 });
 
-                items.forEach((item, index) => {
-                    if (index === newIndex) {
+                items.forEach((item, idx) => {
+                    if (idx === newIdx) {
                         item.classList.add('is-centered');
-                        if(dots[index]) dots[index].classList.add('active');
+                        if(dots[idx]) dots[idx].classList.add('active');
                     } else {
                         item.classList.remove('is-centered');
-                        if(dots[index]) dots[index].classList.remove('active');
+                        if(dots[idx]) dots[idx].classList.remove('active'); 
                     }
                 });
+                currentIndex = newIdx;
             };
 
-            container.addEventListener('scroll', () => { window.requestAnimationFrame(updateCenter); }, { passive: true });
+            const scrollToTarget = (index) => {
+                if(items[index]) {
+                    container.scrollTo({
+                        left: items[index].offsetLeft - (container.clientWidth / 2) + (items[index].clientWidth / 2),
+                        behavior: 'smooth'
+                    });
+                }
+            };
 
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    let targetItem = items[index];
-                    if(targetItem) {
-                        container.scrollTo({ left: targetItem.offsetLeft - (container.clientWidth / 2) + (targetItem.clientWidth / 2), behavior: 'smooth' });
-                    }
-                });
-            });
+            const nextSlide = () => {
+                if (isUserInteracting) return;
+                if (currentIndex >= items.length - 1) direction = -1;
+                else if (currentIndex <= 0) direction = 1;
+                scrollToTarget(currentIndex + direction);
+            };
+
+            const startAuto = () => {
+                clearInterval(autoScrollInterval);
+                autoScrollInterval = setInterval(nextSlide, 2500); 
+            };
+
+            let scrollTimeout;
+            container.addEventListener('scroll', () => {
+                if(!scrollTimeout) {
+                    window.requestAnimationFrame(() => {
+                        updateCenter();
+                        scrollTimeout = null;
+                    });
+                    scrollTimeout = true;
+                }
+            }, { passive: true });
+
+            const pauseAuto = () => { isUserInteracting = true; clearInterval(autoScrollInterval); };
+            const resumeAuto = () => { isUserInteracting = false; startAuto(); };
+            
+            container.addEventListener('touchstart', pauseAuto, {passive:true});
+            container.addEventListener('touchend', () => setTimeout(resumeAuto, 2000), {passive:true});
+            container.addEventListener('mousedown', pauseAuto, {passive:true});
+            container.addEventListener('mouseup', () => setTimeout(resumeAuto, 2000), {passive:true});
+
+            updateCenter();
+            startAuto();
         }
 
         document.querySelectorAll('.magnetic-btn, .solid-blue-btn').forEach(btn => {
@@ -1614,7 +1656,7 @@
             if(!sinif || !tarih || !saat) return showErr('Lütfen tüm alanları doldurun.');
 
             const btn = document.getElementById('btn-submit');
-
+            
             if(btn) { 
                 btn.innerHTML = 'Takvim Kontrol Ediliyor...'; 
                 btn.style.backgroundColor = '#06b6d4'; 
@@ -1634,7 +1676,7 @@
                     btn.style.cursor = 'pointer';
                     btn.disabled = false; 
                 }
-
+                
                 if(res.durum === 'hata'){ showErr(res.mesaj); return; }
 
                 closeModal();
@@ -1647,7 +1689,7 @@
 
                 const form = document.getElementById('apptForm');
                 if(form) form.reset();
-
+                
                 document.getElementById('fTarih').dispatchEvent(new Event('change'));
 
             }).catch(() => {
