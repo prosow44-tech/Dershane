@@ -28,15 +28,12 @@
     <link rel="canonical" href="https://www.referansegitim.com/">
     <link rel="icon" href="assets/logo.png" type="image/png">
 
-    <!-- TASARIM KORUNDU: style.css ve Fontlar orijinal haliyle bırakıldı -->
     <link rel="preload" href="assets/style.css" as="style">
     <link rel="stylesheet" href="assets/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- FCP ÇÖZÜMÜ: Google Tag Manager (GTAG) kodları buradan sökülüp, sayfanın EN ALTINA taşındı. -->
 
     <style>
         ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -203,6 +200,7 @@
             .mega-bar-wrapper { display: none !important; }
             .pill-nav { display: none !important; } 
 
+            /* MENÜ TAŞMA VE HİZALAMA ÇÖZÜMÜ */
             .mobile-pill-container {
                 display: flex; flex-direction: column; align-items: center;
                 width: 96%; max-width: 480px; pointer-events: none; z-index: 40010;
@@ -216,12 +214,13 @@
                 pointer-events: auto; position: relative; z-index: 10;
             }
 
+            /* Butonların dışarı taşmasını engellemek için width otomatik ayarlandı */
             .mob-btn-capsule {
                 display: flex; align-items: center; justify-content: center;
                 background-color: #0ea5e9; border-radius: 999px; color: white;
                 text-decoration: none; box-shadow: 0 4px 10px rgba(14,165,233,0.3);
                 cursor: pointer; transition: transform 0.236s ease; height: 42px;
-                max-width: 105px; 
+                max-width: 105px; /* Taşmayı önler */
             }
             .mob-btn-capsule:active { transform: scale(0.96); }
             .mob-btn-capsule.left { padding: 0 8px 0 4px; gap: 6px; flex-shrink: 0; justify-content: flex-start; }
@@ -234,6 +233,7 @@
             }
             .mob-btn-text { font-size: 0.60rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0px; color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.25); }
 
+            /* Balon konumu düzeltildi */
             #topChatBubbleMobile { left: 50% !important; transform: translateX(-50%) !important; top: 120% !important; }
             #topChatBubbleMobile::before { left: 20px !important; transform: none !important; }
             #topChatBubbleMobile::after { left: 22px !important; transform: none !important; }
@@ -247,6 +247,7 @@
                 cursor: pointer; pointer-events: auto; height: 42px; min-width: 55px;
             }
             
+            /* SVG BÜYÜME (PATLAMA) ÇÖZÜMÜ: Tailwind w-4 h-4 silindiği için CSS ile net boyut verildi */
             .mob-framed-link svg { width: 16px !important; height: 16px !important; stroke: #0f172a; transition: stroke 0.236s ease; margin-bottom: 2px; display: block; }
             .mob-framed-link span.title { font-size: 0.45rem; line-height: 1; font-weight: 900; color: #0f172a; text-align: center; }
 
@@ -310,6 +311,7 @@
 
             .mobile-swipe-wrapper { position: relative; width: 100vw; margin-left: calc(-50vw + 50%); display: flex; flex-direction: column; align-items: center; margin-bottom: 30px !important; overflow-x: hidden; overflow-y: visible !important; }
             
+            /* LCP KESİN ÇÖZÜMÜ: Mobilde transform ve filter efektleri tamamen devredışı bırakıldı */
             .mobile-swipe-container { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; overflow-y: visible !important; scroll-snap-type: x mandatory !important; width: 100% !important; padding: 2rem 15vw 3rem 15vw !important; gap: 15px !important; }
             .mobile-swipe-container::-webkit-scrollbar { display: none !important; }
             .mobile-swipe-item { flex: 0 0 85vw !important; scroll-snap-align: center !important; opacity: 1 !important; filter: none !important; transform: none !important; margin: 0 !important; position: relative; }
@@ -550,8 +552,7 @@
                     <div class="mob-btn-text text-right ml-1">RANDEVU<br>AL</div>
                     <div class="mob-btn-icon-circle shadow-sm">
                         <div class="webm-mask w-full h-full video-skeleton video-crop-calendar">
-                            <!-- LCP ÇÖZÜMÜ: Poster 404 hatası söküldü -->
-                            <video aria-hidden="true" tabindex="-1" src="assets/takvim.mp4" playsinline loop muted preload="none"></video>
+                            <video aria-hidden="true" tabindex="-1" src="assets/takvim.mp4" poster="assets/poster-takvim.jpg" playsinline loop muted preload="none"></video>
                         </div>
                     </div>
                 </button>
@@ -606,8 +607,7 @@
                             <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Alanında Uzman Kadro</h3>
                             <p class="text-slate-700 font-bold leading-relaxed text-xs md:text-sm">Sınav sisteminin tüm şifrelerine hakim, dereceler çıkartan profesyonel eğitmen kadrosu.</p>
                             <div class="webm-mask webm-card-bottom webm-shadow-dir-left video-skeleton">
-                                <!-- LCP ÇÖZÜMÜ: Poster 404 hataları söküldü. Bu ilk video LCP için hayati. -->
-                                <video aria-hidden="true" tabindex="-1" src="assets/rahatlama.mp4" playsinline loop muted preload="none"></video>
+                                <video aria-hidden="true" tabindex="-1" src="assets/rahatlama.mp4" poster="assets/poster-rahatlama.jpg" playsinline loop muted preload="none"></video>
                             </div>
                         </div>
 
@@ -618,7 +618,7 @@
                             <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Birebir Takip</h3>
                             <p class="text-slate-700 font-bold leading-relaxed text-xs md:text-sm">Eksikleri nokta atışı tespit edip anında sıfırlayan, kişiye özel kusursuz eğitim koçluğu sistemi.</p>
                             <div class="webm-mask webm-card-bottom webm-shadow-dir-center video-skeleton">
-                                <video aria-hidden="true" tabindex="-1" src="assets/ekran.mp4" playsinline loop muted preload="none"></video>
+                                <video aria-hidden="true" tabindex="-1" src="assets/ekran.mp4" poster="assets/poster-ekran.jpg" playsinline loop muted preload="none"></video>
                             </div>
                         </div>
 
@@ -629,7 +629,7 @@
                             <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Deneme & Analiz</h3>
                             <p class="text-slate-700 font-bold leading-relaxed text-xs md:text-sm">Gerçek sınav zorluğundaki Türkiye geneli denemeler ve detaylı ölçülebilir gelişim raporları.</p>
                             <div class="webm-mask webm-card-bottom webm-shadow-dir-right video-skeleton">
-                                <video aria-hidden="true" tabindex="-1" src="assets/net-artırma.mp4" playsinline loop muted preload="none"></video>
+                                <video aria-hidden="true" tabindex="-1" src="assets/net-artırma.mp4" poster="assets/poster-net-artirma.jpg" playsinline loop muted preload="none"></video>
                             </div>
                         </div>
                     </div>
@@ -649,7 +649,7 @@
                     </div>
                     <div class="w-1/2 pl-6 md:pl-8 flex justify-start relative">
                         <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                            <video aria-hidden="true" tabindex="-1" src="assets/kalem-yazma.mp4" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
+                            <video aria-hidden="true" tabindex="-1" src="assets/kalem-yazma.mp4" poster="assets/poster-kalem.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
                         </div>
                     </div>
                 </div>
@@ -663,7 +663,7 @@
                     </div>
                     <div class="w-1/2 pr-6 md:pr-8 flex justify-end relative">
                         <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                            <video aria-hidden="true" tabindex="-1" src="assets/bu-taraftan-gidiyoruz.mp4" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
+                            <video aria-hidden="true" tabindex="-1" src="assets/bu-taraftan-gidiyoruz.mp4" poster="assets/poster-bu-taraftan.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
                         </div>
                     </div>
                 </div>
@@ -677,7 +677,7 @@
                     </div>
                     <div class="w-1/2 pl-6 md:pl-8 flex justify-start relative">
                         <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                            <video aria-hidden="true" tabindex="-1" src="assets/sevinme.mp4" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
+                            <video aria-hidden="true" tabindex="-1" src="assets/sevinme.mp4" poster="assets/poster-sevinme.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
                         </div>
                     </div>
                 </div>
@@ -691,7 +691,7 @@
                     </div>
                     <div class="w-1/2 pr-6 md:pr-8 flex justify-end relative">
                         <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                            <video aria-hidden="true" tabindex="-1" src="assets/soru-cozme.mp4" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
+                            <video aria-hidden="true" tabindex="-1" src="assets/soru-cozme.mp4" poster="assets/poster-soru.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
                         </div>
                     </div>
                 </div>
@@ -700,7 +700,7 @@
             <section id="sayac" class="w-full max-w-4xl px-4 md:px-6 mb-24 md:mb-40 relative z-[20] text-center order-3">
                 <div class="flex justify-center mb-8">
                     <div class="webm-mask video-skeleton video-crop-calendar" style="width: 110px; height: 110px; border: 6px solid #ffffff; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
-                        <video aria-hidden="true" tabindex="-1" src="assets/takvim.mp4" playsinline loop muted preload="none"></video>
+                        <video aria-hidden="true" tabindex="-1" src="assets/takvim.mp4" poster="assets/poster-takvim.jpg" playsinline loop muted preload="none"></video>
                     </div>
                 </div>
                 <div id="counterCard" class="counter-card glass-card p-8 md:p-16 w-full inline-block relative">
@@ -713,9 +713,9 @@
                         <div class="counter-ring ring-san" aria-hidden="true"><div id="c-san" class="c-val text-cyan-700">--</div><div class="c-lbl">SANİYE</div></div>
                     </div>
                     <div class="flex justify-center gap-2 md:gap-4 w-full">
-                        <button id="btn-LGS" onclick="lockExam('LGS')" class="exam-btn bg-cyan-50 font-black py-3 md:py-4 rounded-xl border-cyan-200 text-base md:text-lg" style="color: #075985;" aria-label="LGS Sayacı">LGS</button>
-                        <button id="btn-YKS" onclick="lockExam('YKS')" class="exam-btn bg-white font-black py-3 md:py-4 rounded-xl border-slate-200 text-base md:text-lg" style="color: #475569;" aria-label="YKS Sayacı">YKS</button>
-                        <button id="btn-KPSS" onclick="lockExam('KPSS')" class="exam-btn bg-white font-black py-3 md:py-4 rounded-xl border-slate-200 text-base md:text-lg" style="color: #475569;" aria-label="KPSS Sayacı">KPSS</button>
+                        <button id="btn-LGS" onclick="lockExam('LGS')" class="exam-btn bg-cyan-50 text-cyan-700 font-black py-3 md:py-4 rounded-xl border-cyan-200 text-base md:text-lg" aria-label="LGS Sayacı">LGS</button>
+                        <button id="btn-YKS" onclick="lockExam('YKS')" class="exam-btn bg-white text-slate-700 font-black py-3 md:py-4 rounded-xl border-slate-200 text-base md:text-lg" aria-label="YKS Sayacı">YKS</button>
+                        <button id="btn-KPSS" onclick="lockExam('KPSS')" class="exam-btn bg-white text-slate-700 font-black py-3 md:py-4 rounded-xl border-slate-200 text-base md:text-lg" aria-label="KPSS Sayacı">KPSS</button>
                     </div>
                     <div id="sub-LGS" class="sub-row" aria-hidden="true"><div class="sub-pill">Sözel Bölüm</div><div class="sub-pill">Sayısal Bölüm</div></div>
                     <div id="sub-YKS" class="sub-row" aria-hidden="true"><div class="sub-pill">TYT</div><div class="sub-pill">AYT</div><div class="sub-pill">YDT</div></div>
@@ -833,7 +833,7 @@
             <div class="flex justify-center -mt-24 md:-mt-28 mb-4 relative z-20">
                 <div class="w-36 h-36 md:w-44 md:h-44 aspect-square rounded-2xl bg-white overflow-hidden flex items-center justify-center border-4 border-white" 
                      style="box-shadow: 0 0 0 4px rgba(255,255,255,0.6), 0 0 0 8px rgba(255,255,255,0.3), 0 15px 30px rgba(0,0,0,0.4);">
-                    <video aria-hidden="true" tabindex="-1" src="assets/ekrana-tiklama.mp4" playsinline loop muted preload="none" class="w-full h-full object-cover scale-[1.3] -translate-y-4 origin-top"></video>
+                    <video aria-hidden="true" tabindex="-1" src="assets/ekrana-tiklama.mp4" poster="assets/poster-tiklama.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover scale-[1.3] -translate-y-4 origin-top"></video>
                 </div>
             </div>
 
@@ -900,7 +900,6 @@
         </div>
     </div>
 
-    <!-- TBT VE FCP ÇÖZÜMÜ: Analitik ve Gecikmeli JavaScript'ler -->
     <script>
         let randevuAcilisZamani = 0; 
         let isChatOpen = false;
@@ -992,13 +991,10 @@
                 entries.forEach(entry => {
                     const video = entry.target;
                     if (entry.isIntersecting) {
-                        // VİDEO DERSHANE MANTIĞI: Göründüğünde 0.3 sn gecikmeyle başlat, işlemciyi koru
-                        setTimeout(() => {
-                            let playPromise = video.play();
-                            if (playPromise !== undefined) {
-                                playPromise.catch(error => {});
-                            }
-                        }, 300);
+                        let playPromise = video.play();
+                        if (playPromise !== undefined) {
+                            playPromise.catch(error => {});
+                        }
                     } else {
                         video.pause();
                     }
@@ -1026,7 +1022,6 @@
             if (bubbleMobile && !isChatOpen) bubbleMobile.classList.add('show');
             if (bubbleDesktop && !isChatOpen) bubbleDesktop.classList.add('show');
 
-            // FCP KORUMASI: JS Döngüleri, TBT'yi engellememesi için ilk boyamadan 5 saniye sonra başlatıldı
             setTimeout(() => {
                 const isimler = ["Muhammed", "Hamza", "Ebubekir", "Hüseyin", "Ali", "Ömer", "Osman", "Ayşe", "Fatma", "Sümeyye", "Nurgül"];
                 let isimIndex = 0;
@@ -1049,7 +1044,7 @@
                     }
                 }, 3000);
 
-            }, 5000);
+            }, 8000);
 
             let sayacObserver = new IntersectionObserver((entries) => {
                 if(entries[0].isIntersecting) {
@@ -1117,7 +1112,6 @@
                 scrollToTarget(currentIndex + direction);
             };
 
-            // TBT ÇÖZÜMÜ: Otomatik kaydırma, işlemci dinlendikten sonra başladı (8000ms)
             setTimeout(() => {
                 autoScrollInterval = setInterval(nextSlide, 3000);
             }, 8000);
@@ -1677,18 +1671,6 @@
         document.addEventListener('copy', e => { if(!['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)) e.preventDefault(); });
 
         if (window.top !== window.self) { window.top.location = window.self.location; }
-    </script>
-    
-    <!-- FCP ÇÖZÜMÜ 4: GTAG sayfanın sonuna alındı -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16894468875"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-16894468875');
-      gtag('config', 'AW-16894468875/iZ9vCNHC1aMaEIvG9Pc-', {
-        'phone_conversion_number': '05332153481'
-      });
     </script>
 </body>
 </html>
