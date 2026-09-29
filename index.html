@@ -2,7 +2,7 @@
 <html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Referans Eğitim Kurumları | Malatya VIP Dershane</title>
     <meta name="description" content="Malatya'nın en iyi dershanesi. 5-8. Sınıf LGS, 9-12. Sınıf YKS ve Akademik (KPSS/DGS) hazırlığında VIP eğitim ve birebir uzman takip sistemi.">
     <meta name="keywords" content="Malatya dershane, LGS, YKS, KPSS, VIP eğitim, Referans Eğitim Kurumları, Battalgazi, Malatya eğitim, en iyi dershane, TYT, AYT, eğitim koçluğu, DGS hazırlık">
@@ -12,6 +12,9 @@
     <meta name="theme-color" content="#ffffff">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    
+    <!-- LCP HIZLANDIRICI: Ana görselin en yüksek öncelikle indirilmesi -->
+    <link rel="preload" href="assets/logo.png" as="image" fetchpriority="high">
     <link rel="apple-touch-icon" href="assets/logo.png">
 
     <meta property="og:title" content="Referans Eğitim Kurumları | Malatya">
@@ -42,6 +45,7 @@
             -webkit-text-size-adjust: 100%;
             text-size-adjust: 100%;
             scroll-behavior: smooth;
+            /* zoom KESİNLİKLE KALDIRILDI - NO_LCP HATASININ ANA SEBEBİDİR */
         }
 
         body { 
@@ -318,7 +322,8 @@
 
             .mobile-swipe-item { flex: 0 0 85vw !important; scroll-snap-align: center !important; transition: all 0.472s cubic-bezier(0.25, 0.46, 0.45, 0.94); opacity: 0.4 !important; filter: blur(4px) !important; transform: scale(0.85) !important; margin: 0 !important; position: relative; will-change: transform, opacity, filter; }
 
-            .mobile-swipe-item:nth-child(1) { opacity: 1 !important; filter: blur(0px) !important; transform: scale(1) !important; z-index: 10; }
+            /* LCP HATASI KESİN ÇÖZÜMÜ: İlk kart sayfa yüklenir yüklenmez JavaScript beklenmeden %100 net ve opaktır */
+            .mobile-swipe-item:first-child { opacity: 1 !important; filter: blur(0px) !important; transform: scale(1) !important; z-index: 10; }
             .mobile-swipe-item.is-centered { opacity: 1 !important; filter: blur(0px) !important; transform: scale(1) !important; z-index: 10; }
 
             .card-shield-hard { padding: 1.5rem !important; padding-bottom: 4.5rem !important; border-radius: 1.5rem !important; overflow: visible !important; z-index: 20; }
