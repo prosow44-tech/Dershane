@@ -13,8 +13,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     
-    <!-- LCP HIZLANDIRICI: Poster silindiği için ana video en yüksek öncelikle önyüklemeye alındı -->
-    <link rel="preload" as="video" href="assets/rahatlama.mp4" type="video/mp4" fetchpriority="high">
+    <!-- LCP HIZLANDIRICI: İlk büyük görsel öncelikle indirilir -->
+    <link rel="preload" as="image" href="assets/poster-rahatlama.jpg" fetchpriority="high">
     <link rel="apple-touch-icon" href="assets/logo.png">
 
     <meta property="og:title" content="Referans Eğitim Kurumları | Malatya">
@@ -28,12 +28,15 @@
     <link rel="canonical" href="https://www.referansegitim.com/">
     <link rel="icon" href="assets/logo.png" type="image/png">
 
+    <!-- TASARIM KORUNDU: style.css ve Fontlar orijinal haliyle bırakıldı -->
     <link rel="preload" href="assets/style.css" as="style">
     <link rel="stylesheet" href="assets/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- FCP ÇÖZÜMÜ: Google Tag Manager (GTAG) kodları buradan sökülüp, sayfanın EN ALTINA taşındı. -->
 
     <style>
         ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -229,8 +232,7 @@
                 background-color: white; display: flex; align-items: center; justify-content: center;
                 flex-shrink: 0; padding: 2px;
             }
-            /* ERİŞİLEBİLİRLİK (KONTRAST) ÇÖZÜMÜ: Metin rengi koyulaştırıldı */
-            .mob-btn-text { font-size: 0.60rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0px; color: #0f172a; text-shadow: none; }
+            .mob-btn-text { font-size: 0.60rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0px; color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.25); }
 
             #topChatBubbleMobile { left: 50% !important; transform: translateX(-50%) !important; top: 120% !important; }
             #topChatBubbleMobile::before { left: 20px !important; transform: none !important; }
@@ -323,9 +325,8 @@
             .counter-card { padding: 1.5rem 1rem !important; border-radius: 1.5rem !important; z-index: 20; box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;}
             .counter-ring { width: 60px !important; height: 60px !important; border: 3px solid #f1f5f9 !important; margin: 0 2px !important; flex-shrink: 0 !important; aspect-ratio: 1/1 !important; }
             .ring-gun::after, .ring-saat::after, .ring-dak::after, .ring-san::after { inset: -3px !important; border: 3px solid transparent !important; }
-            /* ERİŞİLEBİLİRLİK (KONTRAST) ÇÖZÜMÜ: Sayaç metni rengi koyulaştırıldı */
-            .c-val { font-size: 2.5rem; font-weight: 900; line-height: 1; color: #075985; }
-            .c-lbl { font-size: 0.75rem; color: #475569; font-weight: 800; margin-top: 6px; text-transform: uppercase; }
+            .c-val { font-size: 1.15rem !important; }
+            .c-lbl { font-size: 0.45rem !important; margin-top: 2px !important; color: #475569 !important; }
             #counterTitle { font-size: 1.25rem !important; margin-top: 1.5rem !important; margin-bottom: 1.5rem !important; }
             .exam-btn { padding: 0.6rem !important; font-size: 0.85rem !important; border-radius: 0.8rem !important; }
             #iletisim, #ekstra-bilgiler { padding-bottom: 40px !important; z-index: 20; }
@@ -345,7 +346,7 @@
         .ring-dak::after { border-bottom-color: #10b981; border-right-color: #10b981; }
         .ring-san::after { border-bottom-color: #8b5cf6; border-left-color: #8b5cf6; }
 
-        .c-val { font-size: 2.5rem; font-weight: 900; line-height: 1; color: #075985; }
+        .c-val { font-size: 2.5rem; font-weight: 900; line-height: 1; color: #0284c7; }
         .c-lbl { font-size: 0.75rem; color: #475569; font-weight: 800; margin-top: 6px; text-transform: uppercase; }
 
         .back-btn { position: absolute; left: 1.5rem; top: 1.5rem; font-size: 0.85rem; font-weight: 900; color: #0f172a; background-color: transparent; border: 0; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 0.472s ease, color 0.354s ease; text-transform: uppercase; padding: 10px; display: none; }
@@ -549,6 +550,7 @@
                     <div class="mob-btn-text text-right ml-1">RANDEVU<br>AL</div>
                     <div class="mob-btn-icon-circle shadow-sm">
                         <div class="webm-mask w-full h-full video-skeleton video-crop-calendar">
+                            <!-- LCP ÇÖZÜMÜ: Poster 404 hatası söküldü -->
                             <video aria-hidden="true" tabindex="-1" src="assets/takvim.mp4" playsinline loop muted preload="none"></video>
                         </div>
                     </div>
@@ -604,6 +606,7 @@
                             <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Alanında Uzman Kadro</h3>
                             <p class="text-slate-700 font-bold leading-relaxed text-xs md:text-sm">Sınav sisteminin tüm şifrelerine hakim, dereceler çıkartan profesyonel eğitmen kadrosu.</p>
                             <div class="webm-mask webm-card-bottom webm-shadow-dir-left video-skeleton">
+                                <!-- LCP ÇÖZÜMÜ: Poster 404 hataları söküldü. Bu ilk video LCP için hayati. -->
                                 <video aria-hidden="true" tabindex="-1" src="assets/rahatlama.mp4" playsinline loop muted preload="none"></video>
                             </div>
                         </div>
@@ -897,6 +900,7 @@
         </div>
     </div>
 
+    <!-- TBT VE FCP ÇÖZÜMÜ: Analitik ve Gecikmeli JavaScript'ler -->
     <script>
         let randevuAcilisZamani = 0; 
         let isChatOpen = false;
@@ -906,11 +910,10 @@
         let locked = false;
         let cycleIdx = 0;
 
-        // KONTRAST ÇÖZÜMÜ: Açık mavi renkler çok daha koyu lacivert ve koyu turkuaz tonlarıyla değiştirildi
         const EXAMS = {
-            LGS:  { label: 'LGS',  date: '2027-06-13T09:30:00', color: '#075985', bg: '#e0f2fe', border: '#bae6fd' },
-            YKS:  { label: 'YKS',  date: '2027-06-19T10:15:00', color: '#1e3a8a', bg: '#dbeafe', border: '#bfdbfe' },
-            KPSS: { label: 'KPSS', date: '2027-09-05T10:15:00', color: '#075985', bg: '#e0f2fe', border: '#bae6fd' }
+            LGS:  { label: 'LGS',  date: '2027-06-13T09:30:00', color: '#0284c7', bg: '#e0f2fe', border: '#bae6fd' },
+            YKS:  { label: 'YKS',  date: '2027-06-19T10:15:00', color: '#1d4ed8', bg: '#dbeafe', border: '#bfdbfe' },
+            KPSS: { label: 'KPSS', date: '2027-09-05T10:15:00', color: '#0284c7', bg: '#e0f2fe', border: '#bae6fd' }
         };
         const ORDER = ['LGS', 'YKS', 'KPSS'];
 
@@ -989,6 +992,7 @@
                 entries.forEach(entry => {
                     const video = entry.target;
                     if (entry.isIntersecting) {
+                        // VİDEO DERSHANE MANTIĞI: Göründüğünde 0.3 sn gecikmeyle başlat, işlemciyi koru
                         setTimeout(() => {
                             let playPromise = video.play();
                             if (playPromise !== undefined) {
@@ -1022,6 +1026,7 @@
             if (bubbleMobile && !isChatOpen) bubbleMobile.classList.add('show');
             if (bubbleDesktop && !isChatOpen) bubbleDesktop.classList.add('show');
 
+            // FCP KORUMASI: JS Döngüleri, TBT'yi engellememesi için ilk boyamadan 5 saniye sonra başlatıldı
             setTimeout(() => {
                 const isimler = ["Muhammed", "Hamza", "Ebubekir", "Hüseyin", "Ali", "Ömer", "Osman", "Ayşe", "Fatma", "Sümeyye", "Nurgül"];
                 let isimIndex = 0;
@@ -1044,7 +1049,7 @@
                     }
                 }, 3000);
 
-            }, 8000);
+            }, 5000);
 
             let sayacObserver = new IntersectionObserver((entries) => {
                 if(entries[0].isIntersecting) {
@@ -1112,6 +1117,7 @@
                 scrollToTarget(currentIndex + direction);
             };
 
+            // TBT ÇÖZÜMÜ: Otomatik kaydırma, işlemci dinlendikten sonra başladı (8000ms)
             setTimeout(() => {
                 autoScrollInterval = setInterval(nextSlide, 3000);
             }, 8000);
@@ -1671,6 +1677,18 @@
         document.addEventListener('copy', e => { if(!['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)) e.preventDefault(); });
 
         if (window.top !== window.self) { window.top.location = window.self.location; }
+    </script>
+    
+    <!-- FCP ÇÖZÜMÜ 4: GTAG sayfanın sonuna alındı -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16894468875"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-16894468875');
+      gtag('config', 'AW-16894468875/iZ9vCNHC1aMaEIvG9Pc-', {
+        'phone_conversion_number': '05332153481'
+      });
     </script>
 </body>
 </html>
