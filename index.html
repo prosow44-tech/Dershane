@@ -109,10 +109,10 @@
         @keyframes skeletonLoading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
         .webm-mask { border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; transform: translateZ(0); will-change: transform; position: relative; background-color: transparent; aspect-ratio: 1/1; }
-        .webm-mask video { width: 100%; height: 100%; object-fit: cover; transform: translateZ(0); opacity: 0; transition: opacity 0.3s ease-in-out; background-color: transparent; }
+        /* NO_LCP HATASINI ÇÖZEN CSS MÜDAHALESİ: opacity: 0 kodu tamamen kaldırıldı */
+        .webm-mask video { width: 100%; height: 100%; object-fit: cover; transform: translateZ(0); background-color: transparent; }
         .video-crop-9-12 video { object-position: center top !important; transform: scale(1.4) translateY(12%) translateZ(0) !important; }
         .video-crop-calendar video { object-position: center top !important; transform: scale(1.4) translateY(12%) translateZ(0) !important; }
-        .webm-mask video.loaded { opacity: 1; }
 
         .webm-card-bottom { position: absolute; bottom: -35px; left: 50%; transform: translateX(-50%) translateZ(0); width: 70px; height: 70px; border: 4px solid #ffffff; background-color: #f8fafc; z-index: 20; }
         .webm-egitim { width: 320px; height: 320px; border: 8px solid #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important; background-color: #ffffff; }
@@ -229,7 +229,6 @@
                 animation: bluePulse 2.95s infinite alternate; height: 42px;
             }
             .mob-btn-capsule:active { transform: scale(0.96); }
-            /* İsim Değişikliği İçin Genişlik Artırıldı */
             .mob-btn-capsule.left { padding: 0 10px 0 4px; gap: 4px; flex-shrink: 0; width: 115px; justify-content: flex-start; }
             .mob-btn-capsule.right { padding: 0 4px 0 10px; gap: 4px; flex-shrink: 0; width: 115px; justify-content: flex-end; }
 
@@ -238,7 +237,6 @@
                 background-color: white; display: flex; align-items: center; justify-content: center;
                 flex-shrink: 0; padding: 2px;
             }
-            /* Mavi Arka Planda Saf Beyaz (Parlayan Renk) */
             .mob-btn-text { font-size: 0.65rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0.2px; color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.25); }
 
             #topChatBubbleMobile {
@@ -526,6 +524,7 @@
         <div class="flex items-center gap-6 pl-2 z-10 w-1/3">
             <div onclick="triggerTopChat()" class="flex items-center gap-2 cursor-pointer mr-auto relative group" style="text-decoration: none;">
                 <div class="relative flex-shrink-0 bg-white" style="width: 44px; height: 44px; border-radius: 50%; border: 2.5px solid #0ea5e9; padding: 2px; transition: transform 0.3s ease; box-shadow: 0 4px 10px rgba(6,182,212,0.3);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <!-- TİLKİ AVATARI -->
                     <img src="assets/tilki-avatar2.png" alt="Dijital Asistan" class="avatar-img-fit">
                     <div class="smart-chat-bubble" id="topChatBubbleDesktop">Yardımcı Olabilirim 🦊</div>
                 </div>
@@ -571,6 +570,7 @@
 
                 <div onclick="triggerTopChat()" class="mob-btn-capsule left relative group cursor-pointer">
                     <div class="mob-btn-icon-circle shadow-sm" id="mobileChatTrigger">
+                        <!-- TİLKİ AVATARI MOBİL -->
                         <img src="assets/tilki-avatar2.png" alt="Dijital Asistan" class="avatar-img-fit">
                     </div>
                     <div class="mob-btn-text text-left mr-1">DİJİTAL<br>ASİSTAN</div>
@@ -756,10 +756,10 @@
                     <button id="btn-back" class="back-btn" onclick="unlockCounter()">← Geri Dön</button>
                     <h3 id="counterTitle" class="text-2xl md:text-4xl font-black mb-8 md:mb-14 text-slate-900 uppercase tracking-widest transition-opacity duration-300">LGS YAKLAŞIYOR</h3>
                     <div class="flex justify-center gap-2 md:gap-10 mb-10 flex-wrap">
-                        <div class="counter-ring ring-gun"><div id="c-gun" class="c-val">--</div><div class="c-lbl">GÜN</div></div>
-                        <div class="counter-ring ring-saat"><div id="c-saat" class="c-val">--</div><div class="c-lbl">SAAT</div></div>
-                        <div class="counter-ring ring-dak"><div id="c-dak" class="c-val">--</div><div class="c-lbl">DAKİKA</div></div>
-                        <div class="counter-ring ring-san"><div id="c-san" class="c-val">--</div><div class="c-lbl">SANİYE</div></div>
+                        <div class="counter-ring ring-gun"><div id="c-gun" class="c-val text-cyan-700">--</div><div class="c-lbl">GÜN</div></div>
+                        <div class="counter-ring ring-saat"><div id="c-saat" class="c-val text-cyan-700">--</div><div class="c-lbl">SAAT</div></div>
+                        <div class="counter-ring ring-dak"><div id="c-dak" class="c-val text-cyan-700">--</div><div class="c-lbl">DAKİKA</div></div>
+                        <div class="counter-ring ring-san"><div id="c-san" class="c-val text-cyan-700">--</div><div class="c-lbl">SANİYE</div></div>
                     </div>
                     <div class="flex justify-center gap-2 md:gap-4 w-full">
                         <button id="btn-LGS" onclick="lockExam('LGS')" class="exam-btn bg-cyan-50 text-cyan-700 font-black py-3 md:py-4 rounded-xl border-cyan-200 text-base md:text-lg">LGS</button>
@@ -951,6 +951,89 @@
 
     <script>
         let randevuAcilisZamani = 0; 
+        let isChatOpen = false;
+        let cycleTimer, tickTimer;
+        let lastH = null, lastM = null;
+        let activeKey = 'LGS';
+        let locked = false;
+        let cycleIdx = 0;
+
+        const EXAMS = {
+            LGS:  { label: 'LGS',  date: '2027-06-13T09:30:00', color: '#0284c7', bg: '#e0f2fe', border: '#bae6fd' },
+            YKS:  { label: 'YKS',  date: '2027-06-19T10:15:00', color: '#1d4ed8', bg: '#dbeafe', border: '#bfdbfe' },
+            KPSS: { label: 'KPSS', date: '2027-09-05T10:15:00', color: '#0284c7', bg: '#e0f2fe', border: '#bae6fd' }
+        };
+        const ORDER = ['LGS', 'YKS', 'KPSS'];
+
+        function applyColors(key) {
+            const c = EXAMS[key].color;
+            ['ring-gun', 'ring-saat', 'ring-dak'].forEach(id => {
+                const el = document.getElementById(id);
+                if(el) el.style.borderColor = c;
+            });
+            ['c-gun', 'c-saat', 'c-dak'].forEach(id => {
+                const el = document.getElementById(id);
+                if(el) el.style.color = c;
+            });
+        }
+
+        function updateNumbers(key) {
+            try {
+                let examDate = new Date(EXAMS[key].date).getTime();
+                let now = new Date().getTime();
+                let diff = examDate - now;
+
+                if(diff < 0) {
+                    let eDate = new Date(EXAMS[key].date);
+                    eDate.setFullYear(new Date().getFullYear() + 1);
+                    diff = eDate.getTime() - now;
+                }
+
+                let d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                let h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                let s = Math.floor((diff % (1000 * 60)) / 1000);
+
+                const cGun = document.getElementById('c-gun');
+                const cSaat = document.getElementById('c-saat');
+                const cDak = document.getElementById('c-dak');
+                const cSan = document.getElementById('c-san');
+
+                if(cGun) cGun.innerText = d;
+                if(cSaat) cSaat.innerText = h;
+                if(cDak) cDak.innerText = m;
+                if(cSan) cSan.innerText = s;
+            } catch(e) {}
+        }
+
+        function highlightBtn(key) {
+            ORDER.forEach(k => {
+                const btn = document.getElementById('btn-' + k);
+                if(btn) {
+                    if(k === key) { 
+                        btn.style.background = EXAMS[k].bg; btn.style.color = EXAMS[k].color; btn.style.borderColor = EXAMS[k].border; 
+                    } else { 
+                        btn.style.background = '#fff'; btn.style.color = '#475569'; btn.style.borderColor = '#e2e8f0'; 
+                    }
+                }
+            });
+        }
+
+        function startCycle() {
+            updateNumbers(activeKey); applyColors(activeKey); highlightBtn(activeKey);
+            const title = document.getElementById('counterTitle');
+            if(title) title.textContent = EXAMS[activeKey].label + ' YAKLAŞIYOR';
+
+            cycleTimer = setInterval(() => {
+                if(locked) return;
+                cycleIdx = (cycleIdx + 1) % ORDER.length;
+                activeKey = ORDER[cycleIdx];
+                if(title) title.textContent = EXAMS[activeKey].label + ' YAKLAŞIYOR';
+                updateNumbers(activeKey); applyColors(activeKey); highlightBtn(activeKey);
+            }, 3000);
+
+            tickTimer = setInterval(() => { updateNumbers(activeKey); }, 1000);
+        }
 
         document.addEventListener("DOMContentLoaded", function() {
             let videoObserver = new IntersectionObserver((entries, observer) => {
@@ -981,37 +1064,45 @@
                 });
             });
 
-            if (window.innerWidth <= 768) {
-                initMobileInfiniteSwipes('features-swipe', 'features-dots');
-            }
-
+            // Lighthouse TBT/NO_LCP Hatasını Çözen Gecikmeli Başlatma (Delay)
             setTimeout(() => {
+                if (window.innerWidth <= 768) {
+                    initMobileInfiniteSwipes('features-swipe', 'features-dots');
+                }
+
                 const bubbleMobile = document.getElementById('topChatBubbleMobile');
                 const bubbleDesktop = document.getElementById('topChatBubbleDesktop');
                 if (bubbleMobile && !isChatOpen) bubbleMobile.classList.add('show');
                 if (bubbleDesktop && !isChatOpen) bubbleDesktop.classList.add('show');
-            }, 3000);
 
-            const isimler = ["Muhammed", "Hamza", "Ebubekir", "Hüseyin", "Ali", "Ömer", "Osman", "Ayşe", "Fatma", "Sümeyye", "Nurgül"];
-            let isimIndex = 0;
-            setInterval(() => {
-                const fIsim = document.getElementById('fIsim');
-                if(fIsim && fIsim.value === '') {
-                    isimIndex = (isimIndex + 1) % isimler.length;
-                    fIsim.placeholder = "Örn: " + isimler[isimIndex];
-                }
-            }, 1500);
+                const isimler = ["Muhammed", "Hamza", "Ebubekir", "Hüseyin", "Ali", "Ömer", "Osman", "Ayşe", "Fatma", "Sümeyye", "Nurgül"];
+                let isimIndex = 0;
+                setInterval(() => {
+                    const fIsim = document.getElementById('fIsim');
+                    if(fIsim && fIsim.value === '') {
+                        isimIndex = (isimIndex + 1) % isimler.length;
+                        fIsim.placeholder = "Örn: " + isimler[isimIndex];
+                    }
+                }, 1500);
 
-            const saatler = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
-            let saatIndex = 0;
-            setInterval(() => {
-                const fSaatDefault = document.getElementById('fSaatDefault');
-                const fSaat = document.getElementById('fSaat');
-                if(fSaatDefault && fSaat && fSaat.disabled) {
-                    saatIndex = (saatIndex + 1) % saatler.length;
-                    fSaatDefault.text = "Önce Tarih Seçiniz (Örn: " + saatler[saatIndex] + ")";
-                }
-            }, 1500);
+                const saatler = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
+                let saatIndex = 0;
+                setInterval(() => {
+                    const fSaatDefault = document.getElementById('fSaatDefault');
+                    const fSaat = document.getElementById('fSaat');
+                    if(fSaatDefault && fSaat && fSaat.disabled) {
+                        saatIndex = (saatIndex + 1) % saatler.length;
+                        fSaatDefault.text = "Önce Tarih Seçiniz (Örn: " + saatler[saatIndex] + ")";
+                    }
+                }, 1500);
+
+                startCycle();
+            }, 3500);
+
+            // Sayaç animasyonunu gecikmeli başlatıyoruz ama boş kalmaması için ilk veriyi anında yazdırıyoruz.
+            updateNumbers(activeKey); 
+            applyColors(activeKey); 
+            highlightBtn(activeKey);
         });
 
         function initMobileInfiniteSwipes(containerId, dotsId) {
@@ -1171,139 +1262,45 @@
             }
         }, { passive: true });
 
-        (function() {
-            const EXAMS = {
-                LGS:  { label: 'LGS',  date: '2027-06-13T09:30:00', color: '#06b6d4', bg: '#ecfeff', border: '#a5f3fc' },
-                YKS:  { label: 'YKS',  date: '2027-06-19T10:15:00', color: '#3b82f6', bg: '#eff6ff', border: '#bfdbfe' },
-                KPSS: { label: 'KPSS', date: '2027-09-05T10:15:00', color: '#06b6d4', bg: '#ecfeff', border: '#a5f3fc' }
-            };
-            const ORDER = ['LGS', 'YKS', 'KPSS'];
-            let cycleIdx = 0, activeKey = 'LGS', locked = false, cycleTimer, tickTimer;
-            let lastH = null, lastM = null;
+        window.lockExam = function(key) {
+            if(locked) return;
+            locked = true; clearInterval(cycleTimer); activeKey = key;
 
-            function applyColors(key) {
-                const c = EXAMS[key].color;
-                ['ring-gun', 'ring-saat', 'ring-dak'].forEach(id => {
-                    const el = document.getElementById(id);
-                    if(el) el.style.borderColor = c;
-                });
-                ['c-gun', 'c-saat', 'c-dak'].forEach(id => {
-                    const el = document.getElementById(id);
-                    if(el) el.style.color = c;
-                });
-            }
+            ORDER.forEach(k => {
+                const btn = document.getElementById('btn-' + k);
+                if(btn) {
+                    if(k !== key) { btn.classList.add('btn-gone'); } 
+                    else { btn.style.pointerEvents = 'none'; btn.style.background = EXAMS[k].bg; btn.style.color = EXAMS[k].color; }
+                }
+            });
 
-            function updateNumbers(key) {
-                try {
-                    let examDate = new Date(EXAMS[key].date).getTime();
-                    let now = new Date().getTime();
-                    let diff = examDate - now;
+            const title = document.getElementById('counterTitle');
+            if(title) title.textContent = EXAMS[key].label + ' YAKLAŞIYOR';
 
-                    if(diff < 0) {
-                        let eDate = new Date(EXAMS[key].date);
-                        eDate.setFullYear(new Date().getFullYear() + 1);
-                        diff = eDate.getTime() - now;
-                    }
+            updateNumbers(key); applyColors(key);
+            const cCard = document.getElementById('counterCard');
+            if(cCard) cCard.classList.add('grown');
+            const bBtn = document.getElementById('btn-back');
+            if(bBtn) bBtn.classList.add('show');
+            const sub = document.getElementById('sub-' + key);
+            if(sub) sub.classList.add('open');
+        };
 
-                    let d = Math.floor(diff / (1000 * 60 * 60 * 24));
-                    let h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    let m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                    let s = Math.floor((diff % (1000 * 60)) / 1000);
-
-                    if (lastH !== null && h < lastH) { 
-                        const el = document.getElementById('c-saat');
-                        if(el) { el.classList.add('pulse-red-alert'); setTimeout(() => el.classList.remove('pulse-red-alert'), 1000); }
-                    }
-                    if (lastM !== null && m < lastM) { 
-                        const el = document.getElementById('c-dak');
-                        if(el) { el.classList.add('pulse-red-alert'); setTimeout(() => el.classList.remove('pulse-red-alert'), 1000); }
-                    }
-                    lastH = h; lastM = m;
-
-                    const cGun = document.getElementById('c-gun');
-                    const cSaat = document.getElementById('c-saat');
-                    const cDak = document.getElementById('c-dak');
-                    const cSan = document.getElementById('c-san');
-
-                    if(cGun) cGun.innerText = d;
-                    if(cSaat) cSaat.innerText = h;
-                    if(cDak) cDak.innerText = m;
-                    if(cSan) cSan.innerText = s;
-                } catch(e) { console.warn("Lokal Sayaç Makinesi Hatası:", e); }
-            }
-
-            function highlightBtn(key) {
+        window.unlockCounter = function() {
+            locked = false;
+            document.querySelectorAll('.sub-row').forEach(s => s.classList.remove('open'));
+            const cCard = document.getElementById('counterCard');
+            if(cCard) cCard.classList.remove('grown');
+            const bBtn = document.getElementById('btn-back');
+            if(bBtn) bBtn.classList.add('show');
+            setTimeout(() => {
                 ORDER.forEach(k => {
                     const btn = document.getElementById('btn-' + k);
-                    if(btn) {
-                        if(k === key) { 
-                            btn.style.background = EXAMS[k].bg; btn.style.color = EXAMS[k].color; btn.style.borderColor = EXAMS[k].border; 
-                        } else { 
-                            btn.style.background = '#fff'; btn.style.color = '#94a3b8'; btn.style.borderColor = '#e2e8f0'; 
-                        }
-                    }
+                    if(btn) { btn.classList.remove('btn-gone'); btn.style.pointerEvents = 'auto'; }
                 });
-            }
-
-            function startCycle() {
-                updateNumbers(activeKey); applyColors(activeKey); highlightBtn(activeKey);
-                const title = document.getElementById('counterTitle');
-                if(title) title.textContent = EXAMS[activeKey].label + ' YAKLAŞIYOR';
-
-                cycleTimer = setInterval(() => {
-                    if(locked) return;
-                    cycleIdx = (cycleIdx + 1) % ORDER.length;
-                    activeKey = ORDER[cycleIdx];
-                    if(title) title.textContent = EXAMS[activeKey].label + ' YAKLAŞIYOR';
-                    updateNumbers(activeKey); applyColors(activeKey); highlightBtn(activeKey);
-                }, 3000);
-
-                tickTimer = setInterval(() => { updateNumbers(activeKey); }, 1000);
-            }
-
-            window.lockExam = function(key) {
-                if(locked) return;
-                locked = true; clearInterval(cycleTimer); activeKey = key;
-
-                ORDER.forEach(k => {
-                    const btn = document.getElementById('btn-' + k);
-                    if(btn) {
-                        if(k !== key) { btn.classList.add('btn-gone'); } 
-                        else { btn.style.pointerEvents = 'none'; btn.style.background = EXAMS[k].bg; btn.style.color = EXAMS[k].color; }
-                    }
-                });
-
-                const title = document.getElementById('counterTitle');
-                if(title) title.textContent = EXAMS[key].label + ' YAKLAŞIYOR';
-
-                updateNumbers(key); applyColors(key);
-                const cCard = document.getElementById('counterCard');
-                if(cCard) cCard.classList.add('grown');
-                const bBtn = document.getElementById('btn-back');
-                if(bBtn) bBtn.classList.add('show');
-                const sub = document.getElementById('sub-' + key);
-                if(sub) sub.classList.add('open');
-            };
-
-            window.unlockCounter = function() {
-                locked = false;
-                document.querySelectorAll('.sub-row').forEach(s => s.classList.remove('open'));
-                const cCard = document.getElementById('counterCard');
-                if(cCard) cCard.classList.remove('grown');
-                const bBtn = document.getElementById('btn-back');
-                if(bBtn) bBtn.classList.add('show');
-                setTimeout(() => {
-                    ORDER.forEach(k => {
-                        const btn = document.getElementById('btn-' + k);
-                        if(btn) { btn.classList.remove('btn-gone'); btn.style.pointerEvents = 'auto'; }
-                    });
-                    startCycle();
-                }, 400);
-            };
-            startCycle();
-        })();
-
-        let isChatOpen = false;
+                startCycle();
+            }, 400);
+        };
 
         function getRandomDelay() { return Math.floor(Math.random() * (2500 - 1500 + 1)) + 1500; }
 
@@ -1345,7 +1342,7 @@
             const chatBody = document.getElementById('chatBody');
             const msgDiv = document.createElement('div');
             msgDiv.className = 'bot-message';
-            const avatarContent = `<img src="assets/tilki-avatar.png" alt="Bot" class="avatar-img-fit">`;
+            const avatarContent = `<img src="assets/tilki-avatar.png" alt="Dijital Asistan" class="avatar-img-fit">`;
             msgDiv.innerHTML = `<div class="bot-avatar">${avatarContent}</div><div class="bot-bubble">${text}</div>`;
             chatBody.appendChild(msgDiv);
             scrollToBottom();
