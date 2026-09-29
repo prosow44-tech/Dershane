@@ -2,7 +2,7 @@
 <html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Referans Eğitim Kurumları | Malatya VIP Dershane</title>
     <meta name="description" content="Malatya'nın en iyi dershanesi. 5-8. Sınıf LGS, 9-12. Sınıf YKS ve Akademik (KPSS/DGS) hazırlığında VIP eğitim ve birebir uzman takip sistemi.">
     <meta name="keywords" content="Malatya dershane, LGS, YKS, KPSS, VIP eğitim, Referans Eğitim Kurumları, Battalgazi, Malatya eğitim, en iyi dershane, TYT, AYT, eğitim koçluğu, DGS hazırlık">
@@ -25,6 +25,7 @@
     <link rel="canonical" href="https://www.referansegitim.com/">
     <link rel="icon" href="assets/logo.png" type="image/png">
 
+    <!-- PERFORMANS: TAILWIND CDN KALDIRILDI, YEREL CSS KULLANILIYOR -->
     <link rel="preload" href="assets/style.css" as="style">
     <link rel="stylesheet" href="assets/style.css">
 
@@ -42,7 +43,7 @@
             -webkit-text-size-adjust: 100%;
             text-size-adjust: 100%;
             scroll-behavior: smooth;
-            zoom: 0.8;
+            zoom: 0.8; /* TASARIM KORUMASI İÇİN BIRAKILDI */
         }
 
         body { 
@@ -82,18 +83,17 @@
             box-shadow: 0 0 25px 5px rgba(14, 165, 233, 0.6); border-radius: 10px; transition: top 0.118s linear; z-index: 1; opacity: 1; pointer-events: none;
         }
 
+        /* PERFORMANS: MOBİLDE BLUR EFEKTİ DEVRE DIŞI BIRAKILDI (CPU İÇİN) */
         .glass-card {
-            background-color: rgba(255, 255, 255, 0.92) !important;
-            backdrop-filter: blur(14px) !important;
-            -webkit-backdrop-filter: blur(14px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.8) !important;
+            background-color: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid rgba(226, 232, 240, 0.8) !important;
         }
-
-        @media (max-width: 768px) {
+        @media (min-width: 769px) {
             .glass-card {
-                background-color: rgba(255, 255, 255, 0.98) !important;
-                backdrop-filter: none !important;
-                -webkit-backdrop-filter: none !important;
+                background-color: rgba(255, 255, 255, 0.92) !important;
+                backdrop-filter: blur(14px) !important;
+                -webkit-backdrop-filter: blur(14px) !important;
+                border: 1px solid rgba(255, 255, 255, 0.8) !important;
             }
         }
 
@@ -168,7 +168,7 @@
         .shadow-dir-left { box-shadow: -12px 12px 0px 0px #1e293b !important; border: 2px solid #f8fafc !important; }
         .shadow-dir-center { box-shadow: 0px 12px 0px 0px #1e293b !important; border: 2px solid #f8fafc !important; }
         .shadow-dir-right { box-shadow: 12px 12px 0px 0px #1e293b !important; border: 2px solid #f8fafc !important; }
-        
+
         .webm-shadow-dir-left { box-shadow: -10px 10px 0px 0px rgba(15, 23, 42, 0.9) !important; }
         .webm-shadow-dir-center { box-shadow: 0px 10px 0px 0px rgba(15, 23, 42, 0.9) !important; }
         .webm-shadow-dir-right { box-shadow: 10px 10px 0px 0px rgba(15, 23, 42, 0.9) !important; }
@@ -328,13 +328,12 @@
             .mobile-swipe-container::-webkit-scrollbar { display: none !important; }
 
             .mobile-swipe-item { flex: 0 0 85vw !important; scroll-snap-align: center !important; transition: all 0.472s cubic-bezier(0.25, 0.46, 0.45, 0.94); opacity: 0.4 !important; filter: blur(4px) !important; transform: scale(0.85) !important; margin: 0 !important; position: relative; will-change: transform, opacity, filter; }
-            
-            /* LCP Hatasını Çözen Netleşme: Kart anında %100 net görünür */
+
             .mobile-swipe-item:nth-child(1) { opacity: 1 !important; filter: blur(0px) !important; transform: scale(1) !important; z-index: 10; }
             .mobile-swipe-item.is-centered { opacity: 1 !important; filter: blur(0px) !important; transform: scale(1) !important; z-index: 10; }
 
             .card-shield-hard { padding: 1.5rem !important; padding-bottom: 4.5rem !important; border-radius: 1.5rem !important; overflow: visible !important; z-index: 20; }
-            
+
             .icon-box { width: 28px !important; height: 28px !important; min-width: 28px !important; min-height: 28px !important; max-width: 28px !important; max-height: 28px !important; margin-bottom: 0.8rem !important; }
             .webm-card-bottom { width: 60px !important; height: 60px !important; bottom: -30px !important; border: 3px solid #ffffff !important; }
 
@@ -483,7 +482,6 @@
 </head>
 <body class="selection:bg-cyan-500 selection:text-white" id="main-body">
 
-    <!-- BAŞARI BİLDİRİMİ (TOAST) GÖRSELDEKİ VIP TASARIM -->
     <div id="success-notification" class="success-toast">
         <div class="icon">✓</div> 
         <div>
@@ -494,7 +492,6 @@
 
     <div class="progress-bar" id="progressBar"></div>
 
-    <!-- ÜST MENÜ HANGING NAV (PC) -->
     <div class="mega-bar-wrapper" id="megaBar">
         <nav class="hanging-nav hidden md:grid">
             <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-ust'">
@@ -516,9 +513,7 @@
         </nav>
     </div>
 
-    <!-- PC ÜST MENÜSÜ (GÖRSELDEKİ BİREBİR ORİJİNAL TASARIM) -->
     <nav class="pill-nav hidden md:flex" id="pillMenu">
-        <!-- Sol Grup -->
         <div class="flex items-center gap-6 pl-2 z-10 w-1/3">
             <div onclick="triggerTopChat()" class="flex items-center gap-2 cursor-pointer mr-auto relative group" style="text-decoration: none;">
                 <div class="relative flex-shrink-0 bg-white" style="width: 44px; height: 44px; border-radius: 50%; border: 2.5px solid #0ea5e9; padding: 2px; transition: transform 0.3s ease; box-shadow: 0 4px 10px rgba(6,182,212,0.3);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
@@ -533,7 +528,6 @@
             </a>
         </div>
 
-        <!-- Merkez Kesik (Cluster) Grup (360 Gezin - Logo - Bize Ulaşın) -->
         <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center z-20">
             <button onclick="openTour()" class="bg-[#0ea5e9] text-white font-black text-sm px-6 py-3.5 rounded-l-full flex items-center justify-center gap-2 hover:bg-[#0284c7] transition-colors shadow-sm -mr-6 z-0 w-[150px]">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><rect x="7" y="3" width="10" height="18" rx="2" ry="2"></rect><path d="M3 12c0-3.3 2.7-6 6-6"></path><path d="M21 12c0 3.3-2.7 6-6 6"></path><polygon points="9 3 9 9 3 6"></polygon><polygon points="15 21 15 15 21 18"></polygon></svg>
@@ -547,7 +541,6 @@
             </a>
         </div>
 
-        <!-- Sağ Grup -->
         <div class="flex items-center justify-end gap-6 pr-2 z-10 w-1/3">
             <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="pc-text-link !text-cyan-700 mr-3">
                 YOL TARİFİ
@@ -560,7 +553,6 @@
         </div>
     </nav>
 
-    <!-- KUSURSUZ MOBİL ÜST MENÜ KATI -->
     <div class="md:hidden w-full fixed top-[10px] left-0 z-[40010] flex flex-col items-center pointer-events-none">
         <div class="mobile-pill-container">
             <div class="mobile-pill-main">
@@ -573,7 +565,6 @@
                     <div class="smart-chat-bubble" id="topChatBubbleMobile">Yardımcı Olabilirim 🦊</div>
                 </div>
 
-                <!-- ORTA ALAN: İKONLU KISA BAŞLIKLAR (DİKEY) -->
                 <div class="mob-center-area">
                     <a href="#hakkimizda" class="mob-framed-link">
                         <span class="icon">i</span>
@@ -591,8 +582,9 @@
                 <button onclick="openModal('')" class="mob-btn-capsule right cursor-pointer">
                     <div class="mob-btn-text text-right ml-1">RANDEVU<br>AL</div>
                     <div class="mob-btn-icon-circle shadow-sm">
+                        <!-- PERFORMANS: POSTER VE PRELOAD="NONE" EKLENDİ -->
                         <div class="webm-mask w-full h-full video-skeleton video-crop-calendar">
-                            <video src="assets/takvim.mp4" playsinline loop muted preload="none"></video>
+                            <video src="assets/takvim.mp4" poster="assets/poster-takvim.jpg" playsinline loop muted preload="none"></video>
                         </div>
                     </div>
                 </button>
@@ -600,7 +592,6 @@
         </div>
     </div>
 
-    <!-- KAYBOLAN ALT BUTONLAR (ABSOLUTE YAPILANDIRMASI) -->
     <div class="md:hidden w-full absolute top-[75px] left-0 z-[40005] flex justify-center pointer-events-none">
         <div class="mobile-classes-row flex justify-center gap-3 w-full pointer-events-auto px-2">
             <a href="#ekstra-bilgiler" class="mob-class-btn flex flex-col items-center justify-center" style="padding: 6px 16px; line-height: 1.1;">
@@ -614,7 +605,6 @@
         </div>
     </div>
 
-    <!-- MOBİL ALT YÜZEN BUTONLAR -->
     <nav class="mobile-bottom-nav">
         <div class="mobile-nav-grid">
             <button onclick="openTour()" class="mob-link" aria-label="360 Tur">
@@ -641,8 +631,7 @@
             <section id="features" class="w-full max-w-6xl mx-auto px-0 md:px-6 mb-16 md:mb-32 relative z-[20] order-2 md:order-1 mt-6 md:mt-0">
                 <div class="mobile-swipe-wrapper">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 relative mobile-swipe-container" id="features-swipe">
-                        
-                        <!-- SOL KART VE GÖLGE -->
+
                         <div class="mobile-swipe-item card-shield-hard shadow-dir-left glass-card p-8 text-center flex flex-col items-center relative">
                             <div class="icon-box text-cyan-500">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"></path><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"></path></svg>
@@ -650,11 +639,11 @@
                             <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Alanında Uzman Kadro</h3>
                             <p class="text-slate-700 font-bold leading-relaxed text-xs md:text-sm">Sınav sisteminin tüm şifrelerine hakim, dereceler çıkartan profesyonel eğitmen kadrosu.</p>
                             <div class="webm-mask webm-card-bottom webm-shadow-dir-left video-skeleton">
-                                <video src="assets/rahatlama.mp4" playsinline loop muted preload="none"></video>
+                                <!-- PERFORMANS: POSTER VE PRELOAD="NONE" EKLENDİ -->
+                                <video src="assets/rahatlama.mp4" poster="assets/poster-rahatlama.jpg" playsinline loop muted preload="none"></video>
                             </div>
                         </div>
-                        
-                        <!-- ORTA KART VE GÖLGE -->
+
                         <div class="mobile-swipe-item card-shield-hard shadow-dir-center glass-card p-8 text-center flex flex-col items-center relative">
                             <div class="icon-box text-blue-500">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
@@ -662,11 +651,10 @@
                             <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Birebir Takip</h3>
                             <p class="text-slate-700 font-bold leading-relaxed text-xs md:text-sm">Eksikleri nokta atışı tespit edip anında sıfırlayan, kişiye özel kusursuz eğitim koçluğu sistemi.</p>
                             <div class="webm-mask webm-card-bottom webm-shadow-dir-center video-skeleton">
-                                <video src="assets/ekran.mp4" playsinline loop muted preload="none"></video>
+                                <video src="assets/ekran.mp4" poster="assets/poster-ekran.jpg" playsinline loop muted preload="none"></video>
                             </div>
                         </div>
-                        
-                        <!-- SAĞ KART VE GÖLGE -->
+
                         <div class="mobile-swipe-item card-shield-hard shadow-dir-right glass-card p-8 text-center flex flex-col items-center relative">
                             <div class="icon-box text-cyan-500">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
@@ -674,7 +662,7 @@
                             <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Deneme & Analiz</h3>
                             <p class="text-slate-700 font-bold leading-relaxed text-xs md:text-sm">Gerçek sınav zorluğundaki Türkiye geneli denemeler ve detaylı ölçülebilir gelişim raporları.</p>
                             <div class="webm-mask webm-card-bottom webm-shadow-dir-right video-skeleton">
-                                <video src="assets/net-artırma.mp4" playsinline loop muted preload="none"></video>
+                                <video src="assets/net-artırma.mp4" poster="assets/poster-net-artirma.jpg" playsinline loop muted preload="none"></video>
                             </div>
                         </div>
                     </div>
@@ -694,7 +682,8 @@
                     </div>
                     <div class="w-1/2 pl-6 md:pl-8 flex justify-start relative">
                         <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                            <video src="assets/kalem-yazma.mp4" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
+                            <!-- PERFORMANS: POSTER VE PRELOAD="NONE" EKLENDİ -->
+                            <video src="assets/kalem-yazma.mp4" poster="assets/poster-kalem.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
                         </div>
                     </div>
                 </div>
@@ -708,7 +697,7 @@
                     </div>
                     <div class="w-1/2 pr-6 md:pr-8 flex justify-end relative">
                         <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                            <video src="assets/bu-taraftan-gidiyoruz.mp4" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
+                            <video src="assets/bu-taraftan-gidiyoruz.mp4" poster="assets/poster-bu-taraftan.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
                         </div>
                     </div>
                 </div>
@@ -722,7 +711,7 @@
                     </div>
                     <div class="w-1/2 pl-6 md:pl-8 flex justify-start relative">
                         <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                            <video src="assets/sevinme.mp4" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
+                            <video src="assets/sevinme.mp4" poster="assets/poster-sevinme.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
                         </div>
                     </div>
                 </div>
@@ -736,7 +725,7 @@
                     </div>
                     <div class="w-1/2 pr-6 md:pr-8 flex justify-end relative">
                         <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                            <video src="assets/soru-cozme.mp4" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
+                            <video src="assets/soru-cozme.mp4" poster="assets/poster-soru.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
                         </div>
                     </div>
                 </div>
@@ -745,7 +734,7 @@
             <section id="sayac" class="w-full max-w-4xl px-4 md:px-6 mb-24 md:mb-40 relative z-[20] text-center order-3">
                 <div class="flex justify-center mb-8">
                     <div class="webm-mask video-skeleton video-crop-calendar" style="width: 110px; height: 110px; border: 6px solid #ffffff; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
-                        <video src="assets/takvim.mp4" playsinline loop muted preload="none"></video>
+                        <video src="assets/takvim.mp4" poster="assets/poster-takvim.jpg" playsinline loop muted preload="none"></video>
                     </div>
                 </div>
                 <div id="counterCard" class="counter-card glass-card p-8 md:p-16 w-full inline-block relative">
@@ -878,7 +867,7 @@
             <div class="flex justify-center -mt-24 md:-mt-28 mb-4 relative z-20">
                 <div class="w-36 h-36 md:w-44 md:h-44 aspect-square rounded-2xl bg-white overflow-hidden flex items-center justify-center border-4 border-white" 
                      style="box-shadow: 0 0 0 4px rgba(255,255,255,0.6), 0 0 0 8px rgba(255,255,255,0.3), 0 15px 30px rgba(0,0,0,0.4);">
-                    <video src="assets/ekrana-tiklama.mp4" playsinline loop muted preload="none" class="w-full h-full object-cover scale-[1.3] -translate-y-4 origin-top"></video>
+                    <video src="assets/ekrana-tiklama.mp4" poster="assets/poster-tiklama.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover scale-[1.3] -translate-y-4 origin-top"></video>
                 </div>
             </div>
 
@@ -892,12 +881,12 @@
 
                 <form id="apptForm" onsubmit="submitAppt(event); return false;" class="text-left">
                     <input type="text" id="botTrap" tabindex="-1" autocomplete="off" class="sr-only">
-                    
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
                         <input type="text" id="fIsim" placeholder="Örn: Muhammed" required class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-900 focus:border-cyan-500 font-bold transition-colors focus:bg-white placeholder:font-medium placeholder:text-slate-400">
                         <input type="tel" id="fTelefon" placeholder="Örn: 053X XXX XX XX" required maxlength="11" oninput="this.value=this.value.replace(/[^0-9]/g,'')" class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-900 focus:border-cyan-500 font-bold transition-colors focus:bg-white placeholder:font-medium placeholder:text-slate-400">
                     </div>
-                    
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                         <select id="fSinif" required class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-bold cursor-pointer transition-colors focus:bg-white">
                             <option value="" disabled selected>Sınıf Seçiniz</option>
@@ -920,7 +909,7 @@
                             <button type="button" id="autoDateBtn" onclick="findNearestDate()" class="auto-date-btn">EN YAKIN TARİHİ SEÇ</button>
                         </div>
                         <input type="date" id="fTarih" required class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-bold cursor-pointer mb-3 transition-colors focus:bg-white">
-                        
+
                         <div class="flex justify-between items-end mb-2">
                             <label class="text-[10px] md:text-xs font-black text-slate-500 uppercase tracking-widest">Saat Seçimi:</label>
                         </div>
@@ -945,6 +934,7 @@
         </div>
     </div>
 
+    <!-- PERFORMANS: INTERSECTION OBSERVER VE SCRIPT OPTİMİZASYONLARI -->
     <script>
         let randevuAcilisZamani = 0; 
         let isChatOpen = false;
@@ -1032,6 +1022,7 @@
         }
 
         document.addEventListener("DOMContentLoaded", function() {
+            /* PERFORMANS: INTERSECTION OBSERVER İLE VİDEO YÜKLEME */
             let videoObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     const video = entry.target;
@@ -1114,7 +1105,7 @@
                 const containerCenter = container.getBoundingClientRect().left + (container.clientWidth / 2);
                 let closestDist = Infinity;
                 let newIdx = 0;
-                
+
                 items.forEach((item, idx) => {
                     const itemCenter = item.getBoundingClientRect().left + (item.clientWidth / 2);
                     const dist = Math.abs(containerCenter - itemCenter);
@@ -1167,7 +1158,7 @@
 
             const pauseAuto = () => { isUserInteracting = true; clearInterval(autoScrollInterval); };
             const resumeAuto = () => { isUserInteracting = false; startAuto(); };
-            
+
             container.addEventListener('touchstart', pauseAuto, {passive:true});
             container.addEventListener('touchend', () => setTimeout(resumeAuto, 2000), {passive:true});
             container.addEventListener('mousedown', pauseAuto, {passive:true});
@@ -1498,6 +1489,23 @@
             }
         };
 
+        window.openLightbox = function(src) {
+            const lb = document.getElementById('imageLightbox');
+            const img = document.getElementById('lightboxImg');
+            if(lb && img) {
+                img.src = src; document.body.style.overflow = 'hidden'; lb.style.display = 'flex';
+                requestAnimationFrame(() => { lb.classList.add('show'); });
+            }
+        };
+
+        window.closeLightbox = function() {
+            const lb = document.getElementById('imageLightbox');
+            if(lb) {
+                lb.classList.remove('show'); document.body.style.overflow = '';
+                setTimeout(() => { lb.style.display = 'none'; }, 500);
+            }
+        };
+
         const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzrYJVsS0yDP1twV2OFzI3rujb8GcQKtcr2lfIGQAnVbIM15tpGx3O7AfxEn3fZFB2t/exec";
 
         window.findNearestDate = function() {
@@ -1656,7 +1664,7 @@
             if(!sinif || !tarih || !saat) return showErr('Lütfen tüm alanları doldurun.');
 
             const btn = document.getElementById('btn-submit');
-            
+
             if(btn) { 
                 btn.innerHTML = 'Takvim Kontrol Ediliyor...'; 
                 btn.style.backgroundColor = '#06b6d4'; 
@@ -1676,7 +1684,7 @@
                     btn.style.cursor = 'pointer';
                     btn.disabled = false; 
                 }
-                
+
                 if(res.durum === 'hata'){ showErr(res.mesaj); return; }
 
                 closeModal();
@@ -1689,7 +1697,7 @@
 
                 const form = document.getElementById('apptForm');
                 if(form) form.reset();
-                
+
                 document.getElementById('fTarih').dispatchEvent(new Event('change'));
 
             }).catch(() => {
