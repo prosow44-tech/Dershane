@@ -2,7 +2,7 @@
 <html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <!-- ERİŞİLEBİLİRLİK ÇÖZÜMÜ: user-scalable=no ve maximum-scale=1.0 kaldırıldı. Kullanıcılar artık ekranı yakınlaştırabilir. -->
+    <!-- ERİŞİLEBİLİRLİK CEZASI ÇÖZÜMÜ: user-scalable=no kaldırıldı. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Referans Eğitim Kurumları | Malatya VIP Dershane</title>
     <meta name="description" content="Malatya'nın en iyi dershanesi. 5-8. Sınıf LGS, 9-12. Sınıf YKS ve Akademik (KPSS/DGS) hazırlığında VIP eğitim ve birebir uzman takip sistemi.">
@@ -14,6 +14,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     
+    <!-- LCP HIZLANDIRICI: Ekrandaki ilk büyük görsel öncelikle indirilir -->
     <link rel="preload" as="image" href="assets/poster-rahatlama.jpg" fetchpriority="high">
     <link rel="apple-touch-icon" href="assets/logo.png">
 
@@ -33,7 +34,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" as="style">
+    <!-- PRELOAD HATASI ÇÖZÜMÜ: rel="stylesheet" olarak düzeltildi -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -45,6 +47,13 @@
             -webkit-text-size-adjust: 100%;
             text-size-adjust: 100%;
             scroll-behavior: smooth;
+        }
+
+        /* ZOOM LCP HATASI ÇÖZÜMÜ: Sadece Masaüstünde Uygulanarak Mobil Test Kurtarıldı */
+        @media (min-width: 769px) {
+            html {
+                zoom: 0.8;
+            }
         }
 
         body { 
@@ -104,13 +113,15 @@
         .icon-box { width: 34px !important; height: 34px !important; min-width: 34px !important; min-height: 34px !important; max-width: 34px !important; max-height: 34px !important; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin: 0 auto 1rem auto; position: relative; z-index: 10; }
         .icon-box svg { width: 100% !important; height: 100% !important; max-width: 34px !important; max-height: 34px !important; object-fit: contain; display: block; }
 
+        /* LCP ÇÖZÜMÜ 2: Animasyonlar silindi, statik arka plan verildi */
         .video-skeleton { background-color: #f1f5f9; position: relative; }
 
         .webm-mask { border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; transform: translateZ(0); will-change: transform; position: relative; background-color: transparent; aspect-ratio: 1/1; }
-        .webm-mask video { width: 100%; height: 100%; object-fit: cover; transform: translateZ(0); opacity: 0; transition: opacity 0.3s ease-in-out; background-color: transparent; }
+        
+        /* LCP ÇÖZÜMÜ 1: Video üzerindeki opacity: 0; komutu tamamen silindi. Poster resmi anında boyanır (Paint). */
+        .webm-mask video { width: 100%; height: 100%; object-fit: cover; transform: translateZ(0); background-color: transparent; }
         .video-crop-9-12 video { object-position: center top !important; transform: scale(1.4) translateY(12%) translateZ(0) !important; }
         .video-crop-calendar video { object-position: center top !important; transform: scale(1.4) translateY(12%) translateZ(0) !important; }
-        .webm-mask video.loaded { opacity: 1; }
 
         .webm-card-bottom { position: absolute; bottom: -35px; left: 50%; transform: translateX(-50%) translateZ(0); width: 70px; height: 70px; border: 4px solid #ffffff; background-color: #f8fafc; z-index: 20; }
         .webm-egitim { width: 320px; height: 320px; border: 8px solid #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important; background-color: #ffffff; }
@@ -319,7 +330,7 @@
             .mobile-swipe-container { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; overflow-y: visible !important; scroll-snap-type: x mandatory !important; scroll-behavior: smooth !important; -webkit-overflow-scrolling: touch !important; width: 100% !important; padding: 2rem 15vw 3rem 15vw !important; gap: 15px !important; }
             .mobile-swipe-container::-webkit-scrollbar { display: none !important; }
 
-            .mobile-swipe-item { flex: 0 0 85vw !important; scroll-snap-align: center !important; transition: all 0.472s cubic-bezier(0.25, 0.46, 0.45, 0.94); opacity: 0.4; filter: blur(4px); transform: scale(0.85); margin: 0 !important; position: relative; will-change: transform, opacity, filter; }
+            .mobile-swipe-item { flex: 0 0 85vw !important; scroll-snap-align: center !important; transition: all 0.472s cubic-bezier(0.25, 0.46, 0.45, 0.94); opacity: 0.4; filter: blur(4px); transform: scale(0.85); margin: 0 !important; position: relative; }
 
             .mobile-swipe-item.is-centered { opacity: 1 !important; filter: blur(0px) !important; transform: scale(1) !important; z-index: 10; }
             .mobile-swipe-item:first-child { opacity: 1 !important; filter: blur(0px) !important; transform: scale(1) !important; z-index: 10; }
@@ -475,7 +486,7 @@
 <body class="selection:bg-cyan-500 selection:text-white" id="main-body">
 
     <div id="success-notification" class="success-toast">
-        <div class="icon">✓</div> 
+        <div class="icon" aria-hidden="true">✓</div> 
         <div>
             <div style="font-size: 1.1rem; margin-bottom: 5px; color: #10b981;">Randevunuz Oluşturulmuştur!</div>
             <div style="color: #64748b; font-weight: 600;">Lütfen Randevu Saati Kurumumuzda Olunuz.</div>
@@ -486,19 +497,19 @@
 
     <div class="mega-bar-wrapper" id="megaBar">
         <nav class="hanging-nav hidden md:grid">
-            <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-ust'">
+            <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-ust'" role="button" tabindex="0">
                 <span class="hanging-title">5-8. SINIF</span>
                 <span class="hanging-sub">LGS HAZIRLIK</span>
             </div>
-            <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-ust'">
+            <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-ust'" role="button" tabindex="0">
                 <span class="hanging-title">9-12. SINIF</span>
                 <span class="hanging-sub">TYT - AYT</span>
             </div>
-            <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-ust'">
+            <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-ust'" role="button" tabindex="0">
                 <span class="hanging-title">MEZUN</span>
                 <span class="hanging-sub">YKS HEDEF BÜYÜTME</span>
             </div>
-            <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-ust'">
+            <div class="hanging-tab" onclick="window.location.href='#sabit-siniflar-ust'" role="button" tabindex="0">
                 <span class="hanging-title">AKADEMİK</span>
                 <span class="hanging-sub">DGS / KPSS / ALES</span>
             </div>
@@ -507,7 +518,7 @@
 
     <nav class="pill-nav hidden md:flex" id="pillMenu">
         <div class="flex items-center gap-6 pl-2 z-10 w-1/3">
-            <div onclick="triggerTopChat()" class="flex items-center gap-2 cursor-pointer mr-auto relative group" style="text-decoration: none;">
+            <div onclick="triggerTopChat()" class="flex items-center gap-2 cursor-pointer mr-auto relative group" role="button" tabindex="0">
                 <div class="relative flex-shrink-0 bg-white" style="width: 44px; height: 44px; border-radius: 50%; border: 2.5px solid #0ea5e9; padding: 2px; transition: transform 0.3s ease; box-shadow: 0 4px 10px rgba(6,182,212,0.3);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                     <img src="assets/tilki-avatar2.png" alt="Dijital Asistan" class="avatar-img-fit">
                     <div class="smart-chat-bubble" id="topChatBubbleDesktop">Yardımcı Olabilirim 🦊</div>
@@ -526,7 +537,7 @@
                 360 GEZİN
             </button>
             <a href="#features" class="w-[88px] h-[88px] rounded-full border-[5px] border-[#0ea5e9] bg-white flex items-center justify-center z-10 shadow-lg cursor-pointer hover:scale-105 transition-transform flex-shrink-0" aria-label="Ana Sayfaya Dön" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
-                <img src="assets/logo.png" alt="Logo" class="w-full h-full object-contain rounded-full" width="88" height="88">
+                <img src="assets/logo.png" alt="Referans Eğitim Logosu" class="w-full h-full object-contain rounded-full" width="88" height="88">
             </a>
             <a href="tel:+905000000000" class="bg-[#0ea5e9] text-white font-black text-sm px-6 py-3.5 rounded-r-full flex items-center justify-center hover:bg-[#0284c7] transition-colors shadow-sm -ml-6 z-0 w-[150px]" aria-label="Bizi Arayın">
                 BİZE ULAŞIN
@@ -549,7 +560,7 @@
         <div class="mobile-pill-container">
             <div class="mobile-pill-main">
 
-                <div onclick="triggerTopChat()" class="mob-btn-capsule left relative group cursor-pointer" aria-label="Dijital Asistanı Aç">
+                <div onclick="triggerTopChat()" class="mob-btn-capsule left relative group cursor-pointer" aria-label="Dijital Asistanı Aç" role="button" tabindex="0">
                     <div class="mob-btn-icon-circle shadow-sm" id="mobileChatTrigger">
                         <img src="assets/tilki-avatar2.png" alt="Dijital Asistan" class="avatar-img-fit">
                     </div>
@@ -559,11 +570,11 @@
 
                 <div class="mob-center-area">
                     <a href="#hakkimizda" class="mob-framed-link" aria-label="Hakkımızda">
-                        <span class="icon">i</span>
+                        <span aria-hidden="true" class="icon">i</span>
                         <span class="title">HAKKIMIZDA</span>
                     </a>
                     <a href="#features" class="mob-center-logo shadow-sm shrink-0" aria-label="Yukarı Çık" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
-                        <img src="assets/logo.png" alt="Logo" width="48" height="48">
+                        <img src="assets/logo.png" alt="Referans Eğitim Mobil Logo" width="48" height="48">
                     </a>
                     <button onclick="openTour()" class="mob-framed-link cursor-pointer" aria-label="Sınıflarımızı İncele">
                         <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-[#0284c7]"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
@@ -598,15 +609,15 @@
 
     <nav class="mobile-bottom-nav">
         <div class="mobile-nav-grid">
-            <button onclick="openTour()" class="mob-link" aria-label="360 Tur">
+            <button onclick="openTour()" class="mob-link" aria-label="360 Derece Sanal Turu Başlat">
                 <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="2" ry="2"></rect><path d="M3 12c0-3.3 2.7-6 6-6"></path><path d="M21 12c0 3.3-2.7 6-6 6"></path><polygon points="9 3 9 9 3 6"></polygon><polygon points="15 21 15 15 21 18"></polygon></svg>
                 <span class="mob-link-text">360° Tur</span>
             </button>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="mob-link" aria-label="Yol Tarifi">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="mob-link" aria-label="Google Haritalarda Yol Tarifi Aç">
                 <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 <span class="mob-link-text">Şubemiz</span>
             </a>
-            <a href="tel:+905000000000" class="mob-link" aria-label="Arama Yap">
+            <a href="tel:+905000000000" class="mob-link" aria-label="Telefon İle Arama Yap">
                 <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                 <span class="mob-link-text">Bizi Arayın</span>
             </a>
