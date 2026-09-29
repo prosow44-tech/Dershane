@@ -13,7 +13,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     
-    <!-- LCP HIZLANDIRICI: Ana görselin en yüksek öncelikle indirilmesi -->
     <link rel="preload" href="assets/logo.png" as="image" fetchpriority="high">
     <link rel="apple-touch-icon" href="assets/logo.png">
 
@@ -45,7 +44,6 @@
             -webkit-text-size-adjust: 100%;
             text-size-adjust: 100%;
             scroll-behavior: smooth;
-            /* zoom KESİNLİKLE KALDIRILDI - NO_LCP HATASININ ANA SEBEBİDİR */
         }
 
         body { 
@@ -322,8 +320,8 @@
 
             .mobile-swipe-item { flex: 0 0 85vw !important; scroll-snap-align: center !important; transition: all 0.472s cubic-bezier(0.25, 0.46, 0.45, 0.94); opacity: 0.4 !important; filter: blur(4px) !important; transform: scale(0.85) !important; margin: 0 !important; position: relative; will-change: transform, opacity, filter; }
 
-            /* LCP HATASI KESİN ÇÖZÜMÜ: İlk kart sayfa yüklenir yüklenmez JavaScript beklenmeden %100 net ve opaktır */
-            .mobile-swipe-item:first-child { opacity: 1 !important; filter: blur(0px) !important; transform: scale(1) !important; z-index: 10; }
+            /* LCP Hatası Çözümü: İlk kartta transform komutu kesinlikle engellenir */
+            .mobile-swipe-item:nth-child(1) { opacity: 1 !important; filter: none !important; transform: none !important; z-index: 10; }
             .mobile-swipe-item.is-centered { opacity: 1 !important; filter: blur(0px) !important; transform: scale(1) !important; z-index: 10; }
 
             .card-shield-hard { padding: 1.5rem !important; padding-bottom: 4.5rem !important; border-radius: 1.5rem !important; overflow: visible !important; z-index: 20; }
@@ -632,7 +630,7 @@
                             <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Alanında Uzman Kadro</h3>
                             <p class="text-slate-700 font-bold leading-relaxed text-xs md:text-sm">Sınav sisteminin tüm şifrelerine hakim, dereceler çıkartan profesyonel eğitmen kadrosu.</p>
                             <div class="webm-mask webm-card-bottom webm-shadow-dir-left video-skeleton">
-                                <video src="assets/rahatlama.mp4" poster="assets/poster-rahatlama.jpg" playsinline loop muted preload="none"></video>
+                                <video src="assets/rahatlama.mp4" poster="assets/poster-rahatlama.jpg" fetchpriority="high" playsinline loop muted preload="none"></video>
                             </div>
                         </div>
 
@@ -1047,28 +1045,45 @@
             if (bubbleMobile && !isChatOpen) bubbleMobile.classList.add('show');
             if (bubbleDesktop && !isChatOpen) bubbleDesktop.classList.add('show');
 
-            const isimler = ["Muhammed", "Hamza", "Ebubekir", "Hüseyin", "Ali", "Ömer", "Osman", "Ayşe", "Fatma", "Sümeyye", "Nurgül"];
-            let isimIndex = 0;
-            setInterval(() => {
-                const fIsim = document.getElementById('fIsim');
-                if(fIsim && fIsim.value === '') {
-                    isimIndex = (isimIndex + 1) % isimler.length;
-                    fIsim.placeholder = "Örn: " + isimler[isimIndex];
-                }
-            }, 1500);
+            /* LCP ve TBT ÇÖZÜMÜ: Sürekli DOM güncelleyen JS zamanlayıcıları 5 saniye ertelendi */
+            setTimeout(() => {
+                const isimler = ["Muhammed", "Hamza", "Ebubekir", "Hüseyin", "Ali", "Ömer", "Osman", "Ayşe", "Fatma", "Sümeyye", "Nurgül"];
+                let isimIndex = 0;
+                setInterval(() => {
+                    const fIsim = document.getElementById('fIsim');
+                    if(fIsim && fIsim.value === '') {
+                        isimIndex = (isimIndex + 1) % isimler.length;
+                        fIsim.placeholder = "Örn: " + isimler[isimIndex];
+                    }
+                }, 1500);
 
-            const saatler = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
-            let saatIndex = 0;
-            setInterval(() => {
-                const fSaatDefault = document.getElementById('fSaatDefault');
-                const fSaat = document.getElementById('fSaat');
-                if(fSaatDefault && fSaat && fSaat.disabled) {
-                    saatIndex = (saatIndex + 1) % saatler.length;
-                    fSaatDefault.text = "Önce Tarih Seçiniz (Örn: " + saatler[saatIndex] + ")";
-                }
-            }, 1500);
+                const saatler = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
+                let saatIndex = 0;
+                setInterval(() => {
+                    const fSaatDefault = document.getElementById('fSaatDefault');
+                    const fSaat = document.getElementById('fSaat');
+                    if(fSaatDefault && fSaat && fSaat.disabled) {
+                        saatIndex = (saatIndex + 1) % saatler.length;
+                        fSaatDefault.text = "Önce Tarih Seçiniz (Örn: " + saatler[saatIndex] + ")";
+                    }
+                }, 1500);
 
-            startCycle();
+            }, 5000);
+
+            /* LCP ve TBT ÇÖZÜMÜ: Sayaç arka planda çalışmaz, sadece ekranda görünürse çalışır */
+            let sayacObserver = new IntersectionObserver((entries) => {
+                if(entries[0].isIntersecting) {
+                    if(!tickTimer) startCycle();
+                } else {
+                    clearInterval(tickTimer);
+                    clearInterval(cycleTimer);
+                    tickTimer = null;
+                }
+            });
+            const sayacDOM = document.getElementById('sayac');
+            if(sayacDOM) sayacObserver.observe(sayacDOM);
+            else startCycle();
+
             updateNumbers(activeKey); 
             applyColors(activeKey); 
             highlightBtn(activeKey);
