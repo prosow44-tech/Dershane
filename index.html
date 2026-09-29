@@ -147,7 +147,7 @@
         .pc-solid-cyan-btn:active { transform: scale(0.96) !important; }
 
         .smart-chat-bubble {
-            position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background-color: #ffffff; color: #0f172a; padding: 6px 12px; border-radius: 12px; font-weight: 900; font-size: 0.75rem; white-space: nowrap; box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 2px solid #e0f2fe; opacity: 0; visibility: hidden; pointer-events: none; z-index: 40050; margin-top: 12px; transition: opacity 0.472s ease, visibility 0.472s ease;
+            position: absolute; top: 110%; left: 50%; transform: translateX(-50%); background-color: #ffffff; color: #0f172a; padding: 6px 12px; border-radius: 12px; font-weight: 900; font-size: 0.75rem; white-space: nowrap; box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 2px solid #e0f2fe; opacity: 0; visibility: hidden; pointer-events: none; z-index: 40050; margin-top: 12px; transition: opacity 0.472s ease, visibility 0.472s ease;
         }
         .smart-chat-bubble.show { opacity: 1; visibility: visible; }
         .smart-chat-bubble::before { content: ''; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid #e0f2fe; }
@@ -200,6 +200,7 @@
             .mega-bar-wrapper { display: none !important; }
             .pill-nav { display: none !important; } 
 
+            /* MENÜ TAŞMA VE HİZALAMA ÇÖZÜMÜ */
             .mobile-pill-container {
                 display: flex; flex-direction: column; align-items: center;
                 width: 96%; max-width: 480px; pointer-events: none; z-index: 40010;
@@ -213,54 +214,49 @@
                 pointer-events: auto; position: relative; z-index: 10;
             }
 
+            /* Butonların dışarı taşmasını engellemek için width otomatik ayarlandı */
             .mob-btn-capsule {
                 display: flex; align-items: center; justify-content: center;
                 background-color: #0ea5e9; border-radius: 999px; color: white;
                 text-decoration: none; box-shadow: 0 4px 10px rgba(14,165,233,0.3);
                 cursor: pointer; transition: transform 0.236s ease; height: 42px;
+                max-width: 105px; /* Taşmayı önler */
             }
             .mob-btn-capsule:active { transform: scale(0.96); }
-            .mob-btn-capsule.left { padding: 0 10px 0 4px; gap: 4px; flex-shrink: 0; width: 115px; justify-content: flex-start; }
-            .mob-btn-capsule.right { padding: 0 4px 0 10px; gap: 4px; flex-shrink: 0; width: 115px; justify-content: flex-end; }
+            .mob-btn-capsule.left { padding: 0 8px 0 4px; gap: 6px; flex-shrink: 0; justify-content: flex-start; }
+            .mob-btn-capsule.right { padding: 0 4px 0 8px; gap: 6px; flex-shrink: 0; justify-content: flex-end; }
 
             .mob-btn-icon-circle {
                 width: 36px; height: 36px; border-radius: 50%; border: 2px solid #0ea5e9;
                 background-color: white; display: flex; align-items: center; justify-content: center;
                 flex-shrink: 0; padding: 2px;
             }
-            .mob-btn-text { font-size: 0.65rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0.2px; color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.25); }
+            .mob-btn-text { font-size: 0.60rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; letter-spacing: 0px; color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.25); }
 
-            #topChatBubbleMobile {
-                left: 25px !important; 
-                transform: none !important;
-            }
-            #topChatBubbleMobile::before {
-                left: 10px !important; transform: none !important;
-            }
-            #topChatBubbleMobile::after {
-                left: 12px !important; transform: none !important;
-            }
+            /* Balon konumu düzeltildi */
+            #topChatBubbleMobile { left: 50% !important; transform: translateX(-50%) !important; top: 120% !important; }
+            #topChatBubbleMobile::before { left: 20px !important; transform: none !important; }
+            #topChatBubbleMobile::after { left: 22px !important; transform: none !important; }
 
-            .mob-center-area { display: flex; align-items: center; justify-content: center; gap: 6px; flex-shrink: 1; flex: 1; overflow: hidden; }
+            .mob-center-area { display: flex; align-items: center; justify-content: center; gap: 6px; flex: 1; overflow: hidden; }
 
             .mob-framed-link {
                 display: flex; flex-direction: column; align-items: center; justify-content: center;
                 border: 1.5px solid #e0f2fe; padding: 4px 6px; border-radius: 10px;
                 text-decoration: none; transition: all 0.236s ease; background: transparent; 
-                cursor: pointer; pointer-events: auto; height: 42px; min-width: 60px;
+                cursor: pointer; pointer-events: auto; height: 42px; min-width: 55px;
             }
-            .mob-framed-link .icon {
-                font-size: 1rem; font-weight: 900; color: #0f172a; font-family: serif; font-style: italic; line-height: 1; margin-bottom: 2px;
-            }
-            .mob-framed-link span.title { font-size: 0.5rem; line-height: 1; font-weight: 900; color: #0f172a; text-align: center; }
+            
+            /* SVG BÜYÜME (PATLAMA) ÇÖZÜMÜ: Tailwind w-4 h-4 silindiği için CSS ile net boyut verildi */
+            .mob-framed-link svg { width: 16px !important; height: 16px !important; stroke: #0f172a; transition: stroke 0.236s ease; margin-bottom: 2px; display: block; }
+            .mob-framed-link span.title { font-size: 0.45rem; line-height: 1; font-weight: 900; color: #0f172a; text-align: center; }
 
             .mob-framed-link:active, .mob-framed-link:hover { background-color: #0ea5e9; }
-            .mob-framed-link:active .icon, .mob-framed-link:hover .icon, .mob-framed-link:active span.title, .mob-framed-link:hover span.title { color: #ffffff; }
-            .mob-framed-link svg { stroke: #0f172a; transition: stroke 0.236s ease; margin-bottom: 2px; }
+            .mob-framed-link:active span.title, .mob-framed-link:hover span.title { color: #ffffff; }
             .mob-framed-link:hover svg { stroke: #ffffff; }
 
             .mob-center-logo {
-                width: 48px; height: 48px; border-radius: 50%; border: 2.5px solid #0ea5e9; background: white;
+                width: 46px; height: 46px; border-radius: 50%; border: 2.5px solid #0ea5e9; background: white;
                 display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 2px;
                 transition: transform 0.236s ease; z-index: 25; box-shadow: 0 4px 10px rgba(14,165,233,0.2);
             }
@@ -268,15 +264,14 @@
             .mob-center-logo img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
 
             @media (max-width: 380px) {
-                .mob-btn-icon-circle { width: 34px; height: 34px; font-size: 1.2rem; }
-                .mob-btn-text { font-size: 0.55rem; }
-                .mob-center-logo { width: 44px; height: 44px; }
-                .mob-framed-link { padding: 3px 4px; min-width: 50px;}
-                .mob-framed-link .icon { font-size: 0.85rem; }
-                .mob-framed-link span.title { font-size: 0.45rem; }
-                .mob-framed-link svg { width: 14px; height: 14px; }
-                .mob-btn-capsule.left { padding: 0 6px 0 3px; gap: 4px; width: 105px; }
-                .mob-btn-capsule.right { padding: 0 3px 0 6px; gap: 4px; width: 105px; }
+                .mob-btn-icon-circle { width: 32px; height: 32px; }
+                .mob-btn-text { font-size: 0.50rem; }
+                .mob-center-logo { width: 42px; height: 42px; }
+                .mob-framed-link { padding: 3px 2px; min-width: 48px;}
+                .mob-framed-link span.title { font-size: 0.40rem; }
+                .mob-framed-link svg { width: 14px !important; height: 14px !important; }
+                .mob-btn-capsule.left { padding: 0 6px 0 2px; gap: 4px; max-width: 95px; }
+                .mob-btn-capsule.right { padding: 0 2px 0 6px; gap: 4px; max-width: 95px; }
             }
 
             .mobile-classes-wrapper {
@@ -605,7 +600,7 @@
                 <div class="mobile-swipe-wrapper">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 relative mobile-swipe-container" id="features-swipe">
 
-                        <div class="mobile-swipe-item card-shield-hard shadow-dir-left glass-card p-8 text-center flex flex-col items-center relative">
+                        <div class="mobile-swipe-item is-centered card-shield-hard shadow-dir-left glass-card p-8 text-center flex flex-col items-center relative">
                             <div class="icon-box text-cyan-700">
                                 <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"></path><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"></path></svg>
                             </div>
@@ -637,6 +632,9 @@
                                 <video aria-hidden="true" tabindex="-1" src="assets/net-artırma.mp4" poster="assets/poster-net-artirma.jpg" playsinline loop muted preload="none"></video>
                             </div>
                         </div>
+                    </div>
+                    <div class="pagination-dots md:hidden" id="features-dots" aria-hidden="true">
+                        <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
                     </div>
                 </div>
             </section>
