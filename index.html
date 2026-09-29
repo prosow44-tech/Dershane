@@ -2,7 +2,8 @@
 <html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <!-- ERİŞİLEBİLİRLİK ÇÖZÜMÜ: user-scalable=no ve maximum-scale=1.0 kaldırıldı. Kullanıcılar artık ekranı yakınlaştırabilir. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Referans Eğitim Kurumları | Malatya VIP Dershane</title>
     <meta name="description" content="Malatya'nın en iyi dershanesi. 5-8. Sınıf LGS, 9-12. Sınıf YKS ve Akademik (KPSS/DGS) hazırlığında VIP eğitim ve birebir uzman takip sistemi.">
     <meta name="keywords" content="Malatya dershane, LGS, YKS, KPSS, VIP eğitim, Referans Eğitim Kurumları, Battalgazi, Malatya eğitim, en iyi dershane, TYT, AYT, eğitim koçluğu, DGS hazırlık">
@@ -13,7 +14,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     
-    <!-- LCP HIZLANDIRICI: İlk kartın görseli en yüksek öncelikle indirilir -->
     <link rel="preload" as="image" href="assets/poster-rahatlama.jpg" fetchpriority="high">
     <link rel="apple-touch-icon" href="assets/logo.png">
 
@@ -321,8 +321,8 @@
 
             .mobile-swipe-item { flex: 0 0 85vw !important; scroll-snap-align: center !important; transition: all 0.472s cubic-bezier(0.25, 0.46, 0.45, 0.94); opacity: 0.4; filter: blur(4px); transform: scale(0.85); margin: 0 !important; position: relative; will-change: transform, opacity, filter; }
 
-            /* LCP Hatası Çözümü: İlk kartta sayfa yüklendiği an opacity ve netlik uygulanır */
             .mobile-swipe-item.is-centered { opacity: 1 !important; filter: blur(0px) !important; transform: scale(1) !important; z-index: 10; }
+            .mobile-swipe-item:first-child { opacity: 1 !important; filter: blur(0px) !important; transform: scale(1) !important; z-index: 10; }
 
             .card-shield-hard { padding: 1.5rem !important; padding-bottom: 4.5rem !important; border-radius: 1.5rem !important; overflow: visible !important; z-index: 20; }
 
@@ -515,14 +515,14 @@
                 <span style="color: #0ea5e9; font-weight: 900; font-size: 0.85rem; text-transform: uppercase;">Dijital Asistan</span>
             </div>
             <a href="#hakkimizda" class="pc-text-link" aria-label="Hakkımızda Bölümüne Git">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
                 HAKKIMIZDA
             </a>
         </div>
 
         <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center z-20">
             <button onclick="openTour()" class="bg-[#0ea5e9] text-white font-black text-sm px-6 py-3.5 rounded-l-full flex items-center justify-center gap-2 hover:bg-[#0284c7] transition-colors shadow-sm -mr-6 z-0 w-[150px]" aria-label="Sanal Turu Aç">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><rect x="7" y="3" width="10" height="18" rx="2" ry="2"></rect><path d="M3 12c0-3.3 2.7-6 6-6"></path><path d="M21 12c0 3.3-2.7 6-6 6"></path><polygon points="9 3 9 9 3 6"></polygon><polygon points="15 21 15 15 21 18"></polygon></svg>
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><rect x="7" y="3" width="10" height="18" rx="2" ry="2"></rect><path d="M3 12c0-3.3 2.7-6 6-6"></path><path d="M21 12c0 3.3-2.7 6-6 6"></path><polygon points="9 3 9 9 3 6"></polygon><polygon points="15 21 15 15 21 18"></polygon></svg>
                 360 GEZİN
             </button>
             <a href="#features" class="w-[88px] h-[88px] rounded-full border-[5px] border-[#0ea5e9] bg-white flex items-center justify-center z-10 shadow-lg cursor-pointer hover:scale-105 transition-transform flex-shrink-0" aria-label="Ana Sayfaya Dön" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
@@ -536,10 +536,10 @@
         <div class="flex items-center justify-end gap-6 pr-2 z-10 w-1/3">
             <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="pc-text-link !text-cyan-700 mr-3" aria-label="Yol Tarifi Al">
                 YOL TARİFİ
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
             </a>
             <button onclick="openModal('')" class="pc-solid-cyan-btn shadow-md" aria-label="Hızlı Randevu Al">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                 HIZLI RANDEVU
             </button>
         </div>
@@ -566,7 +566,7 @@
                         <img src="assets/logo.png" alt="Logo" width="48" height="48">
                     </a>
                     <button onclick="openTour()" class="mob-framed-link cursor-pointer" aria-label="Sınıflarımızı İncele">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-[#0284c7]"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-[#0284c7]"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                         <span class="title">SINIFLARIMIZ</span>
                     </button>
                 </div>
@@ -575,7 +575,7 @@
                     <div class="mob-btn-text text-right ml-1">RANDEVU<br>AL</div>
                     <div class="mob-btn-icon-circle shadow-sm">
                         <div class="webm-mask w-full h-full video-skeleton video-crop-calendar">
-                            <video src="assets/takvim.mp4" poster="assets/poster-takvim.jpg" playsinline loop muted preload="none"></video>
+                            <video aria-hidden="true" tabindex="-1" src="assets/takvim.mp4" poster="assets/poster-takvim.jpg" playsinline loop muted preload="none"></video>
                         </div>
                     </div>
                 </button>
@@ -599,15 +599,15 @@
     <nav class="mobile-bottom-nav">
         <div class="mobile-nav-grid">
             <button onclick="openTour()" class="mob-link" aria-label="360 Tur">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="2" ry="2"></rect><path d="M3 12c0-3.3 2.7-6 6-6"></path><path d="M21 12c0 3.3-2.7 6-6 6"></path><polygon points="9 3 9 9 3 6"></polygon><polygon points="15 21 15 15 21 18"></polygon></svg>
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="2" ry="2"></rect><path d="M3 12c0-3.3 2.7-6 6-6"></path><path d="M21 12c0 3.3-2.7 6-6 6"></path><polygon points="9 3 9 9 3 6"></polygon><polygon points="15 21 15 15 21 18"></polygon></svg>
                 <span class="mob-link-text">360° Tur</span>
             </button>
             <a href="https://www.google.com/maps/dir/?api=1&destination=Malatya" target="_blank" rel="noopener" class="mob-link" aria-label="Yol Tarifi">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 <span class="mob-link-text">Şubemiz</span>
             </a>
             <a href="tel:+905000000000" class="mob-link" aria-label="Arama Yap">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                 <span class="mob-link-text">Bizi Arayın</span>
             </a>
         </div>
@@ -623,41 +623,40 @@
                 <div class="mobile-swipe-wrapper">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 relative mobile-swipe-container" id="features-swipe">
 
-                        <!-- İlk kart anında görünür (NO_LCP çözümü) -->
                         <div class="mobile-swipe-item is-centered card-shield-hard shadow-dir-left glass-card p-8 text-center flex flex-col items-center relative">
-                            <div class="icon-box text-cyan-500">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"></path><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"></path></svg>
+                            <div class="icon-box text-cyan-700">
+                                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"></path><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"></path></svg>
                             </div>
                             <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Alanında Uzman Kadro</h3>
                             <p class="text-slate-700 font-bold leading-relaxed text-xs md:text-sm">Sınav sisteminin tüm şifrelerine hakim, dereceler çıkartan profesyonel eğitmen kadrosu.</p>
                             <div class="webm-mask webm-card-bottom webm-shadow-dir-left video-skeleton">
-                                <video src="assets/rahatlama.mp4" poster="assets/poster-rahatlama.jpg" playsinline loop muted preload="none"></video>
+                                <video aria-hidden="true" tabindex="-1" src="assets/rahatlama.mp4" poster="assets/poster-rahatlama.jpg" playsinline loop muted preload="none"></video>
                             </div>
                         </div>
 
                         <div class="mobile-swipe-item card-shield-hard shadow-dir-center glass-card p-8 text-center flex flex-col items-center relative">
-                            <div class="icon-box text-blue-500">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                            <div class="icon-box text-blue-700">
+                                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
                             </div>
                             <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Birebir Takip</h3>
                             <p class="text-slate-700 font-bold leading-relaxed text-xs md:text-sm">Eksikleri nokta atışı tespit edip anında sıfırlayan, kişiye özel kusursuz eğitim koçluğu sistemi.</p>
                             <div class="webm-mask webm-card-bottom webm-shadow-dir-center video-skeleton">
-                                <video src="assets/ekran.mp4" poster="assets/poster-ekran.jpg" playsinline loop muted preload="none"></video>
+                                <video aria-hidden="true" tabindex="-1" src="assets/ekran.mp4" poster="assets/poster-ekran.jpg" playsinline loop muted preload="none"></video>
                             </div>
                         </div>
 
                         <div class="mobile-swipe-item card-shield-hard shadow-dir-right glass-card p-8 text-center flex flex-col items-center relative">
-                            <div class="icon-box text-cyan-500">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+                            <div class="icon-box text-cyan-700">
+                                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
                             </div>
                             <h3 class="font-black text-slate-900 text-base md:text-lg mb-3">Deneme & Analiz</h3>
                             <p class="text-slate-700 font-bold leading-relaxed text-xs md:text-sm">Gerçek sınav zorluğundaki Türkiye geneli denemeler ve detaylı ölçülebilir gelişim raporları.</p>
                             <div class="webm-mask webm-card-bottom webm-shadow-dir-right video-skeleton">
-                                <video src="assets/net-artırma.mp4" poster="assets/poster-net-artirma.jpg" playsinline loop muted preload="none"></video>
+                                <video aria-hidden="true" tabindex="-1" src="assets/net-artırma.mp4" poster="assets/poster-net-artirma.jpg" playsinline loop muted preload="none"></video>
                             </div>
                         </div>
                     </div>
-                    <div class="pagination-dots md:hidden" id="features-dots">
+                    <div class="pagination-dots md:hidden" id="features-dots" aria-hidden="true">
                         <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
                     </div>
                 </div>
@@ -673,7 +672,7 @@
                     </div>
                     <div class="w-1/2 pl-6 md:pl-8 flex justify-start relative">
                         <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                            <video src="assets/kalem-yazma.mp4" poster="assets/poster-kalem.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
+                            <video aria-hidden="true" tabindex="-1" src="assets/kalem-yazma.mp4" poster="assets/poster-kalem.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
                         </div>
                     </div>
                 </div>
@@ -687,7 +686,7 @@
                     </div>
                     <div class="w-1/2 pr-6 md:pr-8 flex justify-end relative">
                         <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                            <video src="assets/bu-taraftan-gidiyoruz.mp4" poster="assets/poster-bu-taraftan.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
+                            <video aria-hidden="true" tabindex="-1" src="assets/bu-taraftan-gidiyoruz.mp4" poster="assets/poster-bu-taraftan.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
                         </div>
                     </div>
                 </div>
@@ -701,7 +700,7 @@
                     </div>
                     <div class="w-1/2 pl-6 md:pl-8 flex justify-start relative">
                         <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                            <video src="assets/sevinme.mp4" poster="assets/poster-sevinme.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
+                            <video aria-hidden="true" tabindex="-1" src="assets/sevinme.mp4" poster="assets/poster-sevinme.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
                         </div>
                     </div>
                 </div>
@@ -715,7 +714,7 @@
                     </div>
                     <div class="w-1/2 pr-6 md:pr-8 flex justify-end relative">
                         <div class="w-32 h-32 md:w-56 md:h-56 rounded-full bg-white border-[6px] md:border-8 border-slate-50 shadow-2xl overflow-hidden flex items-center justify-center relative z-10">
-                            <video src="assets/soru-cozme.mp4" poster="assets/poster-soru.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
+                            <video aria-hidden="true" tabindex="-1" src="assets/soru-cozme.mp4" poster="assets/poster-soru.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover"></video>
                         </div>
                     </div>
                 </div>
@@ -724,26 +723,26 @@
             <section id="sayac" class="w-full max-w-4xl px-4 md:px-6 mb-24 md:mb-40 relative z-[20] text-center order-3">
                 <div class="flex justify-center mb-8">
                     <div class="webm-mask video-skeleton video-crop-calendar" style="width: 110px; height: 110px; border: 6px solid #ffffff; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
-                        <video src="assets/takvim.mp4" poster="assets/poster-takvim.jpg" playsinline loop muted preload="none"></video>
+                        <video aria-hidden="true" tabindex="-1" src="assets/takvim.mp4" poster="assets/poster-takvim.jpg" playsinline loop muted preload="none"></video>
                     </div>
                 </div>
                 <div id="counterCard" class="counter-card glass-card p-8 md:p-16 w-full inline-block relative">
                     <button id="btn-back" class="back-btn" onclick="unlockCounter()" aria-label="Geri Dön">← Geri Dön</button>
                     <h3 id="counterTitle" class="text-2xl md:text-4xl font-black mb-8 md:mb-14 text-slate-900 uppercase tracking-widest transition-opacity duration-300">LGS YAKLAŞIYOR</h3>
                     <div class="flex justify-center gap-2 md:gap-10 mb-10 flex-wrap">
-                        <div class="counter-ring ring-gun"><div id="c-gun" class="c-val text-cyan-700">--</div><div class="c-lbl">GÜN</div></div>
-                        <div class="counter-ring ring-saat"><div id="c-saat" class="c-val text-cyan-700">--</div><div class="c-lbl">SAAT</div></div>
-                        <div class="counter-ring ring-dak"><div id="c-dak" class="c-val text-cyan-700">--</div><div class="c-lbl">DAKİKA</div></div>
-                        <div class="counter-ring ring-san"><div id="c-san" class="c-val text-cyan-700">--</div><div class="c-lbl">SANİYE</div></div>
+                        <div class="counter-ring ring-gun" aria-hidden="true"><div id="c-gun" class="c-val text-cyan-700">--</div><div class="c-lbl">GÜN</div></div>
+                        <div class="counter-ring ring-saat" aria-hidden="true"><div id="c-saat" class="c-val text-cyan-700">--</div><div class="c-lbl">SAAT</div></div>
+                        <div class="counter-ring ring-dak" aria-hidden="true"><div id="c-dak" class="c-val text-cyan-700">--</div><div class="c-lbl">DAKİKA</div></div>
+                        <div class="counter-ring ring-san" aria-hidden="true"><div id="c-san" class="c-val text-cyan-700">--</div><div class="c-lbl">SANİYE</div></div>
                     </div>
                     <div class="flex justify-center gap-2 md:gap-4 w-full">
                         <button id="btn-LGS" onclick="lockExam('LGS')" class="exam-btn bg-cyan-50 text-cyan-700 font-black py-3 md:py-4 rounded-xl border-cyan-200 text-base md:text-lg" aria-label="LGS Sayacı">LGS</button>
                         <button id="btn-YKS" onclick="lockExam('YKS')" class="exam-btn bg-white text-slate-700 font-black py-3 md:py-4 rounded-xl border-slate-200 text-base md:text-lg" aria-label="YKS Sayacı">YKS</button>
                         <button id="btn-KPSS" onclick="lockExam('KPSS')" class="exam-btn bg-white text-slate-700 font-black py-3 md:py-4 rounded-xl border-slate-200 text-base md:text-lg" aria-label="KPSS Sayacı">KPSS</button>
                     </div>
-                    <div id="sub-LGS" class="sub-row"><div class="sub-pill">Sözel Bölüm</div><div class="sub-pill">Sayısal Bölüm</div></div>
-                    <div id="sub-YKS" class="sub-row"><div class="sub-pill">TYT</div><div class="sub-pill">AYT</div><div class="sub-pill">YDT</div></div>
-                    <div id="sub-KPSS" class="sub-row"><div class="sub-pill">Ortaöğretim</div><div class="sub-pill">Ön Lisans</div><div class="sub-pill">Lisans</div></div>
+                    <div id="sub-LGS" class="sub-row" aria-hidden="true"><div class="sub-pill">Sözel Bölüm</div><div class="sub-pill">Sayısal Bölüm</div></div>
+                    <div id="sub-YKS" class="sub-row" aria-hidden="true"><div class="sub-pill">TYT</div><div class="sub-pill">AYT</div><div class="sub-pill">YDT</div></div>
+                    <div id="sub-KPSS" class="sub-row" aria-hidden="true"><div class="sub-pill">Ortaöğretim</div><div class="sub-pill">Ön Lisans</div><div class="sub-pill">Lisans</div></div>
                 </div>
             </section>
 
@@ -784,14 +783,14 @@
                             <h3 class="text-[13px] md:text-2xl font-black text-slate-900 mb-1 md:mb-2 leading-tight">Ders Programı & Saatleri</h3>
                             <p class="text-slate-700 text-[9px] md:text-base mb-3 md:mb-6 font-bold leading-snug">Hangi gün ve saatte geleceğinize dair veli bilgilendirmeleri.</p>
                         </div>
-                        <button class="magnetic-btn bg-slate-900 text-white font-black px-4 md:px-10 py-2.5 md:py-5 rounded-xl w-full text-xs md:text-base hover:bg-cyan-500 border-none justify-center" aria-label="Ders Saatleri Bilgisi">???</button>
+                        <button class="magnetic-btn bg-slate-900 text-white font-black px-4 md:px-10 py-2.5 md:py-5 rounded-xl w-full text-xs md:text-base hover:bg-cyan-500 border-none justify-center" aria-label="Ders Saatleri Bilgisi">Ders Saatleri</button>
                     </div>
                     <div class="card-shield-hard shadow-bottom-right p-4 md:p-12 text-center flex flex-col items-center justify-between rounded-2xl md:rounded-3xl" style="margin-bottom:0;">
                         <div>
                             <h3 class="text-[13px] md:text-2xl font-black text-slate-900 mb-1 md:mb-2 leading-tight">Öğretmen Kadromuz</h3>
                             <p class="text-slate-700 text-[9px] md:text-base mb-3 md:mb-6 font-bold leading-snug">Alanında uzman, tecrübeli ve dinamik eğitim kadromuz.</p>
                         </div>
-                        <button class="magnetic-btn bg-blue-600 text-white font-black px-4 md:px-10 py-2.5 md:py-5 rounded-xl w-full text-xs md:text-base hover:bg-slate-900 border-none justify-center" aria-label="Kadromuzu İnceleyin">???</button>
+                        <button class="magnetic-btn bg-blue-600 text-white font-black px-4 md:px-10 py-2.5 md:py-5 rounded-xl w-full text-xs md:text-base hover:bg-slate-900 border-none justify-center" aria-label="Kadromuzu İnceleyin">Eğitim Kadrosu</button>
                     </div>
                 </div>
             </section>
@@ -799,7 +798,7 @@
         </main>
     </div> 
 
-    <footer class="text-center py-8 md:py-12 pb-28 md:pb-12 border-t-2 border-slate-100 text-slate-600 text-xs md:text-base bg-white relative z-10 font-bold w-full">
+    <footer class="text-center py-8 md:py-12 pb-28 md:pb-12 border-t-2 border-slate-100 text-slate-700 text-xs md:text-base bg-white relative z-10 font-bold w-full">
         <p>© 2026 Referans Eğitim Kurumları. Tüm hakları saklıdır.</p>
     </footer>
 
@@ -817,7 +816,7 @@
                 <div class="bot-bubble">Merhaba! Ben Referans Tilki 🦊</div>
             </div>
 
-            <div class="typing-indicator" id="typingIndicator">
+            <div class="typing-indicator" id="typingIndicator" aria-hidden="true">
                 <div class="bot-avatar">
                     <img src="assets/tilki-avatar.png" alt="Dijital Asistan">
                 </div>
@@ -835,7 +834,7 @@
         <div class="chat-footer">⚡ Powered by Referans VIP</div>
     </div>
 
-    <div id="imageLightbox" onclick="closeLightbox()">
+    <div id="imageLightbox" onclick="closeLightbox()" aria-hidden="true">
         <img id="lightboxImg" src="" alt="Büyük Görsel İnceleme">
     </div>
 
@@ -857,7 +856,7 @@
             <div class="flex justify-center -mt-24 md:-mt-28 mb-4 relative z-20">
                 <div class="w-36 h-36 md:w-44 md:h-44 aspect-square rounded-2xl bg-white overflow-hidden flex items-center justify-center border-4 border-white" 
                      style="box-shadow: 0 0 0 4px rgba(255,255,255,0.6), 0 0 0 8px rgba(255,255,255,0.3), 0 15px 30px rgba(0,0,0,0.4);">
-                    <video src="assets/ekrana-tiklama.mp4" poster="assets/poster-tiklama.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover scale-[1.3] -translate-y-4 origin-top"></video>
+                    <video aria-hidden="true" tabindex="-1" src="assets/ekrana-tiklama.mp4" poster="assets/poster-tiklama.jpg" playsinline loop muted preload="none" class="w-full h-full object-cover scale-[1.3] -translate-y-4 origin-top"></video>
                 </div>
             </div>
 
@@ -865,8 +864,8 @@
                 <h3 class="text-xl md:text-3xl font-black text-slate-900 mb-1">RANDEVU AL</h3>
                 <p class="text-[10px] md:text-sm text-slate-500 mb-6 font-bold">Kurum ziyareti için bilgilerinizi giriniz.</p>
 
-                <div id="errBanner" class="err-banner">
-                    <span class="text-lg md:text-xl">❌</span><span id="errText">Hata</span>
+                <div id="errBanner" class="err-banner" aria-live="assertive">
+                    <span class="text-lg md:text-xl" aria-hidden="true">❌</span><span id="errText">Hata</span>
                 </div>
 
                 <form id="apptForm" onsubmit="submitAppt(event); return false;" class="text-left">
@@ -878,14 +877,14 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <select id="fSinif" required aria-label="Sınıf Seçiniz" class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-bold cursor-pointer transition-colors focus:bg-white">
+                        <select id="fSinif" required aria-label="Sınıf Seçiniz" class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-700 focus:border-cyan-500 font-bold cursor-pointer transition-colors focus:bg-white">
                             <option value="" disabled selected>Sınıf Seçiniz</option>
                             <option value="5-8. Sınıf">5-8. Sınıf</option>
                             <option value="9-12. Sınıf">9-12. Sınıf</option>
                             <option value="Mezun">Mezun</option>
                             <option value="DGS / KPSS / ALES">DGS / KPSS / ALES</option>
                         </select>
-                        <select id="fHizmet" required aria-label="Hizmet Türü Seçiniz" class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-bold cursor-pointer transition-colors focus:bg-white">
+                        <select id="fHizmet" required aria-label="Hizmet Türü Seçiniz" class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-700 focus:border-cyan-500 font-bold cursor-pointer transition-colors focus:bg-white">
                             <option value="Kayıt Görüşmesi" selected>Kayıt Görüşmesi</option>
                             <option value="Diğer">Diğer</option>
                         </select>
@@ -894,16 +893,16 @@
                     <div class="mt-5">
                         <div class="flex justify-between items-center mb-2">
                             <label for="fTarih" class="text-[10px] md:text-xs font-black text-slate-500 uppercase tracking-widest">
-                                Tarih Seçimi: <span id="dateRel" class="text-cyan-600 ml-1"></span>
+                                Tarih Seçimi: <span id="dateRel" class="text-cyan-700 ml-1"></span>
                             </label>
                             <button type="button" id="autoDateBtn" onclick="findNearestDate()" aria-label="Sistemden en yakın tarihi bul" class="auto-date-btn">EN YAKIN TARİHİ SEÇ</button>
                         </div>
-                        <input type="date" id="fTarih" aria-label="Randevu Tarihini Seçiniz" required class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-600 focus:border-cyan-500 font-bold cursor-pointer mb-3 transition-colors focus:bg-white">
+                        <input type="date" id="fTarih" aria-label="Randevu Tarihini Seçiniz" required class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-700 focus:border-cyan-500 font-bold cursor-pointer mb-3 transition-colors focus:bg-white">
 
                         <div class="flex justify-between items-end mb-2">
                             <label for="fSaat" class="text-[10px] md:text-xs font-black text-slate-500 uppercase tracking-widest">Saat Seçimi:</label>
                         </div>
-                        <select id="fSaat" aria-label="Randevu Saatini Seçiniz" required disabled class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-600 text-center font-black cursor-pointer focus:border-cyan-500 transition-colors focus:bg-white">
+                        <select id="fSaat" aria-label="Randevu Saatini Seçiniz" required disabled class="w-full bg-slate-50/50 border border-slate-200 py-3 px-4 rounded-xl text-sm md:text-base text-slate-700 text-center font-black cursor-pointer focus:border-cyan-500 transition-colors focus:bg-white">
                             <option value="" disabled selected id="fSaatDefault">Önce Tarih Seçiniz</option>
                             <option value="09:00">09:00</option>
                             <option value="10:00">10:00</option>
@@ -1046,7 +1045,6 @@
             if (bubbleMobile && !isChatOpen) bubbleMobile.classList.add('show');
             if (bubbleDesktop && !isChatOpen) bubbleDesktop.classList.add('show');
 
-            /* TBT VE NO_LCP KESİN ÇÖZÜMÜ: Form placeholder ve sayaç tetiklemeleri 8 saniye ertelendi */
             setTimeout(() => {
                 const isimler = ["Muhammed", "Hamza", "Ebubekir", "Hüseyin", "Ali", "Ömer", "Osman", "Ayşe", "Fatma", "Sümeyye", "Nurgül"];
                 let isimIndex = 0;
@@ -1071,7 +1069,6 @@
 
             }, 8000);
 
-            /* TBT ÇÖZÜMÜ: Sınav sayacı ekranda değilse arkaplanda boşuna hesaplanıp CPU yormaz */
             let sayacObserver = new IntersectionObserver((entries) => {
                 if(entries[0].isIntersecting) {
                     if(!tickTimer) startCycle();
@@ -1090,7 +1087,6 @@
             highlightBtn(activeKey);
         });
 
-        /* TBT ÇÖZÜMÜ: Scroll event listener'ın yerini Intersection Observer almıştır (Layout thrashing sıfırlandı) */
         function initMobileInfiniteSwipes(containerId, dotsId) {
             const container = document.getElementById(containerId);
             const dotsContainer = document.getElementById(dotsId);
@@ -1139,7 +1135,6 @@
                 scrollToTarget(currentIndex + direction);
             };
 
-            /* NO_LCP KESİN ÇÖZÜMÜ: Otomatik kaydırma 8 saniye ertelenerek Lighthouse ölçümü güvence altına alındı */
             setTimeout(() => {
                 autoScrollInterval = setInterval(nextSlide, 3000);
             }, 8000);
